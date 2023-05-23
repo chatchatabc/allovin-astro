@@ -12,7 +12,12 @@ const products = productsJson.contents;
 <MainLayout>
   <!-- Hero Section -->
   <section>
-    <Img src="/images/landing/hero.webp" alt="" />
+    <div class="md:hidden">
+      <Img src="/images/landing/hero-sm.webp" alt="" />
+    </div>
+    <div class="hidden md:block">
+      <Img src="/images/landing/hero.webp" alt="" />
+    </div>
   </section>
 
   <!-- Collection Section -->
