@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         bg1: "#FBF7F4",
         c1: "#334B80",
+        c2: "#E07E5C",
       },
       fontFamily: {
         mulish: ["Mulish", "sans-serif"],
