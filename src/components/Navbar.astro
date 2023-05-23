@@ -41,56 +41,32 @@ const navigations = [
 ];
 ---
 
-<header class="sticky bg-white z-[1] -top-8 lg:-top-16">
-  <!-- Top -->
-  <section class="text-sm font-light pt-1 pb-2 bg-bg1 text-gray-500">
-    <!-- Top -->
-    <section class="px-8">
-      <ul class="flex space-x-6 justify-center">
-        {
-          topMessages.map((message) => {
-            return <li class="italic">{message}</li>;
-          })
-        }
-      </ul>
-    </section>
-
-    <!-- Bottom -->
-    <section class="hidden container mt-2 mx-auto lg:block">
-      <section class="flex justify-between px-8">
-        <ul class="flex space-x-4">
-          {
-            socialMedias.map((link) => {
-              return (
-                <li>
-                  <a href={link.href} target="_blank">
-                    <Icon class="w-5 h-5" name={link.iconify} />
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
-        <div class="flex divide-gray-400 divide-x-[0.1rem] [&>*]:px-4">
-          <p>
-            Customer Service: {siteInfoJson.customerService.email}
-          </p>
-          <p>PHP Currency</p>
-        </div>
-      </section>
-    </section>
-  </section>
-
+<header class="sticky bg-white z-[1] top-0">
   <!-- Navbar -->
   <section class="py-2 container mx-auto px-8 lg:py-4">
     <!-- Top -->
-    <section class="flex justify-center relative">
+    <section
+      class="flex relative justify-between items-center lg:justify-center"
+    >
+      <!-- Menu Button for Mobile -->
+      <button class="lg:hidden">Menu</button>
+
       <!-- Centered Logo -->
       <div class="w-48 lg:w-40">
         <Img src="/images/logo.webp" alt="allovin" />
       </div>
 
-      <!-- Search -->
+      <!-- Mobile Search -->
+      <div class="relative lg:hidden">
+        <!-- Button -->
+        <button>
+          <Icon class="w-6 h-6" name="mdi-light:magnify" />
+        </button>
+        <!-- Input -->
+        <div></div>
+      </div>
+
+      <!-- Desktop Search -->
       <div
         class="hidden absolute right-0 top-1/2 -translate-y-1/2 space-x-4 lg:flex"
       >

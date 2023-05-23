@@ -2,6 +2,7 @@
 import siteInfoJson from "@data/site-info.json";
 import { SEO } from "astro-seo";
 import Navbar from "@components/Navbar.astro";
+import TopBanner from "@components/TopBanner.astro";
 
 interface Props {
   pageTitle?: string;
@@ -71,7 +72,10 @@ const {
     />
   </head>
   <body class="font-mulish">
+    <TopBanner />
     <Navbar />
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>

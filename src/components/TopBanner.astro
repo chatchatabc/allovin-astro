@@ -1,0 +1,44 @@
+---
+import siteInfoJson from "@data/site-info.json";
+import { Icon } from "astro-icon";
+
+const { topMessages, socialMedias } = siteInfoJson;
+---
+
+<section class="text-sm font-light pt-1 pb-2 bg-bg1 text-gray-500">
+  <!-- Top -->
+  <section class="px-8">
+    <ul class="flex space-x-6 justify-center">
+      {
+        topMessages.map((message) => {
+          return <li class="italic">{message}</li>;
+        })
+      }
+    </ul>
+  </section>
+
+  <!-- Bottom -->
+  <section class="hidden container mt-2 mx-auto lg:block">
+    <section class="flex justify-between px-8">
+      <ul class="flex space-x-4">
+        {
+          socialMedias.map((link) => {
+            return (
+              <li>
+                <a href={link.href} target="_blank">
+                  <Icon class="w-5 h-5" name={link.iconify} />
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <div class="flex divide-gray-400 divide-x-[0.1rem] [&>*]:px-4">
+        <p>
+          Customer Service: {siteInfoJson.customerService.email}
+        </p>
+        <p>PHP Currency</p>
+      </div>
+    </section>
+  </section>
+</section>
