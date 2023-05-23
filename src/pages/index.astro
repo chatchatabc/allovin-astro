@@ -31,9 +31,9 @@ const products = productsJson.contents;
           collections.map((collection) => {
             return (
               <li class="w-1/4 p-1">
-                <figure>
+                <figure class="group">
                   <a href={`/${collection.slug}`} class="block overflow-hidden">
-                    <div class="duration-500 hover:scale-105">
+                    <div class="duration-500 group-hover:scale-105">
                       <Img src={collection.featuredImg} alt={collection.name} />
                     </div>
                   </a>
