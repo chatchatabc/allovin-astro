@@ -8,5 +8,6 @@ import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), mdx(), astroImageTools, sitemap(), robotsTxt()]
+  site: "https://allovin.pages.dev",
+  integrations: [tailwind(), mdx(), astroImageTools, sitemap(), robotsTxt()],
 });
