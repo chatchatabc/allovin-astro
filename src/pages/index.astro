@@ -73,12 +73,12 @@ const products = productsJson.contents;
 
     <!-- Content -->
     <section>
-      <ul class="flex">
+      <ul class="flex flex-wrap">
         {
           products.map((product) => {
             const { name, price, images } = product;
             return (
-              <li class="w-1/6 p-2">
+              <li class="p-2 w-1/2 md:w-1/3 lg:w-1/6">
                 <Card
                   name={name}
                   price={price}
