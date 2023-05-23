@@ -7,6 +7,9 @@ module.exports = {
         bg1: "#FBF7F4",
         c1: "#334B80",
       },
+      fontFamily: {
+        mulish: ["Mulish", "sans-serif"],
+      },
     },
   },
   plugins: [],
