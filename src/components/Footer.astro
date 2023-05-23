@@ -1,0 +1,86 @@
+---
+import siteInfoJson from "@data/site-info.json";
+import { Icon } from "astro-icon";
+
+const { footerLinks, socialMedias } = siteInfoJson;
+---
+
+<footer class="bg-bg1 pt-8 pb-24">
+  <header class="sr-only">
+    <h2>Footer Section</h2>
+  </header>
+
+  <!-- Container -->
+  <section class="container mx-auto px-2 lg:px-8">
+    <!-- Top -->
+    <section class="flex flex-wrap">
+      <section class="flex flex-wrap w-full lg:w-8/12">
+        {
+          footerLinks.map((group) => {
+            return (
+              <section class="w-full py-4 md:w-1/3">
+                <header>
+                  <h3 class="text-gray-700 text-lg font-medium">
+                    {group.name}
+                  </h3>
+                </header>
+                <section class="mt-2">
+                  <ul class="space-y-1">
+                    {group.links.map((link) => {
+                      return (
+                        <li>
+                          <a
+                            class="text-sm font-medium text-gray-500"
+                            href={link.href}
+                          >
+                            {link.name}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </section>
+              </section>
+            );
+          })
+        }
+      </section>
+      <section class="mx-auto py-4 lg:w-4/12">
+        <section>
+          <header>
+            <h3>STAY CONNECTED</h3>
+          </header>
+          <section class="mt-4">
+            <ul class="flex space-x-4">
+              {
+                socialMedias.map((link) => {
+                  return (
+                    <li>
+                      <a
+                        class="text-sm font-medium text-gray-500 block rounded-full p-2 bg-gray-200"
+                        href={link.href}
+                        target="_blank"
+                      >
+                        <Icon class="w-4 h-4" name={link.iconify} />
+                      </a>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </section>
+        </section>
+      </section>
+    </section>
+
+    <!-- Bottom -->
+    <section class="text-sm mt-8">
+      <p class="text-center lg:text-start">©2023 Allovin Kids</p>
+      <p class="flex space-x-2 justify-center lg:justify-start">
+        <a>Privacy Policy</a>
+        <span>|</span>
+        <a>Terms and Conditions</a>
+      </p>
+    </section>
+  </section>
+</footer>
