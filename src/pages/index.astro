@@ -2,8 +2,10 @@
 import MainLayout from "@layouts/MainLayout.astro";
 import { Img } from "astro-imagetools/components";
 import collectionsJson from "@data/collections.json";
+import productsJson from "@data/products.json";
 
 const collections = collectionsJson.contents;
+const products = productsJson.contents;
 ---
 
 <MainLayout>
@@ -51,6 +53,68 @@ const collections = collectionsJson.contents;
           })
         }
       </ul>
+    </section>
+  </section>
+
+  <!-- Best Selling Section -->
+  <section class="container mx-auto px-8 pb-12">
+    <!-- Header -->
+    <header>
+      <h2 class="text-2xl text-gray-500 py-12 text-center font-bold">
+        BEST SELLING
+      </h2>
+    </header>
+
+    <!-- Content -->
+    <section>
+      <ul class="flex">
+        {
+          products.map((product) => {
+            return (
+              <li class="w-1/6 p-2">
+                <figure>
+                  <a
+                    href={`/products/${product.name}`}
+                    class="relative block group"
+                  >
+                    <div class="duration-500 absolute h-full w-full opacity-0 group-hover:opacity-100">
+                      <Img
+                        src={product.images[1].imageUrl}
+                        alt={product.name}
+                      />
+                    </div>
+                    <div class="duration-500 group-hover:opacity-0">
+                      <Img
+                        src={product.images[0].imageUrl}
+                        alt={product.name}
+                      />
+                    </div>
+                    <p class="absolute bg-black bottom-0 text-sm w-full opacity-0 duration-500 text-white bg-opacity-75 text-center group-hover:opacity-100">
+                      Quick View
+                    </p>
+                  </a>
+                  <figcaption class="mt-8">
+                    <p class="text-sm font-gray-500 font-light line-clamp-1 text-center">
+                      {product.name}
+                    </p>
+                    <p class="text-center text-c2 font-bold">
+                      {new Intl.NumberFormat("en", {
+                        currency: "PHP",
+                        style: "currency",
+                      }).format(product.price)}
+                    </p>
+                  </figcaption>
+                </figure>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <button
+        class="font-bold border-c2 border bg-orange-50 px-24 text-sm block w-fit mx-auto py-2 mt-8 hover:bg-c2 hover:text-white duration-300"
+      >
+        SHOW MORE
+      </button>
     </section>
   </section>
 </MainLayout>
