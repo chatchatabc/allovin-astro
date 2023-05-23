@@ -28,5 +28,66 @@
       "href": "https://www.pinterest.ph/allovinkids/",
       "iconify": "ri:pinterest-fill"
     }
+  ],
+  "footerLinks": [
+    {
+      "name": "ALLOVIN",
+      "links": [
+        {
+          "name": "About Us",
+          "href": "/"
+        },
+        {
+          "name": "Allovin Cares",
+          "href": "/"
+        },
+        {
+          "name": "Affiliate",
+          "href": "/"
+        },
+        {
+          "name": "Blog",
+          "href": "/"
+        },
+        {
+          "name": "Blogger Cooperation",
+          "href": "/"
+        }
+      ]
+    },
+    {
+      "name": "HELP & COOPERATION",
+      "links": [
+        {
+          "name": "Shipping Info",
+          "href": "/"
+        },
+        {
+          "name": "Returns",
+          "href": "/"
+        },
+        {
+          "name": "Order Tracker",
+          "href": "/"
+        },
+        {
+          "name": "How To Choose Size",
+          "href": "/"
+        }
+      ]
+    },
+    {
+      "name": "CUSTOMER CARE",
+      "links": [
+        {
+          "name": "Contact Us",
+          "href": "/"
+        },
+        {
+          "name": "FAQs",
+          "href": "/"
+        }
+      ]
+    }
   ]
 }
