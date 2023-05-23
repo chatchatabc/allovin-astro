@@ -1,5 +1,20 @@
 ---
+import siteInfoJson from "@data/site-info.json";
 import { SEO } from "astro-seo";
+
+interface Props {
+  pageTitle?: string;
+  pageDescription?: string;
+  pageKeywords?: string;
+  pageAuthor?: string;
+}
+
+const {
+  pageTitle = siteInfoJson.pageTitle,
+  pageDescription = siteInfoJson.pageDescription,
+  pageKeywords = siteInfoJson.pageKeywords,
+  pageAuthor = siteInfoJson.pageAuthor,
+} = Astro.props as Props;
 ---
 
 <html>
@@ -7,8 +22,8 @@ import { SEO } from "astro-seo";
     <meta charset="utf-8" />
 
     <SEO
-      title="A Very Descriptive Title"
-      description="A heavily optimized description full of well-researched keywords."
+      title={pageTitle}
+      description={pageDescription}
       extend={{
         link: [
           {
@@ -32,6 +47,14 @@ import { SEO } from "astro-seo";
           {
             name: "generator",
             content: Astro.generator,
+          },
+          {
+            name: "keywords",
+            content: pageKeywords,
+          },
+          {
+            name: "author",
+            content: pageAuthor,
           },
         ],
       }}
