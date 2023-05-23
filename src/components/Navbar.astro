@@ -3,8 +3,6 @@ import siteInfoJson from "@data/site-info.json";
 import { Img } from "astro-imagetools/components";
 import { Icon } from "astro-icon";
 
-const { topMessages, socialMedias } = siteInfoJson;
-
 const navigations = [
   {
     name: "MOMMY & ME",
@@ -52,9 +50,9 @@ const navigations = [
       <button class="lg:hidden">Menu</button>
 
       <!-- Centered Logo -->
-      <div class="w-48 lg:w-40">
+      <a href="/" class="block w-48 lg:w-40">
         <Img src="/images/logo.webp" alt="allovin" />
-      </div>
+      </a>
 
       <!-- Mobile Search -->
       <div class="relative lg:hidden">
