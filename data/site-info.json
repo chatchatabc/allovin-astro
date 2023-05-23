@@ -11,5 +11,22 @@
   "customerService": {
     "phone": "1-800-555-5555",
     "email": "service@allovinkids.com"
-  }
+  },
+  "socialMedias": [
+    {
+      "name": "facebook",
+      "href": "https://www.facebook.com/Allovinkids",
+      "iconify": "ri:facebook-fill"
+    },
+    {
+      "name": "instagram",
+      "href": "https://www.instagram.com/allovinkids/",
+      "iconify": "ri:instagram-fill"
+    },
+    {
+      "name": "pinterest",
+      "href": "https://www.pinterest.ph/allovinkids/",
+      "iconify": "ri:pinterest-fill"
+    }
+  ]
 }

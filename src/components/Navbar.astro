@@ -1,8 +1,9 @@
 ---
 import siteInfoJson from "@data/site-info.json";
 import { Img } from "astro-imagetools/components";
+import { Icon } from "astro-icon";
 
-const { topMessages } = siteInfoJson;
+const { topMessages, socialMedias } = siteInfoJson;
 
 const navigations = [
   {
@@ -42,7 +43,7 @@ const navigations = [
 
 <header>
   <!-- Top -->
-  <section class="text-sm font-light py-1 bg-bg1 text-gray-600">
+  <section class="text-sm font-light pt-1 pb-2 bg-bg1 text-gray-500">
     <!-- Top -->
     <section class="px-8">
       <ul class="flex space-x-6 justify-center">
@@ -57,7 +58,19 @@ const navigations = [
     <!-- Bottom -->
     <section class="container mt-2 mx-auto">
       <section class="flex justify-between px-8">
-        <div>Test</div>
+        <ul class="flex space-x-4">
+          {
+            socialMedias.map((link) => {
+              return (
+                <li>
+                  <a href={link.href}>
+                    <Icon class="w-5 h-5" name={link.iconify} />
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
         <div class="flex divide-gray-400 divide-x-[0.1rem] [&>*]:px-4">
           <p>
             Customer Service: {siteInfoJson.customerService.email}
