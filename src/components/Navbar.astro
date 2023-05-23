@@ -83,15 +83,33 @@ const navigations = [
   </section>
 
   <!-- Bottom -->
-  <section class="py-4">
+  <section class="py-4 container mx-auto px-8">
     <!-- Top -->
-    <section class="flex justify-center">
+    <section class="flex justify-center relative">
+      <!-- Centered Logo -->
       <div class="w-40">
         <Img src="/images/logo.webp" alt="allovin" />
       </div>
+
+      <!-- Search and Cart button -->
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 flex space-x-4">
+        <div class="relative">
+          <input class="border p-2 font-light text-sm" placeholder="Search" />
+          <Icon
+            class="w-6 h-6 pointer-events-none absolute right-2 top-1/2 -translate-y-1/2"
+            name="mdi-light:magnify"
+          />
+        </div>
+        <button>
+          <Icon
+            class="w-8 h-8 text-gray-500"
+            name="clarity:shopping-bag-line"
+          />
+        </button>
+      </div>
     </section>
 
-    <!-- Bottom -->
+    <!-- Desktop Navigations -->
     <nav class="mt-4">
       <ul class="flex justify-center space-x-8">
         {
