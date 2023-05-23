@@ -3,6 +3,7 @@ import MainLayout from "@layouts/MainLayout.astro";
 import { Img } from "astro-imagetools/components";
 import collectionsJson from "@data/collections.json";
 import productsJson from "@data/products.json";
+import Card from "@components/Card.astro";
 
 const collections = collectionsJson.contents;
 const products = productsJson.contents;
@@ -70,41 +71,16 @@ const products = productsJson.contents;
       <ul class="flex">
         {
           products.map((product) => {
+            const { name, price, images } = product;
             return (
               <li class="w-1/6 p-2">
-                <figure>
-                  <a
-                    href={`/products/${product.name}`}
-                    class="relative block group"
-                  >
-                    <div class="duration-500 absolute h-full w-full opacity-0 group-hover:opacity-100">
-                      <Img
-                        src={product.images[1].imageUrl}
-                        alt={product.name}
-                      />
-                    </div>
-                    <div class="duration-500 group-hover:opacity-0">
-                      <Img
-                        src={product.images[0].imageUrl}
-                        alt={product.name}
-                      />
-                    </div>
-                    <p class="absolute bg-black bottom-0 text-sm w-full opacity-0 duration-500 text-white bg-opacity-75 text-center group-hover:opacity-100">
-                      Quick View
-                    </p>
-                  </a>
-                  <figcaption class="mt-8">
-                    <p class="text-sm font-gray-500 font-light line-clamp-1 text-center">
-                      {product.name}
-                    </p>
-                    <p class="text-center text-c2 font-bold">
-                      {new Intl.NumberFormat("en", {
-                        currency: "PHP",
-                        style: "currency",
-                      }).format(product.price)}
-                    </p>
-                  </figcaption>
-                </figure>
+                <Card
+                  name={name}
+                  price={price}
+                  image1={images[1].imageUrl}
+                  image2={images[0].imageUrl}
+                  href={`/products/${name}`}
+                />
               </li>
             );
           })
