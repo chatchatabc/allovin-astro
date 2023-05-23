@@ -1,0 +1,98 @@
+---
+import siteInfoJson from "@data/site-info.json";
+import { Img } from "astro-imagetools/components";
+
+const { topMessages } = siteInfoJson;
+
+const navigations = [
+  {
+    name: "MOMMY & ME",
+    href: "/mommy-and-me",
+  },
+  {
+    name: "GIRLS",
+    href: "/girls",
+  },
+  {
+    name: "BOYS",
+    href: "/boys",
+  },
+  {
+    name: "WOMEN",
+    href: "/women",
+  },
+  {
+    name: "EXCLUSIVES",
+    href: "/exclusives",
+  },
+  {
+    name: "ACCESORIES",
+    href: "/accesories",
+  },
+  {
+    name: "SHOP ALL",
+    href: "/shop-all",
+  },
+  {
+    name: "OUR STORY",
+    href: "/our-story",
+  },
+];
+---
+
+<header>
+  <!-- Top -->
+  <section class="text-sm font-light py-1 bg-bg1 text-gray-600">
+    <!-- Top -->
+    <section class="px-8">
+      <ul class="flex space-x-6 justify-center">
+        {
+          topMessages.map((message) => {
+            return <li class="italic">{message}</li>;
+          })
+        }
+      </ul>
+    </section>
+
+    <!-- Bottom -->
+    <section class="container mt-2 mx-auto">
+      <section class="flex justify-between px-8">
+        <div>Test</div>
+        <div class="flex divide-gray-400 divide-x-[0.1rem] [&>*]:px-4">
+          <p>
+            Customer Service: {siteInfoJson.customerService.email}
+          </p>
+          <p>Login</p>
+          <p>PHP</p>
+        </div>
+      </section>
+    </section>
+  </section>
+
+  <!-- Bottom -->
+  <section class="py-4">
+    <!-- Top -->
+    <section class="flex justify-center">
+      <div class="w-40">
+        <Img src="/images/logo.webp" alt="allovin" />
+      </div>
+    </section>
+
+    <!-- Bottom -->
+    <nav class="mt-4">
+      <ul class="flex justify-center space-x-8">
+        {
+          navigations.map((link) => {
+            return (
+              <li>
+                <a class="text-c1 text-lg font-light" href={link.href}>
+                  {link.name}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </section>
+</header>

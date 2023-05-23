@@ -2,5 +2,14 @@
   "pageTitle": "Allovin",
   "pageDescription": "Allovin is a web application that allows you to create and share your own virtual reality experiences.",
   "pageKeywords": "Allovin, VR, Virtual Reality, WebVR, WebVR",
-  "pageAuthor": "ChatChatABC Philippines, Inc."
+  "pageAuthor": "ChatChatABC Philippines, Inc.",
+  "topMessages": [
+    "DRESS FOR SUNSHINE",
+    "THE APRIL COLLECTION: THAT SUMMER FEELING",
+    "SHOP THE NEW JOURNAL"
+  ],
+  "customerService": {
+    "phone": "1-800-555-5555",
+    "email": "service@allovinkids.com"
+  }
 }
