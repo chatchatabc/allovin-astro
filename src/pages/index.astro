@@ -31,11 +31,11 @@ const products = productsJson.contents;
 
     <!-- Content -->
     <section>
-      <ul class="flex">
+      <ul class="flex flex-wrap">
         {
           collections.map((collection) => {
             return (
-              <li class="w-1/4 p-1">
+              <li class="p-1 w-1/2 md:w-1/4">
                 <figure class="group">
                   <a href={`/${collection.slug}`} class="block overflow-hidden">
                     <div class="duration-500 group-hover:scale-105">
