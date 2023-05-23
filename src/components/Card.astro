@@ -1,0 +1,44 @@
+---
+import { Img } from "astro-imagetools/components";
+
+interface Props {
+  name: string;
+  image1: string;
+  image2: string;
+  href: string;
+  price: number;
+}
+
+const { name, image1, image2, href, price } = Astro.props as Props;
+---
+
+<figure>
+  <a href={href} class="relative block group">
+    <div
+      class="duration-500 absolute h-full w-full opacity-0 group-hover:opacity-100"
+    >
+      <Img src={image1} alt={name} />
+    </div>
+    <div class="duration-500 group-hover:opacity-0">
+      <Img src={image2} alt={name} />
+    </div>
+    <p
+      class="absolute bg-black bottom-0 text-sm w-full opacity-0 duration-500 text-white bg-opacity-75 text-center group-hover:opacity-100"
+    >
+      Quick View
+    </p>
+  </a>
+  <figcaption class="mt-8">
+    <p class="text-sm font-gray-500 font-light line-clamp-1 text-center">
+      {name}
+    </p>
+    <p class="text-center text-c2 font-bold">
+      {
+        new Intl.NumberFormat("en", {
+          currency: "PHP",
+          style: "currency",
+        }).format(price)
+      }
+    </p>
+  </figcaption>
+</figure>
