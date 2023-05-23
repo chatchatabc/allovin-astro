@@ -84,10 +84,11 @@ const navigations = [
         {
           navigations.map((link) => {
             return (
-              <li>
-                <a class="text-c1 text-lg font-light" href={link.href}>
+              <li class="relative">
+                <a class="text-c1 text-lg font-light peer" href={link.href}>
                   {link.name}
                 </a>
+                <div class="absolute scale-x-0 w-full h-[0.1rem] origin-bottom-left transition bottom-0 bg-c1 peer-hover:scale-x-100" />
               </li>
             );
           })
