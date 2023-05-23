@@ -7,8 +7,8 @@ const { topMessages, socialMedias } = siteInfoJson;
 
 <section class="text-sm font-light pt-1 pb-2 bg-bg1 text-gray-500">
   <!-- Top -->
-  <section class="px-8">
-    <ul class="flex space-x-6 justify-center">
+  <section class="px-2 lg:px-8">
+    <ul class="flex flex-wrap space-x-6 justify-center">
       {
         topMessages.map((message) => {
           return <li class="italic">{message}</li>;
