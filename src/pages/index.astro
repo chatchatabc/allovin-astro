@@ -11,4 +11,46 @@ const collections = collectionsJson.contents;
   <section>
     <Img src="/images/landing/hero.webp" alt="" />
   </section>
+
+  <!-- Collection Section -->
+  <section class="container mx-auto px-8">
+    <!-- Header -->
+    <header>
+      <h2 class="text-2xl text-gray-500 py-12 text-center font-bold">
+        COLLECTION
+      </h2>
+    </header>
+
+    <!-- Content -->
+    <section>
+      <ul class="flex">
+        {
+          collections.map((collection) => {
+            return (
+              <li class="w-1/4 p-1">
+                <figure>
+                  <a href={`/${collection.slug}`} class="block overflow-hidden">
+                    <div class="duration-500 hover:scale-105">
+                      <Img src={collection.featuredImg} alt={collection.name} />
+                    </div>
+                  </a>
+                  <figcaption class="relative">
+                    <p class="text-center font-medium py-2 text-lg">
+                      {collection.name}
+                    </p>
+                    <a
+                      href={`/${collection.slug}`}
+                      class="px-8 py-2 border border-black text-black mx-auto block w-fit duration-300 font-medium hover:text-white hover:border-c2 hover:bg-c2"
+                    >
+                      SHOP NOW
+                    </a>
+                  </figcaption>
+                </figure>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+  </section>
 </MainLayout>
