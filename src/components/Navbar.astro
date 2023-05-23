@@ -41,7 +41,7 @@ const navigations = [
 ];
 ---
 
-<header class="sticky -top-16 bg-white z-[1]">
+<header class="sticky bg-white z-[1] -top-8 lg:-top-16">
   <!-- Top -->
   <section class="text-sm font-light pt-1 pb-2 bg-bg1 text-gray-500">
     <!-- Top -->
@@ -56,7 +56,7 @@ const navigations = [
     </section>
 
     <!-- Bottom -->
-    <section class="container mt-2 mx-auto">
+    <section class="hidden container mt-2 mx-auto lg:block">
       <section class="flex justify-between px-8">
         <ul class="flex space-x-4">
           {
@@ -81,17 +81,19 @@ const navigations = [
     </section>
   </section>
 
-  <!-- Bottom -->
-  <section class="py-4 container mx-auto px-8">
+  <!-- Navbar -->
+  <section class="py-2 container mx-auto px-8 lg:py-4">
     <!-- Top -->
     <section class="flex justify-center relative">
       <!-- Centered Logo -->
-      <div class="w-40">
+      <div class="w-48 lg:w-40">
         <Img src="/images/logo.webp" alt="allovin" />
       </div>
 
-      <!-- Search and Cart button -->
-      <div class="absolute right-0 top-1/2 -translate-y-1/2 flex space-x-4">
+      <!-- Search -->
+      <div
+        class="hidden absolute right-0 top-1/2 -translate-y-1/2 space-x-4 lg:flex"
+      >
         <div class="relative">
           <input class="border p-2 font-light text-sm" placeholder="Search" />
           <Icon
@@ -103,7 +105,7 @@ const navigations = [
     </section>
 
     <!-- Desktop Navigations -->
-    <nav class="mt-4">
+    <nav class="hidden mt-4 lg:block">
       <ul class="flex justify-center space-x-8">
         {
           navigations.map((link) => {
