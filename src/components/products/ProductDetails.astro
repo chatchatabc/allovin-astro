@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon";
+
+interface Props {
+  title: string;
+  hidden?: boolean;
+}
+
+const { title, hidden = true } = Astro.props as Props;
+---
+
+<product-details class="block">
+  <section class="flex">
+    <button
+      aria-label={`Open dropdown for ${title}`}
+      class="flex items-center justify-between w-full"
+    >
+      <span class="uppercase font-medium text-gray-500">{title}</span>
+      <Icon
+        data-caret
+        name="mdi:caret"
+        class={`w-8 h-8 text-gray-400 transition ${hidden ? "" : "rotate-180"}
+        `}
+      />
+    </button>
+  </section>
+  <section data-details class={`p-1 text-sm ${hidden ? "hidden" : ""}`}>
+    <slot />
+  </section>
+</product-details>
+
+<script>
+  class ProductDetails extends HTMLElement {
+    constructor() {
+      super();
+
+      const button = this.querySelector("button")!;
+      const details = this.querySelector("[data-details]")!;
+      const caret = this.querySelector("[data-caret]")!;
+
+      button.addEventListener("click", () => {
+        details.classList.toggle("hidden");
+        caret.classList.toggle("rotate-180");
+      });
+    }
+  }
+
+  customElements.define("product-details", ProductDetails);
+</script>
