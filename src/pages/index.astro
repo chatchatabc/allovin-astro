@@ -1,11 +1,11 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import { Img } from "astro-imagetools/components";
-import collectionsJson from "@data/collections.json";
+import subCollectionsJson from "@data/sub-collections.json";
 import productsJson from "@data/products.json";
 import Card from "@components/Card.astro";
 
-const collections = collectionsJson.contents;
+const subCollections = subCollectionsJson.contents;
 const products = productsJson.contents;
 ---
 
@@ -33,7 +33,7 @@ const products = productsJson.contents;
     <section>
       <ul class="flex flex-wrap">
         {
-          collections.map((collection) => {
+          subCollections.map((collection) => {
             return (
               <li class="p-1 w-1/2 md:w-1/4">
                 <figure class="group">
