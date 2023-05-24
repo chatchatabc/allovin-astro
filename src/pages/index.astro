@@ -37,7 +37,10 @@ const products = productsJson.contents;
             return (
               <li class="p-1 w-1/2 md:w-1/4">
                 <figure class="group">
-                  <a href={`/${collection.slug}`} class="block overflow-hidden">
+                  <a
+                    href={`/${collection.collections[0]}?category=${collection.slug}`}
+                    class="block overflow-hidden"
+                  >
                     <div class="duration-500 group-hover:scale-105">
                       <Img src={collection.featuredImg} alt={collection.name} />
                     </div>
@@ -47,7 +50,7 @@ const products = productsJson.contents;
                       {collection.name}
                     </p>
                     <a
-                      href={`/${collection.slug}`}
+                      href={`/${collection.collections[0]}?category=${collection.slug}`}
                       class="px-8 py-2 border border-black text-black mx-auto block w-fit duration-300 font-medium hover:text-white hover:border-c2 hover:bg-c2"
                     >
                       SHOP NOW
