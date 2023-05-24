@@ -1,0 +1,109 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import collectionsJson from "@data/collections.json";
+import subCollectionsJson from "@data/sub-collections.json";
+import productsJson from "@data/products.json";
+import { Icon } from "astro-icon";
+import CardSelection from "@components/CardSelection.astro";
+
+export function getStaticPaths() {
+  const paths = collectionsJson.contents.map((collection) => ({
+    params: { collection: collection.slug },
+    props: {
+      collection,
+    },
+  }));
+
+  return paths;
+}
+
+interface Props {
+  collection: Record<string, any>;
+}
+
+const { collection } = Astro.props as Props;
+const subCollections = subCollectionsJson.contents.filter((subCollection) =>
+  subCollection.collections.includes(collection.slug)
+);
+---
+
+<MainLayout>
+  <section class="pt-8 pb-2 border-t">
+    <header class="container mx-auto px-8">
+      <h1 class="text-2xl text-center text-gray-500 font-bold">
+        {collection.name}
+      </h1>
+    </header>
+
+    <!-- Filters -->
+    <section
+      class="flex text-sm text-gray-500 container mx-auto space-x-4 px-8 items-center justify-end"
+    >
+      <div class="flex items-center space-x-1">
+        <p>Items per page</p>
+        <select class="py-2 px-4 w-48 border rounded-full">
+          <option>10</option>
+          <option>20</option>
+          <option>50</option>
+        </select>
+      </div>
+      <div class="flex items-center space-x-1">
+        <p>Sort by</p>
+        <select class="py-2 px-4 w-48 border rounded-full">
+          <option>Price, high to low</option>
+          <option>Featured</option>
+          <option>Price, low to high</option>
+        </select>
+      </div>
+    </section>
+  </section>
+
+  <!-- Body -->
+  <section class="container mx-auto border-t flex px-2 xl:px-0">
+    <!-- Filters -->
+    <aside class="py-4 space-y-4 text-gray-500 lg:w-56">
+      <section>
+        <button class="border-b w-full py-2 flex space-x-2 items-center">
+          <Icon name="mdi:caret" class="w-6 h-6" />
+          <p class="font-medium text-lg">Category</p>
+        </button>
+        <ul class="py-2 space-y-2">
+          {
+            subCollections.map((item) => {
+              return (
+                <li>
+                  <label class="text-sm flex items-center space-x-2">
+                    <input type="checkbox" />
+                    <p class="cursor-pointer">{item.name}</p>
+                  </label>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </section>
+    </aside>
+
+    <!-- Products -->
+    <section class="flex-1 p-2">
+      <ul class="flex flex-wrap">
+        {
+          productsJson.contents.map((product) => {
+            const { name, price, featuredImage, colorVariants } = product;
+            return (
+              <li class="w-1/4 p-2">
+                <CardSelection
+                  name={name}
+                  price={price}
+                  secondaryImage={featuredImage}
+                  colorVariants={colorVariants}
+                  href={`/products/${name}`}
+                />
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+  </section>
+</MainLayout>
