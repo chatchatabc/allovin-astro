@@ -2,85 +2,91 @@
   "contents": [
     {
       "name": "Allovin Big Bow Tulle Dress Christening Gown / Flower Girl Dress",
+      "slug": "allovin-big-bow-tulle-dress-christening-gown-flower-girl-dress",
       "price": 29.99,
-      "images": [
+      "collections": ["girls"],
+      "subCollections": ["girl-occasions"],
+      "featuredImage": "/images/products/2.webp",
+      "colorVariants": [
         {
-          "name": "1",
-          "imageUrl": "/images/products/1.webp"
-        },
-        {
-          "name": "2",
-          "imageUrl": "/images/products/2.webp"
+          "name": "red",
+          "imageUrl": "/images/products/1.webp",
+          "selectionUrl": "/images/products/1.webp"
         }
       ]
     },
     {
       "name": "ALLOVIN Butterfly Fairy Dress",
+      "slug": "allovin-butterfly-fairy-dress",
       "price": 29.99,
-      "images": [
+      "collections": ["girls"],
+      "subCollections": ["girl-occasions"],
+      "featuredImage": "/images/products/4.webp",
+      "colorVariants": [
         {
-          "name": "1",
-          "imageUrl": "/images/products/3.webp"
-        },
-        {
-          "name": "2",
-          "imageUrl": "/images/products/4.webp"
+          "name": "red",
+          "imageUrl": "/images/products/3.webp",
+          "selectionUrl": "/images/products/3.webp"
         }
       ]
     },
     {
       "name": "ALLOVIN Swan Tutu Dress",
+      "slug": "allovin-swan-tutu-dress",
       "price": 29.99,
-      "images": [
+      "collections": ["girls"],
+      "subCollections": ["girl-occasions"],
+      "featuredImage": "/images/products/6.webp",
+      "colorVariants": [
         {
-          "name": "1",
-          "imageUrl": "/images/products/5.webp"
-        },
-        {
-          "name": "2",
-          "imageUrl": "/images/products/6.webp"
+          "name": "red",
+          "imageUrl": "/images/products/5.webp",
+          "selectionUrl": "/images/products/5.webp"
         }
       ]
     },
     {
       "name": "ALLOVIN Toddler Girl A-Line Wedding Lace Dress",
+      "slug": "allovin-toddler-girl-a-line-wedding-lace-dress",
       "price": 29.99,
-      "images": [
+      "collections": ["girls"],
+      "subCollections": ["girl-occasions"],
+      "featuredImage": "/images/products/8.webp",
+      "colorVariants": [
         {
-          "name": "1",
-          "imageUrl": "/images/products/7.webp"
-        },
-        {
-          "name": "2",
-          "imageUrl": "/images/products/8.webp"
+          "name": "red",
+          "imageUrl": "/images/products/7.webp",
+          "selectionUrl": "/images/products/.webp"
         }
       ]
     },
     {
       "name": "ALLOVIN Toddler Girl Christening Baptism Flower Lace Dress",
+      "slug": "allovin-toddler-girl-christening-baptism-flower-lace-dress",
       "price": 29.99,
-      "images": [
+      "collections": ["girls"],
+      "subCollections": ["girl-occasions"],
+      "featuredImage": "/images/products/10.webp",
+      "colorVariants": [
         {
-          "name": "1",
-          "imageUrl": "/images/products/9.webp"
-        },
-        {
-          "name": "2",
-          "imageUrl": "/images/products/10.webp"
+          "name": "red",
+          "imageUrl": "/images/products/9.webp",
+          "selectionUrl": "/images/products/9.webp"
         }
       ]
     },
     {
       "name": "Allovin Toddler Girl A-Line Sleeveless Sundress Rose Print Summer Girl Dress",
+      "slug": "allovin-toddler-girl-a-line-sleeveless-sundress-rose-print-summer-girl-dress",
       "price": 29.99,
-      "images": [
+      "collections": ["girls"],
+      "subCollections": ["girl-occasions"],
+      "featuredImage": "/images/products/12.webp",
+      "colorVariants": [
         {
-          "name": "1",
-          "imageUrl": "/images/products/11.webp"
-        },
-        {
-          "name": "2",
-          "imageUrl": "/images/products/12.webp"
+          "name": "red",
+          "imageUrl": "/images/products/11.webp",
+          "selectionUrl": "/images/products/11.webp"
         }
       ]
     }
