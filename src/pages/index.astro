@@ -76,14 +76,14 @@ const products = productsJson.contents;
       <ul class="flex flex-wrap">
         {
           products.map((product) => {
-            const { name, price, images } = product;
+            const { name, price, featuredImage, colorVariants } = product;
             return (
               <li class="p-2 w-1/2 md:w-1/3 lg:w-1/6">
                 <Card
                   name={name}
                   price={price}
-                  image1={images[1].imageUrl}
-                  image2={images[0].imageUrl}
+                  secondaryImage={featuredImage}
+                  colorVariants={colorVariants}
                   href={`/products/${name}`}
                 />
               </li>
@@ -117,14 +117,14 @@ const products = productsJson.contents;
           <ul class="flex overflow-hidden">
             {
               [...products].splice(0, 3).map((product) => {
-                const { name, price, images } = product;
+                const { name, price, featuredImage, colorVariants } = product;
                 return (
                   <li class="p-2 w-1/2 flex-shrink-0 md:w-1/3">
                     <Card
                       name={name}
                       price={price}
-                      image1={images[1].imageUrl}
-                      image2={images[0].imageUrl}
+                      secondaryImage={featuredImage}
+                      colorVariants={colorVariants}
                       href={`/products/${name}`}
                     />
                   </li>
@@ -175,14 +175,14 @@ const products = productsJson.contents;
       <ul class="flex overflow-hidden">
         {
           products.map((product) => {
-            const { name, price, images } = product;
+            const { name, price, featuredImage, colorVariants } = product;
             return (
               <li class="flex-shrink-0 p-2 w-1/2 md:w-1/3 lg:w-1/5">
                 <Card
                   name={name}
                   price={price}
-                  image1={images[1].imageUrl}
-                  image2={images[0].imageUrl}
+                  secondaryImage={featuredImage}
+                  colorVariants={colorVariants}
                   href={`/products/${name}`}
                 />
               </li>
