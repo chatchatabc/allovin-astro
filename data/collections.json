@@ -1,24 +1,20 @@
 {
   "contents": [
     {
-      "name": "Girl Occasions",
-      "featuredImg": "/images/collections/girl-occasions.webp",
-      "slug": "girl-occasions"
+      "name": "GIRLS",
+      "slug": "girls"
     },
     {
-      "name": "Girl Everyday",
-      "featuredImg": "/images/collections/girl-everyday.webp",
-      "slug": "girl-everyday"
+      "name": "WOMEN",
+      "slug": "women"
     },
     {
-      "name": "Women Dress",
-      "featuredImg": "/images/collections/women-dress.webp",
-      "slug": "women-dress"
+      "name": "EXCLUSIVES",
+      "slug": "exclusives"
     },
     {
-      "name": "Boy Sets",
-      "featuredImg": "/images/collections/boy-sets.webp",
-      "slug": "boy-sets"
+      "name": "BOYS",
+      "slug": "boys"
     }
   ]
 }
