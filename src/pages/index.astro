@@ -76,7 +76,7 @@ const products = productsJson.contents;
       <ul class="flex flex-wrap">
         {
           products.map((product) => {
-            const { name, price, featuredImage, colorVariants } = product;
+            const { name, price, featuredImage, colorVariants, slug } = product;
             return (
               <li class="p-2 w-1/2 md:w-1/3 lg:w-1/6">
                 <CardSelection
@@ -84,7 +84,7 @@ const products = productsJson.contents;
                   price={price}
                   secondaryImage={featuredImage}
                   colorVariants={colorVariants}
-                  href={`/products/${name}`}
+                  href={`/products/${slug}`}
                 />
               </li>
             );
@@ -117,7 +117,8 @@ const products = productsJson.contents;
           <ul class="flex overflow-hidden">
             {
               [...products].splice(0, 3).map((product) => {
-                const { name, price, featuredImage, colorVariants } = product;
+                const { name, price, featuredImage, colorVariants, slug } =
+                  product;
                 return (
                   <li class="p-2 w-1/2 flex-shrink-0 md:w-1/3">
                     <CardSelection
@@ -125,7 +126,7 @@ const products = productsJson.contents;
                       price={price}
                       secondaryImage={featuredImage}
                       colorVariants={colorVariants}
-                      href={`/products/${name}`}
+                      href={`/products/${slug}`}
                     />
                   </li>
                 );
@@ -175,7 +176,7 @@ const products = productsJson.contents;
       <ul class="flex overflow-hidden">
         {
           products.map((product) => {
-            const { name, price, featuredImage, colorVariants } = product;
+            const { name, price, featuredImage, colorVariants, slug } = product;
             return (
               <li class="flex-shrink-0 p-2 w-1/2 md:w-1/3 lg:w-1/5">
                 <CardSelection
@@ -183,7 +184,7 @@ const products = productsJson.contents;
                   price={price}
                   secondaryImage={featuredImage}
                   colorVariants={colorVariants}
-                  href={`/products/${name}`}
+                  href={`/products/${slug}`}
                 />
               </li>
             );

@@ -89,7 +89,7 @@ const subCollections = subCollectionsJson.contents.filter((subCollection) =>
       <ul class="flex flex-wrap">
         {
           productsJson.contents.map((product) => {
-            const { name, price, featuredImage, colorVariants } = product;
+            const { name, price, featuredImage, colorVariants, slug } = product;
             return (
               <li class="w-1/4 p-2">
                 <CardSelection
@@ -97,7 +97,7 @@ const subCollections = subCollectionsJson.contents.filter((subCollection) =>
                   price={price}
                   secondaryImage={featuredImage}
                   colorVariants={colorVariants}
-                  href={`/products/${name}`}
+                  href={`/products/${slug}`}
                 />
               </li>
             );
