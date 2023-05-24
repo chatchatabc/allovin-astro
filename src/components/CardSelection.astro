@@ -49,9 +49,9 @@ const { name, secondaryImage, href, price, colorVariants } =
           }).format(price)
         }
       </p>
-      <ul class="flex">
+      <ul class="flex justify-center">
         {
-          colorVariants.map((variant) => {
+          [...colorVariants].splice(0, 4).map((variant) => {
             return (
               <li>
                 <button class="block border border-c2 overflow-hidden rounded-full w-8 h-8 p-1">
@@ -60,6 +60,18 @@ const { name, secondaryImage, href, price, colorVariants } =
               </li>
             );
           })
+        }
+        {
+          colorVariants.length > 4 && (
+            <li>
+              <a
+                href={href}
+                class="block overflow-hidden rounded-full w-8 h-8 p-1"
+              >
+                <span class="text-c2">+{colorVariants.length - 4}</span>
+              </a>
+            </li>
+          )
         }
       </ul>
     </figcaption>
