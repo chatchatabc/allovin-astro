@@ -3,7 +3,7 @@ import MainLayout from "@layouts/MainLayout.astro";
 import { Img } from "astro-imagetools/components";
 import subCollectionsJson from "@data/sub-collections.json";
 import productsJson from "@data/products.json";
-import Card from "@components/Card.astro";
+import CardSelection from "@components/CardSelection.astro";
 
 const subCollections = subCollectionsJson.contents;
 const products = productsJson.contents;
@@ -79,7 +79,7 @@ const products = productsJson.contents;
             const { name, price, featuredImage, colorVariants } = product;
             return (
               <li class="p-2 w-1/2 md:w-1/3 lg:w-1/6">
-                <Card
+                <CardSelection
                   name={name}
                   price={price}
                   secondaryImage={featuredImage}
@@ -120,7 +120,7 @@ const products = productsJson.contents;
                 const { name, price, featuredImage, colorVariants } = product;
                 return (
                   <li class="p-2 w-1/2 flex-shrink-0 md:w-1/3">
-                    <Card
+                    <CardSelection
                       name={name}
                       price={price}
                       secondaryImage={featuredImage}
@@ -178,7 +178,7 @@ const products = productsJson.contents;
             const { name, price, featuredImage, colorVariants } = product;
             return (
               <li class="flex-shrink-0 p-2 w-1/2 md:w-1/3 lg:w-1/5">
-                <Card
+                <CardSelection
                   name={name}
                   price={price}
                   secondaryImage={featuredImage}

@@ -1,0 +1,107 @@
+---
+import { Img } from "astro-imagetools/components";
+
+interface Props {
+  name: string;
+  secondaryImage: string;
+  href: string;
+  price: number;
+  colorVariants: { name: string; imageUrl: string; selectionUrl: string }[];
+}
+
+const { name, secondaryImage, href, price, colorVariants } =
+  Astro.props as Props;
+---
+
+<card-selection>
+  <figure>
+    <a href={href} class="relative block group">
+      <!-- Secondary Image -->
+      <div class="duration-500 z-1 opacity-0 group-hover:opacity-100">
+        <Img src={secondaryImage} alt={name} />
+      </div>
+
+      <!-- Different Variant Image -->
+      {
+        colorVariants.map((variant) => {
+          return (
+            <div class="variants absolute h-full hidden top-0 w-full duration-500 group-hover:opacity-0">
+              <Img src={variant.selectionUrl} alt={name} />
+            </div>
+          );
+        })
+      }
+      <p
+        class="absolute bg-black bottom-0 text-sm w-full opacity-0 duration-500 text-white bg-opacity-75 text-center group-hover:opacity-100"
+      >
+        Quick View
+      </p>
+    </a>
+    <figcaption class="mt-8">
+      <p class="text-sm font-gray-500 font-light line-clamp-1 text-center">
+        {name}
+      </p>
+      <p class="text-center text-c2 font-bold">
+        {
+          new Intl.NumberFormat("en", {
+            currency: "PHP",
+            style: "currency",
+          }).format(price)
+        }
+      </p>
+      <ul class="flex">
+        {
+          colorVariants.map((variant) => {
+            return (
+              <li>
+                <button class="block border border-c2 overflow-hidden rounded-full w-8 h-8 p-1">
+                  <Img src={variant.selectionUrl} alt={variant.name} />
+                </button>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </figcaption>
+  </figure>
+</card-selection>
+
+<script>
+  class CardSelection extends HTMLElement {
+    constructor() {
+      super();
+
+      let index = 0;
+      const variants = this.querySelectorAll(".variants");
+      const buttons = this.querySelectorAll("button");
+
+      buttons.forEach((button, i) => {
+        button.addEventListener("click", () => {
+          index = i;
+          console.log(index);
+          resetState();
+          setActiveState();
+        });
+      });
+
+      function resetState() {
+        variants.forEach((variant) => {
+          variant.classList.add("hidden");
+        });
+        buttons.forEach((button) => {
+          button.classList.remove("border");
+        });
+      }
+
+      function setActiveState() {
+        variants[index].classList.remove("hidden");
+        buttons[index].classList.add("border");
+      }
+
+      resetState();
+      setActiveState();
+    }
+  }
+
+  customElements.define("card-selection", CardSelection);
+</script>
