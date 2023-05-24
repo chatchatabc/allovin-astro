@@ -4,25 +4,25 @@
       "name": "Girl Occasions",
       "featuredImg": "/images/collections/girl-occasions.webp",
       "slug": "girl-occasions",
-      "collection": ["girls"]
+      "collections": ["girls"]
     },
     {
       "name": "Girl Everyday",
       "featuredImg": "/images/collections/girl-everyday.webp",
       "slug": "girl-everyday",
-      "collection": ["girls"]
+      "collections": ["girls"]
     },
     {
       "name": "Women Dress",
       "featuredImg": "/images/collections/women-dress.webp",
       "slug": "women-dress",
-      "collection": ["women"]
+      "collections": ["women"]
     },
     {
       "name": "Boy Sets",
       "featuredImg": "/images/collections/boy-sets.webp",
       "slug": "boy-sets",
-      "collection": ["boys"]
+      "collections": ["boys"]
     }
   ]
 }
