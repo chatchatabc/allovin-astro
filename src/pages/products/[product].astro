@@ -1,0 +1,132 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import productsJson from "@data/products.json";
+import { Img } from "astro-imagetools/components";
+import ProductDetails from "@components/products/ProductDetails.astro";
+
+export function getStaticPaths() {
+  const paths = productsJson.contents.map((product) => ({
+    params: { product: product.slug },
+    props: {
+      product,
+    },
+  }));
+
+  return paths;
+}
+
+interface Props {
+  product: {
+    name: string;
+    slug: string;
+    price: number;
+    featuredImage: string;
+    colorVariants: Record<string, any>[];
+  };
+}
+
+const { product } = Astro.props as Props;
+---
+
+<MainLayout>
+  <section class="border-t">
+    <section class="container mx-auto px-8">
+      <figure class="flex">
+        <div class="flex-1 flex">
+          <div class="w-2/12 border"></div>
+          <div class="p-2">
+            <div>
+              <Img src={product.featuredImage} alt={product.name} />
+            </div>
+          </div>
+        </div>
+
+        <!-- Information -->
+        <section class="w-5/12">
+          <header class="max-w-[450px]">
+            <h1 class="text-2xl font-medium text-gray-500">{product.name}</h1>
+          </header>
+
+          <section class="my-2">
+            <div>
+              <p class="text-xs text-gray-500">
+                Color: <span>{product.colorVariants[0].name}</span>
+              </p>
+              <ul class="flex space-x-2 mt-2">
+                {
+                  product.colorVariants.map((item) => {
+                    return (
+                      <li>
+                        <button class="w-8 h-8 p-1 rounded-full border-2 border-gray-500 overflow-hidden">
+                          <Img src={item.selectionUrl} alt={item.name} />
+                        </button>
+                      </li>
+                    );
+                  })
+                }
+              </ul>
+            </div>
+          </section>
+
+          <ul>
+            <li class="border-b py-2">
+              <ProductDetails hidden={false} title="DESCRIPTION">
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Nulla ea blanditiis quibusdam illum, quia pariatur dolore,
+                  necessitatibus esse, amet culpa numquam nesciunt! Obcaecati
+                  ipsam quia magnam dolor porro eius numquam.
+                </p>
+              </ProductDetails>
+            </li>
+
+            <li class="border-b py-2">
+              <ProductDetails title="DETAILS AND CARE">
+                <div class="space-y-4">
+                  <p>
+                    We suggest hanging the garment in its own space to help any
+                    creases or wrinkles fall out of the fabric. All of our
+                    garments can be steamed, though we recommend a moderate
+                    temperature and a safe distance of about 15cm between the
+                    garment and the steamer.
+                  </p>
+                  <p>
+                    Please keep in mind that each embellishment is individually
+                    hand beaded onto the garment over time 1 or 2 beads will
+                    fall off.
+                  </p>
+                  <p>For more information, view our Care Instructions here.</p>
+                  <div>
+                    <p class="font-bold">Color</p>
+                    <p>
+                      We recommend to refer to the product image as it portrays
+                      the most accurate color of the garment in real life.
+                    </p>
+                  </div>
+                </div>
+              </ProductDetails>
+            </li>
+
+            <li class="border-b py-2">
+              <ProductDetails title="SIZE AND FIT">
+                <div class="space-y-4">
+                  <p>
+                    Elastic enclosed at waist and stretchy cotton bodice for
+                    ease to wear over the years. We focus on creating garments
+                    that are true to size, however, If in between the sizes,
+                    please go a size up.
+                  </p>
+                  <p>
+                    Please keep in mind that the size of the garment may not be
+                    equivalent to the age of your child. We strongly recommend
+                    to refer to our size guide before purchasing.
+                  </p>
+                </div>
+              </ProductDetails>
+            </li>
+          </ul>
+        </section>
+      </figure>
+    </section>
+  </section>
+</MainLayout>
