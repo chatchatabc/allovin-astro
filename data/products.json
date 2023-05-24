@@ -12,6 +12,11 @@
           "name": "red",
           "imageUrl": "/images/products/1.webp",
           "selectionUrl": "/images/products/1.webp"
+        },
+        {
+          "name": "red",
+          "imageUrl": "/images/products/3.webp",
+          "selectionUrl": "/images/products/3.webp"
         }
       ]
     },
