@@ -19,3 +19,25 @@ export function productGetVariantsDoc() {
   }
   `;
 }
+
+export function productGetDetailsDoc() {
+  return `
+  query GetProductDetails($id: ID!) {
+    product(id: $id) {
+      handle
+      title
+      variants(first: 50) {
+        nodes {
+          title
+          image {
+            url
+          }
+        }
+      }
+      featuredImage {
+        url
+      }
+    }
+  }
+  `;
+}
