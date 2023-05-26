@@ -1,16 +1,16 @@
 ---
 import { Img } from "astro-imagetools/components";
+import type { CommonVariants } from "src/domain/models/commonModel";
 
 interface Props {
   name: string;
   secondaryImage: string;
   href: string;
   price: number;
-  colorVariants: { name: string; imageUrl: string; selectionUrl: string }[];
+  variants: CommonVariants[];
 }
 
-const { name, secondaryImage, href, price, colorVariants } =
-  Astro.props as Props;
+const { name, secondaryImage, href, price, variants } = Astro.props as Props;
 ---
 
 <card-selection>
@@ -23,12 +23,15 @@ const { name, secondaryImage, href, price, colorVariants } =
 
       <!-- Different Variant Image -->
       {
-        colorVariants.map((variant) => {
-          return (
-            <div class="variants absolute h-full hidden top-0 w-full duration-500 group-hover:opacity-0">
-              <Img src={variant.imageUrl} alt={name} />
-            </div>
-          );
+        variants.map((variant) => {
+          if (variant.image) {
+            return (
+              <div class="variants absolute h-full hidden top-0 w-full duration-500 group-hover:opacity-0">
+                <Img src={variant.image.url} alt={name} />
+              </div>
+            );
+          }
+          return null;
         })
       }
       <p
@@ -51,24 +54,25 @@ const { name, secondaryImage, href, price, colorVariants } =
       </p>
       <ul class="flex justify-center mt-2">
         {
-          [...colorVariants].splice(0, 4).map((variant) => {
+          [...variants].splice(0, 4).map((variant) => {
+            console.log(variant);
             return (
               <li>
                 <button class="block border border-c2 overflow-hidden rounded-full w-9 h-9 p-1">
-                  <Img src={variant.selectionUrl} alt={variant.name} />
+                  <Img src={variant.image.url} alt={name} />
                 </button>
               </li>
             );
           })
         }
         {
-          colorVariants.length > 4 && (
+          variants.length > 4 && (
             <li>
               <a
                 href={href}
                 class="block overflow-hidden rounded-full w-8 h-8 p-1"
               >
-                <span class="text-c2">+{colorVariants.length - 4}</span>
+                <span class="text-c2">+{variants.length - 4}</span>
               </a>
             </li>
           )
