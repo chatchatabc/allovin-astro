@@ -7,16 +7,17 @@
       "collections": ["girls"],
       "subCollections": ["girl-occasions"],
       "featuredImage": "/images/products/2.webp",
+      "images": ["/images/products/1.webp", "/images/products/2.webp"],
       "colorVariants": [
         {
-          "name": "red",
+          "name": "White",
           "imageUrl": "/images/products/1.webp",
           "selectionUrl": "/images/products/1.webp"
         },
         {
-          "name": "red",
-          "imageUrl": "/images/products/3.webp",
-          "selectionUrl": "/images/products/3.webp"
+          "name": "Red",
+          "imageUrl": "/images/products/14.webp",
+          "selectionUrl": "/images/products/14.webp"
         }
       ]
     },
