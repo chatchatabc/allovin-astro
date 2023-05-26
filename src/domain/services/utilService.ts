@@ -8,5 +8,5 @@ export function utilConvertToPhp(amount: number, currency: string) {
     return undefined;
   }
 
-  return amount * rate;
+  return amount / rate;
 }
