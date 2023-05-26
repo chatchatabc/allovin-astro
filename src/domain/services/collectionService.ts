@@ -32,7 +32,7 @@ export async function collectionGetProducts(id: string, amount?: number) {
   });
 
   if (data.errors) {
-    return [];
+    return undefined;
   }
 
   return data.data.collection.products.nodes;
