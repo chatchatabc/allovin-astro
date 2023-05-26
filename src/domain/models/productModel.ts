@@ -7,3 +7,11 @@ export type ProductGetDetails = {
   variants: { nodes: CommonVariants[] };
   featuredImage: { url: string };
 };
+
+export type ProductGetVariants = {
+  handle: string;
+  title: string;
+  priceRangeV2: CommonPriceRangeV2;
+  variants: { nodes: CommonVariants[] };
+  featuredImage: { url: string };
+};

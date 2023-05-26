@@ -3,7 +3,10 @@ import {
   productGetVariantsDoc,
 } from "../docs/productDoc";
 import { graphqlQuery } from "../infra/graphqlActions";
-import type { ProductGetDetails } from "../models/productModel";
+import type {
+  ProductGetDetails,
+  ProductGetVariants,
+} from "../models/productModel";
 
 export async function productGetVariants(id: string, amount?: number) {
   const variables = { id, amount };
@@ -18,7 +21,7 @@ export async function productGetVariants(id: string, amount?: number) {
     return undefined;
   }
 
-  return data.data.product;
+  return data.data.product as ProductGetVariants;
 }
 
 export async function productGetDetails(id: string) {
