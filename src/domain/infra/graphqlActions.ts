@@ -21,6 +21,11 @@ export async function graphqlQuery(data: {
 
     const response = await axios.post(process.env.URL ?? "", data, config);
 
+    if (response.data.errors) {
+      console.log(response.data.errors);
+      return null;
+    }
+
     return response.data.data;
   } catch (err) {
     const error = err as AxiosError;

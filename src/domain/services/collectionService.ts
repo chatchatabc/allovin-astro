@@ -2,14 +2,16 @@ import { collectionGetDoc } from "../docs/collectionDoc";
 import { graphqlQuery } from "../infra/graphqlActions";
 
 export async function collectionGet(
-  handle: string
+  variables: Record<string, any>
 ): Promise<Record<string, any> | null> {
-  const variables = { handle, collections: 1, products: 10 };
   const query = collectionGetDoc();
 
-  const data = await graphqlQuery({ query, variables });
+  const data = await graphqlQuery({
+    query,
+    variables: { collections: 1, products: 10, ...variables },
+  });
 
-  if (data.collections.nodes.length === 0 || !data) {
+  if (!data || data.collections.nodes.length === 0) {
     return null;
   }
 
