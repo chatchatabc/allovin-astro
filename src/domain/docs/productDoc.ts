@@ -4,6 +4,16 @@ export function productGetVariantsDoc() {
     product(id: $id) {
       handle
       title
+      priceRangeV2{
+        minVariantPrice{
+          amount
+          currencyCode
+        }
+        maxVariantPrice{
+          amount
+          currencyCode
+        }
+      }
       variants(first: $amount) {
         nodes {
           title
