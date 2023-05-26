@@ -1,31 +1,31 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
-import productsJson from "@data/products.json";
 import { Img } from "astro-imagetools/components";
 import ProductDetails from "@components/products/ProductDetails.astro";
+import { collectionGetProducts } from "src/domain/services/collectionService";
+import { productGetDetails } from "src/domain/services/productService";
 
-export function getStaticPaths() {
-  const paths = productsJson.contents.map((product) => ({
-    params: { product: product.slug },
+export async function getStaticPaths() {
+  const newItemsSection = await collectionGetProducts(
+    "gid://shopify/Collection/263704182921"
+  );
+  const paths1 = newItemsSection.map((product: any) => ({
+    params: { product: product.handle },
     props: {
-      product,
+      productId: product.id,
     },
   }));
 
-  return paths;
+  return [...paths1];
 }
 
 interface Props {
-  product: {
-    name: string;
-    slug: string;
-    price: number;
-    featuredImage: string;
-    colorVariants: Record<string, any>[];
-  };
+  productId: string;
 }
 
-const { product } = Astro.props as Props;
+const { productId } = Astro.props as Props;
+
+const product = await productGetDetails(productId);
 ---
 
 <MainLayout>
@@ -36,7 +36,7 @@ const { product } = Astro.props as Props;
           <div class="w-2/12 border"></div>
           <div class="p-2">
             <div>
-              <Img src={product.featuredImage} alt={product.name} />
+              <Img src={product?.featuredImage.url} alt={product?.title} />
             </div>
           </div>
         </div>
@@ -44,21 +44,21 @@ const { product } = Astro.props as Props;
         <!-- Information -->
         <section class="w-5/12">
           <header class="max-w-[450px]">
-            <h1 class="text-2xl font-medium text-gray-500">{product.name}</h1>
+            <h1 class="text-2xl font-medium text-gray-500">{product?.title}</h1>
           </header>
 
           <section class="my-2">
             <div>
               <p class="text-xs text-gray-500">
-                Color: <span>{product.colorVariants[0].name}</span>
+                Color: <span>{product?.variants.nodes[0].title}</span>
               </p>
               <ul class="flex space-x-2 mt-2">
                 {
-                  product.colorVariants.map((item) => {
+                  product?.variants.nodes.map((item) => {
                     return (
                       <li>
                         <button class="w-8 h-8 p-1 rounded-full border-2 border-gray-500 overflow-hidden">
-                          <Img src={item.selectionUrl} alt={item.name} />
+                          <Img src={item.image.url} alt={item.title} />
                         </button>
                       </li>
                     );
@@ -130,3 +130,6 @@ const { product } = Astro.props as Props;
     </section>
   </section>
 </MainLayout>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"
+></script>
