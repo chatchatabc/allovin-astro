@@ -26,6 +26,16 @@ export function productGetDetailsDoc() {
     product(id: $id) {
       handle
       title
+      priceRangeV2{
+        minVariantPrice{
+          amount
+          currencyCode
+        }
+        maxVariantPrice{
+          amount
+          currencyCode
+        }
+      }
       variants(first: 50) {
         nodes {
           title

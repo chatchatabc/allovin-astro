@@ -6,3 +6,13 @@ export type CommonVariants = {
 export type CommonImage = {
   url: string;
 };
+
+export type CommonPrice = {
+  amount: number;
+  currencyCode: string;
+};
+
+export type CommonPriceRangeV2 = {
+  minVariantPrice: CommonPrice;
+  maxVariantPrice: CommonPrice;
+};
