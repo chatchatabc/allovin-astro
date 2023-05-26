@@ -6,6 +6,7 @@ export type ProductGetDetails = {
   priceRangeV2: CommonPriceRangeV2;
   variants: { nodes: CommonVariants[] };
   featuredImage: { url: string };
+  descriptionHtml: string;
 };
 
 export type ProductGetVariants = {

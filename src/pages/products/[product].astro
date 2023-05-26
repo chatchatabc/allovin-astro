@@ -71,17 +71,12 @@ const product = await productGetDetails(productId);
           <ul>
             <li class="border-b py-2">
               <ProductDetails hidden={false} title="DESCRIPTION">
-                <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Nulla ea blanditiis quibusdam illum, quia pariatur dolore,
-                  necessitatibus esse, amet culpa numquam nesciunt! Obcaecati
-                  ipsam quia magnam dolor porro eius numquam.
-                </p>
+                <div set:html={product?.descriptionHtml} />
               </ProductDetails>
             </li>
 
             <li class="border-b py-2">
-              <ProductDetails title="DETAILS AND CARE">
+              <ProductDetails hidden={false} title="DETAILS AND CARE">
                 <div class="space-y-4">
                   <p>
                     We suggest hanging the garment in its own space to help any
@@ -108,7 +103,7 @@ const product = await productGetDetails(productId);
             </li>
 
             <li class="border-b py-2">
-              <ProductDetails title="SIZE AND FIT">
+              <ProductDetails hidden={false} title="SIZE AND FIT">
                 <div class="space-y-4">
                   <p>
                     Elastic enclosed at waist and stretchy cotton bodice for

@@ -36,6 +36,7 @@ export function productGetDetailsDoc() {
     product(id: $id) {
       handle
       title
+      descriptionHtml
       priceRangeV2{
         minVariantPrice{
           amount
