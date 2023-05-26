@@ -1,4 +1,7 @@
-import { collectionGetDoc } from "../docs/collectionDoc";
+import {
+  collectionGetDoc,
+  collectionGetProductsDoc,
+} from "../docs/collectionDoc";
 import { graphqlQuery } from "../infra/graphqlActions";
 
 export async function collectionGet(
@@ -8,7 +11,7 @@ export async function collectionGet(
 
   const data = await graphqlQuery({
     query,
-    variables: { collections: 1, products: 10, ...variables },
+    variables: { collections: 1, products: 1, ...variables },
   });
 
   if (!data || data.collections.nodes.length === 0) {
@@ -18,4 +21,19 @@ export async function collectionGet(
   const simplifiedData = data.collections.nodes;
 
   return simplifiedData[0];
+}
+
+export async function collectionGetProducts(id: string, amount?: number) {
+  const query = collectionGetProductsDoc();
+
+  const data = await graphqlQuery({
+    query,
+    variables: { id, amount },
+  });
+
+  if (data.errors) {
+    return [];
+  }
+
+  return data.data.collection.products.nodes;
 }

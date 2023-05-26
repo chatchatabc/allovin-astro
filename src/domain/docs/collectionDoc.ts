@@ -8,16 +8,34 @@ export function collectionGetDoc() {
         productsCount
         products(first: $products, sortKey: $sortKey) {
           nodes {
+            title
             handle
+            createdAt
             variants (first: 10) {
               nodes {
-                title
+                image {
+                  url
+                }
               }
             }
             featuredImage {
               url
             }
           }
+        }
+      }
+    }
+  }
+  `;
+}
+
+export function collectionGetProductsDoc() {
+  return `
+  query GetCollectionProducts($id: ID!, $amount: Int = 10) {
+    collection(id: $id) {
+      products(first: $amount) {
+        nodes {
+          id
         }
       }
     }
