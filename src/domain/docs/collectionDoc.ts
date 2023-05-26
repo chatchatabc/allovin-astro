@@ -36,6 +36,7 @@ export function collectionGetProductsDoc() {
       products(first: $amount) {
         nodes {
           id
+          handle
         }
       }
     }
