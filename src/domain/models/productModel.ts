@@ -16,3 +16,9 @@ export type ProductGetVariants = {
   variants: { nodes: CommonVariants[] };
   featuredImage: { url: string };
 };
+
+export type ProductGetAll = {
+  handle: string;
+  id: string;
+  title: string;
+}[];

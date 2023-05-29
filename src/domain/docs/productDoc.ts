@@ -62,3 +62,17 @@ export function productGetDetailsDoc() {
   }
   `;
 }
+
+export function productGetAllDoc() {
+  return `
+  query GetProducts($amount: Int = 50) {
+    products(first: $amount) {
+      nodes {
+        handle
+        id
+        title
+      }
+    }
+  }
+  `;
+}
