@@ -2,19 +2,23 @@
   "contents": [
     {
       "name": "GIRLS",
-      "slug": "girls"
+      "handle": "girls",
+      "id": "gid://shopify/Collection/276032487561"
     },
     {
       "name": "WOMEN",
-      "slug": "women"
+      "handle": "women",
+      "id": "gid://shopify/Collection/276032323721"
     },
     {
       "name": "EXCLUSIVES",
-      "slug": "exclusives"
+      "handle": "exclusives",
+      "id": "gid://shopify/Collection/276032651401"
     },
     {
       "name": "BOYS",
-      "slug": "boys"
+      "handle": "boys",
+      "id": "gid://shopify/Collection/263706804361"
     }
   ]
 }
