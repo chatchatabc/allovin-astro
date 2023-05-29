@@ -90,7 +90,7 @@ const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
           <section class="my-2">
             <div>
               <p class="text-xs text-gray-500">
-                Color: <span>{productColors[0].title}</span>
+                Color: <span>{productColors[0]?.title ?? ""}</span>
               </p>
               <ul class="flex space-x-2 mt-2">
                 {
