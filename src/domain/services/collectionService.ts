@@ -3,6 +3,7 @@ import {
   collectionGetProductsDoc,
 } from "../docs/collectionDoc";
 import { graphqlQuery } from "../infra/graphqlActions";
+import type { CollectionGetProducts } from "../models/collectionModel";
 
 export async function collectionGet(
   variables: Record<string, any>
@@ -35,5 +36,5 @@ export async function collectionGetProducts(id: string, amount?: number) {
     return undefined;
   }
 
-  return data.data.collection.products.nodes;
+  return data.data.collection.products.nodes as CollectionGetProducts;
 }
