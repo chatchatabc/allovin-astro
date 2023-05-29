@@ -23,6 +23,11 @@ const newItemsSectionProducts = await collectionGetProducts(
 const bestSellingProducts = await collectionGetProducts(
   "gid://shopify/Collection/264346108041"
 );
+
+// Flower Girl Dress
+const flowerGirlDressProducts = await collectionGetProducts(
+  "gid://shopify/Collection/267757224073"
+);
 ---
 
 <MainLayout>
@@ -142,17 +147,24 @@ const bestSellingProducts = await collectionGetProducts(
         <section>
           <ul class="flex overflow-hidden">
             {
-              [...products].splice(0, 3).map((product) => {
-                const { name, price, featuredImage, colorVariants, slug } =
-                  product;
+              flowerGirlDressProducts?.splice(0, 3).map(async (item) => {
+                const product = await productGetVariants(item.id);
                 return (
                   <li class="p-2 w-1/2 flex-shrink-0 md:w-1/3">
                     <CardSelection
-                      name={name}
-                      price={price}
-                      secondaryImage={featuredImage}
-                      variants={[]}
-                      href={`/products/${slug}`}
+                      name={product?.title ?? ""}
+                      price={
+                        utilConvertToPhp(
+                          product?.priceRangeV2.minVariantPrice.amount ?? 0,
+                          product?.priceRangeV2.minVariantPrice.currencyCode ??
+                            ""
+                        ) ?? 0
+                      }
+                      secondaryImage={product?.featuredImage.url ?? ""}
+                      variants={utilOptimizeColorVariants(
+                        product?.variants.nodes ?? []
+                      )}
+                      href={`/products/${product?.handle}`}
                     />
                   </li>
                 );
