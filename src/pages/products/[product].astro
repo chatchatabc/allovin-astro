@@ -38,9 +38,9 @@ const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
 <MainLayout>
   <section class="border-t">
     <section class="container mx-auto px-8">
-      <figure class="flex">
-        <div class="flex-1 flex items-center h-fit sticky top-32">
-          <div class="w-24 h-[75vh] overflow-hidden">
+      <figure class="flex flex-wrap">
+        <div class="flex-1 flex items-center h-fit sticky lg:top-32">
+          <div class="w-24 h-[75vh] overflow-hidden hidden lg:block">
             <swiper-container
               direction="vertical"
               slides-per-view="5"
@@ -65,7 +65,7 @@ const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
               pagination="true"
               speed="500"
               loop="true"
-              class="w-[500px]"
+              class="w-[300px] lg:w-[500px]"
             >
               {
                 product?.images.nodes.map((image) => {
@@ -81,8 +81,8 @@ const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
         </div>
 
         <!-- Information -->
-        <section class="w-5/12">
-          <header class="max-w-[450px]">
+        <section class="w-full lg:w-5/12">
+          <header class="lg:max-w-[450px]">
             <h1 class="text-2xl font-medium text-gray-500">{product?.title}</h1>
           </header>
 
@@ -174,6 +174,49 @@ const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
           </ul>
         </section>
       </figure>
+
+      <section class="py-16 space-y-16 md:space-y-0">
+        <figure
+          class="flex flex-wrap flex-row-reverse items-center space-y-16 md:space-y-0"
+        >
+          <div class="flex w-full md:w-1/2">
+            <Img
+              src="/images/products/made-with-love.webp"
+              alt="Made with love"
+            />
+          </div>
+          <figcaption class="text-center w-full md:w-1/2">
+            <header>
+              <h2 class="text-xl md:text-2xl lg:text-3xl">MADE WITH LOVE</h2>
+            </header>
+            <p class="mx-auto md:w-3/4">
+              Allovin, pronounced as /ɔːlʌvɪŋ/, means all love in. At the root
+              of Allovin is a mom who loves design and art, and wanted more from
+              the products they were using on herself and her young children.
+            </p>
+          </figcaption>
+        </figure>
+
+        <figure class="flex flex-wrap items-center space-y-16 md:space-y-0">
+          <div class="flex w-full md:w-1/2">
+            <Img
+              src="/images/products/make-life-memorable.webp"
+              alt="Made with love"
+            />
+          </div>
+          <figcaption class="text-center w-full md:w-1/2">
+            <header>
+              <h2 class="text-xl md:text-2xl lg:text-3xl">
+                MAKE LIFE MEMORABLE
+              </h2>
+            </header>
+            <p class="mx-auto md:w-3/4">
+              Whether it be birthdays,weddings or just playing make believe,
+              your little girl's next dream outfit awaits!
+            </p>
+          </figcaption>
+        </figure>
+      </section>
     </section>
   </section>
 </MainLayout>
