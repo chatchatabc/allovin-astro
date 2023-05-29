@@ -1,37 +1,42 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import collectionsJson from "@data/collections.json";
-import subCollectionsJson from "@data/sub-collections.json";
-import productsJson from "@data/products.json";
 import { Icon } from "astro-icon";
 import CardSelection from "@components/CardSelection.astro";
+import { collectionGetProducts } from "src/domain/services/collectionService";
+import { productGetVariants } from "src/domain/services/productService";
+import {
+  utilConvertToPhp,
+  utilOptimizeColorVariants,
+} from "src/domain/services/utilService";
 
 export function getStaticPaths() {
-  const paths = collectionsJson.contents.map((collection) => ({
-    params: { collection: collection.slug },
-    props: {
-      collection,
-    },
-  }));
-
-  return paths;
+  return collectionsJson.contents.map((collection) => {
+    return {
+      params: {
+        collection: collection.handle,
+      },
+      props: {
+        collectionInfo: collection,
+      },
+    };
+  });
 }
 
 interface Props {
-  collection: Record<string, any>;
+  collectionInfo: Record<string, any>;
 }
 
-const { collection } = Astro.props as Props;
-const subCollections = subCollectionsJson.contents.filter((subCollection) =>
-  subCollection.collections.includes(collection.slug)
-);
+const { collectionInfo } = Astro.props as Props;
+
+const collectionProducts = await collectionGetProducts(collectionInfo.id);
 ---
 
 <MainLayout>
   <section class="pt-8 pb-2 border-t">
     <header class="container mx-auto px-8">
       <h1 class="text-2xl text-center text-gray-500 font-bold">
-        {collection.name}
+        {collectionInfo.name}
       </h1>
     </header>
 
@@ -67,7 +72,7 @@ const subCollections = subCollectionsJson.contents.filter((subCollection) =>
           <Icon name="mdi:caret" class="w-6 h-6" />
           <p class="font-medium text-lg">Category</p>
         </button>
-        <ul class="py-2 space-y-2">
+        <!-- <ul class="py-2 space-y-2">
           {
             subCollections.map((item) => {
               return (
@@ -80,7 +85,7 @@ const subCollections = subCollectionsJson.contents.filter((subCollection) =>
               );
             })
           }
-        </ul>
+        </ul> -->
       </section>
     </aside>
 
@@ -88,16 +93,30 @@ const subCollections = subCollectionsJson.contents.filter((subCollection) =>
     <section class="flex-1 p-2">
       <ul class="flex flex-wrap">
         {
-          productsJson.contents.map((product) => {
-            const { name, price, featuredImage, colorVariants, slug } = product;
+          collectionProducts?.map(async (item, index) => {
+            await new Promise((resolve) => setTimeout(resolve, index * 1000));
+
+            const product = await productGetVariants(item.id);
+
+            const images = product?.images.nodes ?? [];
+            const image = images
+              ? images[images.length - 1]
+              : product?.featuredImage;
             return (
               <li class="w-1/4 p-2">
                 <CardSelection
-                  name={name}
-                  price={price}
-                  secondaryImage={featuredImage}
-                  colorVariants={colorVariants}
-                  href={`/products/${slug}`}
+                  name={product?.title ?? ""}
+                  price={
+                    utilConvertToPhp(
+                      product?.priceRangeV2.minVariantPrice.amount ?? 0,
+                      product?.priceRangeV2.minVariantPrice.currencyCode ?? ""
+                    ) ?? 0
+                  }
+                  secondaryImage={image?.url ?? "/images/placeholder.png"}
+                  variants={utilOptimizeColorVariants(
+                    product?.variants.nodes ?? []
+                  )}
+                  href={`/products/${product?.handle}`}
                 />
               </li>
             );
