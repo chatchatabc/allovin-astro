@@ -1,6 +1,6 @@
 export type CommonVariants = {
   title: string;
-  image: CommonImage;
+  image: CommonImage | null;
 };
 
 export type CommonImage = {
