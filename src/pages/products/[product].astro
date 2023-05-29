@@ -7,6 +7,7 @@ import {
   productGetDetails,
 } from "src/domain/services/productService";
 import { utilOptimizeColorVariants } from "src/domain/services/utilService";
+import ProductGallery from "@components/products/ProductGallery.astro";
 
 export async function getStaticPaths() {
   const products = await productGetAll(250);
@@ -39,16 +40,11 @@ const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
   <section class="border-t">
     <section class="container mx-auto px-8">
       <figure class="flex">
-        <div class="flex-1 flex">
-          <div class="w-2/12 border"></div>
-          <div class="p-2">
-            <div>
-              <Img
-                src={product?.featuredImage.url ?? "/images/placeholder.png"}
-                alt={product?.title}
-              />
-            </div>
-          </div>
+        <div class="flex-1 flex h-fit sticky top-32">
+          <ProductGallery
+            images={product?.images.nodes ?? []}
+            name={product?.title ?? ""}
+          />
         </div>
 
         <!-- Information -->
@@ -57,10 +53,11 @@ const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
             <h1 class="text-2xl font-medium text-gray-500">{product?.title}</h1>
           </header>
 
+          <!-- Color Variation -->
           <section class="my-2">
             <div>
               <p class="text-xs text-gray-500">
-                Color: <span>{product?.variants.nodes[0].title}</span>
+                Color: <span>{productColors[0].title}</span>
               </p>
               <ul class="flex space-x-2 mt-2">
                 {

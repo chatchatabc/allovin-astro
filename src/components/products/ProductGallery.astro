@@ -1,0 +1,59 @@
+---
+import { Img } from "astro-imagetools/components";
+import type { CommonImage } from "src/domain/models/commonModel";
+
+interface Props {
+  images: CommonImage[];
+  name: string;
+}
+
+const { images, name } = Astro.props as Props;
+---
+
+<product-gallery class="flex w-full">
+  <div class="w-24 h-[75vh] overflow-hidden">
+    <!-- <div>
+      {
+        images.map((image) => {
+          return (
+            <div>
+              <Img src={image.url} alt={name} />
+            </div>
+          );
+        })
+      }
+    </div> -->
+    <swiper-container
+      direction="vertical"
+      slides-per-view="5"
+      speed="500"
+      loop="true"
+      class="w-full h-full"
+    >
+      {
+        images.map((image) => {
+          return (
+            <swiper-slide>
+              <Img src={image.url} alt={name} />
+            </swiper-slide>
+          );
+        })
+      }
+    </swiper-container>
+  </div>
+  <div class="p-2 flex-1">
+    <div class="w-2/3 mx-auto">
+      <Img layout="constrained" src={images[0].url} alt={name} />
+    </div>
+  </div>
+</product-gallery>
+
+<script>
+  class ProductGallery extends HTMLElement {
+    constructor() {
+      super();
+    }
+  }
+
+  customElements.define("product-gallery", ProductGallery);
+</script>
