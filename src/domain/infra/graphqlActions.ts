@@ -22,7 +22,7 @@ export async function graphqlQuery(data: {
     const response = await axios.post(process.env.URL ?? "", data, config);
 
     if (response.data.errors) {
-      console.log(response.data);
+      console.log(data.query, response.data);
       return response.data;
     }
 
