@@ -7,7 +7,6 @@ import {
   productGetDetails,
 } from "src/domain/services/productService";
 import { utilOptimizeColorVariants } from "src/domain/services/utilService";
-import ProductGallery from "@components/products/ProductGallery.astro";
 
 export async function getStaticPaths() {
   const products = await productGetAll(250);
@@ -40,11 +39,45 @@ const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
   <section class="border-t">
     <section class="container mx-auto px-8">
       <figure class="flex">
-        <div class="flex-1 flex h-fit sticky top-32">
-          <ProductGallery
-            images={product?.images.nodes ?? []}
-            name={product?.title ?? ""}
-          />
+        <div class="flex-1 flex items-center h-fit sticky top-32">
+          <div class="w-24 h-[75vh] overflow-hidden">
+            <swiper-container
+              direction="vertical"
+              slides-per-view="5"
+              speed="500"
+              loop="true"
+              class="w-full h-full"
+            >
+              {
+                product?.images.nodes.map((image) => {
+                  return (
+                    <swiper-slide>
+                      <Img src={image.url} alt={product?.title ?? ""} />
+                    </swiper-slide>
+                  );
+                })
+              }
+            </swiper-container>
+          </div>
+          <div class="p-2 flex-1">
+            <swiper-container
+              navigation="true"
+              pagination="true"
+              speed="500"
+              loop="true"
+              class="w-[500px]"
+            >
+              {
+                product?.images.nodes.map((image) => {
+                  return (
+                    <swiper-slide>
+                      <Img src={image.url} alt={product?.title ?? ""} />
+                    </swiper-slide>
+                  );
+                })
+              }
+            </swiper-container>
+          </div>
         </div>
 
         <!-- Information -->
@@ -64,7 +97,13 @@ const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
                   productColors.map((item) => {
                     return (
                       <li>
-                        <button class="w-8 h-8 p-1 rounded-full border-2 border-gray-500 overflow-hidden">
+                        <button
+                          data-url={
+                            item.image?.url ?? "/images/placeholder.png"
+                          }
+                          data-product-details-page-colors
+                          class="w-8 h-8 p-1 rounded-full border-2 border-gray-500 overflow-hidden"
+                        >
                           <Img
                             src={item.image?.url ?? "/images/placeholder.png"}
                             alt={item.title}
@@ -81,7 +120,10 @@ const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
           <ul>
             <li class="border-b py-2">
               <ProductDetails hidden={false} title="DESCRIPTION">
-                <div set:html={product?.descriptionHtml} />
+                <div
+                  class="[&>div>p]:py-4"
+                  set:html={product?.descriptionHtml}
+                />
               </ProductDetails>
             </li>
 
@@ -138,3 +180,28 @@ const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"
 ></script>
+
+<script>
+  const colorVariants = document.querySelectorAll<HTMLButtonElement>(
+    "[data-product-details-page-colors]"
+  );
+  const imagesSwiper = document.querySelector<any>(
+    "[data-product-details-page-images-swiper]"
+  );
+  const images = document.querySelectorAll<HTMLImageElement>(
+    "[data-product-details-page-images]"
+  );
+
+  colorVariants.forEach((colorVariant) => {
+    colorVariant.addEventListener("click", () => {
+      const dataUrl = colorVariant.dataset.url;
+
+      const index = Array.from(images).findIndex((image) => {
+        return image.src === dataUrl;
+      });
+
+      imagesSwiper.activeIndex = index;
+      imagesSwiper.disable();
+    });
+  });
+</script>
