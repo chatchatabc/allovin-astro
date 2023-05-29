@@ -6,7 +6,10 @@ import productsJson from "@data/products.json";
 import CardSelection from "@components/CardSelection.astro";
 import { collectionGetProducts } from "../domain/services/collectionService";
 import { productGetVariants } from "src/domain/services/productService";
-import { utilConvertToPhp } from "src/domain/services/utilService";
+import {
+  utilConvertToPhp,
+  utilOptimizeColorVariants,
+} from "src/domain/services/utilService";
 
 const subCollections = subCollectionsJson.contents;
 const products = productsJson.contents;
@@ -104,7 +107,9 @@ const bestSellingProducts = await collectionGetProducts(
                     ) ?? 0
                   }
                   secondaryImage={product?.featuredImage.url ?? ""}
-                  variants={product?.variants.nodes ?? []}
+                  variants={utilOptimizeColorVariants(
+                    product?.variants.nodes ?? []
+                  )}
                   href={`/products/${product?.handle}`}
                 />
               </li>
