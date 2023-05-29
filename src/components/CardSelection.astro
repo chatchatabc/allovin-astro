@@ -55,7 +55,6 @@ const { name, secondaryImage, href, price, variants } = Astro.props as Props;
       <ul class="flex justify-center mt-2">
         {
           [...variants].splice(0, 4).map((variant) => {
-            console.log(variant);
             return (
               <li>
                 <button class="block border border-c2 overflow-hidden rounded-full w-9 h-9 p-1">
@@ -94,7 +93,6 @@ const { name, secondaryImage, href, price, variants } = Astro.props as Props;
       buttons.forEach((button, i) => {
         button.addEventListener("click", () => {
           index = i;
-          console.log(index);
           resetState();
           setActiveState();
         });
