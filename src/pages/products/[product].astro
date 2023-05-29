@@ -39,7 +39,9 @@ const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
   <section class="border-t">
     <section class="container mx-auto px-8">
       <figure class="flex flex-wrap">
+        <!-- Product Gallery -->
         <div class="flex-1 flex items-center h-fit sticky lg:top-32">
+          <!-- Product Gallery Navigation -->
           <div class="w-24 h-[75vh] overflow-hidden hidden lg:block">
             <swiper-container
               direction="vertical"
@@ -59,13 +61,15 @@ const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
               }
             </swiper-container>
           </div>
+
+          <!-- Product Gallery Main -->
           <div class="p-2 flex-1">
             <swiper-container
               navigation="true"
               pagination="true"
               speed="500"
               loop="true"
-              class="w-[300px] lg:w-[500px]"
+              class="w-[300px] xl:w-[500px]"
             >
               {
                 product?.images.nodes.map((image) => {
