@@ -18,7 +18,7 @@ const { name, secondaryImage, href, price, variants } = Astro.props as Props;
     <a href={href} class="relative block group">
       <!-- Secondary Image -->
       <div class="duration-500 z-1 opacity-0 group-hover:opacity-100">
-        <Img src={secondaryImage} alt={name} />
+        <Img src={secondaryImage ?? "/images/placeholder.png"} alt={name} />
       </div>
 
       <!-- Different Variant Image -->
@@ -27,7 +27,10 @@ const { name, secondaryImage, href, price, variants } = Astro.props as Props;
           if (variant.image) {
             return (
               <div class="variants absolute h-full hidden top-0 w-full duration-500 group-hover:opacity-0">
-                <Img src={variant.image.url} alt={name} />
+                <Img
+                  src={variant.image?.url ?? "/images/placeholder.png"}
+                  alt={name}
+                />
               </div>
             );
           }
@@ -58,7 +61,10 @@ const { name, secondaryImage, href, price, variants } = Astro.props as Props;
             return (
               <li>
                 <button class="block border border-c2 overflow-hidden rounded-full w-9 h-9 p-1">
-                  <Img src={variant.image.url} alt={name} />
+                  <Img
+                    src={variant.image?.url ?? "/images/placeholder.png"}
+                    alt={name}
+                  />
                 </button>
               </li>
             );
