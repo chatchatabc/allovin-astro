@@ -41,7 +41,10 @@ const product = await productGetDetails(productId);
           <div class="w-2/12 border"></div>
           <div class="p-2">
             <div>
-              <Img src={product?.featuredImage.url} alt={product?.title} />
+              <Img
+                src={product?.featuredImage.url ?? "/images/placeholder.png"}
+                alt={product?.title}
+              />
             </div>
           </div>
         </div>
@@ -63,7 +66,10 @@ const product = await productGetDetails(productId);
                     return (
                       <li>
                         <button class="w-8 h-8 p-1 rounded-full border-2 border-gray-500 overflow-hidden">
-                          <Img src={item.image.url} alt={item.title} />
+                          <Img
+                            src={item.image?.url ?? "/images/placeholder.png"}
+                            alt={item.title}
+                          />
                         </button>
                       </li>
                     );
