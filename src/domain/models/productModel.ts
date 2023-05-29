@@ -11,6 +11,7 @@ export type ProductGetDetails = {
   variants: { nodes: CommonVariants[] };
   featuredImage: CommonImage;
   descriptionHtml: string;
+  images: { nodes: CommonImage[] };
 };
 
 export type ProductGetVariants = {

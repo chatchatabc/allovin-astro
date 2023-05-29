@@ -4,12 +4,12 @@ export function productGetVariantsDoc() {
     product(id: $id) {
       handle
       title
-      priceRangeV2{
-        minVariantPrice{
+      priceRangeV2 {
+        minVariantPrice {
           amount
           currencyCode
         }
-        maxVariantPrice{
+        maxVariantPrice {
           amount
           currencyCode
         }
@@ -24,6 +24,11 @@ export function productGetVariantsDoc() {
       }
       featuredImage {
         url
+      }
+      images(first: 100) {
+        nodes {
+          url
+        }
       }
     }
   }
@@ -57,6 +62,11 @@ export function productGetDetailsDoc() {
       }
       featuredImage {
         url
+      }
+      images(first: 100) {
+        nodes {
+          url
+        }
       }
     }
   }
