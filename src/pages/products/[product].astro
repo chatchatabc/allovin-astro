@@ -6,6 +6,7 @@ import {
   productGetAll,
   productGetDetails,
 } from "src/domain/services/productService";
+import { utilOptimizeColorVariants } from "src/domain/services/utilService";
 
 export async function getStaticPaths() {
   const products = await productGetAll(250);
@@ -31,6 +32,7 @@ interface Props {
 const { productId } = Astro.props as Props;
 
 const product = await productGetDetails(productId);
+const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
 ---
 
 <MainLayout>
@@ -62,7 +64,7 @@ const product = await productGetDetails(productId);
               </p>
               <ul class="flex space-x-2 mt-2">
                 {
-                  product?.variants.nodes.map((item) => {
+                  productColors.map((item) => {
                     return (
                       <li>
                         <button class="w-8 h-8 p-1 rounded-full border-2 border-gray-500 overflow-hidden">
