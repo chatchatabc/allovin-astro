@@ -2,21 +2,26 @@
 import MainLayout from "@layouts/MainLayout.astro";
 import { Img } from "astro-imagetools/components";
 import ProductDetails from "@components/products/ProductDetails.astro";
-import { collectionGetProducts } from "src/domain/services/collectionService";
-import { productGetDetails } from "src/domain/services/productService";
+import {
+  productGetAll,
+  productGetDetails,
+} from "src/domain/services/productService";
 
 export async function getStaticPaths() {
-  const newItemsSection = await collectionGetProducts(
-    "gid://shopify/Collection/263704182921"
-  );
-  const paths1 = newItemsSection.map((product: any) => ({
+  const products = await productGetAll(250);
+
+  if (!products) {
+    return [];
+  }
+
+  const paths = products.map((product: any) => ({
     params: { product: product.handle },
     props: {
       productId: product.id,
     },
   }));
 
-  return [...paths1];
+  return paths;
 }
 
 interface Props {
