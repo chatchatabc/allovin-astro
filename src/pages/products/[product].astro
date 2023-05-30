@@ -33,6 +33,16 @@ const { productId } = Astro.props as Props;
 
 const product = await productGetDetails(productId);
 const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
+
+if (
+  (product && product?.handle === "allovin-winged-unicorn-fairy-costume") ||
+  product?.handle === "toddler-girls-rhinestone-crown-decor-hair-clip" ||
+  product?.handle ===
+    "allovin-toddler-girl-christening-baptism-flower-lace-dress-purple"
+) {
+  product.images.nodes = [];
+}
+console.log(product);
 ---
 
 <MainLayout>
