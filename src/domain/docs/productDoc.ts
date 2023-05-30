@@ -42,6 +42,7 @@ export function productGetDetailsDoc() {
       handle
       title
       descriptionHtml
+      tags
       priceRangeV2{
         minVariantPrice{
           amount
@@ -66,6 +67,13 @@ export function productGetDetailsDoc() {
       images(first: 100) {
         nodes {
           url
+        }
+      }
+      collections(first:50) {
+        nodes{
+          id
+          handle
+          title
         }
       }
     }
