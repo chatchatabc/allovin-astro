@@ -1,54 +1,44 @@
+import { productGetDetailsDoc } from "../src/domain/docs/productDoc";
+import { productGetAll } from "../src/domain/services/productService";
 import { fetchData } from "./fetchScript";
 
 const fs = require("fs");
 
-const products = 180;
-const GetProducts = `
-query GetProducts($products: Int = 1) {
-  products(first: $products) {
-    nodes {
-      handle
-      title
-      tags
-      createdAt
-      description
-      descriptionHtml
-      featuredImage {
-        altText
-        url
-      }
-      seo {
-        description
-        title
-      }
-    }
-  }
-}
-`;
-
 export default async function getProducts() {
-  const data = await fetchData(GetProducts, { products });
+  const data = await productGetAll(250);
 
   if (!data) {
     return;
   }
 
-  const simplifiedData = data.data.products.nodes.map(
-    (item: Record<string, any>) => {
-      return {
-        slug: item.handle,
-        name: item.title,
-        ...item,
-      };
+  const completeData: any = [];
+
+  data.forEach(async (product, index) => {
+    await new Promise((resolve) => setTimeout(resolve, index * 1000));
+
+    const request = await fetchData(productGetDetailsDoc(), {
+      id: product.id,
+    });
+
+    const productData = request.data.product;
+
+    console.log(productData, index * 1000, product);
+
+    if (productData) {
+      product = { ...product, ...productData };
     }
-  );
 
-  fs.writeFileSync(
-    "./data/product-items.json",
-    JSON.stringify(simplifiedData, null, 2)
-  );
+    completeData.push(product);
 
-  return simplifiedData;
+    if (index === data.length - 1) {
+      setTimeout(() => {
+        fs.writeFileSync(
+          "./data/product-items.json",
+          JSON.stringify(completeData, null, 2)
+        );
+      }, index * 1000 + 10000);
+    }
+  });
 }
 
 getProducts();
