@@ -1,5 +1,7 @@
 import type { AxiosError } from "axios";
 import axios from "axios";
+import { config } from "dotenv";
+config();
 
 function graphqlConfig() {
   const config = {
