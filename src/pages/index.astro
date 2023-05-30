@@ -153,7 +153,7 @@ const flowerGirlDressProducts = await collectionGetProducts(
 
         <!-- Content -->
         <section>
-          <ul class="flex overflow-hidden">
+          <ul class="flex overflow-hidden pb-8">
             {
               flowerGirlDressProducts?.splice(0, 3).map(async (item, index) => {
                 await new Promise((resolve) =>
@@ -229,7 +229,7 @@ const flowerGirlDressProducts = await collectionGetProducts(
       </section>
 
       <!-- Content -->
-      <ul class="flex overflow-hidden">
+      <ul class="flex overflow-hidden pb-8">
         {
           newItemsSectionProducts?.map(async (item, index) => {
             await new Promise((resolve) => setTimeout(resolve, index * 1000));
@@ -251,7 +251,9 @@ const flowerGirlDressProducts = await collectionGetProducts(
                     ) ?? 0
                   }
                   secondaryImage={image?.url ?? "/images/placeholder.png"}
-                  variants={product?.variants.nodes ?? []}
+                  variants={utilOptimizeColorVariants(
+                    product?.variants.nodes ?? []
+                  )}
                   href={`/products/${product?.handle}`}
                 />
               </li>
