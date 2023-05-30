@@ -120,8 +120,8 @@ const { name, secondaryImage, href, price, variants } = Astro.props as Props;
       }
 
       function setActiveState() {
-        variants[index].classList.remove("hidden");
-        buttons[index].classList.add("border");
+        variants[index]?.classList.remove("hidden");
+        buttons[index]?.classList.add("border");
       }
 
       resetState();
