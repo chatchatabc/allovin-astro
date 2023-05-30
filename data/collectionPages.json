@@ -1,0 +1,24 @@
+{
+  "contents": [
+    {
+      "name": "GIRLS",
+      "handle": "girls",
+      "id": "gid://shopify/Collection/276032487561"
+    },
+    {
+      "name": "WOMEN",
+      "handle": "women",
+      "id": "gid://shopify/Collection/276032323721"
+    },
+    {
+      "name": "EXCLUSIVES",
+      "handle": "exclusives",
+      "id": "gid://shopify/Collection/276032651401"
+    },
+    {
+      "name": "BOYS",
+      "handle": "boys",
+      "id": "gid://shopify/Collection/263706804361"
+    }
+  ]
+}
