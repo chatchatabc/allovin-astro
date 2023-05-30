@@ -1,17 +1,15 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
-import collectionsJson from "@data/collections.json";
-import { Icon } from "astro-icon";
+import collections from "@data/collections.json";
 import CardSelection from "@components/CardSelection.astro";
-import { collectionGetProducts } from "src/domain/services/collectionService";
-import { productGetVariants } from "src/domain/services/productService";
 import {
   utilConvertToPhp,
   utilOptimizeColorVariants,
 } from "src/domain/services/utilService";
+import CollectionLayout from "@layouts/CollectionLayout.svelte";
 
 export function getStaticPaths() {
-  return collectionsJson.contents.map((collection) => {
+  return collections.map((collection) => {
     return {
       params: {
         collection: collection.handle,
@@ -29,100 +27,42 @@ interface Props {
 
 const { collectionInfo } = Astro.props as Props;
 
-const collectionProducts = await collectionGetProducts(collectionInfo.id);
+const collectionProducts = collectionInfo.products;
 ---
 
 <MainLayout>
-  <section class="pt-8 pb-2 border-t">
-    <header class="container mx-auto px-8">
-      <h1 class="text-2xl text-center text-gray-500 font-bold">
-        {collectionInfo.name}
-      </h1>
-    </header>
-
-    <!-- Filters -->
-    <section
-      class="flex text-sm text-gray-500 container mx-auto space-x-4 px-8 items-center justify-end"
-    >
-      <div class="flex items-center space-x-1">
-        <p>Items per page</p>
-        <select class="py-2 px-4 w-48 border rounded-full">
-          <option>10</option>
-          <option>20</option>
-          <option>50</option>
-        </select>
-      </div>
-      <div class="flex items-center space-x-1">
-        <p>Sort by</p>
-        <select class="py-2 px-4 w-48 border rounded-full">
-          <option>Price, high to low</option>
-          <option>Featured</option>
-          <option>Price, low to high</option>
-        </select>
-      </div>
-    </section>
-  </section>
-
-  <!-- Body -->
-  <section class="container mx-auto border-t flex px-2 xl:px-0">
-    <!-- Filters -->
-    <aside class="py-4 space-y-4 text-gray-500 lg:w-56">
-      <section>
-        <button class="border-b w-full py-2 flex space-x-2 items-center">
-          <Icon name="mdi:caret" class="w-6 h-6" />
-          <p class="font-medium text-lg">Category</p>
-        </button>
-        <!-- <ul class="py-2 space-y-2">
-          {
-            subCollections.map((item) => {
-              return (
-                <li>
-                  <label class="text-sm flex items-center space-x-2">
-                    <input type="checkbox" />
-                    <p class="cursor-pointer">{item.name}</p>
-                  </label>
-                </li>
-              );
-            })
-          }
-        </ul> -->
-      </section>
-    </aside>
-
-    <!-- Products -->
-    <section class="flex-1 p-2">
-      <ul class="flex flex-wrap">
-        {
-          collectionProducts?.map(async (item, index) => {
-            await new Promise((resolve) => setTimeout(resolve, index * 1000));
-
-            const product = await productGetVariants(item.id);
-
-            const images = product?.images.nodes ?? [];
-            const image = images
-              ? images[images.length - 1]
-              : product?.featuredImage;
-            return (
-              <li class="w-1/4 p-2">
-                <CardSelection
-                  name={product?.title ?? ""}
-                  price={
-                    utilConvertToPhp(
-                      product?.priceRangeV2.minVariantPrice.amount ?? 0,
-                      product?.priceRangeV2.minVariantPrice.currencyCode ?? ""
-                    ) ?? 0
-                  }
-                  secondaryImage={image?.url ?? "/images/placeholder.png"}
-                  variants={utilOptimizeColorVariants(
-                    product?.variants.nodes ?? []
-                  )}
-                  href={`/products/${product?.handle}`}
-                />
-              </li>
-            );
-          })
-        }
-      </ul>
-    </section>
-  </section>
+  <CollectionLayout
+    client:load
+    products={collectionProducts}
+    name={collectionInfo.name}
+  >
+    <ul class="flex flex-wrap">
+      {
+        collectionProducts?.map(async (product: any, index: number) => {
+          const images = product?.images.nodes ?? [];
+          const image = images
+            ? images[images.length - 1]
+            : product?.featuredImage;
+          return (
+            <li class="w-1/4 p-2">
+              <CardSelection
+                name={product?.title ?? ""}
+                price={
+                  utilConvertToPhp(
+                    product?.priceRangeV2.minVariantPrice.amount ?? 0,
+                    product?.priceRangeV2.minVariantPrice.currencyCode ?? ""
+                  ) ?? 0
+                }
+                secondaryImage={image?.url ?? "/images/placeholder.png"}
+                variants={utilOptimizeColorVariants(
+                  product?.variants.nodes ?? []
+                )}
+                href={`/products/${product?.handle}`}
+              />
+            </li>
+          );
+        })
+      }
+    </ul>
+  </CollectionLayout>
 </MainLayout>

@@ -2,14 +2,11 @@
 import MainLayout from "@layouts/MainLayout.astro";
 import { Img } from "astro-imagetools/components";
 import ProductDetails from "@components/products/ProductDetails.astro";
-import {
-  productGetAll,
-  productGetDetails,
-} from "src/domain/services/productService";
 import { utilOptimizeColorVariants } from "src/domain/services/utilService";
+import products from "@data/product-items.json";
 
 export async function getStaticPaths() {
-  const products = await productGetAll(250);
+  // const products = await productGetAll(250);
 
   if (!products) {
     return [];
@@ -18,7 +15,7 @@ export async function getStaticPaths() {
   const paths = products.map((product: any) => ({
     params: { product: product.handle },
     props: {
-      productId: product.id,
+      product,
     },
   }));
 
@@ -26,12 +23,12 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  productId: string;
+  product: Record<string, any>;
 }
 
-const { productId } = Astro.props as Props;
+const { product } = Astro.props as Props;
 
-const product = await productGetDetails(productId);
+// const product = await productGetDetails(productId);
 const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
 
 if (
@@ -61,7 +58,7 @@ console.log(product);
               class="w-full h-full"
             >
               {
-                product?.images.nodes.map((image) => {
+                product?.images.nodes.map((image: any) => {
                   return (
                     <swiper-slide>
                       <Img src={image.url} alt={product?.title ?? ""} />
@@ -82,7 +79,7 @@ console.log(product);
               class="w-[300px] xl:w-[500px]"
             >
               {
-                product?.images.nodes.map((image) => {
+                product?.images.nodes.map((image: any) => {
                   return (
                     <swiper-slide>
                       <Img src={image.url} alt={product?.title ?? ""} />
