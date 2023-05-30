@@ -10,6 +10,8 @@ export default async function updateCurrency() {
     JSON.stringify(data.rates, null, 2),
     "utf-8"
   );
+
+  console.log("Currency rates updated!");
 }
 
 updateCurrency();
