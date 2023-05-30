@@ -46,7 +46,11 @@ const navigations = [
       class="flex relative justify-between items-center lg:justify-center"
     >
       <!-- Menu Button for Mobile -->
-      <button class="lg:hidden">Menu</button>
+      <button data-menu-btn class="space-y-1 lg:hidden">
+        <div data-menu-burger class="w-8 h-1 rounded-full bg-c1"></div>
+        <div data-menu-burger class="w-8 h-1 rounded-full bg-c1"></div>
+        <div data-menu-burger class="w-8 h-1 rounded-full bg-c1"></div>
+      </button>
 
       <!-- Centered Logo -->
       <a href="/" class="block w-48 lg:w-40">
@@ -95,4 +99,80 @@ const navigations = [
       </ul>
     </nav>
   </section>
+
+  <!-- Mobile Nav Menu -->
+  <section
+    data-mobile-menu
+    class="fixed top-0 left-0 w-full h-full backdrop-blur-sm opacity-0 pointer-events-none transition"
+  >
+    <!-- Background -->
+    <section
+      data-mobile-menu-bg
+      class="bg-black absolute w-full h-full opacity-50"
+    >
+    </section>
+
+    <!-- Content -->
+    <nav
+      data-mobile-menu-nav
+      class="w-96 bg-white absolute h-full -translate-x-full transition"
+    >
+      <ul class="flex flex-col justify-center items-center h-full py-16">
+        {
+          navigations.map((link) => {
+            return (
+              <li class="relative">
+                <a class="text-c1 text-lg font-light peer" href={link.href}>
+                  {link.name}
+                </a>
+                <div class="absolute scale-x-0 w-full h-[0.1rem] origin-bottom-left transition bottom-0 bg-c1 peer-hover:scale-x-100" />
+              </li>
+            );
+          })
+        }
+        <li class="mt-auto">
+          <button
+            data-menu-close-btn
+            class="p-2 text-white bg-red-600 rounded-full"
+          >
+            <Icon class="w-8 h-8" name="ph:x" />
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </section>
 </header>
+
+<script>
+  const menuBtn = document.querySelector("[data-menu-btn]")!;
+  const menuCloseBtn = document.querySelector("[data-menu-close-btn]")!;
+  const mobileMenu = document.querySelector("[data-mobile-menu]")!;
+  const mobileMenuBg = document.querySelector("[data-mobile-menu-bg]")!;
+  const mobileMenuNav = document.querySelector("[data-mobile-menu-nav]")!;
+
+  function closeMobileMenu() {
+    mobileMenu.classList.add("opacity-0");
+    mobileMenu.classList.add("pointer-events-none");
+    mobileMenuNav.classList.add("-translate-x-full");
+
+    // enable body scrollbar
+    document.body.style.overflow = "auto";
+  }
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.remove("opacity-0");
+    mobileMenu.classList.remove("pointer-events-none");
+    mobileMenuNav.classList.remove("-translate-x-full");
+
+    // disable body scrollbar
+    document.body.style.overflow = "hidden";
+  });
+
+  mobileMenuBg.addEventListener("click", () => {
+    closeMobileMenu();
+  });
+
+  menuCloseBtn.addEventListener("click", () => {
+    closeMobileMenu();
+  });
+</script>
