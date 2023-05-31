@@ -19,6 +19,16 @@
       "name": "BOYS",
       "handle": "boys",
       "id": "gid://shopify/Collection/263706804361"
+    },
+    {
+      "id": "gid://shopify/Collection/278858170505",
+      "handle": "mommy-me",
+      "title": "Mommy & Me"
+    },
+    {
+      "id": "gid://shopify/Collection/263706869897",
+      "handle": "new-accessories-gifts",
+      "title": "Accessories"
     }
   ]
 }
