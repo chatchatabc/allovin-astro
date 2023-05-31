@@ -1,4 +1,4 @@
-import products from "../data/product-items.json";
+import products from "../data/products.json";
 import collectionPagesJson from "../data/collectionPages.json";
 
 const fs = require("fs");
