@@ -35,7 +35,7 @@ export default async function getProducts() {
 
       console.log("Saving file...");
       fs.writeFileSync(
-        "./data/product-items.json",
+        "./data/product.json",
         JSON.stringify(completeData, null, 2)
       );
       console.log("File saved!");
