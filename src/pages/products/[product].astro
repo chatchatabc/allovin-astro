@@ -39,7 +39,8 @@ if (
 ) {
   product.images.nodes = [];
 }
-console.log(product);
+
+// console.log(product);
 ---
 
 <MainLayout>
@@ -61,7 +62,11 @@ console.log(product);
                 product?.images.nodes.map((image: any) => {
                   return (
                     <swiper-slide>
-                      <Img src={image.url} alt={product?.title ?? ""} />
+                      <Img
+                        breakpoints={[144]}
+                        src={image.url}
+                        alt={product?.title ?? ""}
+                      />
                     </swiper-slide>
                   );
                 })
@@ -82,7 +87,11 @@ console.log(product);
                 product?.images.nodes.map((image: any) => {
                   return (
                     <swiper-slide>
-                      <Img src={image.url} alt={product?.title ?? ""} />
+                      <Img
+                        breakpoints={[320, 768]}
+                        src={image.url}
+                        alt={product?.title ?? ""}
+                      />
                     </swiper-slide>
                   );
                 })
@@ -116,6 +125,7 @@ console.log(product);
                           class="w-8 h-8 p-1 rounded-full border-2 border-gray-500 overflow-hidden"
                         >
                           <Img
+                            breakpoints={[144]}
                             src={item.image?.url ?? "/images/placeholder.png"}
                             alt={item.title}
                           />
