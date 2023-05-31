@@ -8,7 +8,8 @@
     "build": "bun run ./scripts/updateCurrency.ts && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "products": "bun run ./scripts/getProducts.ts"
+    "products": "bun run ./scripts/getProducts.ts",
+    "collections": "bun run ./scripts/makeCollectionData.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.3",
