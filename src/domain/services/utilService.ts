@@ -20,8 +20,11 @@ export function utilOptimizeColorVariants(list: CommonVariants[]) {
   const newList: CommonVariants[] = [];
 
   list.forEach((variant) => {
+    /**
+     * Check if variant title contains a color
+     */
     const variantColor = colors.find((color) => {
-      return variant.title.toLowerCase().includes(color.toLocaleLowerCase());
+      return variant.title.toLowerCase().includes(color);
     });
 
     if (variantColor && !activeColors.includes(variantColor)) {
@@ -30,6 +33,11 @@ export function utilOptimizeColorVariants(list: CommonVariants[]) {
         image: variant.image,
       });
       activeColors.push(variantColor);
+    } else if (!variantColor) {
+      newList.push({
+        title: variant.title,
+        image: variant.image,
+      });
     }
   });
 
