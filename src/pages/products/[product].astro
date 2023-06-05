@@ -15,7 +15,7 @@ export async function getStaticPaths() {
   const paths = products.map((product: any) => ({
     params: { product: product.handle },
     props: {
-      product,
+      productData: product,
     },
   }));
 
@@ -23,21 +23,24 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  product: Record<string, any>;
+  productData: Record<string, any>;
 }
 
-const { product } = Astro.props as Props;
+const { productData } = Astro.props as Props;
 
 // const product = await productGetDetails(productId);
-const productColors = utilOptimizeColorVariants(product?.variants.nodes ?? []);
+const productColors = utilOptimizeColorVariants(
+  productData?.variants.nodes ?? []
+);
 
 if (
-  (product && product?.handle === "allovin-winged-unicorn-fairy-costume") ||
-  product?.handle === "toddler-girls-rhinestone-crown-decor-hair-clip" ||
-  product?.handle ===
+  (productData &&
+    productData?.handle === "allovin-winged-unicorn-fairy-costume") ||
+  productData?.handle === "toddler-girls-rhinestone-crown-decor-hair-clip" ||
+  productData?.handle ===
     "allovin-toddler-girl-christening-baptism-flower-lace-dress-purple"
 ) {
-  product.images.nodes = [];
+  productData.images.nodes = [];
 }
 
 // console.log(product);
@@ -52,21 +55,21 @@ if (
           <!-- Product Gallery Navigation -->
           <div class="w-24 h-[75vh] overflow-hidden hidden lg:block">
             <swiper-container
-              direction="vertical"
-              slides-per-view="5"
-              speed="500"
-              loop="true"
+              init="false"
+              data-carousel-pagination
               class="w-full h-full"
             >
               {
-                product?.images.nodes.map((image: any) => {
+                productData?.images.nodes.map((image: any) => {
                   return (
                     <swiper-slide>
-                      <Img
-                        breakpoints={[144]}
-                        src={image.url}
-                        alt={product?.title ?? ""}
-                      />
+                      <div class="cursor-pointer hover:opacity-50">
+                        <Img
+                          breakpoints={[144]}
+                          src={image.url}
+                          alt={productData?.title ?? ""}
+                        />
+                      </div>
                     </swiper-slide>
                   );
                 })
@@ -77,20 +80,20 @@ if (
           <!-- Product Gallery Main -->
           <div class="p-2 flex-1">
             <swiper-container
-              navigation="true"
-              pagination="true"
-              speed="500"
-              loop="true"
+              init="false"
+              data-carousel
               class="w-[300px] xl:w-[500px]"
             >
               {
-                product?.images.nodes.map((image: any) => {
+                productData?.images.nodes.map((image: any) => {
                   return (
                     <swiper-slide>
                       <Img
                         breakpoints={[320, 768]}
                         src={image.url}
-                        alt={product?.title ?? ""}
+                        alt={productData?.title ?? ""}
+                        data-carousel-images
+                        data-url={image.url}
                       />
                     </swiper-slide>
                   );
@@ -103,7 +106,9 @@ if (
         <!-- Information -->
         <section class="w-full lg:w-5/12">
           <header class="lg:max-w-[450px]">
-            <h1 class="text-2xl font-medium text-gray-500">{product?.title}</h1>
+            <h1 class="text-2xl font-medium text-gray-500">
+              {productData?.title}
+            </h1>
           </header>
 
           <!-- Color Variation -->
@@ -143,7 +148,7 @@ if (
               <ProductDetails hidden={false} title="DESCRIPTION">
                 <div
                   class="[&>div>p]:py-4"
-                  set:html={product?.descriptionHtml}
+                  set:html={productData?.descriptionHtml}
                 />
               </ProductDetails>
             </li>
@@ -242,30 +247,63 @@ if (
   </section>
 </MainLayout>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"
-></script>
-
 <script>
+  import { register } from "swiper/element/bundle";
+  import type { SwiperOptions } from "swiper/types";
+  register();
+
+  const carousel = document.querySelector<any>("[data-carousel]");
+  const carouselPagination = document.querySelector<any>(
+    "[data-carousel-pagination]"
+  );
+  const carouselImages = document.querySelectorAll<any>(
+    "[data-carousel-images]"
+  );
   const colorVariants = document.querySelectorAll<HTMLButtonElement>(
     "[data-product-details-page-colors]"
   );
-  const imagesSwiper = document.querySelector<any>(
-    "[data-product-details-page-images-swiper]"
-  );
-  const images = document.querySelectorAll<HTMLImageElement>(
-    "[data-product-details-page-images]"
-  );
+
+  const carouselParams: SwiperOptions = {
+    slidesPerView: 1,
+    pagination: true,
+    navigation: true,
+    on: {
+      slideChange: (swiper) => {
+        const index = swiper.realIndex;
+        carouselPagination.swiper.slideTo(index);
+      },
+    },
+  };
+
+  const carouselPaginationParams: SwiperOptions = {
+    slidesPerView: 5,
+    direction: "vertical",
+    spaceBetween: 10,
+    on: {
+      click: (swiper) => {
+        const index = swiper.clickedIndex;
+        carousel.swiper.slideTo(index);
+
+        carouselPagination.swiper.slideTo(index);
+      },
+    },
+  };
+
+  Object.assign(carousel, carouselParams);
+  Object.assign(carouselPagination, carouselPaginationParams);
+
+  carousel.initialize();
+  carouselPagination.initialize();
 
   colorVariants.forEach((colorVariant) => {
     colorVariant.addEventListener("click", () => {
       const dataUrl = colorVariant.dataset.url;
 
-      const index = Array.from(images).findIndex((image) => {
-        return image.src === dataUrl;
+      const index = Array.from(carouselImages).findIndex((image) => {
+        return image.dataset.url === dataUrl;
       });
 
-      imagesSwiper.activeIndex = index;
-      imagesSwiper.disable();
+      carousel.swiper.slideTo(index);
     });
   });
 </script>
