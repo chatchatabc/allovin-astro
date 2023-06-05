@@ -4,6 +4,7 @@ import {
 } from "../docs/collectionDoc";
 import { graphqlQuery } from "../infra/graphqlActions";
 import type { CollectionGetProducts } from "../models/collectionModel";
+import products from "@data/products.json";
 
 export async function collectionGet(
   variables: Record<string, any>
@@ -37,4 +38,27 @@ export async function collectionGetProducts(id: string, amount?: number) {
   }
 
   return data.data.collection.products.nodes as CollectionGetProducts;
+}
+
+export async function collectionGetProductsOffline(
+  id: string,
+  amount?: number
+) {
+  const data = products.filter((product) => {
+    const collection = product.collections.nodes.find(
+      (collection) => collection.id === id
+    );
+
+    if (collection) {
+      return true;
+    }
+
+    return false;
+  });
+
+  if (amount) {
+    return data.slice(0, amount);
+  }
+
+  return data;
 }
