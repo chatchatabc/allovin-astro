@@ -15,7 +15,7 @@ const { name, secondaryImage, href, price, variants } = Astro.props as Props;
 
 <card-selection>
   <figure>
-    <a href={href} class="relative block group pb-[150%]">
+    <a href={href} class="relative block group pb-[125%]">
       <!-- Secondary Image -->
       <div
         class="top-0 absolute left-0 h-full w-full duration-500 z-1 opacity-0 group-hover:opacity-100"
@@ -32,7 +32,7 @@ const { name, secondaryImage, href, price, variants } = Astro.props as Props;
         variants.map((variant) => {
           if (variant.image) {
             return (
-              <div class="variants absolute h-ful left-0 hidden top-0 w-full duration-500 group-hover:opacity-0">
+              <div class="variants absolute h-full left-0 hidden top-0 w-full duration-500 group-hover:opacity-0">
                 <Img
                   breakpoints={[320]}
                   src={variant.image?.url ?? "/images/placeholder.png"}
