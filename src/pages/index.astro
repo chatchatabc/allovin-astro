@@ -3,8 +3,7 @@ import MainLayout from "@layouts/MainLayout.astro";
 import { Img } from "astro-imagetools/components";
 import subCollectionsJson from "@data/sub-collections.json";
 import CardSelection from "@components/CardSelection.astro";
-import { collectionGetProducts } from "../domain/services/collectionService";
-import { productGetVariants } from "src/domain/services/productService";
+import { collectionGetProductsOffline } from "../domain/services/collectionService";
 import {
   utilConvertToPhp,
   utilOptimizeColorVariants,
@@ -13,17 +12,17 @@ import {
 const subCollections = subCollectionsJson.contents;
 
 // New Items Section
-const newItemsSectionProducts = await collectionGetProducts(
+const newItemsSectionProducts = await collectionGetProductsOffline(
   "gid://shopify/Collection/263704182921"
 );
 
 // Best selling
-const bestSellingProducts = await collectionGetProducts(
+const bestSellingProducts = await collectionGetProductsOffline(
   "gid://shopify/Collection/264346108041"
 );
 
 // Flower Girl Dress
-const flowerGirlDressProducts = await collectionGetProducts(
+const flowerGirlDressProducts = await collectionGetProductsOffline(
   "gid://shopify/Collection/267757224073"
 );
 ---
@@ -97,11 +96,7 @@ const flowerGirlDressProducts = await collectionGetProducts(
     <section>
       <ul class="flex flex-wrap">
         {
-          bestSellingProducts?.map(async (item, index) => {
-            await new Promise((resolve) => setTimeout(resolve, index * 1000));
-
-            const product = await productGetVariants(item.id);
-
+          bestSellingProducts?.map((product, index) => {
             const images = product?.images.nodes ?? [];
             const image = images
               ? images[images.length - 1]
@@ -113,7 +108,7 @@ const flowerGirlDressProducts = await collectionGetProducts(
                   name={product?.title ?? ""}
                   price={
                     utilConvertToPhp(
-                      product?.priceRangeV2.minVariantPrice.amount ?? 0,
+                      Number(product.priceRangeV2.minVariantPrice.amount) ?? 0,
                       product?.priceRangeV2.minVariantPrice.currencyCode ?? ""
                     ) ?? 0
                   }
@@ -153,13 +148,7 @@ const flowerGirlDressProducts = await collectionGetProducts(
         <section>
           <ul class="flex overflow-hidden pb-8">
             {
-              flowerGirlDressProducts?.splice(0, 3).map(async (item, index) => {
-                await new Promise((resolve) =>
-                  setTimeout(resolve, index * 1000)
-                );
-
-                const product = await productGetVariants(item.id);
-
+              flowerGirlDressProducts?.splice(0, 3).map((product, index) => {
                 const images = product?.images.nodes ?? [];
                 const image = images
                   ? images[images.length - 1]
@@ -171,7 +160,9 @@ const flowerGirlDressProducts = await collectionGetProducts(
                       name={product?.title ?? ""}
                       price={
                         utilConvertToPhp(
-                          product?.priceRangeV2.minVariantPrice.amount ?? 0,
+                          Number(
+                            product?.priceRangeV2.minVariantPrice.amount
+                          ) ?? 0,
                           product?.priceRangeV2.minVariantPrice.currencyCode ??
                             ""
                         ) ?? 0
@@ -229,10 +220,7 @@ const flowerGirlDressProducts = await collectionGetProducts(
       <!-- Content -->
       <ul class="flex overflow-hidden pb-8">
         {
-          newItemsSectionProducts?.map(async (item, index) => {
-            await new Promise((resolve) => setTimeout(resolve, index * 1000));
-
-            const product = await productGetVariants(item.id);
+          newItemsSectionProducts?.map((product, index) => {
             const images = product?.images.nodes ?? [];
             const image = images
               ? images[images.length - 1]
@@ -244,7 +232,7 @@ const flowerGirlDressProducts = await collectionGetProducts(
                   name={product?.title ?? ""}
                   price={
                     utilConvertToPhp(
-                      product?.priceRangeV2.minVariantPrice.amount ?? 0,
+                      Number(product.priceRangeV2.minVariantPrice.amount) ?? 0,
                       product?.priceRangeV2.minVariantPrice.currencyCode ?? ""
                     ) ?? 0
                   }
