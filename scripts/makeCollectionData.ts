@@ -27,6 +27,13 @@ export default async function makeCollectionData() {
     });
   });
 
+  data.push({
+    name: "SHOP ALL",
+    handle: "shop-all",
+    id: "n/a",
+    products: products,
+  });
+
   fs.writeFileSync("./data/collections.json", JSON.stringify(data, null, 2));
 }
 
