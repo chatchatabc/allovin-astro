@@ -115,7 +115,9 @@ if (
           <section class="my-2">
             <div>
               <p class="text-xs text-gray-500">
-                Color: <span>{productColors[0]?.title ?? ""}</span>
+                Color: <span data-color-name class="capitalize font-bold">
+                  {productColors[0]?.title ?? ""}
+                </span>
               </p>
               <ul class="flex space-x-2 mt-2">
                 {
@@ -123,6 +125,7 @@ if (
                     return (
                       <li>
                         <button
+                          data-color={item.title}
                           data-url={
                             item.image?.url ?? "/images/placeholder.png"
                           }
@@ -262,6 +265,8 @@ if (
   const colorVariants = document.querySelectorAll<HTMLButtonElement>(
     "[data-product-details-page-colors]"
   );
+  const colorName =
+    document.querySelector<HTMLSpanElement>("[data-color-name]")!;
 
   const carouselParams: SwiperOptions = {
     slidesPerView: 1,
@@ -298,10 +303,11 @@ if (
   colorVariants.forEach((colorVariant) => {
     colorVariant.addEventListener("click", () => {
       const dataUrl = colorVariant.dataset.url;
+      const dataColor = colorVariant.dataset.color;
 
-      console.log(dataUrl);
+      console.log(dataColor);
 
-      console.log(carouselImages);
+      colorName.innerHTML = dataColor ?? "N/A";
 
       const index = Array.from(carouselImages).findIndex((image) => {
         return image.dataset.url === dataUrl;
