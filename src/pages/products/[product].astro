@@ -88,13 +88,13 @@ if (
                 productData?.images.nodes.map((image: any) => {
                   return (
                     <swiper-slide>
-                      <Img
-                        breakpoints={[320, 768]}
-                        src={image.url}
-                        alt={productData?.title ?? ""}
-                        data-carousel-images
-                        data-url={image.url}
-                      />
+                      <div data-carousel-images data-url={image.url}>
+                        <Img
+                          breakpoints={[320, 768]}
+                          src={image.url}
+                          alt={productData?.title ?? ""}
+                        />
+                      </div>
                     </swiper-slide>
                   );
                 })
@@ -298,6 +298,10 @@ if (
   colorVariants.forEach((colorVariant) => {
     colorVariant.addEventListener("click", () => {
       const dataUrl = colorVariant.dataset.url;
+
+      console.log(dataUrl);
+
+      console.log(carouselImages);
 
       const index = Array.from(carouselImages).findIndex((image) => {
         return image.dataset.url === dataUrl;
