@@ -23,12 +23,12 @@
     {
       "id": "gid://shopify/Collection/278858170505",
       "handle": "mommy-and-me",
-      "title": "Mommy & Me"
+      "name": "Mommy & Me"
     },
     {
       "id": "gid://shopify/Collection/263706869897",
       "handle": "accessories",
-      "title": "Accessories"
+      "name": "Accessories"
     }
   ]
 }
