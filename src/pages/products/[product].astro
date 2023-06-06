@@ -60,11 +60,12 @@ if (
               class="w-full h-full"
             >
               {
-                productData?.images.nodes.map((image: any) => {
+                productData?.images.nodes.map((image: any, index: number) => {
                   return (
                     <swiper-slide>
                       <div class="cursor-pointer hover:opacity-50">
                         <Img
+                          loading={index < 5 ? "eager" : "lazy"}
                           breakpoints={[144]}
                           src={image.url}
                           alt={productData?.title ?? ""}
@@ -85,11 +86,12 @@ if (
               class="w-[300px] xl:w-[500px]"
             >
               {
-                productData?.images.nodes.map((image: any) => {
+                productData?.images.nodes.map((image: any, index: number) => {
                   return (
                     <swiper-slide>
                       <div data-carousel-images data-url={image.url}>
                         <Img
+                          loading={index === 0 ? "eager" : "lazy"}
                           breakpoints={[320, 768]}
                           src={image.url}
                           alt={productData?.title ?? ""}
@@ -133,6 +135,7 @@ if (
                           class="w-8 h-8 p-1 rounded-full border-2 border-gray-500 overflow-hidden"
                         >
                           <Img
+                            loading="eager"
                             breakpoints={[144]}
                             src={item.image?.url ?? "/images/placeholder.png"}
                             alt={item.title}
@@ -210,6 +213,7 @@ if (
         >
           <div class="flex w-full md:w-1/2">
             <Img
+              breakpoints={[320, 768]}
               src="/images/products/made-with-love.webp"
               alt="Made with love"
             />
@@ -229,6 +233,7 @@ if (
         <figure class="flex flex-wrap items-center space-y-16 md:space-y-0">
           <div class="flex w-full md:w-1/2">
             <Img
+              breakpoints={[320, 768]}
               src="/images/products/make-life-memorable.webp"
               alt="Made with love"
             />
@@ -304,8 +309,6 @@ if (
     colorVariant.addEventListener("click", () => {
       const dataUrl = colorVariant.dataset.url;
       const dataColor = colorVariant.dataset.color;
-
-      console.log(dataColor);
 
       colorName.innerHTML = dataColor ?? "N/A";
 
