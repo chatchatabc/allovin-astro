@@ -125,14 +125,14 @@ if (
                 {
                   productColors.map((item) => {
                     return (
-                      <li>
+                      <li class="relative">
                         <button
                           data-color={item.title}
                           data-url={
                             item.image?.url ?? "/images/placeholder.png"
                           }
                           data-product-details-page-colors
-                          class="w-8 h-8 p-1 rounded-full border-2 border-gray-500 overflow-hidden"
+                          class="w-8 h-8 p-1 rounded-full border-2 border-gray-500 overflow-hidden peer"
                         >
                           <Img
                             loading="eager"
@@ -141,6 +141,12 @@ if (
                             alt={item.title}
                           />
                         </button>
+                        <div class="absolute bottom-0 translate-y-full left-1/2 -translate-x-1/2 text-white transition opacity-0 peer-hover:opacity-100">
+                          <div class="mx-auto -rotate-45 h-4 w-4 bg-c2" />
+                          <p class="w-min capitalize text-xs p-2 bg-c2 -mt-4 relative">
+                            {item.title}
+                          </p>
+                        </div>
                       </li>
                     );
                   })
