@@ -16,17 +16,20 @@
     {
       "name": "facebook",
       "href": "https://www.facebook.com/Allovinkids",
-      "iconify": "ri:facebook-fill"
+      "iconify": "ri:facebook-fill",
+      "icon": "/icons/facebook.svg"
     },
     {
       "name": "instagram",
       "href": "https://www.instagram.com/allovinkids/",
-      "iconify": "ri:instagram-fill"
+      "iconify": "ri:instagram-fill",
+      "icon": "/icons/instagram.svg"
     },
     {
       "name": "pinterest",
       "href": "https://www.pinterest.ph/allovinkids/",
-      "iconify": "ri:pinterest-fill"
+      "iconify": "ri:pinterest-fill",
+      "icon": "/icons/pinterest.svg"
     }
   ],
   "footerLinks": [
