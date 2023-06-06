@@ -1,6 +1,5 @@
 ---
 import siteInfoJson from "@data/site-info.json";
-import { Icon } from "astro-icon";
 
 const { topMessages, socialMedias } = siteInfoJson;
 ---
@@ -26,7 +25,7 @@ const { topMessages, socialMedias } = siteInfoJson;
             return (
               <li>
                 <a href={link.href} target="_blank">
-                  <Icon class="w-5 h-5" name={link.iconify} />
+                  <img class="w-5 h-5" src={link.icon} alt={link.name} />
                 </a>
               </li>
             );

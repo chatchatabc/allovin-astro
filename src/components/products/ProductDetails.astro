@@ -1,6 +1,4 @@
 ---
-import { Icon } from "astro-icon";
-
 interface Props {
   title: string;
   hidden?: boolean;
@@ -16,11 +14,11 @@ const { title, hidden = true } = Astro.props as Props;
       class="flex items-center justify-between w-full"
     >
       <span class="uppercase font-medium text-gray-500">{title}</span>
-      <Icon
+      <img
+        class={`w-8 h-8 text-gray-400 transition ${hidden ? "" : "rotate-180"}`}
+        src="/icons/caret.svg"
+        alt="caret"
         data-caret
-        name="mdi:caret"
-        class={`w-8 h-8 text-gray-400 transition ${hidden ? "" : "rotate-180"}
-        `}
       />
     </button>
   </section>

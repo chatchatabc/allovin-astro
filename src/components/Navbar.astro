@@ -1,6 +1,5 @@
 ---
 import { Img } from "astro-imagetools/components";
-import { Icon } from "astro-icon";
 
 const navigations = [
   {
@@ -61,7 +60,7 @@ const navigations = [
       <div class="relative lg:hidden">
         <!-- Button -->
         <button>
-          <Icon class="w-6 h-6" name="mdi-light:magnify" />
+          <img class="w-6 h-6" src="/icons/magnify.svg" alt="magnify" />
         </button>
         <!-- Input -->
         <div></div>
@@ -73,9 +72,10 @@ const navigations = [
       >
         <div class="relative">
           <input class="border p-2 font-light text-sm" placeholder="Search" />
-          <Icon
+          <img
             class="w-6 h-6 pointer-events-none absolute right-2 top-1/2 -translate-y-1/2"
-            name="mdi-light:magnify"
+            src="/icons/magnify.svg"
+            alt="magnify"
           />
         </div>
       </div>
@@ -135,7 +135,7 @@ const navigations = [
             data-menu-close-btn
             class="p-2 text-white bg-red-600 rounded-full"
           >
-            <Icon class="w-8 h-8" name="ph:x" />
+            <img class="w-8 h-8" src="/icons/x.svg" alt="x" />
           </button>
         </li>
       </ul>
