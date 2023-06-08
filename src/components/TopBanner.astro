@@ -1,5 +1,6 @@
 ---
 import siteInfoJson from "@data/site-info.json";
+import Container from "@layouts/Container.astro";
 
 const { topMessages, socialMedias } = siteInfoJson;
 ---
@@ -17,7 +18,7 @@ const { topMessages, socialMedias } = siteInfoJson;
   </section>
 
   <!-- Bottom -->
-  <section class="hidden container mt-2 mx-auto lg:block">
+  <Container className="hidden mt-2 lg:block">
     <section class="flex justify-between px-8">
       <ul class="flex space-x-4">
         {
@@ -65,5 +66,5 @@ const { topMessages, socialMedias } = siteInfoJson;
         </div>
       </div>
     </section>
-  </section>
+  </Container>
 </section>
