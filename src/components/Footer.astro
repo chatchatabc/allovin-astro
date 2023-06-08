@@ -1,5 +1,6 @@
 ---
 import siteInfoJson from "@data/site-info.json";
+import Container from "@layouts/Container.astro";
 
 const { footerLinks, socialMedias } = siteInfoJson;
 ---
@@ -9,8 +10,7 @@ const { footerLinks, socialMedias } = siteInfoJson;
     <h2>Footer Section</h2>
   </header>
 
-  <!-- Container -->
-  <section class="container mx-auto px-2 lg:px-8">
+  <Container>
     <!-- Top -->
     <section class="flex flex-wrap">
       <section class="flex flex-wrap w-full lg:w-8/12">
@@ -81,5 +81,5 @@ const { footerLinks, socialMedias } = siteInfoJson;
         <a>Terms and Conditions</a>
       </p>
     </section>
-  </section>
+  </Container>
 </footer>
