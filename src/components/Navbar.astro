@@ -1,5 +1,6 @@
 ---
 import { Img } from "astro-imagetools/components";
+import XIcon from "src/assets/XIcon.astro";
 
 const navigations = [
   {
@@ -135,7 +136,9 @@ const navigations = [
             data-menu-close-btn
             class="p-2 text-white bg-red-600 rounded-full"
           >
-            <img class="w-8 h-8" src="/icons/x.svg" alt="x" />
+            <div class="w-8 h-8">
+              <XIcon />
+            </div>
           </button>
         </li>
       </ul>
