@@ -6,6 +6,7 @@ import {
   utilConvertToPhp,
   utilOptimizeColorVariants,
 } from "src/domain/services/utilService";
+import Container from "@layouts/Container.astro";
 
 export function getStaticPaths() {
   return collections.map((collection) => {
@@ -32,7 +33,7 @@ const collectionProducts = collectionInfo.products;
 <MainLayout>
   <!-- Header -->
   <section class="py-8 border-t">
-    <header class="container mx-auto px-8">
+    <header class="container mx-auto px-4 lg:px-8">
       <h1 class="text-2xl text-center text-gray-500 font-bold">
         {collectionInfo.name}
       </h1>
@@ -60,7 +61,7 @@ const collectionProducts = collectionInfo.products;
     </section> -->
   </section>
 
-  <section class="container mx-auto border-t flex px-2 xl:px-0">
+  <Container className="border-t flex">
     <!-- Products -->
     <section class="flex-1 p-2">
       <ul class="flex flex-wrap">
@@ -92,5 +93,5 @@ const collectionProducts = collectionInfo.products;
         }
       </ul>
     </section>
-  </section>
+  </Container>
 </MainLayout>
