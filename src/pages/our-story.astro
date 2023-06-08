@@ -1,4 +1,5 @@
 ---
+import Container from "@layouts/Container.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 import { Img } from "astro-imagetools/components";
 ---
@@ -13,7 +14,7 @@ import { Img } from "astro-imagetools/components";
     </div>
   </section>
 
-  <section class="mt-8 container mx-auto lg:px-8">
+  <Container className="mt-8">
     <figure class="flex flex-wrap p-2 bg-gray-50">
       <div class="relative w-full pb-[100%] md:pb-0 md:w-1/2">
         <div class="absolute top-0 left-0 h-full w-full">
@@ -39,9 +40,9 @@ import { Img } from "astro-imagetools/components";
         </section>
       </figcaption>
     </figure>
-  </section>
+  </Container>
 
-  <section class="mt-8 container mx-auto lg:px-8">
+  <Container className="mt-8">
     <figure class="flex flex-row-reverse flex-wrap p-2 bg-gray-50">
       <div class="relative w-full pb-[100%] md:pb-0 md:w-1/2">
         <div class="absolute top-0 left-0 h-full w-full">
@@ -65,9 +66,9 @@ import { Img } from "astro-imagetools/components";
         </section>
       </figcaption>
     </figure>
-  </section>
+  </Container>
 
-  <section class="mt-8 container mx-auto lg:px-8">
+  <Container className="mt-8">
     <figure class="flex flex-wrap p-2 bg-gray-50">
       <div class="relative w-full pb-[100%] md:pb-0 md:w-1/2">
         <div class="absolute top-0 left-0 h-full w-full">
@@ -85,7 +86,7 @@ import { Img } from "astro-imagetools/components";
         </p>
       </figcaption>
     </figure>
-  </section>
+  </Container>
 
   <section class="my-8 relative">
     <figure>
