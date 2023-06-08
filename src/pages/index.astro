@@ -8,6 +8,7 @@ import {
   utilConvertToPhp,
   utilOptimizeColorVariants,
 } from "src/domain/services/utilService";
+import Container from "@layouts/Container.astro";
 
 const subCollections = subCollectionsJson.contents;
 
@@ -39,7 +40,7 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
   </section>
 
   <!-- Collection Section -->
-  <section class="container mx-auto px-8">
+  <Container>
     <!-- Header -->
     <header>
       <h2 class="text-2xl text-gray-500 py-12 text-center font-bold">
@@ -81,10 +82,10 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
         }
       </ul>
     </section>
-  </section>
+  </Container>
 
   <!-- Best Selling Section -->
-  <section class="container mx-auto px-8 pb-12">
+  <Container className="pb-12">
     <!-- Header -->
     <header>
       <h2 class="text-2xl text-gray-500 py-12 text-center font-bold">
@@ -129,62 +130,64 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
         SHOW MORE
       </button>
     </section>
-  </section>
+  </Container>
 
   <!-- Flower Girl Dress -->
   <section class="lg:border-t">
-    <figure class="flex flex-wrap container mx-auto">
-      <div class="max-w-[24rem] mx-auto lg:max-w-[unset] lg:w-1/3">
-        <Img src="/images/landing/flower-girl-dress.webp" alt="" />
-      </div>
-      <figcaption class="p-12 w-full lg:w-2/3">
-        <header>
-          <h2 class="text-2xl text-gray-500 font-medium text-center">
-            FLOWER GIRL DRESS
-          </h2>
-        </header>
+    <Container>
+      <figure class="flex flex-wrap">
+        <div class="max-w-[24rem] mx-auto lg:max-w-[unset] lg:w-1/3">
+          <Img src="/images/landing/flower-girl-dress.webp" alt="" />
+        </div>
+        <figcaption class="p-12 w-full lg:w-2/3">
+          <header>
+            <h2 class="text-2xl text-gray-500 font-medium text-center">
+              FLOWER GIRL DRESS
+            </h2>
+          </header>
 
-        <!-- Content -->
-        <section>
-          <ul class="flex overflow-hidden pb-8">
-            {
-              flowerGirlDressProducts?.splice(0, 3).map((product, index) => {
-                const images = product?.images.nodes ?? [];
-                const image = images
-                  ? images[images.length - 1]
-                  : product?.featuredImage;
+          <!-- Content -->
+          <section>
+            <ul class="flex overflow-hidden pb-8">
+              {
+                flowerGirlDressProducts?.splice(0, 3).map((product, index) => {
+                  const images = product?.images.nodes ?? [];
+                  const image = images
+                    ? images[images.length - 1]
+                    : product?.featuredImage;
 
-                return (
-                  <li class="p-2 w-1/2 flex-shrink-0 md:w-1/3">
-                    <CardSelection
-                      name={product?.title ?? ""}
-                      price={
-                        utilConvertToPhp(
-                          Number(
-                            product?.priceRangeV2.minVariantPrice.amount
-                          ) ?? 0,
-                          product?.priceRangeV2.minVariantPrice.currencyCode ??
-                            ""
-                        ) ?? 0
-                      }
-                      secondaryImage={image?.url ?? "/images/placeholder.png"}
-                      variants={utilOptimizeColorVariants(
-                        product?.variants.nodes ?? []
-                      )}
-                      href={`/products/${product?.handle}`}
-                    />
-                  </li>
-                );
-              })
-            }
-          </ul>
-        </section>
-      </figcaption>
-    </figure>
+                  return (
+                    <li class="p-2 w-1/2 flex-shrink-0 md:w-1/3">
+                      <CardSelection
+                        name={product?.title ?? ""}
+                        price={
+                          utilConvertToPhp(
+                            Number(
+                              product?.priceRangeV2.minVariantPrice.amount
+                            ) ?? 0,
+                            product?.priceRangeV2.minVariantPrice
+                              .currencyCode ?? ""
+                          ) ?? 0
+                        }
+                        secondaryImage={image?.url ?? "/images/placeholder.png"}
+                        variants={utilOptimizeColorVariants(
+                          product?.variants.nodes ?? []
+                        )}
+                        href={`/products/${product?.handle}`}
+                      />
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </section>
+        </figcaption>
+      </figure>
+    </Container>
   </section>
 
   <!-- New Arrivals Section -->
-  <section class="py-12 container mx-auto">
+  <Container className="py-12">
     <header class="flex items-center">
       <div class="h-[0.1rem] flex-1 bg-gray-300"></div>
       <h2 class="text-2xl px-8 text-gray-500 font-medium text-center">
@@ -248,5 +251,5 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
         }
       </ul>
     </section>
-  </section>
+  </Container>
 </MainLayout>
