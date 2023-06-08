@@ -34,9 +34,35 @@ const { topMessages, socialMedias } = siteInfoJson;
       </ul>
       <div class="flex divide-gray-400 divide-x-[0.1rem] [&>*]:px-4">
         <p>
-          Customer Service: {siteInfoJson.customerService.email}
+          Customer Service:
+          <a
+            class="text-blue-500 underline hover:no-underline"
+            target="_blank"
+            href={`mailto:${siteInfoJson.customerService.email}`}
+          >
+            {siteInfoJson.customerService.email}
+          </a>
         </p>
-        <p>PHP Currency</p>
+        <div>
+          <p>
+            Shop here:
+            <a
+              class="text-blue-500 underline hover:no-underline"
+              target="_blank"
+              href={siteInfoJson.lazada}
+            >
+              Lazada
+            </a>
+            and
+            <a
+              class="text-blue-500 underline hover:no-underline"
+              target="_blank"
+              href={siteInfoJson.shopee}
+            >
+              Shopee
+            </a>
+          </p>
+        </div>
       </div>
     </section>
   </section>
