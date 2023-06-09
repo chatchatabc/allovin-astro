@@ -1,28 +1,22 @@
 {
   "contents": [
     {
-      "name": "Girl Occasions",
+      "name": "Girls",
       "featuredImg": "/images/collections/girl-occasions.webp",
-      "slug": "girl-occasions",
-      "collections": ["girls"]
+      "slug": "girls",
+      "description": "Girls dresses for all occasions."
     },
     {
-      "name": "Girl Everyday",
-      "featuredImg": "/images/collections/girl-everyday.webp",
-      "slug": "girl-everyday",
-      "collections": ["girls"]
-    },
-    {
-      "name": "Women Dress",
+      "name": "Women",
       "featuredImg": "/images/collections/women-dress.webp",
-      "slug": "women-dress",
-      "collections": ["women"]
+      "slug": "women",
+      "description": "Women dresses for all occasions."
     },
     {
       "name": "Boy Sets",
       "featuredImg": "/images/collections/boy-sets.webp",
-      "slug": "boy-sets",
-      "collections": ["boys"]
+      "slug": "boys",
+      "description": "Boys sets for all occasions."
     }
   ]
 }

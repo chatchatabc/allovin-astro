@@ -113,42 +113,78 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
     <!-- Header -->
     <header>
       <h2 class="text-2xl text-gray-500 py-12 text-center font-bold">
-        COLLECTION
+        COLLECTIONS
       </h2>
     </header>
 
     <!-- Content -->
-    <section>
-      <ul class="flex flex-wrap">
+    <section class="relative">
+      <ul class="grid grid-cols-3 text-c50">
         {
           subCollections.map((collection) => {
             return (
-              <li class="p-1 w-1/2 md:w-1/4">
-                <figure class="group">
-                  <a
-                    href={`/${collection.collections[0]}?category=${collection.slug}`}
-                    class="block overflow-hidden"
-                  >
-                    <div class="duration-500 group-hover:scale-105">
-                      <Img src={collection.featuredImg} alt={collection.name} />
-                    </div>
-                  </a>
-                  <figcaption class="relative">
-                    <p class="text-center font-medium py-2 text-lg">
-                      {collection.name}
-                    </p>
+              <li class={`col-span-3 p-1 lg:col-span-1`}>
+                <figure class="group relative rounded-md overflow-hidden">
+                  <div class="absolute w-full h-full duration-500 group-hover:scale-105">
+                    <Img
+                      objectPosition="50% 0%"
+                      src={collection.featuredImg}
+                      alt={collection.name}
+                    />
+                  </div>
+
+                  <figcaption class="relative duration-1000 flex flex-col text-c50 bg-c950 bg-opacity-75 lg:bg-opacity-50 group-hover:bg-opacity-75">
                     <a
-                      href={`/${collection.collections[0]}?category=${collection.slug}`}
-                      class="px-8 py-2 border border-black text-black mx-auto block w-fit duration-300 font-medium hover:text-white hover:border-c2 hover:bg-c2"
+                      href={`/${collection.slug}`}
+                      class="flex-1 flex-col flex pb-8 pt-24 justify-center items-center lg:pt-40"
                     >
-                      SHOP NOW
+                      <p class="underline font-bold text-2xl group-hover:no-underline">
+                        {collection.name}
+                      </p>
+                      <p class="w-4/5 mx-auto text-center duration-1000 lg:opacity-0 group-hover:opacity-100">
+                        {collection.description}
+                      </p>
                     </a>
+                    <div class="flex w-full mt-auto flex-wrap text-center duration-1000 lg:opacity-0 group-hover:opacity-100">
+                      <a
+                        target="_blank"
+                        href={siteInfoJson.lazada}
+                        class="px-8 duration-300 w-1/2 py-2 border border-c50 bg-c700 block font-medium hover:text-c700 hover:border-c50 hover:bg-c50"
+                      >
+                        <div class="flex justify-center space-x-2 items-center">
+                          <div class="w-8 h-8">
+                            <LazadaIcon />
+                          </div>
+                          <p>SHOP LAZADA</p>
+                        </div>
+                      </a>
+                      <a
+                        target="_blank"
+                        href={siteInfoJson.shopee}
+                        class="px-8 duration-300 w-1/2 py-2 border border-c50 bg-c700 block font-medium hover:text-c700 hover:border-c50 hover:bg-c50"
+                      >
+                        <div class="flex justify-center space-x-2 items-center">
+                          <div class="w-8 h-8">
+                            <ShopeeIcon />
+                          </div>
+                          <p>SHOP SHOPEE</p>
+                        </div>
+                      </a>
+                    </div>
                   </figcaption>
                 </figure>
               </li>
             );
           })
         }
+        <li class="col-span-3 p-1">
+          <a
+            href="/shop-all"
+            class="rounded-md block text-center bg-c950 duration-300 bg-opacity-75 text-xl font-bold py-8 hover:bg-opacity-100"
+          >
+            BROWSE ALL PRODUCTS
+          </a>
+        </li>
       </ul>
     </section>
   </Container>
