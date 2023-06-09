@@ -245,7 +245,7 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
 
           <!-- Content -->
           <section>
-            <ul class="flex flex-wrap pb-8">
+            <ul class="flex flex-wrap pb-8 overflow-hidden md:flex-nowrap">
               {
                 flowerGirlDressProducts?.splice(0, 4).map((product) => {
                   const images = product?.images.nodes ?? [];
@@ -318,7 +318,7 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
       </section> -->
 
       <!-- Content -->
-      <ul class="flex flex-wrap pb-8">
+      <ul class="flex flex-wrap overflow-hidden pb-8 md:flex-nowrap">
         {
           [...newItemsSectionProducts]?.splice(0, 4).map((product, index) => {
             const images = product?.images.nodes ?? [];
