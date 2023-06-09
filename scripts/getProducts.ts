@@ -11,9 +11,7 @@ export default async function getProducts() {
     return;
   }
 
-  const completeData: any = [];
-
-  data.forEach(async (product, index) => {
+  const completeDataPromise: any = data.map(async (product, index) => {
     await new Promise((resolve) => setTimeout(resolve, index * 1000));
 
     const request = await fetchData(productGetDetailsDoc(), {
@@ -22,25 +20,23 @@ export default async function getProducts() {
 
     const productData = request.data.product;
 
-    console.log(index * 1000, product);
+    console.log(product);
 
     if (productData) {
       product = { ...product, ...productData };
     }
 
-    completeData.push(product);
-
-    if (index === data.length - 1) {
-      await new Promise((resolve) => setTimeout(resolve, index * 1000 + 10000));
-
-      console.log("Saving file...");
-      fs.writeFileSync(
-        "./data/product.json",
-        JSON.stringify(completeData, null, 2)
-      );
-      console.log("File saved!");
-    }
+    return product;
   });
+
+  const completeData = await Promise.all(completeDataPromise);
+
+  console.log("Saving file...");
+  fs.writeFileSync(
+    "./data/product.json",
+    JSON.stringify(completeData, null, 2)
+  );
+  console.log("File saved!");
 }
 
 getProducts();
