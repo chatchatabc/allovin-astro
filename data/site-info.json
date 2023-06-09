@@ -6,6 +6,9 @@
   "lazada": "https://www.lazada.com.ph/",
   "shopee": "https://shopee.ph/",
   "topMessages": ["Welcome! You're visiting our page in Philippines website."],
+  "facebook": "https://www.facebook.com/Allovinkids",
+  "instagram": "https://www.instagram.com/allovinkids/",
+  "pinterest": "https://www.pinterest.ph/allovinkids/",
   "customerService": {
     "phone": "1-800-555-5555",
     "email": "service@allovinkids.com"
