@@ -6,22 +6,9 @@ import InstagramIcon from "src/assets/InstagramIcon.astro";
 import PinterestIcon from "src/assets/PinterestIcon.astro";
 import LazadaIcon from "src/assets/LazadaIcon.astro";
 import ShopeeIcon from "src/assets/ShopeeIcon.astro";
-
-const { topMessages, socialMedias } = siteInfoJson;
 ---
 
-<section class="text-sm font-light pt-1 pb-2 bg-c50 text-c900">
-  <!-- Top -->
-  <section class="px-2 lg:px-8">
-    <ul class="flex flex-wrap space-x-6 justify-center">
-      {
-        topMessages.map((message) => {
-          return <li class="italic">{message}</li>;
-        })
-      }
-    </ul>
-  </section>
-
+<section class="text-sm font-light bg-c50 text-c900 lg:py-1">
   <!-- Bottom -->
   <Container className="hidden lg:block">
     <section class="flex justify-between px-8">
