@@ -54,14 +54,7 @@ const { name, secondaryImage, href, price, variants } = Astro.props as Props;
       <p class="text-sm font-gray-500 font-light line-clamp-1 text-center">
         {name}
       </p>
-      <p class="text-center text-c2 font-bold">
-        {
-          new Intl.NumberFormat("en", {
-            currency: "PHP",
-            style: "currency",
-          }).format(price)
-        }
-      </p>
+
       <ul class="flex justify-center mt-2">
         {
           [...variants].splice(0, 4).map((variant) => {

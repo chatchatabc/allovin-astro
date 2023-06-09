@@ -97,14 +97,6 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
           <p class="text-sm font-bold">Official online stores</p>
         </footer>
       </section>
-
-      <div class="hidden justify-center w-1/2 lg:flex">
-        <div class="w-full lg:w-3/4">
-          <div class="pb-[75%] relative rounded-lg overflow-hidden">
-            <div class="absolute top-0 w-full h-full"></div>
-          </div>
-        </div>
-      </div>
     </Container>
   </section>
 
@@ -202,7 +194,7 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
     <section>
       <ul class="flex flex-wrap">
         {
-          bestSellingProducts?.map((product, index) => {
+          [...bestSellingProducts].splice(0, 6)?.map((product) => {
             const images = product?.images.nodes ?? [];
             const image = images
               ? images[images.length - 1]
@@ -229,11 +221,11 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
           })
         }
       </ul>
-      <button
+      <!-- <button
         class="font-bold border-c2 border bg-orange-50 px-24 text-sm block w-fit mx-auto py-2 mt-8 hover:bg-c2 hover:text-white duration-300"
       >
         SHOW MORE
-      </button>
+      </button> -->
     </section>
   </Container>
 
@@ -244,7 +236,7 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
         <div class="max-w-[24rem] mx-auto lg:max-w-[unset] lg:w-1/3">
           <Img src="/images/landing/flower-girl-dress.webp" alt="" />
         </div>
-        <figcaption class="p-12 w-full lg:w-2/3">
+        <figcaption class="w-full py-4 lg:p-12 lg:w-2/3">
           <header>
             <h2 class="text-2xl text-gray-500 font-medium text-center">
               FLOWER GIRL DRESS
@@ -253,9 +245,9 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
 
           <!-- Content -->
           <section>
-            <ul class="flex overflow-hidden pb-8">
+            <ul class="flex flex-wrap pb-8">
               {
-                flowerGirlDressProducts?.splice(0, 3).map((product, index) => {
+                flowerGirlDressProducts?.splice(0, 4).map((product) => {
                   const images = product?.images.nodes ?? [];
                   const image = images
                     ? images[images.length - 1]
@@ -301,9 +293,9 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
       <div class="h-[0.1rem] flex-1 bg-gray-300"></div>
     </header>
 
-    <section class="px-8">
+    <section class="lg:px-8">
       <!-- Filter -->
-      <section class="flex justify-center space-x-2 my-4">
+      <!-- <section class="flex justify-center space-x-2 my-4">
         {
           [...Array(4)].reverse().map((_, index) => {
             const date = new Date();
@@ -323,12 +315,12 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
             );
           })
         }
-      </section>
+      </section> -->
 
       <!-- Content -->
-      <ul class="flex overflow-hidden pb-8">
+      <ul class="flex flex-wrap pb-8">
         {
-          newItemsSectionProducts?.map((product, index) => {
+          [...newItemsSectionProducts]?.splice(0, 4).map((product, index) => {
             const images = product?.images.nodes ?? [];
             const image = images
               ? images[images.length - 1]
