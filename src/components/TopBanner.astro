@@ -1,6 +1,11 @@
 ---
 import siteInfoJson from "@data/site-info.json";
 import Container from "@layouts/Container.astro";
+import FacebookIcon from "src/assets/FacebookIcon.astro";
+import InstagramIcon from "src/assets/InstagramIcon.astro";
+import PinterestIcon from "src/assets/PinterestIcon.astro";
+import LazadaIcon from "src/assets/LazadaIcon.astro";
+import ShopeeIcon from "src/assets/ShopeeIcon.astro";
 
 const { topMessages, socialMedias } = siteInfoJson;
 ---
@@ -18,51 +23,52 @@ const { topMessages, socialMedias } = siteInfoJson;
   </section>
 
   <!-- Bottom -->
-  <Container className="hidden mt-2 lg:block">
+  <Container className="hidden lg:block">
     <section class="flex justify-between px-8">
-      <ul class="flex space-x-4">
-        {
-          socialMedias.map((link) => {
-            return (
-              <li>
-                <a href={link.href} target="_blank">
-                  <img class="w-5 h-5" src={link.icon} alt={link.name} />
-                </a>
-              </li>
-            );
-          })
-        }
-      </ul>
-      <div class="flex divide-gray-400 divide-x-[0.1rem] [&>*]:px-4">
-        <p>
-          Customer Service:
-          <a
-            class="text-blue-500 underline hover:no-underline"
-            target="_blank"
-            href={`mailto:${siteInfoJson.customerService.email}`}
-          >
-            {siteInfoJson.customerService.email}
+      <div class="flex space-x-1">
+        <p>Social media sites:</p>
+        <div class="flex space-x-2">
+          <a href={siteInfoJson.facebook} target="_blank">
+            <div class="w-5 h-5">
+              <FacebookIcon />
+            </div>
           </a>
-        </p>
-        <div>
-          <p>
-            Shop here:
-            <a
-              class="text-blue-500 underline hover:no-underline"
-              target="_blank"
-              href={siteInfoJson.lazada}
-            >
-              Lazada
-            </a>
-            and
-            <a
-              class="text-blue-500 underline hover:no-underline"
-              target="_blank"
-              href={siteInfoJson.shopee}
-            >
-              Shopee
-            </a>
-          </p>
+          <a href={siteInfoJson.instagram} target="_blank">
+            <div class="w-5 h-5">
+              <InstagramIcon />
+            </div>
+          </a>
+          <a href={siteInfoJson.pinterest} target="_blank">
+            <div class="w-5 h-5">
+              <PinterestIcon />
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="flex divide-gray-400 divide-x-[0.1rem] [&>*]:px-4">
+        <div class="flex items-center space-x-2">
+          <p>Official online stores:</p>
+          <a
+            class="text-blue-500 underline items-center hover:no-underline"
+            target="_blank"
+            href={siteInfoJson.lazada}
+          >
+            <div class="flex items-center">
+              <span>Lazada</span>
+              <div class="w-5 h-5"><LazadaIcon /></div>
+            </div>
+          </a>
+          <p>and</p>
+          <a
+            class="text-blue-500 underline items-center hover:no-underline"
+            target="_blank"
+            href={siteInfoJson.shopee}
+          >
+            <div class="flex items-center">
+              <span>Shopee</span>
+              <div class="w-5 h-5"><ShopeeIcon /></div>
+            </div>
+          </a>
         </div>
       </div>
     </section>
