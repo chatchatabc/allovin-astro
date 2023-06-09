@@ -1,4 +1,5 @@
 ---
+import siteInfoJson from "@data/site-info.json";
 import MainLayout from "@layouts/MainLayout.astro";
 import { Img } from "astro-imagetools/components";
 import subCollectionsJson from "@data/sub-collections.json";
@@ -49,7 +50,7 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
 
     <!-- Content -->
     <Container
-      className="flex flex-wrap items-end h-[85vh] lg:h-[65vh] lg:max-h-[700px]"
+      className="flex flex-wrap items-end h-[80vh] lg:h-[65vh] lg:max-h-[700px]"
     >
       <section class="w-full relative lg:w-1/2">
         <header>
@@ -69,7 +70,7 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
         <footer>
           <section class="flex items-center space-x-2">
             <a
-              href="/collections/wedding-dresses"
+              href={siteInfoJson.lazada}
               class="pr-8 pl-6 py-2 border border-c50 duration-300 font-medium hover:bg-c600"
             >
               <div class="flex space-x-2 items-center">
@@ -81,7 +82,8 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
             </a>
 
             <a
-              href="/collections/wedding-dresses"
+              target="_blank"
+              href={siteInfoJson.shopee}
               class="pr-8 pl-6 py-2 border border-c50 duration-300 font-medium hover:bg-c600"
             >
               <div class="flex space-x-2 items-center">
