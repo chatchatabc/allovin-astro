@@ -10,7 +10,7 @@ import ShopeeIcon from "src/assets/ShopeeIcon.astro";
 const { topMessages, socialMedias } = siteInfoJson;
 ---
 
-<section class="text-sm font-light pt-1 pb-2 bg-bg1 text-gray-500">
+<section class="text-sm font-light pt-1 pb-2 bg-c50 text-c900">
   <!-- Top -->
   <section class="px-2 lg:px-8">
     <ul class="flex flex-wrap space-x-6 justify-center">
@@ -29,17 +29,17 @@ const { topMessages, socialMedias } = siteInfoJson;
         <p>Social media sites:</p>
         <div class="flex space-x-2">
           <a href={siteInfoJson.facebook} target="_blank">
-            <div class="w-5 h-5">
+            <div class="w-5 h-5 hover:text-c500">
               <FacebookIcon />
             </div>
           </a>
           <a href={siteInfoJson.instagram} target="_blank">
-            <div class="w-5 h-5">
+            <div class="w-5 h-5 hover:text-c500">
               <InstagramIcon />
             </div>
           </a>
           <a href={siteInfoJson.pinterest} target="_blank">
-            <div class="w-5 h-5">
+            <div class="w-5 h-5 hover:text-c500">
               <PinterestIcon />
             </div>
           </a>
