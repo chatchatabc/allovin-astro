@@ -9,6 +9,8 @@ import {
   utilOptimizeColorVariants,
 } from "src/domain/services/utilService";
 import Container from "@layouts/Container.astro";
+import ShopeeIcon from "src/assets/ShopeeIcon.astro";
+import LazadaIcon from "src/assets/LazadaIcon.astro";
 
 const subCollections = subCollectionsJson.contents;
 
@@ -30,13 +32,78 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
 
 <MainLayout>
   <!-- Hero Section -->
-  <section>
-    <div class="md:hidden">
-      <Img src="/images/landing/hero-sm.webp" alt="" />
+  <section class="relative bg-c100 py-8 text-c50 lg:py-16">
+    <!-- Background -->
+    <div class="absolute top-0 h-full w-full overflow-hidden">
+      <div class="lg:hidden">
+        <Img src="/images/landing/hero-sm.webp" alt="" />
+      </div>
+      <div class="hidden absolute top-0 w-full h-full lg:block">
+        <Img objectPosition="50% 0%" src="/images/landing/hero.webp" alt="" />
+      </div>
+      <div
+        class="absolute w-full h-full top-0 bg-gradient-to-b from-transparent to-c950"
+      >
+      </div>
     </div>
-    <div class="hidden md:block">
-      <Img src="/images/landing/hero.webp" alt="" />
-    </div>
+
+    <!-- Content -->
+    <Container
+      className="flex flex-wrap items-end h-[85vh] lg:h-[65vh] lg:max-h-[700px]"
+    >
+      <section class="w-full relative lg:w-1/2">
+        <header>
+          <h2 class="font-bold text-4xl md:text-5xl xl:text-6xl">
+            Discover Stunning Attire for Every Occasion
+          </h2>
+        </header>
+        <section>
+          <p class="my-8">
+            <!-- Construct a good sub title -->
+            Unleash Your Fashion Potential with Trendsetting Dresses for Women, Girls,
+            and Boys: Elevate Your Wardrobe with Impeccable Attire for Every Special
+            Occasion and Everyday Wear.
+          </p>
+        </section>
+
+        <footer>
+          <section class="flex items-center space-x-2">
+            <a
+              href="/collections/wedding-dresses"
+              class="pr-8 pl-6 py-2 border border-c50 duration-300 font-medium hover:bg-c600"
+            >
+              <div class="flex space-x-2 items-center">
+                <div class="w-6 h-6">
+                  <LazadaIcon />
+                </div>
+                <p>LAZADA</p>
+              </div>
+            </a>
+
+            <a
+              href="/collections/wedding-dresses"
+              class="pr-8 pl-6 py-2 border border-c50 duration-300 font-medium hover:bg-c600"
+            >
+              <div class="flex space-x-2 items-center">
+                <div class="w-6 h-6">
+                  <ShopeeIcon />
+                </div>
+                <p>SHOPEE</p>
+              </div>
+            </a>
+          </section>
+          <p class="text-sm font-bold">Official online stores</p>
+        </footer>
+      </section>
+
+      <div class="hidden justify-center w-1/2 lg:flex">
+        <div class="w-full lg:w-3/4">
+          <div class="pb-[75%] relative rounded-lg overflow-hidden">
+            <div class="absolute top-0 w-full h-full"></div>
+          </div>
+        </div>
+      </div>
+    </Container>
   </section>
 
   <!-- Collection Section -->
