@@ -5,6 +5,8 @@ import ProductDetails from "@components/products/ProductDetails.astro";
 import { utilOptimizeColorVariants } from "src/domain/services/utilService";
 import products from "@data/products.json";
 import Container from "@layouts/Container.astro";
+import RightChevronIcon from "src/assets/RightChevronIcon.astro";
+import LeftChevronIcon from "src/assets/LeftChevronIcon.astro";
 
 export async function getStaticPaths() {
   // const products = await productGetAll(250);
@@ -54,7 +56,9 @@ if (
         <!-- Product Gallery -->
         <div class="flex-1 flex items-center h-fit sticky lg:top-32">
           <!-- Product Gallery Navigation -->
-          <div class="w-24 h-[75vh] overflow-hidden hidden lg:block">
+          <div
+            class="w-24 h-[75vh] overflow-hidden hidden relative group lg:block"
+          >
             <swiper-container
               init="false"
               data-carousel-pagination
@@ -77,6 +81,42 @@ if (
                 })
               }
             </swiper-container>
+
+            <button
+              id="carousel-pagination-next"
+              aria-label="Next Carousel Pagination"
+              class="absolute bottom-0 w-full z-[1] group/button"
+            >
+              <!-- Background -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-c950 to-transparent opacity-0 duration-500 group-hover:opacity-25 group-hover/button:opacity-50"
+              >
+              </div>
+
+              <div
+                class="relative h-8 w-8 mx-auto transition group-hover/button:text-white"
+              >
+                <RightChevronIcon />
+              </div>
+            </button>
+
+            <button
+              id="carousel-pagination-prev"
+              aria-label="Previous Carousel Pagination"
+              class="absolute top-0 w-full z-[1] group/button"
+            >
+              <!-- Background -->
+              <div
+                class="absolute inset-0 bg-gradient-to-b from-c950 to-transparent opacity-0 duration-500 group-hover:opacity-25 group-hover/button:opacity-50"
+              >
+              </div>
+
+              <div
+                class="relative h-8 w-8 mx-auto transition group-hover/button:text-white"
+              >
+                <LeftChevronIcon />
+              </div>
+            </button>
           </div>
 
           <!-- Product Gallery Main -->
@@ -294,6 +334,12 @@ if (
 
   const carouselPaginationParams: SwiperOptions = {
     slidesPerView: 5,
+    navigation: {
+      nextEl: "#carousel-pagination-next",
+      prevEl: "#carousel-pagination-prev",
+
+      disabledClass: "hidden",
+    },
     direction: "vertical",
     spaceBetween: 10,
     on: {
