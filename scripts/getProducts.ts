@@ -5,6 +5,8 @@ import { fetchData } from "./fetchScript";
 const fs = require("fs");
 
 export default async function getProducts() {
+  const startTime = new Date();
+  console.log("Start time: ", startTime);
   const data = await productGetAll(250);
 
   if (!data) {
@@ -20,7 +22,11 @@ export default async function getProducts() {
 
     const productData = request.data.product;
 
-    console.log(product);
+    console.log("Time: ", (new Date().getTime() - startTime) / 1000, "s");
+    console.log("Index: ", index + 1, "of", data.length);
+    console.log("Product: ", product);
+
+    console.log("\n");
 
     if (productData) {
       product = { ...product, ...productData };
@@ -37,6 +43,8 @@ export default async function getProducts() {
     JSON.stringify(completeData, null, 2)
   );
   console.log("File saved!");
+
+  console.log("End time: ", (new Date().getTime() - startTime) / 1000, "s");
 }
 
 getProducts();
