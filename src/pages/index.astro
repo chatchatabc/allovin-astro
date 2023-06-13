@@ -33,17 +33,22 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
 
 <MainLayout>
   <!-- Hero Section -->
-  <section class="relative bg-c100 py-8 text-c50 lg:py-16">
+  <section class="relative py-8 text-white lg:py-16">
     <!-- Background -->
     <div class="absolute top-0 h-full w-full overflow-hidden">
+      <!-- Mobile background image -->
       <div class="lg:hidden">
         <Img src="/images/landing/hero-sm.webp" alt="" />
       </div>
+
+      <!-- Desktop background image -->
       <div class="hidden absolute top-0 w-full h-full lg:block">
         <Img objectPosition="50% 0%" src="/images/landing/hero.webp" alt="" />
       </div>
+
+      <!-- Overlay -->
       <div
-        class="absolute w-full h-full top-0 bg-gradient-to-b from-transparent to-c950"
+        class="absolute w-full h-full top-0 bg-gradient-to-b from-transparent to-p800"
       >
       </div>
     </div>
