@@ -39,6 +39,7 @@ export function productGetDetailsDoc() {
   return `
   query GetProductDetails($id: ID!) {
     product(id: $id) {
+      createdAt
       handle
       title
       descriptionHtml

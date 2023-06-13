@@ -3,6 +3,7 @@ import type {
   CommonPriceRangeV2,
   CommonVariants,
 } from "./commonModel";
+import type { CollectionGetProducts } from "./collectionModel";
 
 export type ProductGetDetails = {
   handle: string;
@@ -12,6 +13,11 @@ export type ProductGetDetails = {
   featuredImage: CommonImage;
   descriptionHtml: string;
   images: { nodes: CommonImage[] };
+  createdAt: string;
+  tags: string[];
+  collections: {
+    nodes: CollectionGetProducts[];
+  };
 };
 
 export type ProductGetVariants = {
