@@ -45,7 +45,7 @@
       newProducts = newProducts.filter((product) => {
         return selectedColors.every((color) => {
           return product.variants.nodes.some((variant) => {
-            return variant.title.toLowerCase().includes(color) ? true : false;
+            return variant.title.toLowerCase().includes(color);
           });
         });
       });
@@ -54,7 +54,15 @@
     if (selectedTypes.length > 0) {
       newProducts = newProducts.filter((product) => {
         return selectedTypes.every((type) => {
-          return product.tags.includes(type) ? true : false;
+          return product.tags.includes(type);
+        });
+      });
+    }
+
+    if (selectedPrices.length > 0) {
+      newProducts = newProducts.filter((product) => {
+        return selectedPrices.every((price) => {
+          return product.tags.includes(price);
         });
       });
     }
@@ -225,7 +233,7 @@
       {#if categoryTypes.length > 0}
         <CollectionDropdown name="Category">
           <ul class="py-2 space-y-2">
-            {#each categoryTypes as categoryType (`category-color-${categoryType}`)}
+            {#each categoryTypes as categoryType (`category-type-${categoryType}`)}
               <li>
                 <label class="text-sm flex items-center capitalize space-x-2">
                   <input
@@ -262,12 +270,14 @@
               <label class="text-sm flex items-center capitalize space-x-2">
                 <input
                   on:change={() => {
-                    if (selectedTypes.includes(categoryPrice)) {
-                      selectedTypes = selectedTypes.filter((selectedType) => {
-                        return selectedType !== categoryPrice;
-                      });
+                    if (selectedPrices.includes(categoryPrice)) {
+                      selectedPrices = selectedPrices.filter(
+                        (selectedPrice) => {
+                          return selectedPrice !== categoryPrice;
+                        }
+                      );
                     } else {
-                      selectedTypes = [...selectedTypes, categoryPrice];
+                      selectedPrices = [...selectedPrices, categoryPrice];
                     }
 
                     filterProducts();
@@ -355,7 +365,7 @@
         {#if categoryTypes.length > 0}
           <CollectionDropdown name="Category">
             <ul class="py-2 space-y-2">
-              {#each categoryTypes as categoryType (`category-color-${categoryType}`)}
+              {#each categoryTypes as categoryType (`category-type-${categoryType}`)}
                 <li>
                   <label class="text-sm flex items-center capitalize space-x-2">
                     <input
@@ -375,6 +385,7 @@
                         generateCards();
                         generateTypeCategory();
                         generateColorCategory();
+                        generatePriceCategory();
                       }}
                       type="checkbox"
                     />
@@ -393,12 +404,14 @@
                 <label class="text-sm flex items-center capitalize space-x-2">
                   <input
                     on:change={() => {
-                      if (selectedTypes.includes(categoryPrice)) {
-                        selectedTypes = selectedTypes.filter((selectedType) => {
-                          return selectedType !== categoryPrice;
-                        });
+                      if (selectedPrices.includes(categoryPrice)) {
+                        selectedPrices = selectedPrices.filter(
+                          (selectedPrice) => {
+                            return selectedPrice !== categoryPrice;
+                          }
+                        );
                       } else {
-                        selectedTypes = [...selectedTypes, categoryPrice];
+                        selectedPrices = [...selectedPrices, categoryPrice];
                       }
 
                       filterProducts();
@@ -406,6 +419,7 @@
                       generateCards();
                       generateTypeCategory();
                       generateColorCategory();
+                      generatePriceCategory();
                     }}
                     type="checkbox"
                   />
@@ -438,6 +452,7 @@
                       generateCards();
                       generateColorCategory();
                       generateTypeCategory();
+                      generatePriceCategory();
                     }}
                     type="checkbox"
                   />
