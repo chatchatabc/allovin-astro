@@ -11,7 +11,7 @@
 
   let productsPerPage = 10;
   let currentPage = 1;
-  let sortBy = "price-ascending";
+  let sortBy = "date-desc";
 
   let filteredProducts: ProductGetDetails[] = [];
   let cardContainer: HTMLElement;
@@ -34,6 +34,20 @@
     newProducts.forEach((product) => {
       filteredProducts.push(product);
     });
+  }
+
+  function sortProducts() {
+    if (sortBy.includes("date")) {
+      filteredProducts.sort((a, b) => {
+        return (
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+        );
+      });
+
+      if (sortBy.includes("desc")) {
+        filteredProducts.reverse();
+      }
+    }
   }
 
   function generateColorCategory() {
@@ -68,6 +82,7 @@
     cardDeck = document.querySelector<HTMLElement>("[data-card-deck]")!;
 
     filterProducts();
+    sortProducts();
     generateColorCategory();
     generateCards();
   });
@@ -86,7 +101,7 @@
     <section
       class="flex text-sm text-gray-500 container mx-auto space-x-4 px-8 items-center justify-end"
     >
-      <div class="flex items-center space-x-1">
+      <!-- <div class="flex items-center space-x-1">
         <p>Items per page</p>
         <select
           class="py-2 px-4 w-48 border rounded-full"
@@ -99,18 +114,21 @@
           <option>20</option>
           <option>30</option>
         </select>
-      </div>
+      </div> -->
       <div class="flex items-center space-x-1">
         <p>Sort by</p>
         <select
-          class="py-2 px-4 w-48 border rounded-full"
+          class="py-2 px-4 w-56 border rounded-full"
           value={sortBy}
           on:change={(e) => {
             sortBy = e?.currentTarget.value;
+
+            sortProducts();
+            generateCards();
           }}
         >
-          <option value="price-descending">Price, high to low</option>
-          <option value="price-ascending">Price, low to high</option>
+          <option value="date-desc">Date, Newest to Oldest</option>
+          <option value="date-asc">Date, Oldest to Newest</option>
         </select>
       </div>
     </section>

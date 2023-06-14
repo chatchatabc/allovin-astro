@@ -6,6 +6,7 @@ import type {
 import type { CollectionGetProducts } from "./collectionModel";
 
 export type ProductGetDetails = {
+  id: string;
   handle: string;
   title: string;
   priceRangeV2: CommonPriceRangeV2;
