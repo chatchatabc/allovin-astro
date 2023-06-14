@@ -15,6 +15,15 @@
   let categoryTypes: string[] = [];
   let selectedTypes: string[] = [];
 
+  const priceDict: Record<string, string> = {
+    "under 9$": "under ₱500",
+    "9-29$": "₱500-1600",
+    "29-49$": "₱1600-2700",
+    "49-69$": "₱2700-3800",
+    "69-99$": "₱3800-5500",
+  };
+
+  console.log(pricesJson.contents);
   let categoryPrices: string[] = [];
   let selectedPrices: string[] = [];
 
@@ -142,6 +151,15 @@
     });
   }
 
+  function handleChange() {
+    filterProducts();
+    sortProducts();
+    generateTypeCategory();
+    generateColorCategory();
+    generatePriceCategory();
+    generateCards();
+  }
+
   onMount(() => {
     cardContainer = document.querySelector<HTMLElement>(
       "[data-card-container]"
@@ -149,12 +167,7 @@
     cardDeck = document.querySelector<HTMLElement>("[data-card-deck]")!;
     bodyElement = document.querySelector<HTMLElement>("body")!;
 
-    filterProducts();
-    sortProducts();
-    generateTypeCategory();
-    generateColorCategory();
-    generatePriceCategory();
-    generateCards();
+    handleChange();
   });
 </script>
 
@@ -246,12 +259,7 @@
                         selectedTypes = [...selectedTypes, categoryType];
                       }
 
-                      filterProducts();
-                      sortProducts();
-                      generateCards();
-                      generateTypeCategory();
-                      generateColorCategory();
-                      generatePriceCategory();
+                      handleChange();
                     }}
                     type="checkbox"
                     checked={selectedTypes.includes(categoryType)}
@@ -281,17 +289,14 @@
                       selectedPrices = [...selectedPrices, categoryPrice];
                     }
 
-                    filterProducts();
-                    sortProducts();
-                    generateCards();
-                    generateTypeCategory();
-                    generateColorCategory();
-                    generatePriceCategory();
+                    handleChange();
                   }}
                   type="checkbox"
                   checked={selectedPrices.includes(categoryPrice)}
                 />
-                <p class="cursor-pointer">{categoryPrice}</p>
+                <p class="cursor-pointer">
+                  {priceDict[categoryPrice]}
+                </p>
               </label>
             </li>
           {/each}
@@ -315,12 +320,7 @@
                       selectedColors = [...selectedColors, categoryColor];
                     }
 
-                    filterProducts();
-                    sortProducts();
-                    generateCards();
-                    generateColorCategory();
-                    generateTypeCategory();
-                    generatePriceCategory();
+                    handleChange();
                   }}
                   type="checkbox"
                   checked={selectedColors.includes(categoryColor)}
@@ -383,12 +383,7 @@
                           selectedTypes = [...selectedTypes, categoryType];
                         }
 
-                        filterProducts();
-                        sortProducts();
-                        generateCards();
-                        generateTypeCategory();
-                        generateColorCategory();
-                        generatePriceCategory();
+                        handleChange();
                       }}
                       type="checkbox"
                       checked={selectedTypes.includes(categoryType)}
@@ -418,17 +413,12 @@
                         selectedPrices = [...selectedPrices, categoryPrice];
                       }
 
-                      filterProducts();
-                      sortProducts();
-                      generateCards();
-                      generateTypeCategory();
-                      generateColorCategory();
-                      generatePriceCategory();
+                      handleChange();
                     }}
                     type="checkbox"
                     checked={selectedPrices.includes(categoryPrice)}
                   />
-                  <p class="cursor-pointer">{categoryPrice}</p>
+                  <p class="cursor-pointer">{priceDict[categoryPrice]}</p>
                 </label>
               </li>
             {/each}
@@ -452,12 +442,7 @@
                         selectedColors = [...selectedColors, categoryColor];
                       }
 
-                      filterProducts();
-                      sortProducts();
-                      generateCards();
-                      generateColorCategory();
-                      generateTypeCategory();
-                      generatePriceCategory();
+                      handleChange();
                     }}
                     type="checkbox"
                     checked={selectedColors.includes(categoryColor)}
