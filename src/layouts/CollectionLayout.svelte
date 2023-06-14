@@ -1,19 +1,22 @@
 <script lang="ts">
   import typesJson from "@data/types.json";
   import colorsShortJson from "@data/colorsShort.json";
+  import pricesJson from "@data/prices.json";
   import type { ProductGetDetails } from "src/domain/models/productModel";
   import { onMount } from "svelte";
+  import CollectionDropdown from "@components/CollectionDropdown.svelte";
 
   export let name: string;
   export let products: ProductGetDetails[];
 
-  let showColors = true;
   let categoryColors: string[] = [];
   let selectedColors: string[] = [];
 
-  let showTypes = true;
   let categoryTypes: string[] = [];
   let selectedTypes: string[] = [];
+
+  let categoryPrices: string[] = [];
+  let selectedPrices: string[] = [];
 
   let productsPerPage = 10;
   let currentPage = 1;
@@ -108,6 +111,16 @@
     categoryTypes = newTypes;
   }
 
+  function generatePriceCategory() {
+    const newPrices = pricesJson.contents.filter((price) => {
+      return filteredProducts.some((product) => {
+        return product.tags.includes(price);
+      });
+    });
+
+    categoryPrices = newPrices;
+  }
+
   function generateCards() {
     cardContainer.querySelectorAll<HTMLElement>("[data-id]").forEach((card) => {
       cardDeck.appendChild(card);
@@ -132,6 +145,7 @@
     sortProducts();
     generateTypeCategory();
     generateColorCategory();
+    generatePriceCategory();
     generateCards();
   });
 </script>
@@ -209,131 +223,101 @@
     <!-- Desktop Filters -->
     <section class="hidden py-4 space-y-4 text-gray-500 lg:block lg:w-56">
       {#if categoryTypes.length > 0}
-        <section>
-          <button
-            on:click={() => {
-              showTypes = !showTypes;
-            }}
-            class="border-b w-full py-2 flex space-x-2 items-center"
-          >
-            <div
-              class={`w-6 h-6 duration-300 ${showTypes ? "rotate-180" : ""}`}
-            >
-              <svg
-                class="w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                ><path
-                  fill="currentColor"
-                  d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6l1.41 1.41Z"
-                /></svg
-              >
-            </div>
-            <p class="font-medium text-lg">Category</p>
-          </button>
+        <CollectionDropdown name="Category">
+          <ul class="py-2 space-y-2">
+            {#each categoryTypes as categoryType (`category-color-${categoryType}`)}
+              <li>
+                <label class="text-sm flex items-center capitalize space-x-2">
+                  <input
+                    on:change={() => {
+                      if (selectedTypes.includes(categoryType)) {
+                        selectedTypes = selectedTypes.filter((selectedType) => {
+                          return selectedType !== categoryType;
+                        });
+                      } else {
+                        selectedTypes = [...selectedTypes, categoryType];
+                      }
 
-          <!-- Content -->
-          <div
-            class={`grid ${
-              showTypes ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-            } transition-all duration-500`}
-          >
-            <div class="overflow-hidden">
-              <ul class="py-2 space-y-2">
-                {#each categoryTypes as categoryType (`category-color-${categoryType}`)}
-                  <li>
-                    <label
-                      class="text-sm flex items-center capitalize space-x-2"
-                    >
-                      <input
-                        on:change={() => {
-                          if (selectedTypes.includes(categoryType)) {
-                            selectedTypes = selectedTypes.filter(
-                              (selectedType) => {
-                                return selectedType !== categoryType;
-                              }
-                            );
-                          } else {
-                            selectedTypes = [...selectedTypes, categoryType];
-                          }
-
-                          filterProducts();
-                          sortProducts();
-                          generateCards();
-                          generateTypeCategory();
-                          generateColorCategory();
-                        }}
-                        type="checkbox"
-                      />
-                      <p class="cursor-pointer">{categoryType}</p>
-                    </label>
-                  </li>
-                {/each}
-              </ul>
-            </div>
-          </div>
-        </section>
+                      filterProducts();
+                      sortProducts();
+                      generateCards();
+                      generateTypeCategory();
+                      generateColorCategory();
+                      generatePriceCategory();
+                    }}
+                    type="checkbox"
+                  />
+                  <p class="cursor-pointer">{categoryType}</p>
+                </label>
+              </li>
+            {/each}
+          </ul>
+        </CollectionDropdown>
       {/if}
 
-      <section>
-        <button
-          on:click={() => {
-            showColors = !showColors;
-          }}
-          class="border-b w-full py-2 flex space-x-2 items-center"
-        >
-          <div class={`w-6 h-6 duration-300 ${showColors ? "rotate-180" : ""}`}>
-            <svg
-              class="w-full h-full"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              ><path
-                fill="currentColor"
-                d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6l1.41 1.41Z"
-              /></svg
-            >
-          </div>
-          <p class="font-medium text-lg">Colors</p>
-        </button>
+      <CollectionDropdown name="Price">
+        <ul class="py-2 space-y-2">
+          {#each categoryPrices as categoryPrice (`category-price-${categoryPrice}`)}
+            <li>
+              <label class="text-sm flex items-center capitalize space-x-2">
+                <input
+                  on:change={() => {
+                    if (selectedTypes.includes(categoryPrice)) {
+                      selectedTypes = selectedTypes.filter((selectedType) => {
+                        return selectedType !== categoryPrice;
+                      });
+                    } else {
+                      selectedTypes = [...selectedTypes, categoryPrice];
+                    }
 
-        <div
-          class={`grid ${
-            showColors ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-          } transition-all duration-500`}
-        >
-          <div class="overflow-hidden">
-            <ul class="py-2 space-y-2">
-              {#each categoryColors as categoryColor (`category-color-${categoryColor}`)}
-                <li>
-                  <label class="text-sm flex items-center capitalize space-x-2">
-                    <input
-                      on:change={() => {
-                        if (selectedColors.includes(categoryColor)) {
-                          selectedColors = selectedColors.filter(
-                            (selectedColor) => {
-                              return selectedColor !== categoryColor;
-                            }
-                          );
-                        } else {
-                          selectedColors = [...selectedColors, categoryColor];
+                    filterProducts();
+                    sortProducts();
+                    generateCards();
+                    generateTypeCategory();
+                    generateColorCategory();
+                    generatePriceCategory();
+                  }}
+                  type="checkbox"
+                />
+                <p class="cursor-pointer">{categoryPrice}</p>
+              </label>
+            </li>
+          {/each}
+        </ul>
+      </CollectionDropdown>
+
+      <CollectionDropdown name="Color">
+        <ul class="py-2 space-y-2">
+          {#each categoryColors as categoryColor (`category-color-${categoryColor}`)}
+            <li>
+              <label class="text-sm flex items-center capitalize space-x-2">
+                <input
+                  on:change={() => {
+                    if (selectedColors.includes(categoryColor)) {
+                      selectedColors = selectedColors.filter(
+                        (selectedColor) => {
+                          return selectedColor !== categoryColor;
                         }
+                      );
+                    } else {
+                      selectedColors = [...selectedColors, categoryColor];
+                    }
 
-                        filterProducts();
-                        sortProducts();
-                        generateCards();
-                        generateColorCategory();
-                        generateTypeCategory();
-                      }}
-                      type="checkbox"
-                    />
-                    <p class="cursor-pointer">{categoryColor}</p>
-                  </label>
-                </li>
-              {/each}
-            </ul>
-          </div>
-        </div>
-      </section>
+                    filterProducts();
+                    sortProducts();
+                    generateCards();
+                    generateColorCategory();
+                    generateTypeCategory();
+                    generatePriceCategory();
+                  }}
+                  type="checkbox"
+                />
+                <p class="cursor-pointer">{categoryColor}</p>
+              </label>
+            </li>
+          {/each}
+        </ul>
+      </CollectionDropdown>
     </section>
 
     <!-- Mobile filter -->
@@ -369,135 +353,100 @@
         </button>
 
         {#if categoryTypes.length > 0}
-          <section>
-            <button
-              on:click={() => {
-                showTypes = !showTypes;
-              }}
-              class="border-b w-full py-2 flex space-x-2 items-center"
-            >
-              <div
-                class={`w-6 h-6 duration-300 ${showTypes ? "rotate-180" : ""}`}
-              >
-                <svg
-                  class="w-full h-full"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  ><path
-                    fill="currentColor"
-                    d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6l1.41 1.41Z"
-                  /></svg
-                >
-              </div>
-              <p class="font-medium text-lg">Category</p>
-            </button>
-
-            <!-- Content -->
-            <div
-              class={`grid ${
-                showTypes ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-              } transition-all duration-500`}
-            >
-              <div class="overflow-hidden">
-                <ul class="py-2 space-y-2">
-                  {#each categoryTypes as categoryType (`category-color-${categoryType}`)}
-                    <li>
-                      <label
-                        class="text-sm flex items-center capitalize space-x-2"
-                      >
-                        <input
-                          on:change={() => {
-                            if (selectedTypes.includes(categoryType)) {
-                              selectedTypes = selectedTypes.filter(
-                                (selectedType) => {
-                                  return selectedType !== categoryType;
-                                }
-                              );
-                            } else {
-                              selectedTypes = [...selectedTypes, categoryType];
+          <CollectionDropdown name="Category">
+            <ul class="py-2 space-y-2">
+              {#each categoryTypes as categoryType (`category-color-${categoryType}`)}
+                <li>
+                  <label class="text-sm flex items-center capitalize space-x-2">
+                    <input
+                      on:change={() => {
+                        if (selectedTypes.includes(categoryType)) {
+                          selectedTypes = selectedTypes.filter(
+                            (selectedType) => {
+                              return selectedType !== categoryType;
                             }
+                          );
+                        } else {
+                          selectedTypes = [...selectedTypes, categoryType];
+                        }
 
-                            filterProducts();
-                            sortProducts();
-                            generateCards();
-                            generateTypeCategory();
-                            generateColorCategory();
-                          }}
-                          type="checkbox"
-                        />
-                        <p class="cursor-pointer">{categoryType}</p>
-                      </label>
-                    </li>
-                  {/each}
-                </ul>
-              </div>
-            </div>
-          </section>
+                        filterProducts();
+                        sortProducts();
+                        generateCards();
+                        generateTypeCategory();
+                        generateColorCategory();
+                      }}
+                      type="checkbox"
+                    />
+                    <p class="cursor-pointer">{categoryType}</p>
+                  </label>
+                </li>
+              {/each}
+            </ul>
+          </CollectionDropdown>
         {/if}
 
-        <section>
-          <button
-            on:click={() => {
-              showColors = !showColors;
-            }}
-            class="border-b w-full py-2 flex space-x-2 items-center"
-          >
-            <div
-              class={`w-6 h-6 duration-300 ${showColors ? "rotate-180" : ""}`}
-            >
-              <svg
-                class="w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                ><path
-                  fill="currentColor"
-                  d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6l1.41 1.41Z"
-                /></svg
-              >
-            </div>
-            <p class="font-medium text-lg">Colors</p>
-          </button>
+        <CollectionDropdown name="Price">
+          <ul class="py-2 space-y-2">
+            {#each categoryPrices as categoryPrice (`category-price-${categoryPrice}`)}
+              <li>
+                <label class="text-sm flex items-center capitalize space-x-2">
+                  <input
+                    on:change={() => {
+                      if (selectedTypes.includes(categoryPrice)) {
+                        selectedTypes = selectedTypes.filter((selectedType) => {
+                          return selectedType !== categoryPrice;
+                        });
+                      } else {
+                        selectedTypes = [...selectedTypes, categoryPrice];
+                      }
 
-          <div
-            class={`grid ${
-              showColors ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-            } transition-all duration-500`}
-          >
-            <div class="overflow-hidden">
-              <ul class="py-2 space-y-2">
-                {#each categoryColors as categoryColor (`category-color-${categoryColor}`)}
-                  <li>
-                    <label
-                      class="text-sm flex items-center capitalize space-x-2"
-                    >
-                      <input
-                        on:change={() => {
-                          if (selectedColors.includes(categoryColor)) {
-                            selectedColors = selectedColors.filter(
-                              (selectedColor) => {
-                                return selectedColor !== categoryColor;
-                              }
-                            );
-                          } else {
-                            selectedColors = [...selectedColors, categoryColor];
+                      filterProducts();
+                      sortProducts();
+                      generateCards();
+                      generateTypeCategory();
+                      generateColorCategory();
+                    }}
+                    type="checkbox"
+                  />
+                  <p class="cursor-pointer">{categoryPrice}</p>
+                </label>
+              </li>
+            {/each}
+          </ul>
+        </CollectionDropdown>
+
+        <CollectionDropdown name="Color">
+          <ul class="py-2 space-y-2">
+            {#each categoryColors as categoryColor (`category-color-${categoryColor}`)}
+              <li>
+                <label class="text-sm flex items-center capitalize space-x-2">
+                  <input
+                    on:change={() => {
+                      if (selectedColors.includes(categoryColor)) {
+                        selectedColors = selectedColors.filter(
+                          (selectedColor) => {
+                            return selectedColor !== categoryColor;
                           }
+                        );
+                      } else {
+                        selectedColors = [...selectedColors, categoryColor];
+                      }
 
-                          filterProducts();
-                          sortProducts();
-                          generateCards();
-                          generateColorCategory();
-                          generateTypeCategory();
-                        }}
-                        type="checkbox"
-                      />
-                      <p class="cursor-pointer">{categoryColor}</p>
-                    </label>
-                  </li>
-                {/each}
-              </ul>
-            </div>
-          </div>
-        </section>
+                      filterProducts();
+                      sortProducts();
+                      generateCards();
+                      generateColorCategory();
+                      generateTypeCategory();
+                    }}
+                    type="checkbox"
+                  />
+                  <p class="cursor-pointer">{categoryColor}</p>
+                </label>
+              </li>
+            {/each}
+          </ul>
+        </CollectionDropdown>
       </div>
     </div>
 
