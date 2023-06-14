@@ -23,7 +23,6 @@
     "69-99$": "₱3800-5500",
   };
 
-  console.log(pricesJson.contents);
   let categoryPrices: string[] = [];
   let selectedPrices: string[] = [];
 
