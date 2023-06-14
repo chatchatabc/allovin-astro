@@ -36,7 +36,7 @@ console.log("Start", collectionInfo);
     products={collectionInfo.products}
     client:idle
   >
-    <ul class="w-full hidden flex-wrap pb-8">
+    <ul data-card-deck class="w-full hidden flex-wrap pb-8">
       {
         [...collectionInfo.products].map((product) => {
           const images = product?.images.nodes ?? [];

@@ -13,8 +13,9 @@
   let currentPage = 1;
   let sortBy = "price-ascending";
 
-  let showCardsById: string[] = [];
+  let filteredProducts: ProductGetDetails[] = [];
   let cardContainer: HTMLElement;
+  let cardDeck: HTMLElement;
 
   function filterProducts() {
     let newProducts = products;
@@ -29,17 +30,13 @@
       });
     }
 
-    showCardsById = [];
+    filteredProducts = [];
     newProducts.forEach((product) => {
-      showCardsById.push(product.id);
+      filteredProducts.push(product);
     });
   }
 
   function generateColorCategory() {
-    const filteredProducts = products.filter((product) => {
-      return showCardsById.includes(product.id);
-    });
-
     const newColors = colorsShortJson.contents.filter((color) => {
       return filteredProducts.some((product) => {
         return product.variants.nodes.some((variant) => {
@@ -52,15 +49,15 @@
   }
 
   function generateCards() {
-    cardContainer.innerHTML = "";
+    cardContainer.querySelectorAll<HTMLElement>("[data-id]").forEach((card) => {
+      cardDeck.appendChild(card);
+    });
 
-    showCardsById.forEach((cardId) => {
+    filteredProducts.forEach((product) => {
       const card = document.querySelector<HTMLElement>(
-        `[data-id="${cardId}"]`
+        `[data-id="${product.id}"]`
       )!;
-      const cardClone = card.cloneNode(true) as HTMLElement;
-
-      cardContainer.appendChild(cardClone);
+      cardContainer.appendChild(card);
     });
   }
 
@@ -68,6 +65,7 @@
     cardContainer = document.querySelector<HTMLElement>(
       "[data-card-container]"
     )!;
+    cardDeck = document.querySelector<HTMLElement>("[data-card-deck]")!;
 
     filterProducts();
     generateColorCategory();
