@@ -20,6 +20,18 @@
   let filteredProducts: ProductGetDetails[] = [];
   let cardContainer: HTMLElement;
   let cardDeck: HTMLElement;
+  let bodyElement: HTMLElement;
+
+  let showFilters = false;
+
+  $: disabledBodyScroll(showFilters);
+  function disabledBodyScroll(disable: boolean) {
+    if (disable) {
+      bodyElement?.classList.add("overflow-hidden");
+    } else {
+      bodyElement?.classList.remove("overflow-hidden");
+    }
+  }
 
   function filterProducts() {
     let newProducts = products;
@@ -102,6 +114,7 @@
       "[data-card-container]"
     )!;
     cardDeck = document.querySelector<HTMLElement>("[data-card-deck]")!;
+    bodyElement = document.querySelector<HTMLElement>("body")!;
 
     filterProducts();
     sortProducts();
@@ -122,8 +135,26 @@
 
     <!-- Filters -->
     <section
-      class="flex text-sm text-gray-500 container mx-auto space-x-4 px-8 items-center justify-end"
+      class="flex text-sm text-gray-500 container mx-auto space-x-4 px-2 items-center justify-between lg:px-8 lg:justify-end"
     >
+      <!-- Filter Button for Mobile -->
+      <button
+        class="border p-1 rounded-md w-10 h-10 text-p400 border-p400 lg:hidden"
+        on:click={() => {
+          showFilters = !showFilters;
+        }}
+      >
+        <svg
+          class="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          ><path
+            fill="currentColor"
+            d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2h1.17zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h7.17zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h1.17z"
+          /></svg
+        >
+      </button>
+
       <!-- <div class="flex items-center space-x-1">
         <p>Items per page</p>
         <select
@@ -138,8 +169,10 @@
           <option>30</option>
         </select>
       </div> -->
+
+      <!-- Sort by -->
       <div class="flex items-center space-x-1">
-        <p>Sort by</p>
+        <p class="hidden md:block">Sort by</p>
         <select
           class="py-2 px-4 w-56 border rounded-full"
           value={sortBy}
@@ -159,8 +192,8 @@
 
   <!-- Body -->
   <section class="container mx-auto border-t flex px-2 xl:px-0">
-    <!-- Filters -->
-    <aside class="hidden py-4 space-y-4 text-gray-500 lg:block lg:w-56">
+    <!-- Desktop Filters -->
+    <section class="hidden py-4 space-y-4 text-gray-500 lg:block lg:w-56">
       {#if categoryTypes.length > 0}
         <section>
           <button class="border-b w-full py-2 flex space-x-2 items-center">
@@ -252,22 +285,137 @@
           {/each}
         </ul>
       </section>
-    </aside>
+    </section>
+
+    <!-- Mobile filter -->
+    <div
+      class={`fixed z-[1001] top-0 left-0 w-full h-full ${
+        showFilters ? "pointer-events-auto" : "pointer-events-none"
+      } lg:hidden`}
+    >
+      <!-- Background -->
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <div
+        on:click={() => {
+          showFilters = false;
+        }}
+        class={`absolute h-full w-full bg-black duration-300 ${
+          showFilters ? "opacity-50" : "opacity-0"
+        }`}
+      />
+
+      <!-- Content -->
+      <div
+        class={`text-gray-500 absolute bg-white left-0 w-full max-w-xs ${
+          showFilters ? "" : "-translate-x-full"
+        } px-4 h-full duration-300`}
+      >
+        <button
+          on:click={() => {
+            showFilters = false;
+          }}
+          class="ml-auto text-xl px-4 pt-4 flex items-center justify-center text-p400"
+        >
+          X
+        </button>
+        {#if categoryTypes.length > 0}
+          <section>
+            <button class="border-b w-full py-2 flex space-x-2 items-center">
+              <div class="w-6 h-6">
+                <svg
+                  class="w-full h-full"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  ><path
+                    fill="currentColor"
+                    d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6l1.41 1.41Z"
+                  /></svg
+                >
+              </div>
+              <p class="font-medium text-lg">Category</p>
+            </button>
+            <ul class="py-2 space-y-2">
+              {#each categoryTypes as categoryType (`category-color-${categoryType}`)}
+                <li>
+                  <label class="text-sm flex items-center capitalize space-x-2">
+                    <input
+                      on:change={() => {
+                        if (selectedTypes.includes(categoryType)) {
+                          selectedTypes = selectedTypes.filter(
+                            (selectedType) => {
+                              return selectedType !== categoryType;
+                            }
+                          );
+                        } else {
+                          selectedTypes = [...selectedTypes, categoryType];
+                        }
+
+                        filterProducts();
+                        sortProducts();
+                        generateCards();
+                        generateTypeCategory();
+                        generateColorCategory();
+                      }}
+                      type="checkbox"
+                    />
+                    <p class="cursor-pointer">{categoryType}</p>
+                  </label>
+                </li>
+              {/each}
+            </ul>
+          </section>
+        {/if}
+
+        <section>
+          <button class="border-b w-full py-2 flex space-x-2 items-center">
+            <div class="w-6 h-6">
+              <svg
+                class="w-full h-full"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                ><path
+                  fill="currentColor"
+                  d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6l1.41 1.41Z"
+                /></svg
+              >
+            </div>
+            <p class="font-medium text-lg">Colors</p>
+          </button>
+          <ul class="py-2 space-y-2">
+            {#each categoryColors as categoryColor (`category-color-${categoryColor}`)}
+              <li>
+                <label class="text-sm flex items-center capitalize space-x-2">
+                  <input
+                    on:change={() => {
+                      if (selectedColors.includes(categoryColor)) {
+                        selectedColors = selectedColors.filter(
+                          (selectedColor) => {
+                            return selectedColor !== categoryColor;
+                          }
+                        );
+                      } else {
+                        selectedColors = [...selectedColors, categoryColor];
+                      }
+
+                      filterProducts();
+                      sortProducts();
+                      generateCards();
+                      generateColorCategory();
+                      generateTypeCategory();
+                    }}
+                    type="checkbox"
+                  />
+                  <p class="cursor-pointer">{categoryColor}</p>
+                </label>
+              </li>
+            {/each}
+          </ul>
+        </section>
+      </div>
+    </div>
 
     <!-- Products -->
     <section class="flex-1 p-2">
-      <!-- <ul class="flex flex-wrap">
-        {#each products as product}
-          <li class="p-2 w-1/2 md:w-1/3 lg:w-1/4">
-            <CardSelectionSvelte
-              images={product.images.nodes}
-              name={product.title}
-              variants={product.variants.nodes}
-              href={`/products/${product.handle}`}
-            />
-          </li>
-        {/each}
-      </ul> -->
       <slot />
     </section>
   </section>
