@@ -128,8 +128,8 @@
 
 <div>
   <!-- Header -->
-  <section class="pt-8 pb-2 border-t">
-    <header class="container mx-auto px-8">
+  <section class="pb-2 border-t">
+    <header class="container mx-auto px-8 py-4 md:py-8">
       <h1 class="text-2xl text-center text-gray-500 font-bold">
         {name}
       </h1>
@@ -137,7 +137,7 @@
 
     <!-- Filters -->
     <section
-      class="flex text-sm text-gray-500 container mx-auto space-x-4 px-2 items-center justify-between lg:px-8 lg:justify-end"
+      class="flex text-sm text-gray-500 bg-gray-100 p-2 container mx-auto space-x-4 px-2 items-center justify-between lg:bg-transparent lg:px-8 lg:justify-end"
     >
       <!-- Filter Button for Mobile -->
       <button
@@ -176,7 +176,7 @@
       <div class="flex items-center space-x-1">
         <p class="hidden md:block">Sort by</p>
         <select
-          class="py-2 px-4 w-56 border rounded-full"
+          class="py-2 px-4 w-48 border rounded-full"
           value={sortBy}
           on:change={(e) => {
             sortBy = e?.currentTarget.value;
