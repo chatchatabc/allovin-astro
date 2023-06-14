@@ -7,11 +7,13 @@
   export let name: string;
   export let products: ProductGetDetails[];
 
-  $: categoryColors = [] as string[];
-  $: selectedColors = [] as string[];
+  let showColors = true;
+  let categoryColors: string[] = [];
+  let selectedColors: string[] = [];
 
-  $: categoryTypes = [] as string[];
-  $: selectedTypes = [] as string[];
+  let showTypes = true;
+  let categoryTypes: string[] = [];
+  let selectedTypes: string[] = [];
 
   let productsPerPage = 10;
   let currentPage = 1;
@@ -196,8 +198,15 @@
     <section class="hidden py-4 space-y-4 text-gray-500 lg:block lg:w-56">
       {#if categoryTypes.length > 0}
         <section>
-          <button class="border-b w-full py-2 flex space-x-2 items-center">
-            <div class="w-6 h-6">
+          <button
+            on:click={() => {
+              showTypes = !showTypes;
+            }}
+            class="border-b w-full py-2 flex space-x-2 items-center"
+          >
+            <div
+              class={`w-6 h-6 duration-300 ${showTypes ? "rotate-180" : ""}`}
+            >
               <svg
                 class="w-full h-full"
                 xmlns="http://www.w3.org/2000/svg"
@@ -210,39 +219,58 @@
             </div>
             <p class="font-medium text-lg">Category</p>
           </button>
-          <ul class="py-2 space-y-2">
-            {#each categoryTypes as categoryType (`category-color-${categoryType}`)}
-              <li>
-                <label class="text-sm flex items-center capitalize space-x-2">
-                  <input
-                    on:change={() => {
-                      if (selectedTypes.includes(categoryType)) {
-                        selectedTypes = selectedTypes.filter((selectedType) => {
-                          return selectedType !== categoryType;
-                        });
-                      } else {
-                        selectedTypes = [...selectedTypes, categoryType];
-                      }
 
-                      filterProducts();
-                      sortProducts();
-                      generateCards();
-                      generateTypeCategory();
-                      generateColorCategory();
-                    }}
-                    type="checkbox"
-                  />
-                  <p class="cursor-pointer">{categoryType}</p>
-                </label>
-              </li>
-            {/each}
-          </ul>
+          <!-- Content -->
+          <div
+            class={`grid ${
+              showTypes ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+            } transition-all duration-500`}
+          >
+            <div class="overflow-hidden">
+              <ul class="py-2 space-y-2">
+                {#each categoryTypes as categoryType (`category-color-${categoryType}`)}
+                  <li>
+                    <label
+                      class="text-sm flex items-center capitalize space-x-2"
+                    >
+                      <input
+                        on:change={() => {
+                          if (selectedTypes.includes(categoryType)) {
+                            selectedTypes = selectedTypes.filter(
+                              (selectedType) => {
+                                return selectedType !== categoryType;
+                              }
+                            );
+                          } else {
+                            selectedTypes = [...selectedTypes, categoryType];
+                          }
+
+                          filterProducts();
+                          sortProducts();
+                          generateCards();
+                          generateTypeCategory();
+                          generateColorCategory();
+                        }}
+                        type="checkbox"
+                      />
+                      <p class="cursor-pointer">{categoryType}</p>
+                    </label>
+                  </li>
+                {/each}
+              </ul>
+            </div>
+          </div>
         </section>
       {/if}
 
       <section>
-        <button class="border-b w-full py-2 flex space-x-2 items-center">
-          <div class="w-6 h-6">
+        <button
+          on:click={() => {
+            showColors = !showColors;
+          }}
+          class="border-b w-full py-2 flex space-x-2 items-center"
+        >
+          <div class={`w-6 h-6 duration-300 ${showColors ? "rotate-180" : ""}`}>
             <svg
               class="w-full h-full"
               xmlns="http://www.w3.org/2000/svg"
@@ -255,35 +283,44 @@
           </div>
           <p class="font-medium text-lg">Colors</p>
         </button>
-        <ul class="py-2 space-y-2">
-          {#each categoryColors as categoryColor (`category-color-${categoryColor}`)}
-            <li>
-              <label class="text-sm flex items-center capitalize space-x-2">
-                <input
-                  on:change={() => {
-                    if (selectedColors.includes(categoryColor)) {
-                      selectedColors = selectedColors.filter(
-                        (selectedColor) => {
-                          return selectedColor !== categoryColor;
-                        }
-                      );
-                    } else {
-                      selectedColors = [...selectedColors, categoryColor];
-                    }
 
-                    filterProducts();
-                    sortProducts();
-                    generateCards();
-                    generateColorCategory();
-                    generateTypeCategory();
-                  }}
-                  type="checkbox"
-                />
-                <p class="cursor-pointer">{categoryColor}</p>
-              </label>
-            </li>
-          {/each}
-        </ul>
+        <div
+          class={`grid ${
+            showColors ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+          } transition-all duration-500`}
+        >
+          <div class="overflow-hidden">
+            <ul class="py-2 space-y-2">
+              {#each categoryColors as categoryColor (`category-color-${categoryColor}`)}
+                <li>
+                  <label class="text-sm flex items-center capitalize space-x-2">
+                    <input
+                      on:change={() => {
+                        if (selectedColors.includes(categoryColor)) {
+                          selectedColors = selectedColors.filter(
+                            (selectedColor) => {
+                              return selectedColor !== categoryColor;
+                            }
+                          );
+                        } else {
+                          selectedColors = [...selectedColors, categoryColor];
+                        }
+
+                        filterProducts();
+                        sortProducts();
+                        generateCards();
+                        generateColorCategory();
+                        generateTypeCategory();
+                      }}
+                      type="checkbox"
+                    />
+                    <p class="cursor-pointer">{categoryColor}</p>
+                  </label>
+                </li>
+              {/each}
+            </ul>
+          </div>
+        </div>
       </section>
     </section>
 
@@ -318,10 +355,18 @@
         >
           X
         </button>
+
         {#if categoryTypes.length > 0}
           <section>
-            <button class="border-b w-full py-2 flex space-x-2 items-center">
-              <div class="w-6 h-6">
+            <button
+              on:click={() => {
+                showTypes = !showTypes;
+              }}
+              class="border-b w-full py-2 flex space-x-2 items-center"
+            >
+              <div
+                class={`w-6 h-6 duration-300 ${showTypes ? "rotate-180" : ""}`}
+              >
                 <svg
                   class="w-full h-full"
                   xmlns="http://www.w3.org/2000/svg"
@@ -334,41 +379,60 @@
               </div>
               <p class="font-medium text-lg">Category</p>
             </button>
-            <ul class="py-2 space-y-2">
-              {#each categoryTypes as categoryType (`category-color-${categoryType}`)}
-                <li>
-                  <label class="text-sm flex items-center capitalize space-x-2">
-                    <input
-                      on:change={() => {
-                        if (selectedTypes.includes(categoryType)) {
-                          selectedTypes = selectedTypes.filter(
-                            (selectedType) => {
-                              return selectedType !== categoryType;
-                            }
-                          );
-                        } else {
-                          selectedTypes = [...selectedTypes, categoryType];
-                        }
 
-                        filterProducts();
-                        sortProducts();
-                        generateCards();
-                        generateTypeCategory();
-                        generateColorCategory();
-                      }}
-                      type="checkbox"
-                    />
-                    <p class="cursor-pointer">{categoryType}</p>
-                  </label>
-                </li>
-              {/each}
-            </ul>
+            <!-- Content -->
+            <div
+              class={`grid ${
+                showTypes ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              } transition-all duration-500`}
+            >
+              <div class="overflow-hidden">
+                <ul class="py-2 space-y-2">
+                  {#each categoryTypes as categoryType (`category-color-${categoryType}`)}
+                    <li>
+                      <label
+                        class="text-sm flex items-center capitalize space-x-2"
+                      >
+                        <input
+                          on:change={() => {
+                            if (selectedTypes.includes(categoryType)) {
+                              selectedTypes = selectedTypes.filter(
+                                (selectedType) => {
+                                  return selectedType !== categoryType;
+                                }
+                              );
+                            } else {
+                              selectedTypes = [...selectedTypes, categoryType];
+                            }
+
+                            filterProducts();
+                            sortProducts();
+                            generateCards();
+                            generateTypeCategory();
+                            generateColorCategory();
+                          }}
+                          type="checkbox"
+                        />
+                        <p class="cursor-pointer">{categoryType}</p>
+                      </label>
+                    </li>
+                  {/each}
+                </ul>
+              </div>
+            </div>
           </section>
         {/if}
 
         <section>
-          <button class="border-b w-full py-2 flex space-x-2 items-center">
-            <div class="w-6 h-6">
+          <button
+            on:click={() => {
+              showColors = !showColors;
+            }}
+            class="border-b w-full py-2 flex space-x-2 items-center"
+          >
+            <div
+              class={`w-6 h-6 duration-300 ${showColors ? "rotate-180" : ""}`}
+            >
               <svg
                 class="w-full h-full"
                 xmlns="http://www.w3.org/2000/svg"
@@ -381,35 +445,46 @@
             </div>
             <p class="font-medium text-lg">Colors</p>
           </button>
-          <ul class="py-2 space-y-2">
-            {#each categoryColors as categoryColor (`category-color-${categoryColor}`)}
-              <li>
-                <label class="text-sm flex items-center capitalize space-x-2">
-                  <input
-                    on:change={() => {
-                      if (selectedColors.includes(categoryColor)) {
-                        selectedColors = selectedColors.filter(
-                          (selectedColor) => {
-                            return selectedColor !== categoryColor;
-                          }
-                        );
-                      } else {
-                        selectedColors = [...selectedColors, categoryColor];
-                      }
 
-                      filterProducts();
-                      sortProducts();
-                      generateCards();
-                      generateColorCategory();
-                      generateTypeCategory();
-                    }}
-                    type="checkbox"
-                  />
-                  <p class="cursor-pointer">{categoryColor}</p>
-                </label>
-              </li>
-            {/each}
-          </ul>
+          <div
+            class={`grid ${
+              showColors ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+            } transition-all duration-500`}
+          >
+            <div class="overflow-hidden">
+              <ul class="py-2 space-y-2">
+                {#each categoryColors as categoryColor (`category-color-${categoryColor}`)}
+                  <li>
+                    <label
+                      class="text-sm flex items-center capitalize space-x-2"
+                    >
+                      <input
+                        on:change={() => {
+                          if (selectedColors.includes(categoryColor)) {
+                            selectedColors = selectedColors.filter(
+                              (selectedColor) => {
+                                return selectedColor !== categoryColor;
+                              }
+                            );
+                          } else {
+                            selectedColors = [...selectedColors, categoryColor];
+                          }
+
+                          filterProducts();
+                          sortProducts();
+                          generateCards();
+                          generateColorCategory();
+                          generateTypeCategory();
+                        }}
+                        type="checkbox"
+                      />
+                      <p class="cursor-pointer">{categoryColor}</p>
+                    </label>
+                  </li>
+                {/each}
+              </ul>
+            </div>
+          </div>
         </section>
       </div>
     </div>
