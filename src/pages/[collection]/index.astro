@@ -1,12 +1,12 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import collections from "@data/collections.json";
+import CollectionLayout from "@layouts/CollectionLayout.svelte";
 import CardSelection from "@components/CardSelection.astro";
 import {
   utilConvertToPhp,
   utilOptimizeColorVariants,
-} from "src/domain/services/utilService";
-import Container from "@layouts/Container.astro";
+} from "../../domain/services/utilService";
 
 export function getStaticPaths() {
   return collections.map((collection) => {
@@ -27,71 +27,48 @@ interface Props {
 
 const { collectionInfo } = Astro.props as Props;
 
-const collectionProducts = collectionInfo.products;
+console.log("Start", collectionInfo);
 ---
 
 <MainLayout>
-  <!-- Header -->
-  <section class="py-8 border-t">
-    <header class="container mx-auto px-4 lg:px-8">
-      <h1 class="text-2xl text-center text-gray-500 font-bold">
-        {collectionInfo.name}
-      </h1>
-    </header>
+  <CollectionLayout
+    name={collectionInfo.name}
+    products={collectionInfo.products}
+    client:idle
+  >
+    <ul class="w-full hidden flex-wrap pb-8">
+      {
+        [...collectionInfo.products].map((product) => {
+          const images = product?.images.nodes ?? [];
+          const image = images
+            ? images[images.length - 1]
+            : product?.featuredImage;
 
-    <!-- Filters -->
-    <!-- <section
-      class="flex text-sm text-gray-500 container mx-auto space-x-4 px-8 items-center justify-end"
-    >
-      <div class="flex items-center space-x-1">
-        <p>Items per page</p>
-        <select class="py-2 px-4 w-48 border rounded-full">
-          <option>10</option>
-          <option>20</option>
-          <option>30</option>
-        </select>
-      </div>
-      <div class="flex items-center space-x-1">
-        <p>Sort by</p>
-        <select class="py-2 px-4 w-48 border rounded-full">
-          <option value="price-descending">Price, high to low</option>
-          <option value="price-ascending">Price, low to high</option>
-        </select>
-      </div>
-    </section> -->
-  </section>
+          return (
+            <li
+              class="cards flex-shrink-0 p-2 w-1/2 md:w-1/3 lg:w-1/5"
+              data-id={product.id}
+            >
+              <CardSelection
+                name={product?.title ?? ""}
+                price={
+                  utilConvertToPhp(
+                    Number(product.priceRangeV2.minVariantPrice.amount) ?? 0,
+                    product?.priceRangeV2.minVariantPrice.currencyCode ?? ""
+                  ) ?? 0
+                }
+                secondaryImage={image?.url ?? "/images/placeholder.png"}
+                variants={utilOptimizeColorVariants(
+                  product?.variants.nodes ?? []
+                )}
+                href={`/products/${product?.handle}`}
+              />
+            </li>
+          );
+        })
+      }
+    </ul>
 
-  <Container className="border-t flex">
-    <!-- Products -->
-    <section class="flex-1 p-2">
-      <ul class="flex flex-wrap">
-        {
-          collectionProducts?.map(async (product: any, index: number) => {
-            const images = product?.images.nodes ?? [];
-            const image = images
-              ? images[images.length - 1]
-              : product?.featuredImage;
-            return (
-              <li class="p-2 w-1/2 md:w-1/3 lg:w-1/4">
-                <CardSelection
-                  name={product?.title ?? ""}
-                  price={
-                    utilConvertToPhp(
-                      product?.priceRangeV2.minVariantPrice.amount ?? 0,
-                      product?.priceRangeV2.minVariantPrice.currencyCode ?? ""
-                    ) ?? 0
-                  }
-                  secondaryImage={image?.url ?? "/images/placeholder.png"}
-                  variants={utilOptimizeColorVariants(
-                    product?.variants.nodes ?? []
-                  )}
-                  href={`/products/${product?.handle}`}
-                />
-              </li>
-            );
-          })
-        }
-      </ul>
-    </section>
-  </Container>
+    <ul data-card-container class="w-full flex flex-wrap pb-8"></ul>
+  </CollectionLayout>
 </MainLayout>

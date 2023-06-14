@@ -1,16 +1,78 @@
 <script lang="ts">
-  import colorsJson from "@data/colors.json";
+  import colorsShortJson from "@data/colorsShort.json";
+  import type { ProductGetDetails } from "src/domain/models/productModel";
+  import { onMount } from "svelte";
 
   export let name: string;
-  export let products: any[] | undefined;
+  export let products: ProductGetDetails[];
 
-  const colors = colorsJson.contents;
+  $: categoryColors = [] as string[];
+  $: selectedColors = [] as string[];
 
   let productsPerPage = 10;
   let currentPage = 1;
   let sortBy = "price-ascending";
 
-  console.log(products);
+  let showCardsById: string[] = [];
+  let cardContainer: HTMLElement;
+
+  function filterProducts() {
+    let newProducts = products;
+
+    if (selectedColors.length > 0) {
+      newProducts = newProducts.filter((product) => {
+        return selectedColors.every((color) => {
+          return product.variants.nodes.some((variant) => {
+            return variant.title.toLowerCase().includes(color) ? true : false;
+          });
+        });
+      });
+    }
+
+    showCardsById = [];
+    newProducts.forEach((product) => {
+      showCardsById.push(product.id);
+    });
+  }
+
+  function generateColorCategory() {
+    const filteredProducts = products.filter((product) => {
+      return showCardsById.includes(product.id);
+    });
+
+    const newColors = colorsShortJson.contents.filter((color) => {
+      return filteredProducts.some((product) => {
+        return product.variants.nodes.some((variant) => {
+          return variant.title.toLowerCase().includes(color) ? true : false;
+        });
+      });
+    });
+
+    categoryColors = newColors;
+  }
+
+  function generateCards() {
+    cardContainer.innerHTML = "";
+
+    showCardsById.forEach((cardId) => {
+      const card = document.querySelector<HTMLElement>(
+        `[data-id="${cardId}"]`
+      )!;
+      const cardClone = card.cloneNode(true) as HTMLElement;
+
+      cardContainer.appendChild(cardClone);
+    });
+  }
+
+  onMount(() => {
+    cardContainer = document.querySelector<HTMLElement>(
+      "[data-card-container]"
+    )!;
+
+    filterProducts();
+    generateColorCategory();
+    generateCards();
+  });
 </script>
 
 <div>
@@ -64,9 +126,8 @@
         <button class="border-b w-full py-2 flex space-x-2 items-center">
           <div class="w-6 h-6">
             <svg
+              class="w-full h-full"
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
               viewBox="0 0 24 24"
               ><path
                 fill="currentColor"
@@ -77,11 +138,28 @@
           <p class="font-medium text-lg">Category</p>
         </button>
         <ul class="py-2 space-y-2">
-          {#each colors as color}
+          {#each categoryColors as categoryColor (`category-color-${categoryColor}`)}
             <li>
-              <label class="text-sm flex items-center space-x-2">
-                <input type="checkbox" />
-                <p class="cursor-pointer">{color}</p>
+              <label class="text-sm flex items-center capitalize space-x-2">
+                <input
+                  on:change={() => {
+                    if (selectedColors.includes(categoryColor)) {
+                      selectedColors = selectedColors.filter(
+                        (selectedColor) => {
+                          return selectedColor !== categoryColor;
+                        }
+                      );
+                    } else {
+                      selectedColors = [...selectedColors, categoryColor];
+                    }
+
+                    filterProducts();
+                    generateCards();
+                    generateColorCategory();
+                  }}
+                  type="checkbox"
+                />
+                <p class="cursor-pointer">{categoryColor}</p>
               </label>
             </li>
           {/each}
@@ -91,6 +169,18 @@
 
     <!-- Products -->
     <section class="flex-1 p-2">
+      <!-- <ul class="flex flex-wrap">
+        {#each products as product}
+          <li class="p-2 w-1/2 md:w-1/3 lg:w-1/4">
+            <CardSelectionSvelte
+              images={product.images.nodes}
+              name={product.title}
+              variants={product.variants.nodes}
+              href={`/products/${product.handle}`}
+            />
+          </li>
+        {/each}
+      </ul> -->
       <slot />
     </section>
   </section>
