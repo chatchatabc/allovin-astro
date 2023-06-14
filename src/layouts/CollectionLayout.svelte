@@ -73,6 +73,16 @@
       if (sortBy.includes("desc")) {
         filteredProducts.reverse();
       }
+    } else if (sortBy.includes("price")) {
+      filteredProducts.sort((a, b) => {
+        const aPrice = a.priceRangeV2.minVariantPrice.amount;
+        const bPrice = b.priceRangeV2.minVariantPrice.amount;
+        return aPrice - bPrice;
+      });
+
+      if (sortBy.includes("desc")) {
+        filteredProducts.reverse();
+      }
     }
   }
 
@@ -187,6 +197,8 @@
         >
           <option value="date-desc">Date, New to Old</option>
           <option value="date-asc">Date, Old to New</option>
+          <option value="price-asc">Price, Low to High</option>
+          <option value="price-desc">Price, High to Low</option>
         </select>
       </div>
     </section>
