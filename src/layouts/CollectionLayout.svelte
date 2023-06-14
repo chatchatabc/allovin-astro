@@ -137,7 +137,7 @@
   <!-- Body -->
   <section class="container mx-auto border-t flex px-2 xl:px-0">
     <!-- Filters -->
-    <aside class="py-4 space-y-4 text-gray-500 lg:w-56">
+    <aside class="hidden py-4 space-y-4 text-gray-500 lg:block lg:w-56">
       <section>
         <button class="border-b w-full py-2 flex space-x-2 items-center">
           <div class="w-6 h-6">
