@@ -1,4 +1,5 @@
 <script lang="ts">
+  import typesJson from "@data/types.json";
   import colorsShortJson from "@data/colorsShort.json";
   import type { ProductGetDetails } from "src/domain/models/productModel";
   import { onMount } from "svelte";
@@ -8,6 +9,9 @@
 
   $: categoryColors = [] as string[];
   $: selectedColors = [] as string[];
+
+  $: categoryTypes = [] as string[];
+  $: selectedTypes = [] as string[];
 
   let productsPerPage = 10;
   let currentPage = 1;
@@ -26,6 +30,14 @@
           return product.variants.nodes.some((variant) => {
             return variant.title.toLowerCase().includes(color) ? true : false;
           });
+        });
+      });
+    }
+
+    if (selectedTypes.length > 0) {
+      newProducts = newProducts.filter((product) => {
+        return selectedTypes.every((type) => {
+          return product.tags.includes(type) ? true : false;
         });
       });
     }
@@ -62,6 +74,16 @@
     categoryColors = newColors;
   }
 
+  function generateTypeCategory() {
+    const newTypes = typesJson.contents.filter((type) => {
+      return filteredProducts.some((product) => {
+        return product.tags.includes(type) ? true : false;
+      });
+    });
+
+    categoryTypes = newTypes;
+  }
+
   function generateCards() {
     cardContainer.querySelectorAll<HTMLElement>("[data-id]").forEach((card) => {
       cardDeck.appendChild(card);
@@ -83,6 +105,7 @@
 
     filterProducts();
     sortProducts();
+    generateTypeCategory();
     generateColorCategory();
     generateCards();
   });
@@ -138,6 +161,51 @@
   <section class="container mx-auto border-t flex px-2 xl:px-0">
     <!-- Filters -->
     <aside class="hidden py-4 space-y-4 text-gray-500 lg:block lg:w-56">
+      {#if categoryTypes.length > 0}
+        <section>
+          <button class="border-b w-full py-2 flex space-x-2 items-center">
+            <div class="w-6 h-6">
+              <svg
+                class="w-full h-full"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                ><path
+                  fill="currentColor"
+                  d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6l1.41 1.41Z"
+                /></svg
+              >
+            </div>
+            <p class="font-medium text-lg">Category</p>
+          </button>
+          <ul class="py-2 space-y-2">
+            {#each categoryTypes as categoryType (`category-color-${categoryType}`)}
+              <li>
+                <label class="text-sm flex items-center capitalize space-x-2">
+                  <input
+                    on:change={() => {
+                      if (selectedTypes.includes(categoryType)) {
+                        selectedTypes = selectedTypes.filter((selectedType) => {
+                          return selectedType !== categoryType;
+                        });
+                      } else {
+                        selectedTypes = [...selectedTypes, categoryType];
+                      }
+
+                      filterProducts();
+                      sortProducts();
+                      generateCards();
+                      generateColorCategory();
+                    }}
+                    type="checkbox"
+                  />
+                  <p class="cursor-pointer">{categoryType}</p>
+                </label>
+              </li>
+            {/each}
+          </ul>
+        </section>
+      {/if}
+
       <section>
         <button class="border-b w-full py-2 flex space-x-2 items-center">
           <div class="w-6 h-6">
@@ -151,7 +219,7 @@
               /></svg
             >
           </div>
-          <p class="font-medium text-lg">Category</p>
+          <p class="font-medium text-lg">Colors</p>
         </button>
         <ul class="py-2 space-y-2">
           {#each categoryColors as categoryColor (`category-color-${categoryColor}`)}
@@ -170,6 +238,7 @@
                     }
 
                     filterProducts();
+                    sortProducts();
                     generateCards();
                     generateColorCategory();
                   }}

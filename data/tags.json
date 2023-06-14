@@ -1,15 +1,3 @@
 {
-  "contents": [
-    "29-49$",
-    "49-69$",
-    "69-99$",
-    "9-29$",
-    "Accessories",
-    "BoysSets",
-    "DailyDresses",
-    "HolidayCostume",
-    "OccasionDresses",
-    "under 9$",
-    "upc"
-  ]
+  "contents": ["29-49$", "49-69$", "69-99$", "9-29$", "under 9$", "upc"]
 }
