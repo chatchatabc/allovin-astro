@@ -150,8 +150,8 @@
             generateCards();
           }}
         >
-          <option value="date-desc">Date, Newest to Oldest</option>
-          <option value="date-asc">Date, Oldest to Newest</option>
+          <option value="date-desc">Date, New to Old</option>
+          <option value="date-asc">Date, Old to New</option>
         </select>
       </div>
     </section>
@@ -194,6 +194,7 @@
                       filterProducts();
                       sortProducts();
                       generateCards();
+                      generateTypeCategory();
                       generateColorCategory();
                     }}
                     type="checkbox"
@@ -241,6 +242,7 @@
                     sortProducts();
                     generateCards();
                     generateColorCategory();
+                    generateTypeCategory();
                   }}
                   type="checkbox"
                 />
