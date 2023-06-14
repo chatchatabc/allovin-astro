@@ -161,7 +161,7 @@
 <div>
   <!-- Header -->
   <section class="pb-2 border-t">
-    <header class="container mx-auto px-8 py-4 md:py-8">
+    <header class="container mx-auto px-8 py-4 md:py-8 lg:pb-0">
       <h1 class="text-2xl text-center text-gray-500 font-bold">
         {name}
       </h1>
@@ -237,7 +237,7 @@
               <li>
                 <label class="text-sm flex items-center capitalize space-x-2">
                   <input
-                    on:change={() => {
+                    on:click={() => {
                       if (selectedTypes.includes(categoryType)) {
                         selectedTypes = selectedTypes.filter((selectedType) => {
                           return selectedType !== categoryType;
@@ -254,6 +254,7 @@
                       generatePriceCategory();
                     }}
                     type="checkbox"
+                    checked={selectedTypes.includes(categoryType)}
                   />
                   <p class="cursor-pointer">{categoryType}</p>
                 </label>
@@ -269,7 +270,7 @@
             <li>
               <label class="text-sm flex items-center capitalize space-x-2">
                 <input
-                  on:change={() => {
+                  on:click={() => {
                     if (selectedPrices.includes(categoryPrice)) {
                       selectedPrices = selectedPrices.filter(
                         (selectedPrice) => {
@@ -288,6 +289,7 @@
                     generatePriceCategory();
                   }}
                   type="checkbox"
+                  checked={selectedPrices.includes(categoryPrice)}
                 />
                 <p class="cursor-pointer">{categoryPrice}</p>
               </label>
@@ -302,7 +304,7 @@
             <li>
               <label class="text-sm flex items-center capitalize space-x-2">
                 <input
-                  on:change={() => {
+                  on:click={() => {
                     if (selectedColors.includes(categoryColor)) {
                       selectedColors = selectedColors.filter(
                         (selectedColor) => {
@@ -321,6 +323,7 @@
                     generatePriceCategory();
                   }}
                   type="checkbox"
+                  checked={selectedColors.includes(categoryColor)}
                 />
                 <p class="cursor-pointer">{categoryColor}</p>
               </label>
@@ -369,7 +372,7 @@
                 <li>
                   <label class="text-sm flex items-center capitalize space-x-2">
                     <input
-                      on:change={() => {
+                      on:click={() => {
                         if (selectedTypes.includes(categoryType)) {
                           selectedTypes = selectedTypes.filter(
                             (selectedType) => {
@@ -388,6 +391,7 @@
                         generatePriceCategory();
                       }}
                       type="checkbox"
+                      checked={selectedTypes.includes(categoryType)}
                     />
                     <p class="cursor-pointer">{categoryType}</p>
                   </label>
@@ -403,7 +407,7 @@
               <li>
                 <label class="text-sm flex items-center capitalize space-x-2">
                   <input
-                    on:change={() => {
+                    on:click={() => {
                       if (selectedPrices.includes(categoryPrice)) {
                         selectedPrices = selectedPrices.filter(
                           (selectedPrice) => {
@@ -422,6 +426,7 @@
                       generatePriceCategory();
                     }}
                     type="checkbox"
+                    checked={selectedPrices.includes(categoryPrice)}
                   />
                   <p class="cursor-pointer">{categoryPrice}</p>
                 </label>
@@ -436,7 +441,7 @@
               <li>
                 <label class="text-sm flex items-center capitalize space-x-2">
                   <input
-                    on:change={() => {
+                    on:click={() => {
                       if (selectedColors.includes(categoryColor)) {
                         selectedColors = selectedColors.filter(
                           (selectedColor) => {
@@ -455,6 +460,7 @@
                       generatePriceCategory();
                     }}
                     type="checkbox"
+                    checked={selectedColors.includes(categoryColor)}
                   />
                   <p class="cursor-pointer">{categoryColor}</p>
                 </label>
