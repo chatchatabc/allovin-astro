@@ -77,6 +77,10 @@ export function productGetDetailsDoc() {
           title
         }
       }
+      seo {
+        title
+        description
+      }
     }
   }
   `;

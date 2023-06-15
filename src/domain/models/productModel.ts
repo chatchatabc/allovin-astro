@@ -19,6 +19,10 @@ export type ProductGetDetails = {
   collections: {
     nodes: CollectionGetProducts[];
   };
+  seo: {
+    description: string;
+    title: string;
+  };
 };
 
 export type ProductGetVariants = {
