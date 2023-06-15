@@ -1,9 +1,9 @@
 {
   "pageTitle": "Allovin",
-  "pageDescription": "Allovin is a web application that allows you to create and share your own virtual reality experiences.",
+  "pageDescription": "Allovin - An online magic destination for quality special Occasion Dresses\n & Daily Dresses · Holiday Costume & Dressing · Boys' Sets · Accessories for \nthe little ones in your life.",
   "pageKeywords": "Allovin, VR, Virtual Reality, WebVR, WebVR",
   "pageAuthor": "ChatChatABC Philippines, Inc.",
-  "lazada": "https://www.lazada.com.ph/",
+  "lazada": "https://www.lazada.com.ph/shop/allovin/",
   "shopee": "https://shopee.ph/",
   "topMessages": ["Welcome! You're visiting our page in Philippines website."],
   "facebook": "https://www.facebook.com/Allovinkids",
@@ -93,5 +93,6 @@
         }
       ]
     }
-  ]
+  ],
+  "ogImage": "/images/og-image.png"
 }
