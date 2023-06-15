@@ -46,10 +46,14 @@ if (
   productData.images.nodes = [];
 }
 
-// console.log(product);
+// console.log(productData);
 ---
 
-<MainLayout>
+<MainLayout
+  pageTitle={productData.seo.title}
+  pageDescription={productData.seo.description}
+  ogImage={productData.images.nodes[0]?.url}
+>
   <section class="border-t">
     <Container>
       <figure class="flex flex-wrap">

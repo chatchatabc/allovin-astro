@@ -26,11 +26,9 @@ interface Props {
 }
 
 const { collectionInfo } = Astro.props as Props;
-
-console.log("Start", collectionInfo);
 ---
 
-<MainLayout>
+<MainLayout pageTitle={collectionInfo.name}>
   <CollectionLayout
     name={collectionInfo.name}
     products={collectionInfo.products}
