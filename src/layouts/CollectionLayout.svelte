@@ -173,7 +173,7 @@
 <div>
   <!-- Header -->
   <section class="pb-2 border-t">
-    <header class="container mx-auto px-8 py-4 md:py-8 lg:pb-0">
+    <header class="container mx-auto py-4 md:py-8 lg:pb-0">
       <h1 class="text-2xl text-center text-gray-500 font-bold">
         {name}
       </h1>
@@ -239,7 +239,7 @@
   </section>
 
   <!-- Body -->
-  <section class="container mx-auto border-t flex px-2 lg:px-4 xl:px-0">
+  <section class="container mx-auto border-t flex px-2 lg:px-4">
     <!-- Desktop Filters -->
     <section class="hidden py-4 space-y-4 text-gray-500 lg:block lg:w-56">
       {#if categoryTypes.length > 0}
