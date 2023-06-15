@@ -3,6 +3,7 @@
   import Fuse from "fuse.js";
   import productsJson from "@data/products.json";
 
+  let searchInputValue = "";
   let navbarCardDeck: HTMLElement;
   let navbarCardContainer: HTMLElement;
 
@@ -45,6 +46,7 @@
     searchInputs.forEach((searchInput) => {
       searchInput?.addEventListener("keyup", (e) => {
         const value = (e.target as HTMLInputElement).value;
+        searchInputValue = value;
 
         filterProducts(value);
       });
@@ -54,8 +56,26 @@
   });
 </script>
 
-<ul data-navbar-card-container class="flex flex-nowrap overflow-auto">
-  {#if products.length === 0}
-    <li class="p-2">No results found</li>
-  {/if}
-</ul>
+<section class="p-4">
+  <header>
+    <h2>SEARCH RESULTS</h2>
+  </header>
+
+  <ul
+    data-navbar-card-container
+    class="flex py-2 mb-4 border-y flex-nowrap overflow-auto"
+  >
+    {#if products.length === 0}
+      <li class="p-2">No results found</li>
+    {/if}
+  </ul>
+
+  <footer>
+    <a
+      href={`/shop-all?keyword=${searchInputValue}`}
+      class="text-center block mx-auto w-fit hover:text-blue-500"
+    >
+      See all results
+    </a>
+  </footer>
+</section>

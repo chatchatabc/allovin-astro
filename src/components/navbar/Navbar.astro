@@ -4,6 +4,7 @@ import { Img } from "astro-imagetools/components";
 import XIcon from "@assets/XIcon.astro";
 import NavbarSearchResults from "./NavbarSearchResults.svelte";
 import productsJson from "@data/products.json";
+import { utilConvertToPhp } from "src/domain/services/utilService";
 
 const navigations = [
   {
@@ -123,6 +124,11 @@ const navigations = [
         <ul data-navbar-card-deck class="hidden flex-nowrap overflow-hidden">
           {
             productsJson.map((product) => {
+              const price = product.priceRangeV2.minVariantPrice.amount;
+              const priceFormatted = utilConvertToPhp(
+                Number(price ?? "0"),
+                "PHP"
+              );
               return (
                 <li
                   data-navbar-card={product.id}
@@ -133,12 +139,21 @@ const navigations = [
                       <div>
                         {product.featuredImage?.url && (
                           <Img
+                            breakpoints={[320]}
                             src={product.featuredImage?.url}
                             alt={product.title}
                           />
                         )}
                       </div>
-                      <figcaption>{product.title}</figcaption>
+                      <figcaption class="text-gray-500">
+                        <p class="line-clamp-2">{product.title}</p>
+                        <p class="text-p500">
+                          {new Intl.NumberFormat("en", {
+                            style: "currency",
+                            currency: "PHP",
+                          }).format(priceFormatted ?? 0)}
+                        </p>
+                      </figcaption>
                     </figure>
                   </a>
                 </li>
