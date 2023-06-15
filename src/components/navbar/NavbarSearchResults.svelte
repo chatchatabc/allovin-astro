@@ -42,9 +42,6 @@
     )!;
     navbarCardDeck = document.querySelector("[data-navbar-card-deck]")!;
 
-    console.log(navbarCardDeck);
-    console.log(navbarCardContainer);
-
     searchInputs.forEach((searchInput) => {
       searchInput?.addEventListener("keyup", (e) => {
         const value = (e.target as HTMLInputElement).value;
@@ -54,7 +51,6 @@
     });
 
     generateCards();
-    console.log("onmount");
   });
 </script>
 

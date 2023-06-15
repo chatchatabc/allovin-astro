@@ -128,17 +128,19 @@ const navigations = [
                   data-navbar-card={product.id}
                   class="w-1/2 shrink-0 p-2 md:w-1/3"
                 >
-                  <figure>
-                    <div>
-                      {product.featuredImage?.url && (
-                        <Img
-                          src={product.featuredImage?.url}
-                          alt={product.title}
-                        />
-                      )}
-                    </div>
-                    <figcaption>{product.title}</figcaption>
-                  </figure>
+                  <a href={`/products/${product.handle}`}>
+                    <figure>
+                      <div>
+                        {product.featuredImage?.url && (
+                          <Img
+                            src={product.featuredImage?.url}
+                            alt={product.title}
+                          />
+                        )}
+                      </div>
+                      <figcaption>{product.title}</figcaption>
+                    </figure>
+                  </a>
                 </li>
               );
             })
