@@ -85,7 +85,7 @@ export function productGetDetailsDoc() {
 export function productGetAllDoc() {
   return `
   query GetProducts($amount: Int = 50) {
-    products(first: $amount, sortKey: CREATED_AT) {
+    products(first: $amount) {
       nodes {
         handle
         id

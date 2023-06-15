@@ -40,10 +40,7 @@ export async function collectionGetProducts(id: string, amount?: number) {
   return data.data.collection.products.nodes as CollectionGetProducts;
 }
 
-export async function collectionGetProductsOffline(
-  id: string,
-  amount?: number
-) {
+export function collectionGetProductsOffline(id: string, amount?: number) {
   const data = products.filter((product) => {
     const collection = product.collections.nodes.find(
       (collection) => collection.id === id
