@@ -10,6 +10,7 @@ interface Props {
   pageDescription?: string;
   pageKeywords?: string;
   pageAuthor?: string;
+  ogImage?: string;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   pageDescription = siteInfoJson.pageDescription,
   pageKeywords = siteInfoJson.pageKeywords,
   pageAuthor = siteInfoJson.pageAuthor,
+  ogImage = siteInfoJson.ogImage,
 } = Astro.props as Props;
 ---
 
@@ -28,6 +30,17 @@ const {
     <SEO
       title={pageTitle}
       description={pageDescription}
+      openGraph={{
+        basic: {
+          title: pageTitle ?? siteInfoJson.pageTitle,
+          type: "website",
+          image: ogImage ?? siteInfoJson.ogImage,
+        },
+        optional: {
+          description: pageDescription ?? siteInfoJson.pageDescription,
+          locale: "en_PH",
+        },
+      }}
       extend={{
         link: [
           {
