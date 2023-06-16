@@ -96,6 +96,7 @@ const navigations = [
             class="hidden z-[3] absolute top-full w-full right-0"
           >
             <input
+              value=""
               data-search-input
               placeholder="Search"
               class="p-2 border w-full"
@@ -107,6 +108,7 @@ const navigations = [
         <div class="hidden space-x-4 lg:block">
           <div class="relative">
             <input
+              value=""
               data-search-input
               class="border p-2 font-light text-sm w-56"
               placeholder="Search"
@@ -272,10 +274,6 @@ const navigations = [
       // if mouse is on search results, it won't hide
       if (!searchResults.matches(":hover")) {
         searchResults.classList.add("hidden");
-      } else {
-        searchResults.addEventListener("mouseleave", () => {
-          searchResults.classList.add("hidden");
-        });
       }
     });
 
@@ -292,6 +290,12 @@ const navigations = [
         searchResults.classList.add("hidden");
       }
     });
+  });
+
+  searchResults.addEventListener("mouseleave", () => {
+    if (searchInputs[0].value.length === 0) {
+      searchResults.classList.add("hidden");
+    }
   });
 
   function closeMobileMenu() {
