@@ -2,7 +2,10 @@
 import MainLayout from "@layouts/MainLayout.astro";
 import { Img } from "astro-imagetools/components";
 import ProductDetails from "@components/products/ProductDetails.astro";
-import { utilOptimizeColorVariants } from "src/domain/services/utilService";
+import {
+  utilConvertToPhp,
+  utilOptimizeColorVariants,
+} from "src/domain/services/utilService";
 import products from "@data/products.json";
 import Container from "@layouts/Container.astro";
 import RightChevronIcon from "@assets/RightChevronIcon.astro";
@@ -48,6 +51,10 @@ if (
   productData.images.nodes = [];
 }
 
+const price = utilConvertToPhp(
+  Number(productData.priceRangeV2.minVariantPrice.amount),
+  "PHP"
+);
 // console.log(productData);
 ---
 
@@ -208,7 +215,7 @@ if (
               new Intl.NumberFormat("en", {
                 style: "currency",
                 currency: "PHP",
-              }).format(productData.priceRangeV2.minVariantPrice.amount)
+              }).format(price ?? 0)
             }
           </p>
 
