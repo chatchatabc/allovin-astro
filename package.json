@@ -8,6 +8,7 @@
     "build": "bun run ./scripts/updateCurrency.ts && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "lh": "unlighthouse",
     "products": "bun run ./scripts/getProducts.ts",
     "collections": "bun run ./scripts/makeCollectionData.ts"
   },
