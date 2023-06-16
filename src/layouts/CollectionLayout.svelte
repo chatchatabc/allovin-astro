@@ -162,7 +162,7 @@
     generatePriceCategory();
     generateCards();
 
-    loading = false;
+    // loading = false;
   }
 
   onMount(() => {
@@ -251,8 +251,7 @@
     <section
       class="hidden h-fit relative py-4 space-y-4 text-gray-500 lg:block lg:w-56"
     >
-      {#if loading}
-        <!-- Loading -->
+      <!-- {#if loading}
         <div
           class="absolute z-[1] flex items-center justify-center h-full w-full bg-black opacity-50"
         >
@@ -260,7 +259,7 @@
             class="border-p500 rounded-full relative h-8 w-8 border-x-2 border-t-2 animate-spin"
           />
         </div>
-      {/if}
+      {/if} -->
 
       {#if categoryTypes.length > 0}
         <CollectionDropdown name="Category">
@@ -481,69 +480,39 @@
       <slot />
       {#if loading}
         <div class="flex relative flex-wrap">
-          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
-            <div class="pb-[100%] bg-gray-100" />
-            <figcaption class="mt-2">
-              <div class="w-full h-8 bg-gray-100" />
-            </figcaption>
-          </figure>
+          {#each [...Array(8)] as _}
+            <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
+              <div class="pb-[112%] relative flex bg-gray-400 overflow-hidden">
+                <div
+                  class="bg-gray-100 absolute shadow-[0_0_30px_#FFF] w-4 animate-shimmer top-0 h-full flex"
+                />
+              </div>
 
-          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
-            <div class="pb-[100%] bg-gray-100" />
-            <figcaption class="mt-2">
-              <div class="w-full h-8 bg-gray-100" />
-            </figcaption>
-          </figure>
+              <figcaption class="px-2 pb-2 pt-3 bg-gray-100">
+                <div
+                  class="w-full rounded-full h-3 bg-gray-400 relative overflow-hidden"
+                >
+                  <div
+                    class="bg-gray-300 absolute w-full items-center justify-center h-full flex animate-pulse"
+                  />
+                </div>
 
-          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
-            <div class="pb-[100%] bg-gray-100" />
-            <figcaption class="mt-2">
-              <div class="w-full h-8 bg-gray-100" />
-            </figcaption>
-          </figure>
+                <div
+                  class="w-3/4 rounded-full mx-auto h-3 bg-gray-400 relative mt-2 overflow-hidden"
+                >
+                  <div
+                    class="bg-gray-300 absolute w-full items-center justify-center h-full flex animate-pulse"
+                  />
+                </div>
 
-          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
-            <div class="pb-[100%] bg-gray-100" />
-            <figcaption class="mt-2">
-              <div class="w-full h-8 bg-gray-100" />
-            </figcaption>
-          </figure>
-
-          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
-            <div class="pb-[100%] bg-gray-100" />
-            <figcaption class="mt-2">
-              <div class="w-full h-8 bg-gray-100" />
-            </figcaption>
-          </figure>
-
-          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
-            <div class="pb-[100%] bg-gray-100" />
-            <figcaption class="mt-2">
-              <div class="w-full h-8 bg-gray-100" />
-            </figcaption>
-          </figure>
-
-          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
-            <div class="pb-[100%] bg-gray-100" />
-            <figcaption class="mt-2">
-              <div class="w-full h-8 bg-gray-100" />
-            </figcaption>
-          </figure>
-
-          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
-            <div class="pb-[100%] bg-gray-100" />
-            <figcaption class="mt-2">
-              <div class="w-full h-8 bg-gray-100" />
-            </figcaption>
-          </figure>
-
-          <div
-            class="w-full h-full absolute bg-black opacity-50 flex items-center justify-center"
-          >
-            <div
-              class="border-p500 rounded-full relative h-8 w-8 border-x-2 border-t-2 animate-spin"
-            />
-          </div>
+                <div class="flex space-x-2 mt-2">
+                  {#each [...Array(4).splice(0, Math.ceil(Math.random() * 3))] as _}
+                    <div class="w-8 h-8 bg-gray-400 rounded-full" />
+                  {/each}
+                </div>
+              </figcaption>
+            </figure>
+          {/each}
         </div>
       {/if}
     </section>

@@ -3,6 +3,15 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      keyframes: {
+        shimmer: {
+          "0%": { transform: "translateX(-150%)", left: "0", right: "100%" },
+          "100%": { transform: "translateX(150%)", left: "200%", right: "0" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 2s ease-in infinite",
+      },
       colors: {
         p50: "#fcf5f0",
         p100: "#f9e6db",
