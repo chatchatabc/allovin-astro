@@ -27,13 +27,14 @@ const { footerLinks, socialMedias } = siteInfoJson;
                   <ul class="space-y-1">
                     {group.links.map((link) => {
                       return (
-                        <li>
+                        <li class="relative w-fit">
                           <a
-                            class="text-sm font-medium text-gray-500"
+                            class="text-sm font-medium text-gray-500 peer"
                             href={link.href}
                           >
                             {link.name}
                           </a>
+                          <div class="duration-300 origin-left w-full scale-x-0 h-0.5 bg-gray-500 peer-hover:scale-x-100" />
                         </li>
                       );
                     })}
@@ -76,9 +77,9 @@ const { footerLinks, socialMedias } = siteInfoJson;
     <section class="text-sm mt-8">
       <p class="text-center lg:text-start">©2023 Allovin Kids</p>
       <p class="flex space-x-2 justify-center lg:justify-start">
-        <a>Privacy Policy</a>
+        <a href="/privacy-policy">Privacy Policy</a>
         <span>|</span>
-        <a>Terms and Conditions</a>
+        <a href="/terms-and-conditions">Terms and Conditions</a>
       </p>
     </section>
   </Container>

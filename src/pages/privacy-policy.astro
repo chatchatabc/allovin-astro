@@ -1,0 +1,121 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import siteInfoJson from "@data/site-info.json";
+---
+
+<MainLayout>
+  <section class="max-w-3xl px-2 mx-auto pb-16 md:px-8">
+    <header>
+      <h1 class="text-center text-5xl font-bold py-8">Privacy Policy</h1>
+    </header>
+
+    <article class="py-4">
+      <header>
+        <h2 class="text-2xl font-bold">Privacy Statement</h2>
+      </header>
+      <section>
+        <p>
+          Thank you for visiting our website. We understand the importance of
+          privacy, and we want to assure you that we are committed to protecting
+          your personal information. As a content-based website, we do not
+          collect any personal data from our visitors.
+        </p>
+      </section>
+    </article>
+
+    <article class="py-4">
+      <header>
+        <h2 class="text-2xl font-bold">Data Collection</h2>
+      </header>
+      <section>
+        <p>
+          We do not collect any personal information or non-personal information
+          from visitors to our website. You can browse and enjoy our content
+          without providing any identifiable information.
+        </p>
+      </section>
+    </article>
+
+    <article class="py-4">
+      <header>
+        <h2 class="text-2xl font-bold">Cookies and Tracking</h2>
+      </header>
+      <section>
+        <p>
+          We do not use any cookies or tracking technologies that collect
+          information about your browsing activities on our website.
+        </p>
+      </section>
+    </article>
+
+    <article class="py-4">
+      <header>
+        <h2 class="text-2xl font-bold">Third-Party Services</h2>
+      </header>
+      <section>
+        <p>
+          We do not utilize any third-party services or tools that collect user
+          data on our website.
+        </p>
+      </section>
+    </article>
+
+    <article class="py-4">
+      <header>
+        <h2 class="text-2xl font-bold">Data Security</h2>
+      </header>
+      <section>
+        <p>
+          While we do not collect any user data, we still employ security
+          measures to protect the integrity of our website and ensure a safe
+          browsing experience for our visitors.
+        </p>
+      </section>
+    </article>
+
+    <article class="py-4">
+      <header>
+        <h2 class="text-2xl font-bold">Children's Privacy</h2>
+      </header>
+      <section>
+        <p>
+          Our website is intended for a general audience and is not directed
+          towards children under a certain age. We do not knowingly collect any
+          personal information from children.
+        </p>
+      </section>
+    </article>
+
+    <article class="py-4">
+      <header>
+        <h2 class="text-2xl font-bold">Updates to Privacy Statement</h2>
+      </header>
+      <section>
+        <p>
+          This privacy statement is effective as of <span class="font-bold"
+            >June 16, 2023</span
+          >. Any changes or updates to our privacy practices will be posted on
+          this page.
+        </p>
+      </section>
+    </article>
+
+    <article class="py-4">
+      <header>
+        <h2 class="text-2xl font-bold">Contact Us:</h2>
+      </header>
+      <section>
+        <p>
+          If you have any questions or concerns regarding our privacy practices
+          or this privacy statement, please contact us
+          <a
+            href={`mailto:${siteInfoJson.customerService.email}`}
+            class="text-blue-500 underline"
+          >
+            {siteInfoJson.customerService.email}
+          </a>.
+        </p>
+      </section>
+    </article>
+  </section>
+</MainLayout>
