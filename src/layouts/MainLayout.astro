@@ -13,13 +13,13 @@ interface Props {
   ogImage?: string;
 }
 
-const {
-  pageTitle = siteInfoJson.pageTitle,
-  pageDescription = siteInfoJson.pageDescription,
-  pageKeywords = siteInfoJson.pageKeywords,
-  pageAuthor = siteInfoJson.pageAuthor,
-  ogImage = siteInfoJson.ogImage,
-} = Astro.props as Props;
+const props = Astro.props as Props;
+
+const pageTitle = props.pageTitle ?? siteInfoJson.pageTitle;
+const pageDescription = props.pageDescription ?? siteInfoJson.pageDescription;
+const pageKeywords = props.pageKeywords ?? siteInfoJson.pageKeywords;
+const pageAuthor = props.pageAuthor ?? siteInfoJson.pageAuthor;
+const ogImage = props.ogImage ?? siteInfoJson.ogImage;
 ---
 
 <html>
@@ -32,12 +32,12 @@ const {
       description={pageDescription}
       openGraph={{
         basic: {
-          title: pageTitle ?? siteInfoJson.pageTitle,
+          title: pageTitle,
           type: "website",
-          image: ogImage ?? siteInfoJson.ogImage,
+          image: ogImage,
         },
         optional: {
-          description: pageDescription ?? siteInfoJson.pageDescription,
+          description: pageDescription,
           locale: "en_PH",
         },
       }}
