@@ -1,0 +1,102 @@
+[
+  {
+    "handle": "test-dress",
+    "id": "gid://shopify/Product/7195544780937",
+    "title": "test dress",
+    "createdAt": "2023-05-04T05:41:44Z",
+    "descriptionHtml": "<meta charset=\"utf-8\">\n<div class=\"Polaris-Box_375yx\">\n<div class=\"Polaris-Popover__Content_xd1mk Polaris-Popover__Content--fluidContent_141kh\" id=\"Polarispopover60\">\n<div data-polaris-scrollable=\"true\" class=\"Polaris-Popover__Pane_yisof Polaris-Scrollable_1ed9o Polaris-Scrollable--vertical_uiuuj Polaris-Scrollable--horizontal_17qq4\">\n<div class=\"_Container_jw26i_2\">\n<div class=\"_OutputSection_1nvpl_1\">\n<div data-polaris-scrollable=\"true\" class=\"_Content_1nvpl_11 Polaris-Scrollable_1ed9o Polaris-Scrollable--vertical_uiuuj Polaris-Scrollable--horizontal_17qq4\">\n<div class=\"Polaris-Box_375yx\">\n<div class=\"Polaris-HorizontalStack_dv6q6\">\n<div class=\"_TextOutput_1sli0_1\">\n<p class=\"Polaris-Text--root_yj4ah Polaris-Text--bodyMd_jaf4s\">This 🔥 special occasion dress is perfect for your little girl ages 12m-12y. Made from soft, breathable cotton fabric and easily washed by hand, it offers the perfect mix of style and comfort for any special event! 🤩</p>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n<style><!--\n.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {borer:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}\n--></style>",
+    "tags": [],
+    "priceRangeV2": {
+      "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "variants": {
+      "nodes": [
+        {
+          "title": "Default Title",
+          "image": null
+        }
+      ]
+    },
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0552/4940/4041/files/IMG_3389.jpg?v=1683180190"
+    },
+    "images": {
+      "nodes": [
+        {
+          "url": "https://cdn.shopify.com/s/files/1/0552/4940/4041/files/IMG_3389.jpg?v=1683180190"
+        }
+      ]
+    },
+    "collections": {
+      "nodes": []
+    },
+    "seo": {
+      "title": null,
+      "description": null
+    }
+  },
+  {
+    "handle": "allovin-toddler-girls-vintage-boho-a-line-lace-dress-with-belt-kids-pom-pom-trim-birthday-party-dress-white",
+    "id": "gid://shopify/Product/7208594669705",
+    "title": "ALLOVIN Toddler Girl's Vintage Boho A-Line Lace Dress with Belt Kids Pom Pom Trim Birthday Party Dress",
+    "createdAt": "2023-06-07T08:44:59Z",
+    "descriptionHtml": "",
+    "tags": [],
+    "priceRangeV2": {
+      "minVariantPrice": {
+        "amount": "35.99",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "35.99",
+        "currencyCode": "USD"
+      }
+    },
+    "variants": {
+      "nodes": [
+        {
+          "title": "3-4T / White",
+          "image": null
+        },
+        {
+          "title": "4-5T / White",
+          "image": null
+        },
+        {
+          "title": "6-7Y / White",
+          "image": null
+        },
+        {
+          "title": "8-9Y / White",
+          "image": null
+        },
+        {
+          "title": "10-11Y / White",
+          "image": null
+        },
+        {
+          "title": "11-12Y / White",
+          "image": null
+        }
+      ]
+    },
+    "featuredImage": null,
+    "images": {
+      "nodes": []
+    },
+    "collections": {
+      "nodes": []
+    },
+    "seo": {
+      "title": null,
+      "description": null
+    }
+  }
+]
