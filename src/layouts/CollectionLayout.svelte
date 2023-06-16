@@ -9,6 +9,8 @@
   export let name: string;
   export let products: ProductGetDetails[];
 
+  let loading = true;
+
   let categoryColors: string[] = [];
   let selectedColors: string[] = [];
 
@@ -151,12 +153,16 @@
   }
 
   function handleChange() {
+    loading = true;
+
     filterProducts();
     sortProducts();
     generateTypeCategory();
     generateColorCategory();
     generatePriceCategory();
     generateCards();
+
+    loading = false;
   }
 
   onMount(() => {
@@ -241,7 +247,20 @@
   <!-- Body -->
   <section class="container mx-auto border-t flex px-2 lg:px-4">
     <!-- Desktop Filters -->
-    <section class="hidden py-4 space-y-4 text-gray-500 lg:block lg:w-56">
+    <section
+      class="hidden h-fit relative py-4 space-y-4 text-gray-500 lg:block lg:w-56"
+    >
+      {#if loading}
+        <!-- Loading -->
+        <div
+          class="absolute z-[1] flex items-center justify-center h-full w-full bg-black opacity-50"
+        >
+          <div
+            class="border-p500 rounded-full relative h-8 w-8 border-x-2 border-t-2 animate-spin"
+          />
+        </div>
+      {/if}
+
       {#if categoryTypes.length > 0}
         <CollectionDropdown name="Category">
           <ul class="py-2 space-y-2">
@@ -333,7 +352,7 @@
     </section>
 
     <!-- Mobile filter -->
-    <div
+    <section
       class={`fixed z-[1001] top-0 left-0 w-full h-full ${
         showFilters ? "pointer-events-auto" : "pointer-events-none"
       } lg:hidden`}
@@ -453,11 +472,78 @@
           </ul>
         </CollectionDropdown>
       </div>
-    </div>
+    </section>
 
     <!-- Products -->
-    <section class="flex-1 p-2">
+    <section class="flex-1 p-2 relative">
       <slot />
+      {#if loading}
+        <div class="flex relative flex-wrap">
+          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
+            <div class="pb-[100%] bg-gray-100" />
+            <figcaption class="mt-2">
+              <div class="w-full h-8 bg-gray-100" />
+            </figcaption>
+          </figure>
+
+          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
+            <div class="pb-[100%] bg-gray-100" />
+            <figcaption class="mt-2">
+              <div class="w-full h-8 bg-gray-100" />
+            </figcaption>
+          </figure>
+
+          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
+            <div class="pb-[100%] bg-gray-100" />
+            <figcaption class="mt-2">
+              <div class="w-full h-8 bg-gray-100" />
+            </figcaption>
+          </figure>
+
+          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
+            <div class="pb-[100%] bg-gray-100" />
+            <figcaption class="mt-2">
+              <div class="w-full h-8 bg-gray-100" />
+            </figcaption>
+          </figure>
+
+          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
+            <div class="pb-[100%] bg-gray-100" />
+            <figcaption class="mt-2">
+              <div class="w-full h-8 bg-gray-100" />
+            </figcaption>
+          </figure>
+
+          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
+            <div class="pb-[100%] bg-gray-100" />
+            <figcaption class="mt-2">
+              <div class="w-full h-8 bg-gray-100" />
+            </figcaption>
+          </figure>
+
+          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
+            <div class="pb-[100%] bg-gray-100" />
+            <figcaption class="mt-2">
+              <div class="w-full h-8 bg-gray-100" />
+            </figcaption>
+          </figure>
+
+          <figure class="w-1/2 px-2 py-4 md:w-1/3 lg:w-1/4">
+            <div class="pb-[100%] bg-gray-100" />
+            <figcaption class="mt-2">
+              <div class="w-full h-8 bg-gray-100" />
+            </figcaption>
+          </figure>
+
+          <div
+            class="w-full h-full absolute bg-black opacity-50 flex items-center justify-center"
+          >
+            <div
+              class="border-p500 rounded-full relative h-8 w-8 border-x-2 border-t-2 animate-spin"
+            />
+          </div>
+        </div>
+      {/if}
     </section>
   </section>
 </div>
