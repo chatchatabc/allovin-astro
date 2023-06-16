@@ -5,6 +5,7 @@
   import type { ProductGetDetails } from "src/domain/models/productModel";
   import { onMount } from "svelte";
   import CollectionDropdown from "@components/CollectionDropdown.svelte";
+  import { utilPricesMapping } from "src/domain/services/utilService";
 
   export let name: string;
   export let products: ProductGetDetails[];
@@ -16,14 +17,6 @@
 
   let categoryTypes: string[] = [];
   let selectedTypes: string[] = [];
-
-  const priceDict: Record<string, string> = {
-    "under 9$": "under ₱500",
-    "9-29$": "₱500-1600",
-    "29-49$": "₱1600-2700",
-    "49-69$": "₱2700-3800",
-    "69-99$": "₱3800-5500",
-  };
 
   let categoryPrices: string[] = [];
   let selectedPrices: string[] = [];
@@ -314,7 +307,7 @@
                   checked={selectedPrices.includes(categoryPrice)}
                 />
                 <p class="cursor-pointer">
-                  {priceDict[categoryPrice]}
+                  {utilPricesMapping(categoryPrice)?.PHP}
                 </p>
               </label>
             </li>
@@ -438,7 +431,9 @@
                     type="checkbox"
                     checked={selectedPrices.includes(categoryPrice)}
                   />
-                  <p class="cursor-pointer">{priceDict[categoryPrice]}</p>
+                  <p class="cursor-pointer">
+                    {utilPricesMapping(categoryPrice)?.PHP}
+                  </p>
                 </label>
               </li>
             {/each}

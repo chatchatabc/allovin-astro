@@ -1,4 +1,5 @@
 import currencyRatesJson from "@data/currency-rates.json";
+import pricesMappingJson from "@data/prices-mapping.json";
 import colorsJson from "@data/colors.json";
 import type { CommonVariants } from "../models/commonModel";
 
@@ -42,4 +43,12 @@ export function utilOptimizeColorVariants(list: CommonVariants[]) {
   });
 
   return newList;
+}
+
+export function utilPricesMapping(keyword: string) {
+  const price = pricesMappingJson.find((item) => {
+    return Object.values(item).includes(keyword);
+  });
+
+  return price;
 }
