@@ -191,6 +191,7 @@
     >
       <!-- Filter Button for Mobile -->
       <button
+        aria-label="Open mobile filter"
         class="border p-1 rounded-md w-10 h-10 text-p400 border-p400 lg:hidden"
         on:click={() => {
           showFilters = !showFilters;
@@ -375,6 +376,7 @@
         } px-4 h-full duration-300`}
       >
         <button
+          aria-label="Close mobile filter"
           on:click={() => {
             showFilters = false;
           }}
