@@ -10,7 +10,8 @@
     "astro": "astro",
     "lh": "unlighthouse",
     "products": "bun run ./scripts/getProducts.ts",
-    "collections": "bun run ./scripts/makeCollectionData.ts"
+    "collections": "bun run ./scripts/makeCollectionData.ts",
+    "validate": "bun run ./scripts/validateProducts.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",

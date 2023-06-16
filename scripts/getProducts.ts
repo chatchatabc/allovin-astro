@@ -1,3 +1,4 @@
+import type { ProductGetDetails } from "../src/domain/models/productModel";
 import { productGetDetailsDoc } from "../src/domain/docs/productDoc";
 import { productGetAll } from "../src/domain/services/productService";
 import { fetchData } from "./fetchScript";
@@ -14,37 +15,46 @@ export default async function getProducts() {
   }
 
   const completeDataPromise: any = data.map(async (product, index) => {
+    // Await timer
     await new Promise((resolve) => setTimeout(resolve, index * 1000));
 
+    // Get product details
     const request = await fetchData(productGetDetailsDoc(), {
       id: product.id,
     });
-
     const productData = request.data.product;
 
-    console.log("Time: ", (new Date().getTime() - startTime) / 1000, "s");
+    // Log
+    console.log(
+      "Time: ",
+      (new Date().getTime() - startTime.getTime()) / 1000,
+      "s"
+    );
     console.log("Index: ", index + 1, "of", data.length);
     console.log("Product: ", product);
-
     console.log("\n");
 
+    // Combine data
     if (productData) {
       product = { ...product, ...productData };
     }
-
     return product;
   });
 
+  // Wait for all promises to resolve
   const completeData = await Promise.all(completeDataPromise);
 
   console.log("Saving file...");
   fs.writeFileSync(
-    "./data/products.json",
+    "./data/products-complete.json",
     JSON.stringify(completeData, null, 2)
   );
   console.log("File saved!");
-
-  console.log("End time: ", (new Date().getTime() - startTime) / 1000, "s");
+  console.log(
+    "End time: ",
+    (new Date().getTime() - startTime.getTime()) / 1000,
+    "s"
+  );
 }
 
 getProducts();
