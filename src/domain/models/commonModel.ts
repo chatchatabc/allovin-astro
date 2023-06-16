@@ -8,7 +8,7 @@ export type CommonImage = {
 };
 
 export type CommonPrice = {
-  amount: number;
+  amount: string;
   currencyCode: string;
 };
 

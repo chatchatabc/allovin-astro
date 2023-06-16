@@ -98,7 +98,7 @@
       filteredProducts.sort((a, b) => {
         const aPrice = a.priceRangeV2.minVariantPrice.amount;
         const bPrice = b.priceRangeV2.minVariantPrice.amount;
-        return aPrice - bPrice;
+        return Number(aPrice) - Number(bPrice);
       });
 
       if (sortBy.includes("desc")) {
