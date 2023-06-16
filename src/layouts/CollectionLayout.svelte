@@ -162,7 +162,7 @@
     generatePriceCategory();
     generateCards();
 
-    // loading = false;
+    loading = false;
   }
 
   onMount(() => {
