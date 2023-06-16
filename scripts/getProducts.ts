@@ -1,4 +1,3 @@
-import type { ProductGetDetails } from "../src/domain/models/productModel";
 import { productGetDetailsDoc } from "../src/domain/docs/productDoc";
 import { productGetAll } from "../src/domain/services/productService";
 import { fetchData } from "./fetchScript";
@@ -8,13 +7,18 @@ const fs = require("fs");
 export default async function getProducts() {
   const startTime = new Date();
   console.log("Start time: ", startTime);
-  const data = await productGetAll(250);
+  const simpleData = await productGetAll(250);
+  fs.writeFileSync(
+    "./data/shopify/products-simple.json",
+    JSON.stringify(simpleData, null, 2)
+  );
+  console.log("Simple data saved!");
 
-  if (!data) {
+  if (!simpleData) {
     return;
   }
 
-  const completeDataPromise: any = data.map(async (product, index) => {
+  const completeDataPromise: any = simpleData.map(async (product, index) => {
     // Await timer
     await new Promise((resolve) => setTimeout(resolve, index * 1000));
 
@@ -30,7 +34,7 @@ export default async function getProducts() {
       (new Date().getTime() - startTime.getTime()) / 1000,
       "s"
     );
-    console.log("Index: ", index + 1, "of", data.length);
+    console.log("Index: ", index + 1, "of", simpleData.length);
     console.log("Product: ", product);
     console.log("\n");
 
