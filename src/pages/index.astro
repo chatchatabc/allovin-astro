@@ -38,12 +38,17 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
     <div class="absolute top-0 h-full w-full overflow-hidden">
       <!-- Mobile background image -->
       <div class="lg:hidden">
-        <Img src="/images/landing/hero-sm.webp" alt="" />
+        <Img loading="eager" src="/images/landing/hero-sm.webp" alt="" />
       </div>
 
       <!-- Desktop background image -->
       <div class="hidden absolute top-0 w-full h-full lg:block">
-        <Img objectPosition="50% 0%" src="/images/landing/hero.webp" alt="" />
+        <Img
+          loading="eager"
+          objectPosition="50% 0%"
+          src="/images/landing/hero.webp"
+          alt=""
+        />
       </div>
 
       <!-- Overlay -->
