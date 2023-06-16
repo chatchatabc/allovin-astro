@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import Fuse from "fuse.js";
-  import productsJson from "@data/products.json";
+  import productsJson from "@data/shopify/products.json";
 
   let searchInputValue = "";
   let navbarCardDeck: HTMLElement;

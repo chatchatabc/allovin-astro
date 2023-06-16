@@ -1,4 +1,4 @@
-import productsComplete from "../data/products-complete.json";
+import productsComplete from "../data/shopify/products-complete.json";
 import colorsJson from "../data/colors.json";
 import type { ProductGetDetails } from "src/domain/models/productModel";
 
@@ -11,15 +11,15 @@ export default async function validateProducts() {
   );
 
   fs.writeFileSync(
-    "./data/products-color-removed.json",
+    "./data/shopify/products-color-removed.json",
     JSON.stringify(removedProductsColor, null, 2)
   );
   fs.writeFileSync(
-    "./data/products-removed.json",
+    "./data/shopify/products-removed.json",
     JSON.stringify(removedProducts, null, 2)
   );
   fs.writeFileSync(
-    "./data/products.json",
+    "./data/shopify/products.json",
     JSON.stringify(filteredProducts, null, 2)
   );
 }

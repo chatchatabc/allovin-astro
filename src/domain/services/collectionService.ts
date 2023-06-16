@@ -4,7 +4,7 @@ import {
 } from "../docs/collectionDoc";
 import { graphqlQuery } from "../infra/graphqlActions";
 import type { CollectionGetProducts } from "../models/collectionModel";
-import products from "@data/products.json";
+import products from "@data/shopify/products.json";
 
 export async function collectionGet(
   variables: Record<string, any>

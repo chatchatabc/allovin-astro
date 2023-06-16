@@ -1,4 +1,4 @@
-import products from "../data/products.json";
+import products from "../data/shopify/products.json";
 import collectionPagesJson from "../data/collectionPages.json";
 
 const fs = require("fs");
@@ -34,7 +34,10 @@ export default async function makeCollectionData() {
     products: products,
   });
 
-  fs.writeFileSync("./data/collections.json", JSON.stringify(data, null, 2));
+  fs.writeFileSync(
+    "./data/shopify/collections.json",
+    JSON.stringify(data, null, 2)
+  );
 }
 
 makeCollectionData();

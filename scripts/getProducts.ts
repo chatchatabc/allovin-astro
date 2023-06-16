@@ -46,7 +46,7 @@ export default async function getProducts() {
 
   console.log("Saving file...");
   fs.writeFileSync(
-    "./data/products-complete.json",
+    "./data/shopify/products-complete.json",
     JSON.stringify(completeData, null, 2)
   );
   console.log("File saved!");
