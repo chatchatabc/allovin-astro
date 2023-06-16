@@ -50,9 +50,9 @@ if (
 ---
 
 <MainLayout
-  pageTitle={productData.seo.title}
-  pageDescription={productData.seo.description}
-  ogImage={productData.images.nodes[0]?.url}
+  pageTitle={productData.seo.title ?? productData.title}
+  pageDescription={productData.seo.description ?? productData.description}
+  ogImage={productData.featuredImage?.url ?? productData.images.nodes[0]?.url}
 >
   <section class="border-t">
     <Container>
