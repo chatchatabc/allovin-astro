@@ -5,9 +5,10 @@ import type { ProductGetDetails } from "src/domain/models/productModel";
 const fs = require("fs");
 
 export default async function validateProducts() {
-  const [filteredProducts, removedProducts] = validateProductsInfo();
-  const [filteredProductColors, removedProductsColor] =
-    validateProductColors(filteredProducts);
+  const [filteredProductColors, removedProductsColor] = validateProductColors();
+  const [filteredProducts, removedProducts] = validateProductsInfo(
+    filteredProductColors
+  );
 
   fs.writeFileSync(
     "./data/products-color-removed.json",
@@ -19,35 +20,51 @@ export default async function validateProducts() {
   );
   fs.writeFileSync(
     "./data/products.json",
-    JSON.stringify(filteredProductColors, null, 2)
+    JSON.stringify(filteredProducts, null, 2)
   );
 }
 
-function validateProductsInfo() {
-  const filteredProducts = productsComplete.filter((product) => {
+function validateProductsInfo(products: any) {
+  const removedProducts: any = [];
+  const filteredProducts = products.filter((product: ProductGetDetails) => {
     if (product.variants.nodes.length === 0) {
+      removedProducts.push({
+        productTitle: product.title,
+        productHandle: product.handle,
+        productId: product.id,
+        reason: "No variants",
+      });
       return false;
     }
     if (product.title.includes("test")) {
+      removedProducts.push({
+        productTitle: product.title,
+        productHandle: product.handle,
+        productId: product.id,
+        reason: "Test product",
+      });
       return false;
     }
     if (product.featuredImage === null) {
+      removedProducts.push({
+        productTitle: product.title,
+        productHandle: product.handle,
+        productId: product.id,
+        reason: "No featured image",
+      });
       return false;
     }
     return true;
-  });
-  const removedProducts = productsComplete.filter((product) => {
-    return !filteredProducts.includes(product);
   });
 
   return [filteredProducts, removedProducts];
 }
 
-function validateProductColors(products: any) {
+function validateProductColors() {
   const colors = colorsJson.contents;
   const removedVariants: any = [];
 
-  const newProducts = products.map((product: ProductGetDetails) => {
+  const newProducts = productsComplete.map((product) => {
     const newVariants = product.variants.nodes.filter((variant) => {
       const color = colors.find((color) => {
         return variant.title.toLocaleLowerCase().includes(color);
