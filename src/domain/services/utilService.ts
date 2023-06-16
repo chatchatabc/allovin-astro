@@ -1,5 +1,6 @@
 import currencyRatesJson from "@data/currency-rates.json";
 import colorsJson from "@data/colors.json";
+import productsMappingJson from "@data/products-mapping.json";
 import type { CommonVariants } from "../models/commonModel";
 
 export function utilConvertToPhp(amount: number, currency: string) {
@@ -56,4 +57,12 @@ export function utilPricesMapping(keyword: string) {
   });
 
   return price;
+}
+
+export function utilProductsMapping(keyword: string) {
+  const product = productsMappingJson.find((item) => {
+    return item.shopifyId === keyword;
+  });
+
+  return product;
 }

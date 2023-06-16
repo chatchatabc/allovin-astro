@@ -1,9 +1,12 @@
 [
   {
-    "shopify_id": 2008049369702,
-    "lazada_id": "xxx",
-    "shopee_id": "xxx",
-    "amazon_id": "xxx",
-    "amzon_url": "http://xxx"
+    "shopifyId": "gid://shopify/Product/6891102732425",
+    "lazadaId": null,
+    "shopeeId": null
+  },
+  {
+    "shopifyId": "gid://shopify/Product/6806229844105",
+    "lazadaId": "3904173239",
+    "shopeeId": null
   }
 ]

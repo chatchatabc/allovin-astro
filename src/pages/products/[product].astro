@@ -5,6 +5,7 @@ import ProductDetails from "@components/products/ProductDetails.astro";
 import {
   utilConvertToPhp,
   utilOptimizeColorVariants,
+  utilProductsMapping,
 } from "src/domain/services/utilService";
 import products from "@data/shopify/products.json";
 import Container from "@layouts/Container.astro";
@@ -56,6 +57,7 @@ const price = utilConvertToPhp(
   Number(productData.priceRangeV2.minVariantPrice.amount),
   "USD"
 );
+const productMapping = utilProductsMapping(productData.id);
 // console.log(productData);
 ---
 
@@ -232,8 +234,8 @@ const price = utilConvertToPhp(
             <div class="flex space-x-2">
               <a
                 target="_blank"
-                href={productData.lazadaId
-                  ? `https://lazada.com.ph/products/${productData.lazadaId}`
+                href={productMapping
+                  ? `https://lazada.com.ph/products/i${productMapping.lazadaId}.html`
                   : siteInfoJson.lazada}
                 class="py-2 rounded-sm border block text-center transition border-p400 text-p500 flex-1 hover:bg-p400 hover:text-white"
               >
