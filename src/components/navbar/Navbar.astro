@@ -50,7 +50,11 @@ const navigations = [
       class="flex relative justify-between items-center lg:justify-center"
     >
       <!-- Menu Button for Mobile -->
-      <button data-menu-btn class="space-y-1 lg:hidden">
+      <button
+        aria-label="Mobile Menu Open Button"
+        data-menu-btn
+        class="space-y-1 lg:hidden"
+      >
         <div data-menu-burger class="w-8 h-1 rounded-full bg-c1"></div>
         <div data-menu-burger class="w-8 h-1 rounded-full bg-c1"></div>
         <div data-menu-burger class="w-8 h-1 rounded-full bg-c1"></div>
@@ -75,7 +79,7 @@ const navigations = [
         <!-- Mobile Input -->
         <div class="lg:hidden">
           <!-- Button -->
-          <button data-search-open-btn>
+          <button aria-label="mobile-search-open-button" data-search-open-btn>
             <img class="w-6 h-6" src="/icons/magnify.svg" alt="magnify" />
           </button>
 
@@ -216,6 +220,7 @@ const navigations = [
         }
         <li class="mt-auto">
           <button
+            aria-label="Mobile Menu Close Button"
             data-menu-close-btn
             class="p-2 text-white bg-red-600 rounded-full"
           >
