@@ -1,6 +1,8 @@
+import type { Product } from "../src/domain/models/productModel";
 import { productGetDetailsDoc } from "../src/domain/docs/productDoc";
 import { productGetAll } from "../src/domain/services/productService";
 import { fetchData } from "./fetchScript";
+import { utilConvertToPhp } from "../src/domain/services/utilService";
 
 const fs = require("fs");
 
@@ -48,11 +50,37 @@ export default async function getProducts() {
   // Wait for all promises to resolve
   const completeData = await Promise.all(completeDataPromise);
 
+  // Basic Data
+  // const basicData: Product[] = completeData.map((product) => {
+  //   const newData: Product = {
+  //     id: product.id,
+  //     title: product.title,
+  //     slug: product.handle,
+  //     featuredImage: null,
+  //     images: null,
+  //     seo: {
+  //       title: null,
+  //       description: null,
+  //     },
+  //     variants: null,
+  //     createdAt: product.createdAt,
+  //     tags: product.tags,
+  //     price:
+  //       utilConvertToPhp(
+  //         Number(product.priceRangeV2.minVariantPrice.amount),
+  //         "USD"
+  //       ) ?? 0,
+  //     show: true,
+  //   };
+  //   return newData;
+  // });
+
   console.log("Saving file...");
   fs.writeFileSync(
-    "./data/shopify/products-complete.json",
+    "./data/shopify/products.json",
     JSON.stringify(completeData, null, 2)
   );
+  // fs.writeFileSync("./data/products.json", JSON.stringify(basicData, null, 2));
   console.log("File saved!");
   console.log(
     "End time: ",

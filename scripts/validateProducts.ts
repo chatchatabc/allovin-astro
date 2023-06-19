@@ -1,6 +1,6 @@
-import productsComplete from "../data/shopify/products-complete.json";
+import productsComplete from "../data/shopify/products.json";
 import colorsJson from "../data/colors.json";
-import type { ProductGetDetails } from "src/domain/models/productModel";
+import type { ProductShopify } from "src/domain/models/productModel";
 
 const fs = require("fs");
 
@@ -26,7 +26,7 @@ export default async function validateProducts() {
 
 function validateProductsInfo(products: any) {
   const removedProducts: any = [];
-  const filteredProducts = products.filter((product: ProductGetDetails) => {
+  const filteredProducts = products.filter((product: ProductShopify) => {
     if (product.variants.nodes.length === 0) {
       removedProducts.push({
         productTitle: product.title,
