@@ -30,7 +30,7 @@
       open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
     } transition-all duration-500`}
   >
-    <div class="overflow-hidden">
+    <div class="max-h-40 overflow-scroll">
       <slot />
     </div>
   </div>
