@@ -3583,7 +3583,7 @@
     "createdAt": "2023-03-19T09:35:29Z",
     "tags": [],
     "price": 558.659217877095,
-    "show": true
+    "show": false
   },
   {
     "shopifyId": "gid://shopify/Product/7175563837577",
@@ -3737,7 +3737,7 @@
     "createdAt": "2023-06-07T08:44:59Z",
     "tags": [],
     "price": 2010.614525139665,
-    "show": true
+    "show": false
   },
   {
     "shopifyId": "gid://shopify/Product/7209844244617",
