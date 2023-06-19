@@ -5,13 +5,30 @@ import type {
 } from "./commonModel";
 import type { CollectionGetProducts } from "./collectionModel";
 
-export type ProductGetDetails = {
+export type Product = {
+  slug: string | null;
+  id: string;
+  variants: CommonVariants[] | null;
+  featuredImage: CommonImage | null;
+  images: CommonImage[] | null;
+  createdAt: string;
+  tags: string[];
+  seo: {
+    description: string | null;
+    title: string | null;
+  };
+  price: number | null;
+  show: boolean;
+};
+
+export type ProductShopify = {
   id: string;
   handle: string;
   title: string;
   priceRangeV2: CommonPriceRangeV2;
   variants: { nodes: CommonVariants[] };
   featuredImage: CommonImage;
+  description: string;
   descriptionHtml: string;
   images: { nodes: CommonImage[] };
   createdAt: string;

@@ -42,6 +42,7 @@ export function productGetDetailsDoc() {
       createdAt
       handle
       title
+      description
       descriptionHtml
       tags
       priceRangeV2{
