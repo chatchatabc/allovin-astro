@@ -119,7 +119,7 @@
       });
     });
 
-    categoryColors = newColors;
+    categoryColors = newColors.sort((a,b) => a.value.localeCompare(b.value));
   }
 
   function generateTypeCategory() {
