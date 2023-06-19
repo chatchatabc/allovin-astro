@@ -1,0 +1,53 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import { Img } from "astro-imagetools/components";
+---
+
+<MainLayout>
+  <!-- Hero Section -->
+  <section>
+    <header class="sr-only">
+      <h1>Allovin Cares</h1>
+    </header>
+    <section class="relative">
+      <div class="h-52 md:h-[unset]">
+        <Img src="/images/allovin-cares/hero-1.webp" alt="" />
+      </div>
+      <p
+        class="absolute w-[90%] top-1/2 h-fit mx-auto max-w-2xl text-center left-0 right-0 text-white md:-translate-y-1/2 xl:text-xl"
+      >
+        Allovin is committed to reducing its environmental impact and
+        establishing long term goals to contribute to a better world and taking
+        care of our beautiful planet.
+      </p>
+    </section>
+    <section class="relative">
+      <div class="hidden md:block">
+        <Img src="/images/allovin-cares/hero-2.webp" alt="" />
+      </div>
+      <div class="md:hidden">
+        <Img src="/images/allovin-cares/hero-2-sm.webp" alt="" />
+      </div>
+      <section
+        class="absolute top-1/2 -translate-y-1/2 left-0 right-0 mx-auto w-full max-w-2xl text-center"
+      >
+        <header>
+          <h2 class="font-bold text-3xl xl:text-4xl">SUSTAINABILITY</h2>
+        </header>
+        <section class="mt-4 leading-loose">
+          <p>
+            Since day one, Allovin has aimed to create quality, chic
+            occasion&daily wear for kids all over the world to look and feel
+            amazing.
+          </p>
+          <p>
+            We are committed to minimize the impact on our environment while
+            doing so. Although our goal is to continue to move towards our
+            sustainable efforts long term, we’re proud to share some innovations
+            we’ve implemented today for a better tomorrow.
+          </p>
+        </section>
+      </section>
+    </section>
+  </section>
+</MainLayout>
