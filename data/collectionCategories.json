@@ -1,127 +1,141 @@
 {
-  "contents": [
+  "colors": [
     {
-      "title": "Colors",
-      "contents": [
-        {
-          "title": "Brown",
-          "value": "brown"
-        },
-        {
-          "title": "Black",
-          "value": "black"
-        },
-        {
-          "title": "White",
-          "value": "white"
-        },
-        {
-          "title": "Red",
-          "value": "red"
-        },
-        {
-          "title": "Green",
-          "value": "green"
-        },
-        {
-          "title": "Yellow",
-          "value": "yellow"
-        },
-        {
-          "title": "Purple",
-          "value": "purple"
-        },
-        {
-          "title": "Pink",
-          "value": "pink"
-        },
-        {
-          "title": "Ivory",
-          "value": "ivory"
-        },
-        {
-          "title": "Grey",
-          "value": "grey"
-        },
-        {
-          "title": "Belge",
-          "value": "belge"
-        },
-        {
-          "title": "Apricot",
-          "value": "apricot"
-        },
-        {
-          "title": "Champagne",
-          "value": "champagne"
-        },
-        {
-          "title": "Rose",
-          "value": "rose"
-        },
-        {
-          "title": "Natural",
-          "value": "natural"
-        },
-        {
-          "title": "Blue",
-          "value": "blue"
-        },
-        {
-          "title": "Khaki",
-          "value": "khaki"
-        },
-        {
-          "title": "Diamond",
-          "value": "diamond"
-        },
-        {
-          "title": "Silver",
-          "value": "silver"
-        },
-        {
-          "title": "Gold",
-          "value": "gold"
-        },
-        {
-          "title": "Turquoise",
-          "value": "turquoise"
-        },
-        {
-          "title": "Burgundy",
-          "value": "burgundy"
-        }
-      ]
+      "title": "Brown",
+      "value": "brown"
     },
     {
-      "title": "Prices",
-      "contents": [
-        {
-          "title": "Under ₱500",
-          "min": 0,
-          "max": 499
-        },
-        {
-          "title": "₱500 to ₱1,600",
-          "min": 500,
-          "max": 1600
-        },
-        {
-          "title": "₱1,600 to ₱2,700",
-          "min": 1600,
-          "max": 2700
-        },
-        {
-          "title": "₱2,700 to ₱3,800",
-          "min": 2700,
-          "max": 3800
-        },
-        {
-          "title": "₱3,800 to ₱5,500",
-          "min": 3800,
-          "max": 5500
-        }
-      ]
+      "title": "Black",
+      "value": "black"
+    },
+    {
+      "title": "White",
+      "value": "white"
+    },
+    {
+      "title": "Red",
+      "value": "red"
+    },
+    {
+      "title": "Green",
+      "value": "green"
+    },
+    {
+      "title": "Yellow",
+      "value": "yellow"
+    },
+    {
+      "title": "Purple",
+      "value": "purple"
+    },
+    {
+      "title": "Pink",
+      "value": "pink"
+    },
+    {
+      "title": "Ivory",
+      "value": "ivory"
+    },
+    {
+      "title": "Grey",
+      "value": "grey"
+    },
+    {
+      "title": "Belge",
+      "value": "belge"
+    },
+    {
+      "title": "Apricot",
+      "value": "apricot"
+    },
+    {
+      "title": "Champagne",
+      "value": "champagne"
+    },
+    {
+      "title": "Rose",
+      "value": "rose"
+    },
+    {
+      "title": "Natural",
+      "value": "natural"
+    },
+    {
+      "title": "Blue",
+      "value": "blue"
+    },
+    {
+      "title": "Khaki",
+      "value": "khaki"
+    },
+    {
+      "title": "Diamond",
+      "value": "diamond"
+    },
+    {
+      "title": "Silver",
+      "value": "silver"
+    },
+    {
+      "title": "Gold",
+      "value": "gold"
+    },
+    {
+      "title": "Turquoise",
+      "value": "turquoise"
+    },
+    {
+      "title": "Burgundy",
+      "value": "burgundy"
+    }
+  ],
+  "types": [
+    {
+      "title": "Daily Dresses",
+      "value": "DailyDresses"
+    },
+    {
+      "title": "Holiday Costume",
+      "value": "HolidayCostume"
+    },
+    {
+      "title": "Occasion Dresses",
+      "value": "OccasionDresses"
+    },
+    {
+      "title": "Boys Sets",
+      "value": "BoysSets"
+    },
+    {
+      "title": "Accessories",
+      "value": "Accessories"
+    }
+  ],
+  "prices": [
+    {
+      "title": "Under ₱500",
+      "min": 0,
+      "max": 499
+    },
+    {
+      "title": "₱500 to ₱1,600",
+      "min": 500,
+      "max": 1600
+    },
+    {
+      "title": "₱1,600 to ₱2,700",
+      "min": 1600,
+      "max": 2700
+    },
+    {
+      "title": "₱2,700 to ₱3,800",
+      "min": 2700,
+      "max": 3800
+    },
+    {
+      "title": "₱3,800 to ₱5,500",
+      "min": 3800,
+      "max": 5500
     }
   ]
 }
