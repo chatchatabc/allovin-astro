@@ -1,38 +1,26 @@
 <script lang="ts">
-  import typesJson from "@data/types.json";
-  import colorsShortJson from "@data/colorsShort.json";
-  import pricesJson from "@data/prices.json";
-  import type { ProductGetDetails } from "src/domain/models/productModel";
+  import collectionCategoriesJson from "@data/collectionCategories.json";
+  import type { Product } from "src/domain/models/productModel";
   import { onMount } from "svelte";
   import CollectionDropdown from "@components/CollectionDropdown.svelte";
 
   export let name: string;
-  export let products: ProductGetDetails[];
+  export let products: Product[];
 
   let loading = true;
-
-  let categoryColors: string[] = [];
   let selectedColors: string[] = [];
-
-  let categoryTypes: string[] = [];
   let selectedTypes: string[] = [];
-
-  const priceDict: Record<string, string> = {
-    "under 9$": "under ₱500",
-    "9-29$": "₱500-1600",
-    "29-49$": "₱1600-2700",
-    "49-69$": "₱2700-3800",
-    "69-99$": "₱3800-5500",
-  };
-
-  let categoryPrices: string[] = [];
   let selectedPrices: string[] = [];
+
+  let filteredProducts: Product[] = [];
+  let categoryColors: { title: string; value: string }[] = [];
+  let categoryTypes: { title: string; value: string }[] = [];
+  let categoryPrices: { title: string; min: number; max: number }[] = [];
 
   let productsPerPage = 10;
   let currentPage = 1;
   let sortBy = "date-desc";
 
-  let filteredProducts: ProductGetDetails[] = [];
   let cardContainer: HTMLElement;
   let cardDeck: HTMLElement;
   let bodyElement: HTMLElement;
@@ -54,7 +42,13 @@
     if (selectedColors.length > 0) {
       newProducts = newProducts.filter((product) => {
         return selectedColors.every((color) => {
-          return product.variants.nodes.some((variant) => {
+          if (product.variants) {
+            return product.variants?.some((variant) => {
+              return variant.title.toLowerCase().includes(color);
+            });
+          }
+
+          return product.shopify?.variants.nodes.some((variant) => {
             return variant.title.toLowerCase().includes(color);
           });
         });
@@ -63,24 +57,29 @@
 
     if (selectedTypes.length > 0) {
       newProducts = newProducts.filter((product) => {
+        if (product.tags) {
+          return selectedTypes.every((type) => {
+            return product.tags.includes(type);
+          });
+        }
+
         return selectedTypes.every((type) => {
-          return product.tags.includes(type);
+          return product.shopify?.tags.includes(type);
         });
       });
     }
 
     if (selectedPrices.length > 0) {
       newProducts = newProducts.filter((product) => {
-        return selectedPrices.every((price) => {
-          return product.tags.includes(price);
-        });
+        const [min, max] = selectedPrices[0].split("-");
+        return (
+          (product.price ?? 0) >= Number(min) &&
+          (product.price ?? 0) <= Number(max)
+        );
       });
     }
 
-    filteredProducts = [];
-    newProducts.forEach((product) => {
-      filteredProducts.push(product);
-    });
+    filteredProducts = newProducts;
   }
 
   function sortProducts() {
@@ -96,9 +95,7 @@
       }
     } else if (sortBy.includes("price")) {
       filteredProducts.sort((a, b) => {
-        const aPrice = a.priceRangeV2.minVariantPrice.amount;
-        const bPrice = b.priceRangeV2.minVariantPrice.amount;
-        return Number(aPrice) - Number(bPrice);
+        return Number(a.price) - Number(b.price);
       });
 
       if (sortBy.includes("desc")) {
@@ -108,10 +105,16 @@
   }
 
   function generateColorCategory() {
-    const newColors = colorsShortJson.contents.filter((color) => {
+    const newColors = collectionCategoriesJson.colors.filter((color) => {
       return filteredProducts.some((product) => {
-        return product.variants.nodes.some((variant) => {
-          return variant.title.toLowerCase().includes(color) ? true : false;
+        if (product.variants) {
+          return product.variants?.some((variant) => {
+            return variant.title.toLowerCase().includes(color.value);
+          });
+        }
+
+        return product.shopify?.variants.nodes.some((variant) => {
+          return variant.title.toLowerCase().includes(color.value);
         });
       });
     });
@@ -120,9 +123,13 @@
   }
 
   function generateTypeCategory() {
-    const newTypes = typesJson.contents.filter((type) => {
+    const newTypes = collectionCategoriesJson.types.filter((type) => {
       return filteredProducts.some((product) => {
-        return product.tags.includes(type) ? true : false;
+        if (product.tags) {
+          return product.tags.includes(type.value);
+        }
+
+        return product.shopify?.tags.includes(type.value);
       });
     });
 
@@ -130,9 +137,11 @@
   }
 
   function generatePriceCategory() {
-    const newPrices = pricesJson.contents.filter((price) => {
+    const newPrices = collectionCategoriesJson.prices.filter((price) => {
       return filteredProducts.some((product) => {
-        return product.tags.includes(price);
+        return (
+          price.min <= (product.price ?? 0) && price.max >= (product.price ?? 0)
+        );
       });
     });
 
@@ -146,7 +155,7 @@
 
     filteredProducts.forEach((product) => {
       const card = document.querySelector<HTMLElement>(
-        `[data-id="${product.id}"]`
+        `[data-id="${product.shopifyId}"]`
       )!;
       cardContainer.appendChild(card);
     });
@@ -158,8 +167,8 @@
     filterProducts();
     sortProducts();
     generateTypeCategory();
-    generateColorCategory();
     generatePriceCategory();
+    generateColorCategory();
     generateCards();
 
     loading = false;
@@ -264,25 +273,25 @@
       {#if categoryTypes.length > 0}
         <CollectionDropdown name="Category">
           <ul class="py-2 space-y-2">
-            {#each categoryTypes as categoryType (`category-type-${categoryType}`)}
+            {#each categoryTypes as categoryType (`category-type-${categoryType.value}`)}
               <li>
                 <label class="text-sm flex items-center capitalize space-x-2">
                   <input
                     on:click={() => {
-                      if (selectedTypes.includes(categoryType)) {
+                      if (selectedTypes.includes(categoryType.value)) {
                         selectedTypes = selectedTypes.filter((selectedType) => {
-                          return selectedType !== categoryType;
+                          return selectedType !== categoryType.value;
                         });
                       } else {
-                        selectedTypes = [...selectedTypes, categoryType];
+                        selectedTypes = [...selectedTypes, categoryType.value];
                       }
 
                       handleChange();
                     }}
                     type="checkbox"
-                    checked={selectedTypes.includes(categoryType)}
+                    checked={selectedTypes.includes(categoryType.value)}
                   />
-                  <p class="cursor-pointer">{categoryType}</p>
+                  <p class="cursor-pointer">{categoryType.title}</p>
                 </label>
               </li>
             {/each}
@@ -292,28 +301,30 @@
 
       <CollectionDropdown name="Price">
         <ul class="py-2 space-y-2">
-          {#each categoryPrices as categoryPrice (`category-price-${categoryPrice}`)}
+          {#each categoryPrices as categoryPrice (`category-price-${categoryPrice.title}`)}
             <li>
               <label class="text-sm flex items-center capitalize space-x-2">
                 <input
                   on:click={() => {
-                    if (selectedPrices.includes(categoryPrice)) {
+                    const price = categoryPrice.min + "-" + categoryPrice.max;
+
+                    if (selectedPrices.includes(price)) {
                       selectedPrices = selectedPrices.filter(
                         (selectedPrice) => {
-                          return selectedPrice !== categoryPrice;
+                          return selectedPrice !== price;
                         }
                       );
                     } else {
-                      selectedPrices = [...selectedPrices, categoryPrice];
+                      selectedPrices = [...selectedPrices, price];
                     }
 
                     handleChange();
                   }}
                   type="checkbox"
-                  checked={selectedPrices.includes(categoryPrice)}
+                  checked={selectedPrices.includes(categoryPrice.title)}
                 />
                 <p class="cursor-pointer">
-                  {priceDict[categoryPrice]}
+                  {categoryPrice.title}
                 </p>
               </label>
             </li>
@@ -323,27 +334,27 @@
 
       <CollectionDropdown name="Color">
         <ul class="py-2 space-y-2">
-          {#each categoryColors as categoryColor (`category-color-${categoryColor}`)}
+          {#each categoryColors as categoryColor (`category-color-${categoryColor.value}`)}
             <li>
               <label class="text-sm flex items-center capitalize space-x-2">
                 <input
                   on:click={() => {
-                    if (selectedColors.includes(categoryColor)) {
+                    if (selectedColors.includes(categoryColor.value)) {
                       selectedColors = selectedColors.filter(
                         (selectedColor) => {
-                          return selectedColor !== categoryColor;
+                          return selectedColor !== categoryColor.value;
                         }
                       );
                     } else {
-                      selectedColors = [...selectedColors, categoryColor];
+                      selectedColors = [...selectedColors, categoryColor.value];
                     }
 
                     handleChange();
                   }}
                   type="checkbox"
-                  checked={selectedColors.includes(categoryColor)}
+                  checked={selectedColors.includes(categoryColor.value)}
                 />
-                <p class="cursor-pointer">{categoryColor}</p>
+                <p class="cursor-pointer">{categoryColor.title}</p>
               </label>
             </li>
           {/each}
@@ -387,27 +398,30 @@
         {#if categoryTypes.length > 0}
           <CollectionDropdown name="Category">
             <ul class="py-2 space-y-2">
-              {#each categoryTypes as categoryType (`category-type-${categoryType}`)}
+              {#each categoryTypes as categoryType (`category-type-${categoryType.value}`)}
                 <li>
                   <label class="text-sm flex items-center capitalize space-x-2">
                     <input
                       on:click={() => {
-                        if (selectedTypes.includes(categoryType)) {
+                        if (selectedTypes.includes(categoryType.value)) {
                           selectedTypes = selectedTypes.filter(
                             (selectedType) => {
-                              return selectedType !== categoryType;
+                              return selectedType !== categoryType.value;
                             }
                           );
                         } else {
-                          selectedTypes = [...selectedTypes, categoryType];
+                          selectedTypes = [
+                            ...selectedTypes,
+                            categoryType.value,
+                          ];
                         }
 
                         handleChange();
                       }}
                       type="checkbox"
-                      checked={selectedTypes.includes(categoryType)}
+                      checked={selectedTypes.includes(categoryType.value)}
                     />
-                    <p class="cursor-pointer">{categoryType}</p>
+                    <p class="cursor-pointer">{categoryType.title}</p>
                   </label>
                 </li>
               {/each}
@@ -417,27 +431,31 @@
 
         <CollectionDropdown name="Price">
           <ul class="py-2 space-y-2">
-            {#each categoryPrices as categoryPrice (`category-price-${categoryPrice}`)}
+            {#each categoryPrices as categoryPrice (`category-price-${categoryPrice.title}`)}
               <li>
                 <label class="text-sm flex items-center capitalize space-x-2">
                   <input
                     on:click={() => {
-                      if (selectedPrices.includes(categoryPrice)) {
+                      const price = categoryPrice.min + "-" + categoryPrice.max;
+
+                      if (selectedPrices.includes(price)) {
                         selectedPrices = selectedPrices.filter(
                           (selectedPrice) => {
-                            return selectedPrice !== categoryPrice;
+                            return selectedPrice !== price;
                           }
                         );
                       } else {
-                        selectedPrices = [...selectedPrices, categoryPrice];
+                        selectedPrices = [...selectedPrices, price];
                       }
 
                       handleChange();
                     }}
                     type="checkbox"
-                    checked={selectedPrices.includes(categoryPrice)}
+                    checked={selectedPrices.includes(categoryPrice.title)}
                   />
-                  <p class="cursor-pointer">{priceDict[categoryPrice]}</p>
+                  <p class="cursor-pointer">
+                    {categoryPrice.title}
+                  </p>
                 </label>
               </li>
             {/each}
@@ -446,27 +464,30 @@
 
         <CollectionDropdown name="Color">
           <ul class="py-2 space-y-2">
-            {#each categoryColors as categoryColor (`category-color-${categoryColor}`)}
+            {#each categoryColors as categoryColor (`category-color-${categoryColor.value}`)}
               <li>
                 <label class="text-sm flex items-center capitalize space-x-2">
                   <input
                     on:click={() => {
-                      if (selectedColors.includes(categoryColor)) {
+                      if (selectedColors.includes(categoryColor.value)) {
                         selectedColors = selectedColors.filter(
                           (selectedColor) => {
-                            return selectedColor !== categoryColor;
+                            return selectedColor !== categoryColor.value;
                           }
                         );
                       } else {
-                        selectedColors = [...selectedColors, categoryColor];
+                        selectedColors = [
+                          ...selectedColors,
+                          categoryColor.value,
+                        ];
                       }
 
                       handleChange();
                     }}
                     type="checkbox"
-                    checked={selectedColors.includes(categoryColor)}
+                    checked={selectedColors.includes(categoryColor.value)}
                   />
-                  <p class="cursor-pointer">{categoryColor}</p>
+                  <p class="cursor-pointer">{categoryColor.title}</p>
                 </label>
               </li>
             {/each}
