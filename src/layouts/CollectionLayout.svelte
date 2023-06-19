@@ -4,7 +4,7 @@
   import { onMount } from "svelte";
   import CollectionDropdown from "@components/CollectionDropdown.svelte";
 
-  export let name: string;
+  export let title: string;
   export let products: Product[];
 
   let loading = true;
@@ -119,7 +119,7 @@
       });
     });
 
-    categoryColors = newColors.sort((a,b) => a.value.localeCompare(b.value));
+    categoryColors = newColors.sort((a, b) => a.value.localeCompare(b.value));
   }
 
   function generateTypeCategory() {
@@ -190,7 +190,7 @@
   <section class="pb-2 border-t">
     <header class="container mx-auto py-4 md:py-8 lg:pb-0">
       <h1 class="text-2xl text-center text-gray-500 font-bold">
-        {name}
+        {title}
       </h1>
     </header>
 
