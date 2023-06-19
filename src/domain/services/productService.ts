@@ -5,10 +5,36 @@ import {
 } from "../docs/productDoc";
 import { graphqlQuery } from "../infra/graphqlActions";
 import type {
+  Product,
   ProductGetAll,
-  ProductGetDetails,
   ProductGetVariants,
+  ProductShopify,
 } from "../models/productModel";
+import productsShopify from "../../../data/shopify/products.json";
+import products from "../../../data/products.json";
+
+export function productGetDetails(params: { shopifyId: string }) {
+  const oldData = products.find((product) => product.id === params.shopifyId);
+
+  if (!oldData) {
+    return undefined;
+  }
+
+  const newData: Product = {
+    ...oldData,
+    shopify: productGetShopifyDetails({ shopifyId: params.shopifyId }),
+  };
+
+  return newData;
+}
+
+export function productGetShopifyDetails(params: { shopifyId: string }) {
+  const data = productsShopify.find(
+    (product) => product.id === params.shopifyId
+  ) as ProductShopify | undefined;
+
+  return data;
+}
 
 export async function productGetVariants(id: string, amount?: number) {
   const variables = { id, amount };
@@ -26,7 +52,7 @@ export async function productGetVariants(id: string, amount?: number) {
   return data.data.product as ProductGetVariants;
 }
 
-export async function productGetDetails(id: string) {
+export async function productGetDetailsOnline(id: string) {
   const variables = { id };
   const query = productGetDetailsDoc();
 
@@ -39,7 +65,7 @@ export async function productGetDetails(id: string) {
     return undefined;
   }
 
-  return data.data.product as ProductGetDetails;
+  return data.data.product as ProductShopify;
 }
 
 export async function productGetAll(amount?: number) {
