@@ -8,6 +8,7 @@ import type { CollectionGetProducts } from "./collectionModel";
 export type Product = {
   slug: string | null;
   id: string;
+  title: string;
   variants: CommonVariants[] | null;
   featuredImage: CommonImage | null;
   images: CommonImage[] | null;
@@ -19,13 +20,13 @@ export type Product = {
   };
   price: number | null;
   show: boolean;
+  shopify?: ProductShopify | null;
 };
 
 export type ProductShopify = {
   id: string;
   handle: string;
   title: string;
-  priceRangeV2: CommonPriceRangeV2;
   variants: { nodes: CommonVariants[] };
   featuredImage: CommonImage;
   description: string;
@@ -33,12 +34,9 @@ export type ProductShopify = {
   images: { nodes: CommonImage[] };
   createdAt: string;
   tags: string[];
-  collections: {
-    nodes: CollectionGetProducts[];
-  };
   seo: {
-    description: string;
-    title: string;
+    description: string | null;
+    title: string | null;
   };
 };
 
