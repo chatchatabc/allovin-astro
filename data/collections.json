@@ -3,7 +3,7 @@
     {
       "title": "GIRLS",
       "slug": "girls",
-      "products": [
+      "productShopifyIds": [
         "gid://shopify/Product/6730232070281",
         "gid://shopify/Product/6730232135817",
         "gid://shopify/Product/6730232299657",
@@ -85,7 +85,7 @@
     {
       "title": "WOMEN",
       "slug": "women",
-      "products": [
+      "productShopifyIds": [
         "gid://shopify/Product/7037942399113",
         "gid://shopify/Product/7037942464649",
         "gid://shopify/Product/7037942497417",
@@ -109,7 +109,7 @@
     {
       "title": "EXCLUSIVES",
       "slug": "exclusives",
-      "products": [
+      "productShopifyIds": [
         "gid://shopify/Product/6882228207753",
         "gid://shopify/Product/6882228404361",
         "gid://shopify/Product/6882228699273",
@@ -120,7 +120,7 @@
     {
       "title": "BOYS",
       "slug": "boys",
-      "products": [
+      "productShopifyIds": [
         "gid://shopify/Product/6880736477321",
         "gid://shopify/Product/6880737624201",
         "gid://shopify/Product/6880739623049",
@@ -138,7 +138,7 @@
     {
       "id": "gid://shopify/Collection/278858170505",
       "slug": "mommy-and-me",
-      "products": [
+      "productShopifyIds": [
         "gid://shopify/Product/7149385154697",
         "gid://shopify/Product/7149385351305",
         "gid://shopify/Product/7149385580681",
@@ -168,7 +168,7 @@
     {
       "id": "gid://shopify/Collection/263706869897",
       "slug": "accessories",
-      "products": [
+      "productShopifyIds": [
         "gid://shopify/Product/6883751166089",
         "gid://shopify/Product/6883755720841",
         "gid://shopify/Product/6883758309513",
@@ -197,7 +197,7 @@
     {
       "title": "SHOP ALL",
       "slug": "shop-all",
-      "products": [
+      "productShopifyIds": [
         "gid://shopify/Product/6730232070281",
         "gid://shopify/Product/6730232135817",
         "gid://shopify/Product/6730232299657",
