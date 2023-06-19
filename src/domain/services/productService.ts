@@ -14,7 +14,9 @@ import productsShopify from "../../../data/shopify/products.json";
 import products from "../../../data/products.json";
 
 export function productGetDetails(params: { shopifyId: string }) {
-  const oldData = products.find((product) => product.id === params.shopifyId);
+  const oldData = products.find(
+    (product) => product.shopifyId === params.shopifyId
+  );
 
   if (!oldData) {
     return undefined;

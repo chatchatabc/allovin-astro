@@ -3,11 +3,10 @@ import type {
   CommonPriceRangeV2,
   CommonVariants,
 } from "./commonModel";
-import type { CollectionGetProducts } from "./collectionModel";
 
 export type Product = {
   slug: string | null;
-  id: string;
+  shopifyId: string;
   title: string;
   variants: CommonVariants[] | null;
   featuredImage: CommonImage | null;
