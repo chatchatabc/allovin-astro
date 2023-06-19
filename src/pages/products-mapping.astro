@@ -1,0 +1,82 @@
+---
+import { Img } from "astro-imagetools/components";
+import productsShopify from "@data/shopify/products.json";
+import productsMapping from "@data/products-mapping.json";
+import MainLayout from "@layouts/MainLayout.astro";
+import ProductsMappingComp from "@components/ProductsMappingComp.svelte";
+
+const products = productsMapping.map((product) => {
+  const shopifyProduct = productsShopify.find(
+    (shopifyProduct) => shopifyProduct.id === product.shopifyId
+  );
+
+  return {
+    ...product,
+    data: shopifyProduct,
+  };
+});
+---
+
+<MainLayout>
+  <ProductsMappingComp client:idle>
+    <ul class="flex flex-wrap">
+      {
+        products.map((product) => {
+          return (
+            <li class="w-1/4 p-4">
+              <figure>
+                <div>
+                  <Img
+                    src={
+                      product.data?.featuredImage?.url ??
+                      "/images/placeholder.png"
+                    }
+                    alt={product.title}
+                  />
+                </div>
+                <div>
+                  <p class="line-clamp-2 text-center text-p400">
+                    {product.title}
+                  </p>
+                  <div class="space-y-2">
+                    <label class="block">
+                      <span class="text-xs block">ShopifyID</span>
+                      <input
+                        disabled
+                        data-id={product.shopifyId}
+                        name="shopifyId"
+                        value={product.shopifyId}
+                        class="border p-1 w-full border-black rounded-sm disabled:bg-gray-200"
+                        placeholder="ShopfiyID"
+                      />
+                    </label>
+                    <label class="block">
+                      <span class="text-xs block">LazadaID</span>
+                      <input
+                        data-id={product.shopifyId}
+                        name="lazadaId"
+                        value={product.lazadaId ?? ""}
+                        class="border p-1 w-full border-black rounded-sm"
+                        placeholder="ShopfiyID"
+                      />
+                    </label>
+                    <label class="block">
+                      <span class="text-xs block">ShopeeID</span>
+                      <input
+                        data-id={product.shopifyId}
+                        name="shopeeId"
+                        value={product.shopeeId ?? ""}
+                        class="border p-1 w-full border-black rounded-sm"
+                        placeholder="ShopfiyID"
+                      />
+                    </label>
+                  </div>
+                </div>
+              </figure>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </ProductsMappingComp>
+</MainLayout>
