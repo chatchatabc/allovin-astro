@@ -69,7 +69,7 @@ const productsFiltered = products.filter((product) => product !== null);
   <CollectionLayout
     name={collection.title}
     products={productsFiltered}
-    client:only="svelte"
+    client:idle
   >
     <ul data-card-container class="w-full flex flex-wrap pb-8"></ul>
   </CollectionLayout>
