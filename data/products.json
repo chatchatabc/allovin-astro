@@ -1,6 +1,6 @@
 [
   {
-    "id": "gid://shopify/Product/6730232070281",
+    "shopifyId": "gid://shopify/Product/6730232070281",
     "title": "ALLOVIN Red Long Sleeve Burgundy Dress",
     "slug": "allovin-red-long-sleeve-burgundy-dress-baby-toddler-girl-lsd001",
     "featuredImage": null,
@@ -27,7 +27,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6730232135817",
+    "shopifyId": "gid://shopify/Product/6730232135817",
     "title": "ALLOVIN Party Princess Dress",
     "slug": "allovin-party-princess-dress-fgd001",
     "featuredImage": null,
@@ -59,7 +59,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6730232299657",
+    "shopifyId": "gid://shopify/Product/6730232299657",
     "title": "ALLOVIN Sequins Tulle Party Dress",
     "slug": "allovin-lace-rose-tulle-pageant-dress-fgd002",
     "featuredImage": null,
@@ -90,7 +90,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6730232496265",
+    "shopifyId": "gid://shopify/Product/6730232496265",
     "title": "ALLOVIN Cinderella Embroidery Gown",
     "slug": "allovin-toddler-girl-tulle-pageant-dress-fgd004",
     "featuredImage": null,
@@ -122,7 +122,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6730232594569",
+    "shopifyId": "gid://shopify/Product/6730232594569",
     "title": "Birthday Party Ball Gown Dress",
     "slug": "allovin-birthday-party-ball-gown-dress-fgd005",
     "featuredImage": null,
@@ -151,7 +151,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6730232725641",
+    "shopifyId": "gid://shopify/Product/6730232725641",
     "title": "ALLOVIN Flower Fairy Party Dress",
     "slug": "allovin-one-shoulder-birthday-party-dress-gsd001",
     "featuredImage": null,
@@ -184,7 +184,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6730232856713",
+    "shopifyId": "gid://shopify/Product/6730232856713",
     "title": "ALLOVIN Butterfly Fairy Dress",
     "slug": "allovin-3d-butterfly-tulle-lace-pageant-dress-fgd006",
     "featuredImage": null,
@@ -219,7 +219,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6730232955017",
+    "shopifyId": "gid://shopify/Product/6730232955017",
     "title": "Glitter Princess Dress",
     "slug": "allovin-glitter-princess-dress-gsd002",
     "featuredImage": null,
@@ -245,7 +245,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6730233053321",
+    "shopifyId": "gid://shopify/Product/6730233053321",
     "title": "Starry Night Birthday Party Dress",
     "slug": "allovin-starry-night-birthday-party-dress-gsd003",
     "featuredImage": null,
@@ -272,7 +272,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6730233118857",
+    "shopifyId": "gid://shopify/Product/6730233118857",
     "title": "Unicorn Costume Dress",
     "slug": "allovin-unicorn-costume-dress-fgd007",
     "featuredImage": null,
@@ -302,7 +302,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6730233184393",
+    "shopifyId": "gid://shopify/Product/6730233184393",
     "title": "ALLOVIN White Princess Dress",
     "slug": "allovin-white-princess-dress-girl-fgd008",
     "featuredImage": null,
@@ -334,7 +334,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6730233249929",
+    "shopifyId": "gid://shopify/Product/6730233249929",
     "title": "Lace Tulle A-line Dress",
     "slug": "allovin-lace-tulle-a-line-dress-lsd002",
     "featuredImage": null,
@@ -361,7 +361,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6730236559497",
+    "shopifyId": "gid://shopify/Product/6730236559497",
     "title": "ALLOVIN Princess Diana Dress",
     "slug": "allovin-rose-tulle-pageant-dress-fgd003",
     "featuredImage": null,
@@ -392,7 +392,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6730236690569",
+    "shopifyId": "gid://shopify/Product/6730236690569",
     "title": "Birthday Outfits Party Dress",
     "slug": "allovin-birthday-outfits-party-dress-tus001",
     "featuredImage": null,
@@ -423,7 +423,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6763875893385",
+    "shopifyId": "gid://shopify/Product/6763875893385",
     "title": "Allovin Big Bow Tulle Dress Christening Gown / Flower Girl Dress",
     "slug": "allovin-sleeveless-a-line-bowknot-decorated-dress-girl-fgd009",
     "featuredImage": null,
@@ -455,7 +455,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6763877138569",
+    "shopifyId": "gid://shopify/Product/6763877138569",
     "title": "Allovin Junior Girl Long Sleeve Lace Sundress Decorated Knitted Sweater Tulle Dress",
     "slug": "allovin-long-sleeve-lace-decorated-knitted-sweater-tull-dress-tld008",
     "featuredImage": null,
@@ -482,7 +482,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6763878056073",
+    "shopifyId": "gid://shopify/Product/6763878056073",
     "title": "Allovin Toddler Girl A-line Long Sleeve Princess Sequin Tulle Dress for Party",
     "slug": "allovin-a-line-long-sleeve-princess-sequin-tulle-dress-lsd016",
     "featuredImage": null,
@@ -509,7 +509,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6781429153929",
+    "shopifyId": "gid://shopify/Product/6781429153929",
     "title": "ALLOVIN Embroidery Tutu Dress",
     "slug": "allovin-baby-girl-sleeveless-lace-formal-dress-fgd012",
     "featuredImage": null,
@@ -535,7 +535,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6781429317769",
+    "shopifyId": "gid://shopify/Product/6781429317769",
     "title": "ALLOVIN Toddler Girl 3D-Butterfly Lace Tulle Dress",
     "slug": "allovin-toddler-girl-3d-butterfly-lace-tulle-dress-gsd004",
     "featuredImage": null,
@@ -561,7 +561,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6781429776521",
+    "shopifyId": "gid://shopify/Product/6781429776521",
     "title": "ALLOVIN Toddler Girl Christening Baptism Flower Lace Dress",
     "slug": "allovin-toddler-girl-christianing-baptism-flower-lace-dress-tld009",
     "featuredImage": null,
@@ -590,7 +590,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6781429940361",
+    "shopifyId": "gid://shopify/Product/6781429940361",
     "title": "Toddler Girl Heart-Shaped Embroidery Lace Dress",
     "slug": "allovin-toddler-girl-heart-shaped-embroidery-lace-dress-tld011",
     "featuredImage": null,
@@ -623,7 +623,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6781430202505",
+    "shopifyId": "gid://shopify/Product/6781430202505",
     "title": "Toddler Girl Off Shoulder Lace Dress",
     "slug": "allovin-toddler-girl-off-shoulder-lace-dress-tld012",
     "featuredImage": null,
@@ -652,7 +652,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6781432004745",
+    "shopifyId": "gid://shopify/Product/6781432004745",
     "title": "ALLOVIN Floral Lace Boho Dress",
     "slug": "allovin-toddler-girl-formal-lace-beaded-wedding-dress-tld015",
     "featuredImage": null,
@@ -679,7 +679,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6781715447945",
+    "shopifyId": "gid://shopify/Product/6781715447945",
     "title": "ALLOVIN Toddler Girl 3D-Butterfly Embroidered Lace Dress",
     "slug": "allovin-toddler-girl-3d-butterfly-embroidered-lace-dress-gsd005",
     "featuredImage": null,
@@ -713,7 +713,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6781717282953",
+    "shopifyId": "gid://shopify/Product/6781717282953",
     "title": "ALLOVIN Toddler Girl A-Line Wedding Lace Dress",
     "slug": "allovin-toddler-girl-a-line-wedding-lace-dress-tld014",
     "featuredImage": null,
@@ -747,7 +747,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6781717676169",
+    "shopifyId": "gid://shopify/Product/6781717676169",
     "title": "Toddler Girl Sleeveless A-Line Lace Flower Girl Dress",
     "slug": "allovin-toddler-girl-sleeveless-a-line-lace-flower-girl-dress-tld016",
     "featuredImage": null,
@@ -778,7 +778,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6781718003849",
+    "shopifyId": "gid://shopify/Product/6781718003849",
     "title": "Toddler Girl Sleeveless Sheer Back Tulle Lace Dress",
     "slug": "allovin-toddler-girl-sleeveless-sheer-back-tulle-lace-dress-tld017",
     "featuredImage": null,
@@ -809,7 +809,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6781718364297",
+    "shopifyId": "gid://shopify/Product/6781718364297",
     "title": "ALLOVIN Toddler Girl A-Line Princess Flower Girl Dress",
     "slug": "allovin-toddler-girl-a-line-princess-flower-girl-dress-tld018",
     "featuredImage": null,
@@ -840,7 +840,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6781718593673",
+    "shopifyId": "gid://shopify/Product/6781718593673",
     "title": "ALLOVIN Toddler Girl A-Line 3/4 Sleeve Formal Wedding Lace Dress",
     "slug": "allovin-toddler-girl-a-line-3-4-sleeve-formal-wedding-lace-dress-tld019",
     "featuredImage": null,
@@ -871,7 +871,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6781718790281",
+    "shopifyId": "gid://shopify/Product/6781718790281",
     "title": "Toddler Girl Floral Lace Dress",
     "slug": "allovin-toddler-girl-floral-lace-dress-tld020",
     "featuredImage": null,
@@ -902,7 +902,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6806229549193",
+    "shopifyId": "gid://shopify/Product/6806229549193",
     "title": "Allovin Toddler Girl A-Line Sleeveless Sundress Rose Print Summer Girl Dress",
     "slug": "allovin-toddler-girl-a-line-sleeveless-sundress-rose-print-summer-girl-dress",
     "featuredImage": null,
@@ -930,7 +930,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6806229614729",
+    "shopifyId": "gid://shopify/Product/6806229614729",
     "title": "Toddler Girl Sundress Sleeveless Summer Floral Lace Casual Dress",
     "slug": "allovin-toddler-girl-sundress-sleeveless-summer-floral-lace-casual-dress",
     "featuredImage": null,
@@ -958,7 +958,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6806229647497",
+    "shopifyId": "gid://shopify/Product/6806229647497",
     "title": "Toddler Girl Sleeveless Floral Printed Summer Party Casual Dress",
     "slug": "allovin-toddler-girl-sleeveless-floral-printed-summer-party-casual-dress",
     "featuredImage": null,
@@ -986,7 +986,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6806229713033",
+    "shopifyId": "gid://shopify/Product/6806229713033",
     "title": "Allovin Little Girl Sleeveless Summer Sundress Hawaii Bohemia pleated floral Dress",
     "slug": "allovin-little-girl-sleeveless-summer-sundress-hawaii-bohemia-dress",
     "featuredImage": null,
@@ -1012,7 +1012,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6806229745801",
+    "shopifyId": "gid://shopify/Product/6806229745801",
     "title": "Allovin Toddler Girl Birthday Cap Sleeveless Casual Lily Floral Printed Dress",
     "slug": "allovin-toddler-girl-birthday-cap-sleeveless-casual-lily-floral-printed-dress",
     "featuredImage": null,
@@ -1039,7 +1039,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6806229778569",
+    "shopifyId": "gid://shopify/Product/6806229778569",
     "title": "Allovin Toddler Girl  Summer Holiday Hawaii Casual Floral Dress",
     "slug": "allovin-toddler-girl-summer-holiday-hawaii-casual-floral-dress",
     "featuredImage": null,
@@ -1067,7 +1067,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6806229844105",
+    "shopifyId": "gid://shopify/Product/6806229844105",
     "title": "Toddler Girl Short Sleeve Casual Floral Printed Holiday Dress",
     "slug": "allovin-toddler-girl-short-sleeve-casual-floral-printed-holiday-dress",
     "featuredImage": null,
@@ -1096,7 +1096,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6806229876873",
+    "shopifyId": "gid://shopify/Product/6806229876873",
     "title": "Toddler Girl Sleeveless Spanish Tulle Princess Ball Party Dress",
     "slug": "allovin-toddler-girl-sleeveless-spanish-tulle-princess-ball-party-dress",
     "featuredImage": null,
@@ -1122,7 +1122,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6815766478985",
+    "shopifyId": "gid://shopify/Product/6815766478985",
     "title": "ALLOVIN Sequins Tulle Party Dress",
     "slug": "allovin-toddler-girl-sleeveless-sequins-floral-lace-tulle-dress-5-fgd021",
     "featuredImage": null,
@@ -1150,7 +1150,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6815767560329",
+    "shopifyId": "gid://shopify/Product/6815767560329",
     "title": "Allovin Toddler Girl A-Line Formal Sleeveless Sequins Dress",
     "slug": "allovin-toddler-girl-a-line-formal-sleeveless-flower-girl-dress-5-fgd023",
     "featuredImage": null,
@@ -1179,7 +1179,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6815767888009",
+    "shopifyId": "gid://shopify/Product/6815767888009",
     "title": "Toddler Girl Heart-Shaped Sequins Cap Sleeve Maxi Dress",
     "slug": "allovin-toddler-girl-heart-shaped-sequins-cap-sleeve-maxi-dress-5-fgd024",
     "featuredImage": null,
@@ -1205,7 +1205,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6815769329801",
+    "shopifyId": "gid://shopify/Product/6815769329801",
     "title": "ALLOVIN Pink Embroidery Tulle Dress",
     "slug": "allovin-kids-sleeveless-embroidery-lace-flower-dress-5-fgd026",
     "featuredImage": null,
@@ -1232,7 +1232,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6817278197897",
+    "shopifyId": "gid://shopify/Product/6817278197897",
     "title": "Toddler Girl Short Sleeve Sequins Flower Dress",
     "slug": "allovin-toddler-girl-short-sleeve-sequins-flower-dress-5-fgd028",
     "featuredImage": null,
@@ -1261,7 +1261,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6817278394505",
+    "shopifyId": "gid://shopify/Product/6817278394505",
     "title": "Toddler Girl Sequins Sleeveless Formal Ball Gown Party Dress",
     "slug": "allovin-toddler-girl-sequins-sleeveless-formal-ball-gown-party-dress-5-fgd030",
     "featuredImage": null,
@@ -1291,7 +1291,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6817278558345",
+    "shopifyId": "gid://shopify/Product/6817278558345",
     "title": "ALLOVIN Sequins Tulle Party Dress",
     "slug": "allovin-toddler-girl-short-sleeve-maxi-sequins-tulle-party-flower-dress-5-fgd031",
     "featuredImage": null,
@@ -1320,7 +1320,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6818134720649",
+    "shopifyId": "gid://shopify/Product/6818134720649",
     "title": "Allovin Toddler Girl A-Line Sleeveless Boho Ball Gown Tulle Dress",
     "slug": "allovin-toddler-girl-a-line-sleeveless-boho-ball-gown-tulle-dress",
     "featuredImage": null,
@@ -1345,7 +1345,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6818135179401",
+    "shopifyId": "gid://shopify/Product/6818135179401",
     "title": "ALLOVIN Embroidery Shift Dress",
     "slug": "allovin-toddler-girl-a-line-tulle-sleeveless-flower-dress",
     "featuredImage": null,
@@ -1373,7 +1373,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6818135474313",
+    "shopifyId": "gid://shopify/Product/6818135474313",
     "title": "Little Girl Puffy Sleeve Princess Pageant Lace Tulle Vintage Dress",
     "slug": "little-girl-puffy-sleeve-princess-pageant-lace-tulle-vintage-dress",
     "featuredImage": null,
@@ -1398,7 +1398,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6818135965833",
+    "shopifyId": "gid://shopify/Product/6818135965833",
     "title": "ALLOVIN Flower Sequin jersey Dress",
     "slug": "allovin-toddler-girl-cap-sleeve-lace-tulle-birthday-sequins-dress",
     "featuredImage": null,
@@ -1422,7 +1422,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6818136359049",
+    "shopifyId": "gid://shopify/Product/6818136359049",
     "title": "Allovin Toddler Girl Cap Sleeve Tulle Party Princess Dresses",
     "slug": "allovin-toddler-girl-cap-sleeve-lace-tulle-party-princess-dresses",
     "featuredImage": null,
@@ -1446,7 +1446,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6818136948873",
+    "shopifyId": "gid://shopify/Product/6818136948873",
     "title": "ALLOVIN Swan Tutu Dress",
     "slug": "toddler-girl-strap-ballerina-princess-pageant-gown-swan-tutu-dress",
     "featuredImage": null,
@@ -1475,7 +1475,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6818137538697",
+    "shopifyId": "gid://shopify/Product/6818137538697",
     "title": "Toddler Girl Sleeveless Summer Tulle Birthday Casual Dress",
     "slug": "allovin-toddler-girl-sleeveless-summer-tulle-birthday-casual-dress",
     "featuredImage": null,
@@ -1505,7 +1505,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6818168864905",
+    "shopifyId": "gid://shopify/Product/6818168864905",
     "title": "Toddler Girl Short Sleeve Summer Casual White Dress",
     "slug": "allovin-toddler-girl-short-sleeve-summer-tulle-casual-white-dress",
     "featuredImage": null,
@@ -1533,7 +1533,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6849531576457",
+    "shopifyId": "gid://shopify/Product/6849531576457",
     "title": "Easter Bunny Girls Fluffy Rabbit Decor Hair Clip",
     "slug": "easter-gifts-for-free-easter-gifts-for-baby-girls-fluffy-bunny-decor-hair-clip",
     "featuredImage": null,
@@ -1544,15 +1544,12 @@
     },
     "variants": null,
     "createdAt": "2022-03-30T13:51:10Z",
-    "tags": [
-      "Accessories",
-      "under 9$"
-    ],
+    "tags": ["Accessories", "under 9$"],
     "price": 1116.7597765363128,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6880736477321",
+    "shopifyId": "gid://shopify/Product/6880736477321",
     "title": "Toddler Boys Bow Tie Short Sleeve 100% Cotton Shirt & Suspender Shorts",
     "slug": "allovin-toddler-boys-bow-tie-short-sleeve-cotton-shirt-suspender-shorts-set",
     "featuredImage": null,
@@ -1581,7 +1578,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6880737624201",
+    "shopifyId": "gid://shopify/Product/6880737624201",
     "title": "Toddler Boys Bow Tie Short Sleeve Striped 100% Washed Linen Shirt & Suspender Shorts",
     "slug": "allovin-toddler-boys-washed-linen-shirt-suspender-shorts-set",
     "featuredImage": null,
@@ -1612,7 +1609,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6880739623049",
+    "shopifyId": "gid://shopify/Product/6880739623049",
     "title": "Toddler Boys Bow Tie Button Up Long Sleeve Shirt & Suspender Pants",
     "slug": "allovin-toddler-boys-long-sleeve-shirt-suspender-pants-set",
     "featuredImage": null,
@@ -1639,7 +1636,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6880741392521",
+    "shopifyId": "gid://shopify/Product/6880741392521",
     "title": "Toddler Boys Bow Tie Button Up Shirt & Suspender Pants",
     "slug": "allovin-toddler-boys-bow-tie-button-up-shirt-suspender-pants",
     "featuredImage": null,
@@ -1669,7 +1666,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6880741982345",
+    "shopifyId": "gid://shopify/Product/6880741982345",
     "title": "Toddler Boys Bow Tie Short Sleeve Floral Printed Linen Cotton Shirt & Suspender Shorts",
     "slug": "allovin-toddler-boys-floral-printed-linen-cotton-shirt-suspender-shorts-set",
     "featuredImage": null,
@@ -1698,7 +1695,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6880742506633",
+    "shopifyId": "gid://shopify/Product/6880742506633",
     "title": "Baby Boy Bow Front Button Shirt & Striped Print Vest & Pants",
     "slug": "allovin-baby-boy-bow-front-button-shirt-striped-print-vest-pants-set",
     "featuredImage": null,
@@ -1721,7 +1718,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6880743489673",
+    "shopifyId": "gid://shopify/Product/6880743489673",
     "title": "Allovin Toddler Boys Supersoft Jersey T-Shirt & Pants Set",
     "slug": "allovin-toddler-boys-supersoft-jersey-t-shirt-pants-set",
     "featuredImage": null,
@@ -1746,7 +1743,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6880743751817",
+    "shopifyId": "gid://shopify/Product/6880743751817",
     "title": "Toddler Boys Supersoft Dinosaur Printed Jersey T-Shirt & Pants Set",
     "slug": "allovin-toddler-boys-supersoft-dinosaur-printed-jersey-t-shirt-pants-set",
     "featuredImage": null,
@@ -1773,7 +1770,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6880743948425",
+    "shopifyId": "gid://shopify/Product/6880743948425",
     "title": "Toddler Boys Supersoft Dinosaur Ptinted Jersey T-Shirt & Pants Set",
     "slug": "allovin-toddler-boys-supersoft-dinosaur-ptinted-jersey-t-shirt-pants-set",
     "featuredImage": null,
@@ -1799,7 +1796,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6880743981193",
+    "shopifyId": "gid://shopify/Product/6880743981193",
     "title": "Toddler Boys Supersoft Car Ptinted Jersey T-Shirt & Pants Set",
     "slug": "allovin-toddler-boys-supersoft-car-ptinted-jersey-t-shirt-pants-set",
     "featuredImage": null,
@@ -1826,7 +1823,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6880744145033",
+    "shopifyId": "gid://shopify/Product/6880744145033",
     "title": "Toddler Boys Supersoft Happy Sea Life Ptinted Jersey Polo Shirt & Pants Set",
     "slug": "allovin-toddler-boys-supersoft-ptinted-jersey-polo-shirt-pants-set",
     "featuredImage": null,
@@ -1853,7 +1850,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6880805617801",
+    "shopifyId": "gid://shopify/Product/6880805617801",
     "title": "ALLOVIN Bow Back Trapeze Dress",
     "slug": "allovin-toddler-girl-cap-sleeve-lace-satin-tulle-communion-dress",
     "featuredImage": null,
@@ -1879,7 +1876,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6880807551113",
+    "shopifyId": "gid://shopify/Product/6880807551113",
     "title": "ALLOVIN Sheer back Party Dress",
     "slug": "allovin-toddler-girl-puffy-sheer-back-tulle-dress",
     "featuredImage": null,
@@ -1908,7 +1905,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6881967898761",
+    "shopifyId": "gid://shopify/Product/6881967898761",
     "title": "Allovin Toddler Boys Jersey T-Shirt & Pants Set",
     "slug": "allovin-toddler-boys-blue-jersey-t-shirt-pants-set",
     "featuredImage": null,
@@ -1934,7 +1931,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6882228207753",
+    "shopifyId": "gid://shopify/Product/6882228207753",
     "title": "Allovin Long Sleeve Tutu Lace Ballet Leotard Dance Dress",
     "slug": "allovin-long-sleeve-tutu-lace-ballet-leotard-dance-dress-for-girls",
     "featuredImage": null,
@@ -1960,7 +1957,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6882228404361",
+    "shopifyId": "gid://shopify/Product/6882228404361",
     "title": "Allovin Sleeveless Tutu Lace Ballet Leotard",
     "slug": "allovin-sleeveless-tutu-lace-ballet-leotard-dance-dress-for-girls",
     "featuredImage": null,
@@ -1986,7 +1983,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6882228699273",
+    "shopifyId": "gid://shopify/Product/6882228699273",
     "title": "Allovin Lace Ballet Leotard Set",
     "slug": "allovin-ballet-leotard-with-lace-design-for-toddlers-girls",
     "featuredImage": null,
@@ -2013,7 +2010,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6882228764809",
+    "shopifyId": "gid://shopify/Product/6882228764809",
     "title": "Allovin Girls Canvas Split Sole Ballet Shoes",
     "slug": "allovin-girls-canvas-split-sole-ballet-shoes",
     "featuredImage": null,
@@ -2024,17 +2021,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-03T12:39:04Z",
-    "tags": [
-      "9-29$",
-      "Accessories",
-      "Belge",
-      "Pink"
-    ],
+    "tags": ["9-29$", "Accessories", "Belge", "Pink"],
     "price": 781.5642458100559,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6882228895881",
+    "shopifyId": "gid://shopify/Product/6882228895881",
     "title": "Allovin Ballet Lace Skirt",
     "slug": "allovin-ballet-lace-skirt-design-for-girls-and-toddlers",
     "featuredImage": null,
@@ -2061,7 +2053,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6882228994185",
+    "shopifyId": "gid://shopify/Product/6882228994185",
     "title": "Allovin Tutu Skirt for Baby Toddler Girls",
     "slug": "allovin-tutu-skirt-for-baby-toddler-girls",
     "featuredImage": null,
@@ -2085,7 +2077,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6883751166089",
+    "shopifyId": "gid://shopify/Product/6883751166089",
     "title": "Allovin Winged Unicorn and Fairy Costume",
     "slug": "allovin-winged-unicorn-fairy-costume",
     "featuredImage": null,
@@ -2096,15 +2088,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-05T05:30:41Z",
-    "tags": [
-      "29-49$",
-      "Accessories"
-    ],
+    "tags": ["29-49$", "Accessories"],
     "price": 2234.078212290503,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6883751592073",
+    "shopifyId": "gid://shopify/Product/6883751592073",
     "title": "Allovin Tulle Wand",
     "slug": "allovin-tulle-wand",
     "featuredImage": null,
@@ -2115,15 +2104,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-05T05:30:58Z",
-    "tags": [
-      "9-29$",
-      "Accessories"
-    ],
+    "tags": ["9-29$", "Accessories"],
     "price": 1116.7597765363128,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6883755393161",
+    "shopifyId": "gid://shopify/Product/6883755393161",
     "title": "Allovin Two Pieces Set Unicorn Costume",
     "slug": "allovin-two-pieces-set-unicorn-costume",
     "featuredImage": null,
@@ -2148,7 +2134,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6883755720841",
+    "shopifyId": "gid://shopify/Product/6883755720841",
     "title": "Allovin Glisten Cape",
     "slug": "allovin-glisten-cape",
     "featuredImage": null,
@@ -2159,15 +2145,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-05T05:33:27Z",
-    "tags": [
-      "49-69$",
-      "Accessories"
-    ],
+    "tags": ["49-69$", "Accessories"],
     "price": 3351.396648044693,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6883758309513",
+    "shopifyId": "gid://shopify/Product/6883758309513",
     "title": "Allovin Girl Fancy Tulle Ruffle Cape",
     "slug": "allovin-girl-fancy-tulle-ruffle-cape",
     "featuredImage": null,
@@ -2178,15 +2161,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-05T05:34:40Z",
-    "tags": [
-      "29-49$",
-      "Accessories"
-    ],
+    "tags": ["29-49$", "Accessories"],
     "price": 2234.078212290503,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6883758964873",
+    "shopifyId": "gid://shopify/Product/6883758964873",
     "title": "Allovin Unicorn Costume Party Headpiece 2pc",
     "slug": "allovin-unicorn-costume-party-headpiece",
     "featuredImage": null,
@@ -2212,7 +2192,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6883759128713",
+    "shopifyId": "gid://shopify/Product/6883759128713",
     "title": "Allovin Lace Trim Tulle Cape Fairy Costume",
     "slug": "allovin-lace-trim-tulle-cape-fairy-costume",
     "featuredImage": null,
@@ -2223,18 +2203,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-05T05:35:14Z",
-    "tags": [
-      "2-3Years",
-      "3-5 Years",
-      "6-8 Years",
-      "9-29$",
-      "White"
-    ],
+    "tags": ["2-3Years", "3-5 Years", "6-8 Years", "9-29$", "White"],
     "price": 1116.7597765363128,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6885715476617",
+    "shopifyId": "gid://shopify/Product/6885715476617",
     "title": "Allovin Unicorn Dress Up Set Pack 2",
     "slug": "allovin-unicorn-dress-up-set",
     "featuredImage": null,
@@ -2245,17 +2219,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-08T09:17:24Z",
-    "tags": [
-      "9-29$",
-      "Accessories",
-      "one size",
-      "Pink"
-    ],
+    "tags": ["9-29$", "Accessories", "one size", "Pink"],
     "price": 893.2960893854749,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890551804041",
+    "shopifyId": "gid://shopify/Product/6890551804041",
     "title": "Allovin Rhinestone Crown Hair Accessory",
     "slug": "rhinestone-crown-hair-accessory",
     "featuredImage": null,
@@ -2266,16 +2235,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-15T01:15:45Z",
-    "tags": [
-      "9-29$",
-      "Accessories",
-      "one size"
-    ],
+    "tags": ["9-29$", "Accessories", "one size"],
     "price": 1116.7597765363128,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890551836809",
+    "shopifyId": "gid://shopify/Product/6890551836809",
     "title": "Allovin Rhinestone Crown & Letter Decor Headband",
     "slug": "rhinestone-crown-letter-deco-headband",
     "featuredImage": null,
@@ -2286,16 +2251,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-15T01:15:56Z",
-    "tags": [
-      "9-29$",
-      "Accessories",
-      "one size"
-    ],
+    "tags": ["9-29$", "Accessories", "one size"],
     "price": 725.6983240223464,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890551869577",
+    "shopifyId": "gid://shopify/Product/6890551869577",
     "title": "Allovin Faux Pearl Decor Bow Design Wedding Hair Clip Pack-3",
     "slug": "faux-pearl-decor-bow-design-wedding-hai-clip",
     "featuredImage": null,
@@ -2306,17 +2267,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-15T01:16:00Z",
-    "tags": [
-      "9-29$",
-      "Accessories",
-      "one size",
-      "White"
-    ],
+    "tags": ["9-29$", "Accessories", "one size", "White"],
     "price": 781.5642458100559,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890551902345",
+    "shopifyId": "gid://shopify/Product/6890551902345",
     "title": "Allovin Floral Princess Headpiece Pearls Tiara",
     "slug": "floral-princess-headpiece-pearls-tiara",
     "featuredImage": null,
@@ -2327,17 +2283,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-15T01:16:09Z",
-    "tags": [
-      "9-29$",
-      "Accessories",
-      "Multi-colored",
-      "one size"
-    ],
+    "tags": ["9-29$", "Accessories", "Multi-colored", "one size"],
     "price": 781.5642458100559,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890552000649",
+    "shopifyId": "gid://shopify/Product/6890552000649",
     "title": "Allovin Floral Headband Crown for Weddings and Special Occasions",
     "slug": "flower-headband-wreath-crown-floral-wedding-garland",
     "featuredImage": null,
@@ -2348,16 +2299,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-15T01:16:55Z",
-    "tags": [
-      "9-29$",
-      "Accessories",
-      "one size"
-    ],
+    "tags": ["9-29$", "Accessories", "one size"],
     "price": 893.2960893854749,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890552066185",
+    "shopifyId": "gid://shopify/Product/6890552066185",
     "title": "Allovin Girls White Double Layer Veil",
     "slug": "girls-white-double-layer-veil",
     "featuredImage": null,
@@ -2368,18 +2315,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-15T01:17:04Z",
-    "tags": [
-      "Accessories",
-      "Apricot",
-      "one size",
-      "under 9$",
-      "White"
-    ],
+    "tags": ["Accessories", "Apricot", "one size", "under 9$", "White"],
     "price": 1005.0279329608938,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890552098953",
+    "shopifyId": "gid://shopify/Product/6890552098953",
     "title": "Allovin Lace Bow Decor Headband",
     "slug": "lace-bow-decor-headband",
     "featuredImage": null,
@@ -2390,19 +2331,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-15T01:17:14Z",
-    "tags": [
-      "Accessories",
-      "Green",
-      "one size",
-      "Pink",
-      "under 9$",
-      "Yellow"
-    ],
+    "tags": ["Accessories", "Green", "one size", "Pink", "under 9$", "Yellow"],
     "price": 1116.7597765363128,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890552197257",
+    "shopifyId": "gid://shopify/Product/6890552197257",
     "title": "Allovin Toddler Girls Bow Hairpin",
     "slug": "toddler-girls-bow-hairpin",
     "featuredImage": null,
@@ -2426,7 +2360,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890552262793",
+    "shopifyId": "gid://shopify/Product/6890552262793",
     "title": "Allovin Toddler Girls Bow Hairpin 5 Pcs",
     "slug": "toddler-girls-bow-hairpin-2-pcs",
     "featuredImage": null,
@@ -2450,7 +2384,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890552295561",
+    "shopifyId": "gid://shopify/Product/6890552295561",
     "title": "Allovin Toddler Girls Cute Hairpin 5 Pcs",
     "slug": "toddler-girls-cute-hairpin-2-pcs",
     "featuredImage": null,
@@ -2474,7 +2408,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890552328329",
+    "shopifyId": "gid://shopify/Product/6890552328329",
     "title": "Allovin Toddler Girls Rhinestone Crown Decor Hair Clip",
     "slug": "toddler-girls-rhinestone-crown-decor-hair-clip",
     "featuredImage": null,
@@ -2498,7 +2432,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890552361097",
+    "shopifyId": "gid://shopify/Product/6890552361097",
     "title": "Allovin Toddler Girls Rhinestone Crown Decor Hairpin",
     "slug": "toddler-girls-rhinestone-crown-decor-hairpin",
     "featuredImage": null,
@@ -2509,18 +2443,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-15T01:18:33Z",
-    "tags": [
-      "Accessories",
-      "Blue",
-      "one size",
-      "Pink",
-      "under 9$"
-    ],
+    "tags": ["Accessories", "Blue", "one size", "Pink", "under 9$"],
     "price": 1116.7597765363128,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890552393865",
+    "shopifyId": "gid://shopify/Product/6890552393865",
     "title": "Allovin Toddler Girls Rhinestone Crown Decor Bow Hairpin",
     "slug": "toddler-girls-rhinestone-crown-decor-bow-hairpin",
     "featuredImage": null,
@@ -2545,7 +2473,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890552426633",
+    "shopifyId": "gid://shopify/Product/6890552426633",
     "title": "Allovin Baby Bonnet Summer Sweet Toddler Cap Lace",
     "slug": "baby-bonnet-summer-sweet-toddler-cap-lace",
     "featuredImage": null,
@@ -2572,7 +2500,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890552459401",
+    "shopifyId": "gid://shopify/Product/6890552459401",
     "title": "Allovin Toddler Girls Flower Decor Straw Hat",
     "slug": "toddler-girls-flower-decor-straw-hat",
     "featuredImage": null,
@@ -2583,16 +2511,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-15T01:19:20Z",
-    "tags": [
-      "29-49$",
-      "Accessories",
-      "Multi-colored"
-    ],
+    "tags": ["29-49$", "Accessories", "Multi-colored"],
     "price": 1675.4189944134077,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6890552492169",
+    "shopifyId": "gid://shopify/Product/6890552492169",
     "title": "Allovin 5pcs Toddler Girls Lace Butterfly Hairpin",
     "slug": "2pcs-toddler-girls-lace-butterfly-hairpin",
     "featuredImage": null,
@@ -2603,17 +2527,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-15T01:19:24Z",
-    "tags": [
-      "Accessories",
-      "one size",
-      "under 9$",
-      "White"
-    ],
+    "tags": ["Accessories", "one size", "under 9$", "White"],
     "price": 837.4301675977654,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6891102699657",
+    "shopifyId": "gid://shopify/Product/6891102699657",
     "title": "Allovin Lace Tie-Back Headband",
     "slug": "lace-tie-back-headband",
     "featuredImage": null,
@@ -2624,18 +2543,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-16T05:44:34Z",
-    "tags": [
-      "Accessories",
-      "one size",
-      "Pink",
-      "under 9$",
-      "White"
-    ],
+    "tags": ["Accessories", "one size", "Pink", "under 9$", "White"],
     "price": 1005.0279329608938,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/6891102732425",
+    "shopifyId": "gid://shopify/Product/6891102732425",
     "title": "Allovin Cute Lace Tie-Back Headband",
     "slug": "allovin-cute-lace-tie-back-headband",
     "featuredImage": null,
@@ -2646,19 +2559,12 @@
     },
     "variants": null,
     "createdAt": "2022-05-16T05:44:38Z",
-    "tags": [
-      "Accessories",
-      "Apricot",
-      "one size",
-      "Pink",
-      "under 9$",
-      "White"
-    ],
+    "tags": ["Accessories", "Apricot", "one size", "Pink", "under 9$", "White"],
     "price": 1005.0279329608938,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7037942399113",
+    "shopifyId": "gid://shopify/Product/7037942399113",
     "title": "ALLOVIN Women's Sleeveless V-Back Floral Lace Cocktail Party Dress Elegant Knee Length Wedding Guest Dress",
     "slug": "allovin-women-s-sleeveless-v-back-floral-lace-cocktail-party-dress-elegant-knee-length-wedding-guest-dress",
     "featuredImage": null,
@@ -2669,14 +2575,12 @@
     },
     "variants": null,
     "createdAt": "2022-09-29T03:07:35Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 3351.396648044693,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7037942431881",
+    "shopifyId": "gid://shopify/Product/7037942431881",
     "title": "ALLOVIN Women's Long Sleeve Hollow Out Boho Maxi Dress Flowy Casual Long Tulle Dress with Pockets",
     "slug": "allovin-women-s-long-sleeve-hollow-out-boho-maxi-dress-flowy-casual-long-tulle-dress-with-pockets",
     "featuredImage": null,
@@ -2687,14 +2591,12 @@
     },
     "variants": null,
     "createdAt": "2022-09-29T03:07:37Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 2792.737430167598,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7037942464649",
+    "shopifyId": "gid://shopify/Product/7037942464649",
     "title": "ALLOVIN Women's Sleeveless V Neck Floral Lace Cocktail Dress Knee Length Elegant Formal Party Dress",
     "slug": "allovin-women-s-sleeveless-v-neck-floral-lace-cocktail-dress-knee-length-elegant-formal-party-dress",
     "featuredImage": null,
@@ -2705,14 +2607,12 @@
     },
     "variants": null,
     "createdAt": "2022-09-29T03:07:38Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 3351.396648044693,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7037942497417",
+    "shopifyId": "gid://shopify/Product/7037942497417",
     "title": "ALLOVIN Women's V Neck Spaghetti Strap Floral Lace Cocktail Dress Sexy Backless Sleeveless A Line Party Dress",
     "slug": "allovin-women-s-v-neck-spaghetti-strap-floral-lace-cocktail-dress-sexy-backless-sleeveless-a-line-party-dress",
     "featuredImage": null,
@@ -2723,14 +2623,12 @@
     },
     "variants": null,
     "createdAt": "2022-09-29T03:07:40Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 2792.737430167598,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7037942530185",
+    "shopifyId": "gid://shopify/Product/7037942530185",
     "title": "ALLOVIN Women's Elegant V Neck Ruffle Hem Floral Lace Cocktail Dress Sleeveless Wedding Guest Party Dress",
     "slug": "allovin-women-s-elegant-v-neck-ruffle-hem-floral-lace-cocktail-dress-sleeveless-wedding-guest-party-dress",
     "featuredImage": null,
@@ -2741,14 +2639,12 @@
     },
     "variants": null,
     "createdAt": "2022-09-29T03:07:42Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 2792.737430167598,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7037942595721",
+    "shopifyId": "gid://shopify/Product/7037942595721",
     "title": "ALLOVIN Girls Long Sleeve A-Line Lace Maxi Dress Backless Ruffle Hem Flower Girl Party Dress",
     "slug": "allovin-girl-s-long-sleeve-a-line-lace-maxi-dress-backless-ruffle-hem-flower-girl-party-dress",
     "featuredImage": null,
@@ -2759,14 +2655,12 @@
     },
     "variants": null,
     "createdAt": "2022-09-29T03:07:44Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 2457.541899441341,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7038134812809",
+    "shopifyId": "gid://shopify/Product/7038134812809",
     "title": "ALLOVIN Toddler Girls Round Neck Velvet Tulle Dress",
     "slug": "allovin-toddler-girls-round-neck-velvet-tulle-dress",
     "featuredImage": null,
@@ -2792,7 +2686,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7038134878345",
+    "shopifyId": "gid://shopify/Product/7038134878345",
     "title": "ALLOVIN Vintage A-Line Lace Dress",
     "slug": "allovin-vintage-a-line-lace-dress",
     "featuredImage": null,
@@ -2821,7 +2715,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7038134911113",
+    "shopifyId": "gid://shopify/Product/7038134911113",
     "title": "ALLOVIN Lace And Tulle V-back Layered Dress",
     "slug": "allovin-lace-and-tulle-v-back-layered-dress",
     "featuredImage": null,
@@ -2847,7 +2741,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7038134976649",
+    "shopifyId": "gid://shopify/Product/7038134976649",
     "title": "ALLOVIN Strap Ballerina Princess Black Swan Tutu Dress",
     "slug": "allovin-strap-ballerina-princess-black-swan-tutu-dress",
     "featuredImage": null,
@@ -2872,7 +2766,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7038135107721",
+    "shopifyId": "gid://shopify/Product/7038135107721",
     "title": "ALLOVIN Sparkly Stars Velvet Dress",
     "slug": "allovin-sparkly-stars-velvet-dress",
     "featuredImage": null,
@@ -2898,7 +2792,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7038135140489",
+    "shopifyId": "gid://shopify/Product/7038135140489",
     "title": "ALLOVIN Smocked Velvet Dress",
     "slug": "allovin-smocked-velvet-dress",
     "featuredImage": null,
@@ -2924,7 +2818,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7038135206025",
+    "shopifyId": "gid://shopify/Product/7038135206025",
     "title": "ALLOVIN Sparkly Stars Navy Blue Velvet Dress",
     "slug": "allovin-sparkly-stars-navy-blue-velvet-dress",
     "featuredImage": null,
@@ -2949,7 +2843,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7038135304329",
+    "shopifyId": "gid://shopify/Product/7038135304329",
     "title": "ALLOVIN Sparkly Stars Tulle Dress",
     "slug": "allovin-sparkly-stars-tulle-dress",
     "featuredImage": null,
@@ -2973,7 +2867,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7038135566473",
+    "shopifyId": "gid://shopify/Product/7038135566473",
     "title": "ALLOVIN Sparkly Stars Tutu Skirt",
     "slug": "allovin-sparkly-stars-tutu-skirt",
     "featuredImage": null,
@@ -2984,15 +2878,12 @@
     },
     "variants": null,
     "createdAt": "2022-09-29T09:46:33Z",
-    "tags": [
-      "dark grey",
-      "wine red"
-    ],
+    "tags": ["dark grey", "wine red"],
     "price": 1675.4189944134077,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7038136221833",
+    "shopifyId": "gid://shopify/Product/7038136221833",
     "title": "ALLOVIN Witch Party Hats",
     "slug": "allovin-witch-party-hats",
     "featuredImage": null,
@@ -3008,7 +2899,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7074402828425",
+    "shopifyId": "gid://shopify/Product/7074402828425",
     "title": "ALLOVIN Textured Knit & Tulle Dress",
     "slug": "allovin-textured-knit-tulle-dress",
     "featuredImage": null,
@@ -3035,7 +2926,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7074402861193",
+    "shopifyId": "gid://shopify/Product/7074402861193",
     "title": "ALLOVIN Toddler Girls Ruffle Trim Knit Sweater Dress",
     "slug": "allovin-toddler-girls-ruffle-trim-knit-sweater-dress",
     "featuredImage": null,
@@ -3060,7 +2951,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7074403025033",
+    "shopifyId": "gid://shopify/Product/7074403025033",
     "title": "ALLOVIN Vintage Lace Collar Velvet Dress",
     "slug": "allovin-vintage-lace-collar-velvet-dress",
     "featuredImage": null,
@@ -3083,7 +2974,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7074403090569",
+    "shopifyId": "gid://shopify/Product/7074403090569",
     "title": "ALLOVIN Velvet Tulle Party Dress",
     "slug": "allovin-velvet-tulle-party-dress",
     "featuredImage": null,
@@ -3110,7 +3001,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7074403156105",
+    "shopifyId": "gid://shopify/Product/7074403156105",
     "title": "ALLOVIN Toddler Girls Vintage Knit Dress",
     "slug": "allovin-toddler-girls-vintage-knit-dress",
     "featuredImage": null,
@@ -3135,7 +3026,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7074403188873",
+    "shopifyId": "gid://shopify/Product/7074403188873",
     "title": "ALLOVIN Tulle-skirt Jersey Dress",
     "slug": "allovin-tulle-skirt-jersey-dress",
     "featuredImage": null,
@@ -3159,7 +3050,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7074404434057",
+    "shopifyId": "gid://shopify/Product/7074404434057",
     "title": "ALLOVIN Toddler Girls Textured Knit & Tulle Dress",
     "slug": "allovin-toddler-girls-textured-knit-tulle-dress",
     "featuredImage": null,
@@ -3184,7 +3075,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7074410463369",
+    "shopifyId": "gid://shopify/Product/7074410463369",
     "title": "ALLOVIN 4pairs Cable Knit Cotton Leggings",
     "slug": "allovin-4pairs-cable-knit-cotton-leggings",
     "featuredImage": null,
@@ -3214,7 +3105,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149385154697",
+    "shopifyId": "gid://shopify/Product/7149385154697",
     "title": "ALLOVIN Women's Sleeveless V-Back Floral Lace Cocktail Party Dress Elegant Knee Length Wedding Guest Dress Black",
     "slug": "allovin-womens-sleeveless-v-back-floral-lace-cocktail-party-dress-elegant-knee-length-wedding-guest-dress",
     "featuredImage": null,
@@ -3225,14 +3116,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:03:46Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 3351.396648044693,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149385351305",
+    "shopifyId": "gid://shopify/Product/7149385351305",
     "title": "ALLOVIN Women's Sleeveless V-Back Floral Lace Cocktail Party Dress Elegant Knee Length Wedding Guest Dress White",
     "slug": "allovin-womens-sleeveless-v-back-floral-lace-cocktail-party-dress-elegant-knee-length-wedding-guest-dress-white",
     "featuredImage": null,
@@ -3243,14 +3132,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:03:55Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 3351.396648044693,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149385580681",
+    "shopifyId": "gid://shopify/Product/7149385580681",
     "title": "ALLOVIN Women's Sleeveless V-Back Floral Lace Cocktail Party Dress Elegant Knee Length Wedding Guest Dress Navy Blue",
     "slug": "allovin-womens-sleeveless-v-back-floral-lace-cocktail-party-dress-elegant-knee-length-wedding-guest-dress-navy-blue",
     "featuredImage": null,
@@ -3261,14 +3148,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:04:05Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 3351.396648044693,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149385777289",
+    "shopifyId": "gid://shopify/Product/7149385777289",
     "title": "ALLOVIN Women's Long Sleeve Hollow Out Boho Maxi Dress Flowy Casual Long Tulle Dress with Pockets Apricot",
     "slug": "allovin-womens-long-sleeve-hollow-out-boho-maxi-dress-flowy-casual-long-tulle-dress-with-pockets-apricot",
     "featuredImage": null,
@@ -3279,14 +3164,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:04:14Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 2792.737430167598,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149385908361",
+    "shopifyId": "gid://shopify/Product/7149385908361",
     "title": "ALLOVIN Women's Long Sleeve Hollow Out Boho Maxi Dress Flowy Casual Long Tulle Dress with Pockets Black",
     "slug": "allovin-womens-long-sleeve-hollow-out-boho-maxi-dress-flowy-casual-long-tulle-dress-with-pockets-black",
     "featuredImage": null,
@@ -3297,14 +3180,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:04:23Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 2792.737430167598,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149386104969",
+    "shopifyId": "gid://shopify/Product/7149386104969",
     "title": "ALLOVIN Women's Sleeveless V Neck Floral Lace Cocktail Dress Knee Length Elegant Formal Party Dress Black",
     "slug": "allovin-womens-sleeveless-v-neck-floral-lace-cocktail-dress-knee-length-elegant-formal-party-dress-black",
     "featuredImage": null,
@@ -3315,21 +3196,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:04:33Z",
-    "tags": [
-      "2XL",
-      "49-69$",
-      "Black",
-      "L",
-      "M",
-      "S",
-      "upc",
-      "XL"
-    ],
+    "tags": ["2XL", "49-69$", "Black", "L", "M", "S", "upc", "XL"],
     "price": 3351.396648044693,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149386629257",
+    "shopifyId": "gid://shopify/Product/7149386629257",
     "title": "ALLOVIN Women's Sleeveless V Neck Floral Lace Cocktail Dress Knee Length Elegant Formal Party Dress Pink",
     "slug": "allovin-womens-sleeveless-v-neck-floral-lace-cocktail-dress-knee-length-elegant-formal-party-dress-pink",
     "featuredImage": null,
@@ -3340,21 +3212,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:05:06Z",
-    "tags": [
-      "2XL",
-      "49-69$",
-      "L",
-      "M",
-      "Pink",
-      "S",
-      "upc",
-      "XL"
-    ],
+    "tags": ["2XL", "49-69$", "L", "M", "Pink", "S", "upc", "XL"],
     "price": 3351.396648044693,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149386760329",
+    "shopifyId": "gid://shopify/Product/7149386760329",
     "title": "ALLOVIN Women's V Neck Spaghetti Strap Floral Lace Cocktail Dress Sexy Backless Sleeveless A Line Party Dress Champagne",
     "slug": "allovin-womens-v-neck-spaghetti-strap-floral-lace-cocktail-dress-sexy-backless-sleeveless-a-line-party-dress-champagne",
     "featuredImage": null,
@@ -3365,21 +3228,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:05:16Z",
-    "tags": [
-      "2XL",
-      "49-69$",
-      "Champagne",
-      "L",
-      "M",
-      "S",
-      "upc",
-      "XL"
-    ],
+    "tags": ["2XL", "49-69$", "Champagne", "L", "M", "S", "upc", "XL"],
     "price": 2792.737430167598,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149386989705",
+    "shopifyId": "gid://shopify/Product/7149386989705",
     "title": "ALLOVIN Women's V Neck Spaghetti Strap Floral Lace Cocktail Dress Sexy Backless Sleeveless A Line Party Dress Black",
     "slug": "allovin-womens-v-neck-spaghetti-strap-floral-lace-cocktail-dress-sexy-backless-sleeveless-a-line-party-dress-black",
     "featuredImage": null,
@@ -3390,21 +3244,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:05:26Z",
-    "tags": [
-      "2XL",
-      "49-69$",
-      "Black",
-      "L",
-      "M",
-      "S",
-      "upc",
-      "XL"
-    ],
+    "tags": ["2XL", "49-69$", "Black", "L", "M", "S", "upc", "XL"],
     "price": 2792.737430167598,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149387251849",
+    "shopifyId": "gid://shopify/Product/7149387251849",
     "title": "ALLOVIN Women's V Neck Spaghetti Strap Floral Lace Cocktail Dress Sexy Backless Sleeveless A Line Party Dress Pink",
     "slug": "allovin-womens-v-neck-spaghetti-strap-floral-lace-cocktail-dress-sexy-backless-sleeveless-a-line-party-dress-pink",
     "featuredImage": null,
@@ -3415,21 +3260,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:05:37Z",
-    "tags": [
-      "2XL",
-      "49-69$",
-      "L",
-      "M",
-      "Pink",
-      "S",
-      "upc",
-      "XL"
-    ],
+    "tags": ["2XL", "49-69$", "L", "M", "Pink", "S", "upc", "XL"],
     "price": 2792.737430167598,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149387415689",
+    "shopifyId": "gid://shopify/Product/7149387415689",
     "title": "ALLOVIN Women's V Neck Spaghetti Strap Floral Lace Cocktail Dress Sexy Backless Sleeveless A Line Party Dress Light Purple",
     "slug": "allovin-womens-v-neck-spaghetti-strap-floral-lace-cocktail-dress-sexy-backless-sleeveless-a-line-party-dress-light-purple",
     "featuredImage": null,
@@ -3440,21 +3276,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:05:49Z",
-    "tags": [
-      "2XL",
-      "49-69$",
-      "L",
-      "M",
-      "Purple",
-      "S",
-      "upc",
-      "XL"
-    ],
+    "tags": ["2XL", "49-69$", "L", "M", "Purple", "S", "upc", "XL"],
     "price": 2792.737430167598,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149387645065",
+    "shopifyId": "gid://shopify/Product/7149387645065",
     "title": "ALLOVIN Women's Elegant V Neck Ruffle Hem Floral Lace Cocktail Dress Sleeveless Wedding Guest Party Dress White",
     "slug": "allovin-womens-elegant-v-neck-ruffle-hem-floral-lace-cocktail-dress-sleeveless-wedding-guest-party-dress-white",
     "featuredImage": null,
@@ -3465,21 +3292,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:06:00Z",
-    "tags": [
-      "2XL",
-      "49-69$",
-      "L",
-      "M",
-      "S",
-      "upc",
-      "White",
-      "XL"
-    ],
+    "tags": ["2XL", "49-69$", "L", "M", "S", "upc", "White", "XL"],
     "price": 2792.737430167598,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149387743369",
+    "shopifyId": "gid://shopify/Product/7149387743369",
     "title": "ALLOVIN Women's Elegant V Neck Ruffle Hem Floral Lace Cocktail Dress Sleeveless Wedding Guest Party Dress Black",
     "slug": "allovin-womens-elegant-v-neck-ruffle-hem-floral-lace-cocktail-dress-sleeveless-wedding-guest-party-dress-black",
     "featuredImage": null,
@@ -3490,21 +3308,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:06:09Z",
-    "tags": [
-      "2XL",
-      "49-69$",
-      "Black",
-      "L",
-      "M",
-      "S",
-      "upc",
-      "XL"
-    ],
+    "tags": ["2XL", "49-69$", "Black", "L", "M", "S", "upc", "XL"],
     "price": 2792.737430167598,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149387939977",
+    "shopifyId": "gid://shopify/Product/7149387939977",
     "title": "ALLOVIN Women's Elegant V Neck Ruffle Hem Floral Lace Cocktail Dress Sleeveless Wedding Guest Party Dress Navy Blue",
     "slug": "allovin-womens-elegant-v-neck-ruffle-hem-floral-lace-cocktail-dress-sleeveless-wedding-guest-party-dress-navy-blue",
     "featuredImage": null,
@@ -3515,21 +3324,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:06:19Z",
-    "tags": [
-      "2XL",
-      "49-69$",
-      "L",
-      "M",
-      "Navy Blue",
-      "S",
-      "upc",
-      "XL"
-    ],
+    "tags": ["2XL", "49-69$", "L", "M", "Navy Blue", "S", "upc", "XL"],
     "price": 2792.737430167598,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149388071049",
+    "shopifyId": "gid://shopify/Product/7149388071049",
     "title": "ALLOVIN Girls Long Sleeve A-Line Lace Maxi Dress Backless Ruffle Hem Flower Girl Party Dress White",
     "slug": "allovin-girls-long-sleeve-a-line-lace-maxi-dress-backless-ruffle-hem-flower-girl-party-dress-white",
     "featuredImage": null,
@@ -3545,7 +3345,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149388267657",
+    "shopifyId": "gid://shopify/Product/7149388267657",
     "title": "ALLOVIN Girls Long Sleeve A-Line Lace Maxi Dress Backless Ruffle Hem Flower Girl Party Dress Black",
     "slug": "allovin-girls-long-sleeve-a-line-lace-maxi-dress-backless-ruffle-hem-flower-girl-party-dress-black",
     "featuredImage": null,
@@ -3561,7 +3361,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149388431497",
+    "shopifyId": "gid://shopify/Product/7149388431497",
     "title": "ALLOVIN Girls Long Sleeve A-Line Lace Maxi Dress Backless Ruffle Hem Flower Girl Party Dress Pink",
     "slug": "allovin-girls-long-sleeve-a-line-lace-maxi-dress-backless-ruffle-hem-flower-girl-party-dress-pink",
     "featuredImage": null,
@@ -3577,7 +3377,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149388660873",
+    "shopifyId": "gid://shopify/Product/7149388660873",
     "title": "ALLOVIN Girls Long Sleeve A-Line Lace Maxi Dress Backless Ruffle Hem Flower Girl Party Dress Champagne",
     "slug": "allovin-girls-long-sleeve-a-line-lace-maxi-dress-backless-ruffle-hem-flower-girl-party-dress-champagne",
     "featuredImage": null,
@@ -3593,7 +3393,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7149400326281",
+    "shopifyId": "gid://shopify/Product/7149400326281",
     "title": "ALLOVIN Women's Sleeveless V Neck Floral Lace Cocktail Dress Knee Length Elegant Formal Party Dress Champagne",
     "slug": "allovin-womens-sleeveless-v-neck-floral-lace-cocktail-dress-knee-length-elegant-formal-party-dress-champagne",
     "featuredImage": null,
@@ -3604,21 +3404,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-03T08:18:55Z",
-    "tags": [
-      "2XL",
-      "49-69$",
-      "Champagne",
-      "L",
-      "M",
-      "S",
-      "upc",
-      "XL"
-    ],
+    "tags": ["2XL", "49-69$", "Champagne", "L", "M", "S", "upc", "XL"],
     "price": 3351.396648044693,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7154883199113",
+    "shopifyId": "gid://shopify/Product/7154883199113",
     "title": "ALLOVIN Toddler Girl Christening Baptism Flower Lace Dress Light Pink",
     "slug": "allovin-toddler-girl-christening-baptism-flower-lace-dress-light-pink",
     "featuredImage": null,
@@ -3629,14 +3420,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-14T02:07:01Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 1675.4189944134077,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7154883231881",
+    "shopifyId": "gid://shopify/Product/7154883231881",
     "title": "ALLOVIN Toddler Girl Christening Baptism Flower Lace Dress Pure White",
     "slug": "allovin-toddler-girl-christening-baptism-flower-lace-dress-pure-white",
     "featuredImage": null,
@@ -3647,14 +3436,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-14T02:07:13Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 1675.4189944134077,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7154883264649",
+    "shopifyId": "gid://shopify/Product/7154883264649",
     "title": "ALLOVIN Toddler Girl Christening Baptism Flower Lace Dress Champagne",
     "slug": "allovin-toddler-girl-christening-baptism-flower-lace-dress-champagne",
     "featuredImage": null,
@@ -3665,14 +3452,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-14T02:07:23Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 1675.4189944134077,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7154883297417",
+    "shopifyId": "gid://shopify/Product/7154883297417",
     "title": "ALLOVIN Toddler Girl Christening Baptism Flower Lace Dress Purple",
     "slug": "allovin-toddler-girl-christening-baptism-flower-lace-dress-purple",
     "featuredImage": null,
@@ -3683,14 +3468,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-14T02:07:32Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 1675.4189944134077,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7154883330185",
+    "shopifyId": "gid://shopify/Product/7154883330185",
     "title": "ALLOVIN Toddler Girl A-Line Wedding Lace Dress Pink",
     "slug": "allovin-toddler-girl-a-line-wedding-lace-dress-pink",
     "featuredImage": null,
@@ -3701,14 +3484,12 @@
     },
     "variants": null,
     "createdAt": "2023-02-14T02:07:40Z",
-    "tags": [
-      "upc"
-    ],
+    "tags": ["upc"],
     "price": 1675.4189944134077,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7154883395721",
+    "shopifyId": "gid://shopify/Product/7154883395721",
     "title": "ALLOVIN Toddler Girl A-Line Wedding Lace Dress Blue",
     "slug": "allovin-toddler-girl-a-line-wedding-lace-dress-blue",
     "featuredImage": null,
@@ -3735,7 +3516,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7154883461257",
+    "shopifyId": "gid://shopify/Product/7154883461257",
     "title": "ALLOVIN Toddler Girl A-Line Wedding Lace Dress White",
     "slug": "allovin-toddler-girl-a-line-wedding-lace-dress-white",
     "featuredImage": null,
@@ -3762,7 +3543,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7154883526793",
+    "shopifyId": "gid://shopify/Product/7154883526793",
     "title": "ALLOVIN Toddler Girl A-Line Wedding Lace Dress Champagne",
     "slug": "allovin-toddler-girl-a-line-wedding-lace-dress-champagne",
     "featuredImage": null,
@@ -3789,7 +3570,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7173322375305",
+    "shopifyId": "gid://shopify/Product/7173322375305",
     "title": "Allovin Gift Cards - The Perfect Present for Any Occasion",
     "slug": "allovin-gift-cards-the-perfect-present-for-any-occasion",
     "featuredImage": null,
@@ -3805,7 +3586,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7175563837577",
+    "shopifyId": "gid://shopify/Product/7175563837577",
     "title": "ALLOVIN Toddler Girl's Vintage Boho A-Line Lace Dress with Belt Kids Pom Pom Trim Birthday Party Dress",
     "slug": "allovin-toddler-girls-vintage-boho-a-line-lace-dress-with-belt-kids-pom-pom-trim-birthday-party-dress",
     "featuredImage": null,
@@ -3831,7 +3612,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7175563870345",
+    "shopifyId": "gid://shopify/Product/7175563870345",
     "title": "ALLOVIN Toddler Girl's Vintage Boho A-Line Lace Dress",
     "slug": "allovin-toddler-girls-vintage-boho-a-line-lace-dress",
     "featuredImage": null,
@@ -3857,7 +3638,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7175563903113",
+    "shopifyId": "gid://shopify/Product/7175563903113",
     "title": "ALLOVIN Girl's Long Sleeve A-Line Lace Maxi Dress Backless Ruffle Hem Flower Girl Party Dress",
     "slug": "allovin-girls-long-sleeve-a-line-lace-maxi-dress-backless-ruffle-hem-flower-girl-party-dress",
     "featuredImage": null,
@@ -3885,7 +3666,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7175563935881",
+    "shopifyId": "gid://shopify/Product/7175563935881",
     "title": "ALLOVIN Women's One Shoulder Ruched High Waist Split Dress Sexy Back Hollow Out Bodycon Party Dress",
     "slug": "allovin-womens-one-shoulder-ruched-high-waist-split-dress-sexy-back-hollow-out-bodycon-party-dress",
     "featuredImage": null,
@@ -3911,7 +3692,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7191325671561",
+    "shopifyId": "gid://shopify/Product/7191325671561",
     "title": "ALLOVIN Toddler Girl A-Line Wedding Lace Dress Barbie Pink",
     "slug": "allovin-toddler-girl-a-line-wedding-lace-dress-barbie-pink",
     "featuredImage": null,
@@ -3927,7 +3708,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7195544780937",
+    "shopifyId": "gid://shopify/Product/7195544780937",
     "title": "test dress",
     "slug": "test-dress",
     "featuredImage": null,
@@ -3940,10 +3721,10 @@
     "createdAt": "2023-05-04T05:41:44Z",
     "tags": [],
     "price": 0,
-    "show": true
+    "show": false
   },
   {
-    "id": "gid://shopify/Product/7208594669705",
+    "shopifyId": "gid://shopify/Product/7208594669705",
     "title": "ALLOVIN Toddler Girl's Vintage Boho A-Line Lace Dress with Belt Kids Pom Pom Trim Birthday Party Dress",
     "slug": "allovin-toddler-girls-vintage-boho-a-line-lace-dress-with-belt-kids-pom-pom-trim-birthday-party-dress-white",
     "featuredImage": null,
@@ -3959,7 +3740,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7209844244617",
+    "shopifyId": "gid://shopify/Product/7209844244617",
     "title": "Allovin® The Braless Dress",
     "slug": "allovin®-the-braless-dress",
     "featuredImage": null,
@@ -3975,7 +3756,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7209972793481",
+    "shopifyId": "gid://shopify/Product/7209972793481",
     "title": "ALLOVIN The Braless Dress",
     "slug": "allovin-the-braless-dress",
     "featuredImage": null,
@@ -3986,21 +3767,12 @@
     },
     "variants": null,
     "createdAt": "2023-06-12T06:12:14Z",
-    "tags": [
-      "2XL",
-      "Blue",
-      "L",
-      "M",
-      "Purple",
-      "S",
-      "White",
-      "XL"
-    ],
+    "tags": ["2XL", "Blue", "L", "M", "Purple", "S", "White", "XL"],
     "price": 7150.8379888268155,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7209972826249",
+    "shopifyId": "gid://shopify/Product/7209972826249",
     "title": "ALLOVIN The Linen Dress",
     "slug": "allovin-the-linen-dress",
     "featuredImage": null,
@@ -4027,7 +3799,7 @@
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7209972891785",
+    "shopifyId": "gid://shopify/Product/7209972891785",
     "title": "ALLOVIN The Freya Braless Dress",
     "slug": "allovin-the-freya-braless-dress",
     "featuredImage": null,
@@ -4038,19 +3810,12 @@
     },
     "variants": null,
     "createdAt": "2023-06-12T06:12:19Z",
-    "tags": [
-      "2XL",
-      "L",
-      "M",
-      "Red",
-      "S",
-      "XL"
-    ],
+    "tags": ["2XL", "L", "M", "Red", "S", "XL"],
     "price": 7150.8379888268155,
     "show": true
   },
   {
-    "id": "gid://shopify/Product/7209972924553",
+    "shopifyId": "gid://shopify/Product/7209972924553",
     "title": "ALLOVIN The Jade Linen Dress",
     "slug": "allovin-the-jade-linen-dress",
     "featuredImage": null,
@@ -4061,15 +3826,7 @@
     },
     "variants": null,
     "createdAt": "2023-06-12T06:12:21Z",
-    "tags": [
-      "2XL",
-      "Brown",
-      "Green",
-      "L",
-      "M",
-      "S",
-      "XL"
-    ],
+    "tags": ["2XL", "Brown", "Green", "L", "M", "S", "XL"],
     "price": 9385.474860335196,
     "show": true
   }
