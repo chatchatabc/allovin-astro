@@ -1,6 +1,6 @@
-import currencyRatesJson from "@data/currency-rates.json";
-import colorsJson from "@data/colors.json";
-import productsMappingJson from "@data/products-mapping.json";
+import currencyRatesJson from "../../../data/currency-rates.json";
+import colorsJson from "../../../data/colors.json";
+import productsMappingJson from "../../../data/products-mapping.json";
 import type { CommonVariants } from "../models/commonModel";
 
 export function utilConvertToPhp(amount: number, currency: string) {
