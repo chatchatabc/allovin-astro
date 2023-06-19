@@ -12,13 +12,15 @@ import {
 import Container from "@layouts/Container.astro";
 import ShopeeIcon from "@assets/ShopeeIcon.astro";
 import LazadaIcon from "@assets/LazadaIcon.astro";
+import products from "@data/products.json";
+import { productGetShopifyDetails } from "src/domain/services/productService";
 
 const subCollections = subCollectionsJson.contents;
 
 // New Items Section
-const newItemsSectionProducts = await collectionGetProductsOffline(
-  "gid://shopify/Collection/263704182921"
-);
+// const newItemsSectionProducts = await collectionGetProductsOffline(
+//   "gid://shopify/Collection/263704182921"
+// );
 
 // Best selling
 const bestSellingProducts = await collectionGetProductsOffline(
@@ -293,33 +295,39 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
       </section> -->
 
       <!-- Content -->
-      <ul class="flex overflow-hidden pb-8">
+      <ul class="flex overflow-hidden pt-8 pb-12">
         {
-          [...newItemsSectionProducts]?.splice(0, 6).map((product) => {
-            const images = product?.images.nodes ?? [];
-            const image = images
-              ? images[images.length - 1]
-              : product?.featuredImage;
+          [...products]
+            .sort((a, b) => {
+              const aDate = new Date(a.createdAt);
+              const bDate = new Date(b.createdAt);
+              return bDate.getTime() - aDate.getTime();
+            })
+            .splice(0, 6)
+            .map((product) => {
+              const shopifyDetails = productGetShopifyDetails({
+                shopifyId: product.shopifyId,
+              });
+              const images =
+                product.images ?? shopifyDetails?.images.nodes ?? [];
+              const image = images
+                ? images[images.length - 1]
+                : product?.featuredImage;
 
-            return (
-              <li class="flex-shrink-0 p-2 w-1/2 md:w-1/3 lg:w-1/5">
-                <CardSelection
-                  name={product?.title ?? ""}
-                  price={
-                    utilConvertToPhp(
-                      Number(product.priceRangeV2.minVariantPrice.amount) ?? 0,
-                      product?.priceRangeV2.minVariantPrice.currencyCode ?? ""
-                    ) ?? 0
-                  }
-                  secondaryImage={image?.url ?? "/images/placeholder.png"}
-                  variants={utilOptimizeColorVariants(
-                    product?.variants.nodes ?? []
-                  )}
-                  href={`/products/${product?.handle}`}
-                />
-              </li>
-            );
-          })
+              return (
+                <li class="flex-shrink-0 p-2 w-1/2 md:w-1/3 lg:w-1/5">
+                  <CardSelection
+                    name={product?.title ?? ""}
+                    price={product.price}
+                    secondaryImage={image?.url ?? "/images/placeholder.png"}
+                    variants={utilOptimizeColorVariants(
+                      product.variants ?? shopifyDetails?.variants.nodes ?? []
+                    )}
+                    href={`/products/${product.slug}`}
+                  />
+                </li>
+              );
+            })
         }
       </ul>
     </section>
