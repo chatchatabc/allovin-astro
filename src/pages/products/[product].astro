@@ -264,10 +264,7 @@ const productMapping = utilProductsMapping(productData.id);
           <ul>
             <li class="border-b py-2">
               <ProductDetails hidden={false} title="DESCRIPTION">
-                <div
-                  class="prose [&>div>p]:py-4"
-                  set:html={productData?.descriptionHtml}
-                />
+                <div class="prose" set:html={productData?.descriptionHtml} />
               </ProductDetails>
             </li>
 
