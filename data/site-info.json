@@ -35,15 +35,40 @@
   ],
   "footerLinks": [
     {
-      "name": "ALLOVIN",
+      "name": "PRODUCTS",
+      "links": [
+        {
+          "name": "Girls",
+          "href": "/girls"
+        },
+        {
+          "name": "Boys",
+          "href": "/boys"
+        },
+        {
+          "name": "Women",
+          "href": "/women"
+        },
+        {
+          "name": "Accessories",
+          "href": "/accessories"
+        },
+        {
+          "name": "Exclusives",
+          "href": "/exclusives"
+        }
+      ]
+    },
+    {
+      "name": "COMPANY",
       "links": [
         {
           "name": "About Us",
-          "href": "/"
+          "href": "/our-story"
         },
         {
           "name": "Allovin Cares",
-          "href": "/"
+          "href": "/allovin-cares"
         },
         {
           "name": "Affiliate",
@@ -51,31 +76,6 @@
         },
         {
           "name": "Blog",
-          "href": "/"
-        },
-        {
-          "name": "Blogger Cooperation",
-          "href": "/"
-        }
-      ]
-    },
-    {
-      "name": "HELP & COOPERATION",
-      "links": [
-        {
-          "name": "Shipping Info",
-          "href": "/"
-        },
-        {
-          "name": "Returns",
-          "href": "/"
-        },
-        {
-          "name": "Order Tracker",
-          "href": "/"
-        },
-        {
-          "name": "How To Choose Size",
           "href": "/"
         }
       ]
