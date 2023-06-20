@@ -16,6 +16,9 @@ export default defineConfig({
     sitemap(),
     robotsTxt(),
     svelte(),
-    compress(),
+    compress({
+      // Regex for .webp files
+      exclude: [".webp"],
+    }),
   ],
 });
