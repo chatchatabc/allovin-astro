@@ -13,6 +13,8 @@ Allovin is an e-commerce website that sells a variety of products. This website 
     - [Third-party integrations](#third-party-integrations)
   - [Third-party Services](#third-party-services)
 - [🚀 Project Structure](#-project-structure)
+  - [Directories](#directories)
+  - [Directories Definition](#directories-definition)
 - [🧞 Commands](#-commands)
 - [👀 Want to learn more?](#-want-to-learn-more)
 
@@ -47,29 +49,64 @@ Astro integrations are packages that add functionality to your Astro project. Th
 
 # 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+Project structure is based on [Astro's recommended project structure](https://docs.astro.build/core-concepts/project-structure/).
+
+## Directories
 
 ```
 /
+├── data/
+│   ├── shopify/
+│   │   └── ...
+│   └── ...
 ├── public/
+│   ├── images/
+│   │   └── ...
+│   ├── logo/
+│   │   └── ...
+│   └── _headers
+├── scripts/
+│   └── ...
 ├── src/
+│   ├── assets/
+│   │   └── ...
+│   ├── components/
+│   │   └── ...
+│   ├── layouts/
+│   │   └── ...
 │   └── pages/
-│       └── index.astro
-└── package.json
+│       └── ...
+└── ...
 ```
+
+## Directories Definition
+
+- `data/`: This directory contains data that is utilized within the website.
+  - `shopify/`: This directory contains data that is fetched from Allovin Shopify Store.
+- `public/`: This directory contains all the public files for the project.
+  - `images/`: This directory contains images that are utilized within the website.
+  - `logo/`: This directory contains assets that are utilized the website's logo.
+  - `_headers`: This file is used to configure the headers for the website that is deployed on Cloudflare Pages.
+- `scripts/`: This directory contains scripts that are related in fetching the data from Allovin Shopify Store.
+- `src/`: This directory contains all the source files for the project.
+  - `assets/`: This directory contains assets that are utilized within the website.
+  - `components/`: This directory contains components that are utilized within the website.
+  - `layouts/`: This directory contains layouts that are utilized within the website.
+  - `pages/`: This directory contains pages that are utilized within the website.
 
 # 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command                   | Action                                                     |
+| :------------------------ | :--------------------------------------------------------- |
+| `npm install`             | Installs dependencies                                      |
+| `npm run dev`             | Starts local dev server at `localhost:3000`                |
+| `npm run build`           | Build your production site to `./dist/`                    |
+| `npm run preview`         | Preview your build locally, before deploying               |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check`           |
+| `npm run astro -- --help` | Get help using the Astro CLI                               |
+| `npm run products`        | Run typescript code to fetch data from the Allovin Shopify |
 
 # 👀 Want to learn more?
 
