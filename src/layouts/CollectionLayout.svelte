@@ -133,7 +133,7 @@
       });
     });
 
-    categoryTypes = newTypes;
+    categoryTypes = newTypes.sort((a, b) => a.value.localeCompare(b.value));
   }
 
   function generatePriceCategory() {
@@ -145,7 +145,7 @@
       });
     });
 
-    categoryPrices = newPrices;
+    categoryPrices = newPrices.sort((a, b) => a.min - b.min);
   }
 
   function generateCards() {
