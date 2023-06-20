@@ -1,4 +1,7 @@
 ---
+import FacebookIcon from "@assets/FacebookIcon.astro";
+import InstagramIcon from "@assets/InstagramIcon.astro";
+import PinterestIcon from "@assets/PinterestIcon.astro";
 import siteInfoJson from "@data/site-info.json";
 import Container from "@layouts/Container.astro";
 
@@ -57,11 +60,15 @@ const { footerLinks, socialMedias } = siteInfoJson;
                   return (
                     <li>
                       <a
-                        class="text-sm font-medium text-gray-500 block rounded-full p-2 bg-gray-200"
+                        class="text-sm font-medium text-gray-500 block rounded-full p-2 bg-gray-200 duration-300 hover:bg-p100"
                         href={link.href}
                         target="_blank"
                       >
-                        <img class="w-4 h-4" src={link.icon} alt={link.name} />
+                        <div class="w-4 h-4">
+                          {link.icon.includes("facebook") && <FacebookIcon />}
+                          {link.icon.includes("instagram") && <InstagramIcon />}
+                          {link.icon.includes("pinterest") && <PinterestIcon />}
+                        </div>
                       </a>
                     </li>
                   );
