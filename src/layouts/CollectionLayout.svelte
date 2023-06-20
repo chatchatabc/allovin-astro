@@ -38,9 +38,6 @@
 
   function filterProducts() {
     let newProducts = products;
-    const params = new URLSearchParams(window.location.search);
-    const category = params.get("category");
-    selectedTypes = category ? [category] : [];
 
     if (selectedColors.length > 0) {
       newProducts = newProducts.filter((product) => {
@@ -183,6 +180,10 @@
     )!;
     cardDeck = document.querySelector<HTMLElement>("[data-card-deck]")!;
     bodyElement = document.querySelector<HTMLElement>("body")!;
+
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("category");
+    selectedTypes = category ? [category] : [];
 
     handleChange();
   });
