@@ -109,6 +109,22 @@
     {
       "title": "Accessories",
       "value": "Accessories"
+    },
+    {
+      "title": "New Arrivals",
+      "value": "NewArrivals"
+    },
+    {
+      "title": "Best Selling",
+      "value": "BestSelling"
+    },
+    {
+      "title": "Linen Dresses",
+      "value": "LinenDresses"
+    },
+    {
+      "title": "Braless Dresses",
+      "value": "BralessDresses"
     }
   ],
   "prices": [
