@@ -1,5 +1,6 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
+import Container from "@layouts/Container.astro";
 import { Img } from "astro-imagetools/components";
 ---
 
@@ -50,4 +51,82 @@ import { Img } from "astro-imagetools/components";
       </section>
     </section>
   </section>
+
+  <Container className="my-8">
+    <figure class="px-2 bg-gray-100 flex flex-wrap">
+      <div class="w-full md:w-1/2">
+        <Img
+          src="/images/allovin-cares/quality-fabrics.webp"
+          alt="Quality Fabrics"
+        />
+      </div>
+      <figcaption
+        class="w-full text-center flex flex-col justify-center py-16 md:w-1/2"
+      >
+        <header>
+          <h2 class="text-2xl tracking-widest">Quality Fabrics</h2>
+        </header>
+        <section class="max-w-xl mx-auto mt-2 px-4">
+          <p>
+            While 92 million tonnes of textiles waste ends up in landfills
+            globally each year, quality apparel will last you more than just a
+            few washes. Allovin takes pride in sourcing and manufacturing high
+            quality fabrics that you can love season after season.
+          </p>
+        </section>
+      </figcaption>
+    </figure>
+  </Container>
+
+  <Container className="my-8">
+    <figure class="px-2 bg-gray-100 flex flex-wrap flex-row-reverse">
+      <div class="w-full md:w-1/2">
+        <Img
+          src="/images/allovin-cares/ethical-factories.webp"
+          alt="Ethical Factories"
+        />
+      </div>
+      <figcaption
+        class="w-full text-center flex flex-col justify-center py-16 md:w-1/2"
+      >
+        <header>
+          <h2 class="text-2xl tracking-widest">Ethical Factories</h2>
+        </header>
+        <section class="max-w-xl mx-auto mt-2 px-4">
+          <p>
+            All of our factories are regularly audited to ensure that we
+            consistently maintain high standards for safe, humane, and clean
+            working conditions as well as environmentally-conscious practices.
+            We have never and will never condone any form of child labor.
+          </p>
+        </section>
+      </figcaption>
+    </figure>
+  </Container>
+
+  <Container className="mt-8 mb-16">
+    <figure class="px-2 bg-gray-100 flex flex-wrap">
+      <div class="w-full md:w-1/2">
+        <Img
+          src="/images/allovin-cares/sustainable-enlightenment.webp"
+          alt="Sustainable Enlightenment"
+        />
+      </div>
+      <figcaption
+        class="w-full text-center flex flex-col justify-center py-16 md:w-1/2"
+      >
+        <header>
+          <h2 class="text-2xl tracking-widest">Sustainable Enlightenment</h2>
+        </header>
+        <section class="max-w-xl mx-auto mt-2 px-4">
+          <p>
+            While 92 million tonnes of textiles waste ends up in landfills
+            globally each year, quality apparel will last you more than just a
+            few washes. Allovin takes pride in sourcing and manufacturing high
+            quality fabrics that you can love season after season.
+          </p>
+        </section>
+      </figcaption>
+    </figure>
+  </Container>
 </MainLayout>
