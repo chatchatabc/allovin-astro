@@ -130,10 +130,7 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
             return (
               <li class="p-1 w-1/2 md:w-1/4">
                 <figure class="group">
-                  <a
-                    href={`/${collection.collections[0]}?category=${collection.slug}`}
-                    class="block overflow-hidden"
-                  >
+                  <a href={collection.href} class="block overflow-hidden">
                     <div class="duration-500 group-hover:scale-105">
                       <Img src={collection.featuredImg} alt={collection.name} />
                     </div>
@@ -143,7 +140,7 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
                       {collection.name}
                     </p>
                     <a
-                      href={`/${collection.collections[0]}?category=${collection.slug}`}
+                      href={collection.href}
                       class="px-8 py-2 border border-black text-black mx-auto block w-fit duration-300 font-medium hover:text-white hover:border-c2 hover:bg-c2"
                     >
                       SHOP NOW
@@ -198,11 +195,12 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
           })
         }
       </ul>
-      <!-- <button
+      <a
+        href="/shop-all?category=BestSelling"
         class="font-bold border-c2 border bg-orange-50 px-24 text-sm block w-fit mx-auto py-2 mt-8 hover:bg-c2 hover:text-white duration-300"
       >
         SHOW MORE
-      </button> -->
+      </a>
     </section>
   </Container>
 
@@ -330,6 +328,12 @@ const flowerGirlDressProducts = await collectionGetProductsOffline(
             })
         }
       </ul>
+      <a
+        href="/shop-all?category=NewArrivals"
+        class="font-bold border-c2 border bg-orange-50 px-24 text-sm block w-fit mx-auto py-2 duration-300 hover:bg-c2 hover:text-white"
+      >
+        SHOW MORE
+      </a>
     </section>
   </Container>
 </MainLayout>
