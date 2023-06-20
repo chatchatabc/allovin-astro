@@ -3,26 +3,22 @@
     {
       "name": "Girl Occasions",
       "featuredImg": "/images/collections/girl-occasions.webp",
-      "slug": "girl-occasions",
-      "collections": ["girls"]
+      "href": "/girls?category=OccasionDresses"
     },
     {
       "name": "Girl Everyday",
       "featuredImg": "/images/collections/girl-everyday.webp",
-      "slug": "girl-everyday",
-      "collections": ["girls"]
+      "href": "/girls?category=DailyDresses"
     },
     {
       "name": "Women Dress",
       "featuredImg": "/images/collections/women-dress.webp",
-      "slug": "women-dress",
-      "collections": ["women"]
+      "href": "/women"
     },
     {
       "name": "Boy Sets",
       "featuredImg": "/images/collections/boy-sets.webp",
-      "slug": "boy-sets",
-      "collections": ["boys"]
+      "href": "/boys"
     }
   ]
 }
