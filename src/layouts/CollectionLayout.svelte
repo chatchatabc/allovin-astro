@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Fuse from "fuse.js";
   import collectionCategoriesJson from "@data/collectionCategories.json";
   import type { Product } from "src/domain/models/productModel";
   import { onMount } from "svelte";
@@ -7,6 +8,7 @@
   export let title: string;
   export let products: Product[];
 
+  let searchedKeyword = "";
   let loading = true;
   let selectedColors: string[] = [];
   let selectedTypes: string[] = [];
@@ -37,7 +39,15 @@
   }
 
   function filterProducts() {
-    let newProducts = products;
+    const options = {
+      includeScore: true,
+      keys: ["title"],
+    };
+    const fuse = new Fuse(products, options);
+    const result = fuse.search(searchedKeyword);
+    let newProducts = searchedKeyword
+      ? result.map((item) => item.item)
+      : [...products];
 
     if (selectedColors.length > 0) {
       newProducts = newProducts.filter((product) => {
@@ -101,6 +111,8 @@
       if (sortBy.includes("desc")) {
         filteredProducts.reverse();
       }
+    } else if (sortBy.includes("relevance")) {
+      filterProducts();
     }
   }
 
@@ -182,8 +194,16 @@
     bodyElement = document.querySelector<HTMLElement>("body")!;
 
     const params = new URLSearchParams(window.location.search);
+
     const category = params.get("category");
     selectedTypes = category ? [category] : [];
+
+    const keyword = params.get("keyword");
+    if (keyword) {
+      title = `RESULTS FOR "${keyword}"`;
+      searchedKeyword = keyword;
+      sortBy = "relevance";
+    }
 
     handleChange();
   });
@@ -253,6 +273,9 @@
           <option value="date-asc">Date, Old to New</option>
           <option value="price-asc">Price, Low to High</option>
           <option value="price-desc">Price, High to Low</option>
+          {#if searchedKeyword !== ""}
+            <option value="relevance">Relevance</option>
+          {/if}
         </select>
       </div>
     </section>
