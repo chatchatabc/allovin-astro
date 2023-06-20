@@ -68,8 +68,8 @@ const { name, secondaryImage, href, price, variants } = Astro.props as Props;
         {
           [...variants].splice(0, 4).map((variant) => {
             return (
-              <li class="relative z-[10]">
-                <button class="relative block border border-c2 z-[1] overflow-hidden rounded-full w-9 h-9 peer">
+              <li class="relative z-[10] px-0.5">
+                <button class="relative block border border-c2 z-[1] overflow-hidden rounded-full w-8 h-8 peer">
                   <Img
                     breakpoints={[144]}
                     src={variant.image?.url ?? "/images/placeholder.png"}
