@@ -3753,7 +3753,7 @@
     "createdAt": "2023-06-11T08:27:04Z",
     "tags": ["BralessDresses"],
     "price": 7150.8379888268155,
-    "show": true
+    "show": false
   },
   {
     "shopifyId": "gid://shopify/Product/7209972793481",
@@ -3776,7 +3776,8 @@
       "S",
       "White",
       "XL",
-      "BralessDresses"
+      "BralessDresses",
+      "NewArrivals"
     ],
     "price": 7150.8379888268155,
     "show": true
@@ -3804,7 +3805,8 @@
       "S",
       "XL",
       "Yellow",
-      "LinenDresses"
+      "LinenDresses",
+      "NewArrivals"
     ],
     "price": 9385.474860335196,
     "show": true
@@ -3821,7 +3823,16 @@
     },
     "variants": null,
     "createdAt": "2023-06-12T06:12:19Z",
-    "tags": ["2XL", "L", "M", "Red", "S", "XL", "BralessDresses"],
+    "tags": [
+      "2XL",
+      "L",
+      "M",
+      "Red",
+      "S",
+      "XL",
+      "BralessDresses",
+      "NewArrivals"
+    ],
     "price": 7150.8379888268155,
     "show": true
   },
@@ -3837,7 +3848,17 @@
     },
     "variants": null,
     "createdAt": "2023-06-12T06:12:21Z",
-    "tags": ["2XL", "Brown", "Green", "L", "M", "S", "XL", "LinenDresses"],
+    "tags": [
+      "2XL",
+      "Brown",
+      "Green",
+      "L",
+      "M",
+      "S",
+      "XL",
+      "LinenDresses",
+      "NewArrivals"
+    ],
     "price": 9385.474860335196,
     "show": true
   }
