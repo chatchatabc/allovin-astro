@@ -2,6 +2,7 @@
 import Container from "@layouts/Container.astro";
 import { Img } from "astro-imagetools/components";
 import XIcon from "@assets/XIcon.astro";
+import MagnifyIcon from "@assets/MagnifyIcon.astro";
 import NavbarSearchResults from "./NavbarSearchResults.svelte";
 import productsJson from "@data/shopify/products.json";
 import { utilConvertToPhp } from "src/domain/services/utilService";
@@ -80,7 +81,9 @@ const navigations = [
         <div class="lg:hidden">
           <!-- Button -->
           <button aria-label="mobile-search-open-button" data-search-open-btn>
-            <img class="w-6 h-6" src="/icons/magnify.svg" alt="magnify" />
+            <div class="w-6 h-6">
+              <MagnifyIcon />
+            </div>
           </button>
 
           <!-- Background when mobile input is open -->
@@ -113,11 +116,11 @@ const navigations = [
               class="border p-2 font-light text-sm w-56"
               placeholder="Search"
             />
-            <img
+            <div
               class="w-6 h-6 pointer-events-none absolute right-2 top-1/2 -translate-y-1/2"
-              src="/icons/magnify.svg"
-              alt="magnify"
-            />
+            >
+              <MagnifyIcon />
+            </div>
           </div>
         </div>
       </div>
