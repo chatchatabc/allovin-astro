@@ -72,23 +72,19 @@
         },
         {
           "name": "Affiliate",
-          "href": "/"
-        },
-        {
-          "name": "Blog",
-          "href": "/"
+          "href": "/affiliate"
         }
       ]
     },
     {
-      "name": "CUSTOMER CARE",
+      "name": "ONLINE SHOPS",
       "links": [
         {
-          "name": "Contact Us",
-          "href": "/"
+          "name": "Lazada",
+          "href": "https://www.lazada.com.ph/shop/allovin/"
         },
         {
-          "name": "FAQs",
+          "name": "Shopee",
           "href": "/"
         }
       ]
