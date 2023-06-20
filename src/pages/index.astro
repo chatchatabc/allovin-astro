@@ -12,8 +12,10 @@ import {
 import Container from "@layouts/Container.astro";
 import ShopeeIcon from "@assets/ShopeeIcon.astro";
 import LazadaIcon from "@assets/LazadaIcon.astro";
-import products from "@data/products.json";
+import productsJson from "@data/products.json";
 import { productGetShopifyDetails } from "src/domain/services/productService";
+
+const products = productsJson.filter((product) => product.show);
 
 const subCollections = subCollectionsJson.contents;
 
