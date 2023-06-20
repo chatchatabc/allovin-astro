@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import Fuse from "fuse.js";
-  import productsJson from "@data/shopify/products.json";
+  import productsJson from "@data/products.json";
 
   let searchInputValue = "";
   let navbarCardDeck: HTMLElement;
@@ -11,7 +11,10 @@
     includeScore: true,
     keys: ["title"],
   };
-  const fuse = new Fuse(productsJson, options);
+  const fuse = new Fuse(
+    productsJson.filter((product) => product.show),
+    options
+  );
 
   let products = fuse.search("");
   function filterProducts(keyword: string) {
@@ -27,7 +30,7 @@
     });
 
     [...products].splice(0, 3).forEach((product) => {
-      const id = product.item.id;
+      const id = product.item.shopifyId;
       const card = navbarCardDeck.querySelector(
         `[data-navbar-card="${id}"]`
       ) as HTMLElement;
@@ -75,7 +78,7 @@
       href={`/shop-all?keyword=${searchInputValue}`}
       class="text-center block mx-auto w-fit hover:text-blue-500"
     >
-      See all results
+      See all results ({products.length})
     </a>
   </footer>
 </section>
