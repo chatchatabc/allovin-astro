@@ -64,12 +64,12 @@ const { name, secondaryImage, href, price, variants } = Astro.props as Props;
         }
       </p>
 
-      <ul class="flex justify-center mt-2">
+      <ul class="flex justify-center items-center mt-2">
         {
           [...variants].splice(0, 4).map((variant) => {
             return (
               <li class="relative z-[10]">
-                <button class="relative block border border-c2 z-[1] overflow-hidden rounded-full w-9 h-9 p-1 peer">
+                <button class="relative block border border-c2 z-[1] overflow-hidden rounded-full w-9 h-9 peer">
                   <Img
                     breakpoints={[144]}
                     src={variant.image?.url ?? "/images/placeholder.png"}
@@ -89,10 +89,7 @@ const { name, secondaryImage, href, price, variants } = Astro.props as Props;
         {
           variants.length > 4 && (
             <li>
-              <a
-                href={href}
-                class="block overflow-hidden rounded-full w-8 h-8 p-1"
-              >
+              <a href={href} class="block px-1">
                 <span class="text-c2">+{variants.length - 4}</span>
               </a>
             </li>
