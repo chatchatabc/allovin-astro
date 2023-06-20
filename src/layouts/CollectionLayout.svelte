@@ -38,6 +38,9 @@
 
   function filterProducts() {
     let newProducts = products;
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("category");
+    selectedTypes = category ? [category] : [];
 
     if (selectedColors.length > 0) {
       newProducts = newProducts.filter((product) => {
@@ -299,67 +302,74 @@
         </CollectionDropdown>
       {/if}
 
-      <CollectionDropdown name="Price">
-        <ul class="py-2 space-y-2">
-          {#each categoryPrices as categoryPrice (`category-price-${categoryPrice.title}`)}
-            <li>
-              <label class="text-sm flex items-center capitalize space-x-2">
-                <input
-                  on:click={() => {
-                    const price = categoryPrice.min + "-" + categoryPrice.max;
+      {#if categoryPrices.length > 0}
+        <CollectionDropdown name="Price">
+          <ul class="py-2 space-y-2">
+            {#each categoryPrices as categoryPrice (`category-price-${categoryPrice.title}`)}
+              <li>
+                <label class="text-sm flex items-center capitalize space-x-2">
+                  <input
+                    on:click={() => {
+                      const price = categoryPrice.min + "-" + categoryPrice.max;
 
-                    if (selectedPrices.includes(price)) {
-                      selectedPrices = selectedPrices.filter(
-                        (selectedPrice) => {
-                          return selectedPrice !== price;
-                        }
-                      );
-                    } else {
-                      selectedPrices = [...selectedPrices, price];
-                    }
+                      if (selectedPrices.includes(price)) {
+                        selectedPrices = selectedPrices.filter(
+                          (selectedPrice) => {
+                            return selectedPrice !== price;
+                          }
+                        );
+                      } else {
+                        selectedPrices = [...selectedPrices, price];
+                      }
 
-                    handleChange();
-                  }}
-                  type="checkbox"
-                  checked={selectedPrices.includes(categoryPrice.title)}
-                />
-                <p class="cursor-pointer">
-                  {categoryPrice.title}
-                </p>
-              </label>
-            </li>
-          {/each}
-        </ul>
-      </CollectionDropdown>
+                      handleChange();
+                    }}
+                    type="checkbox"
+                    checked={selectedPrices.includes(categoryPrice.title)}
+                  />
+                  <p class="cursor-pointer">
+                    {categoryPrice.title}
+                  </p>
+                </label>
+              </li>
+            {/each}
+          </ul>
+        </CollectionDropdown>
+      {/if}
 
-      <CollectionDropdown name="Color">
-        <ul class="py-2 space-y-2">
-          {#each categoryColors as categoryColor (`category-color-${categoryColor.value}`)}
-            <li>
-              <label class="text-sm flex items-center capitalize space-x-2">
-                <input
-                  on:click={() => {
-                    if (selectedColors.includes(categoryColor.value)) {
-                      selectedColors = selectedColors.filter(
-                        (selectedColor) => {
-                          return selectedColor !== categoryColor.value;
-                        }
-                      );
-                    } else {
-                      selectedColors = [...selectedColors, categoryColor.value];
-                    }
+      {#if categoryColors.length > 0}
+        <CollectionDropdown name="Color">
+          <ul class="py-2 space-y-2">
+            {#each categoryColors as categoryColor (`category-color-${categoryColor.value}`)}
+              <li>
+                <label class="text-sm flex items-center capitalize space-x-2">
+                  <input
+                    on:click={() => {
+                      if (selectedColors.includes(categoryColor.value)) {
+                        selectedColors = selectedColors.filter(
+                          (selectedColor) => {
+                            return selectedColor !== categoryColor.value;
+                          }
+                        );
+                      } else {
+                        selectedColors = [
+                          ...selectedColors,
+                          categoryColor.value,
+                        ];
+                      }
 
-                    handleChange();
-                  }}
-                  type="checkbox"
-                  checked={selectedColors.includes(categoryColor.value)}
-                />
-                <p class="cursor-pointer">{categoryColor.title}</p>
-              </label>
-            </li>
-          {/each}
-        </ul>
-      </CollectionDropdown>
+                      handleChange();
+                    }}
+                    type="checkbox"
+                    checked={selectedColors.includes(categoryColor.value)}
+                  />
+                  <p class="cursor-pointer">{categoryColor.title}</p>
+                </label>
+              </li>
+            {/each}
+          </ul>
+        </CollectionDropdown>
+      {/if}
     </section>
 
     <!-- Mobile filter -->
@@ -429,70 +439,75 @@
           </CollectionDropdown>
         {/if}
 
-        <CollectionDropdown name="Price">
-          <ul class="py-2 space-y-2">
-            {#each categoryPrices as categoryPrice (`category-price-${categoryPrice.title}`)}
-              <li>
-                <label class="text-sm flex items-center capitalize space-x-2">
-                  <input
-                    on:click={() => {
-                      const price = categoryPrice.min + "-" + categoryPrice.max;
+        {#if categoryPrices.length > 0}
+          <CollectionDropdown name="Price">
+            <ul class="py-2 space-y-2">
+              {#each categoryPrices as categoryPrice (`category-price-${categoryPrice.title}`)}
+                <li>
+                  <label class="text-sm flex items-center capitalize space-x-2">
+                    <input
+                      on:click={() => {
+                        const price =
+                          categoryPrice.min + "-" + categoryPrice.max;
 
-                      if (selectedPrices.includes(price)) {
-                        selectedPrices = selectedPrices.filter(
-                          (selectedPrice) => {
-                            return selectedPrice !== price;
-                          }
-                        );
-                      } else {
-                        selectedPrices = [...selectedPrices, price];
-                      }
+                        if (selectedPrices.includes(price)) {
+                          selectedPrices = selectedPrices.filter(
+                            (selectedPrice) => {
+                              return selectedPrice !== price;
+                            }
+                          );
+                        } else {
+                          selectedPrices = [...selectedPrices, price];
+                        }
 
-                      handleChange();
-                    }}
-                    type="checkbox"
-                    checked={selectedPrices.includes(categoryPrice.title)}
-                  />
-                  <p class="cursor-pointer">
-                    {categoryPrice.title}
-                  </p>
-                </label>
-              </li>
-            {/each}
-          </ul>
-        </CollectionDropdown>
+                        handleChange();
+                      }}
+                      type="checkbox"
+                      checked={selectedPrices.includes(categoryPrice.title)}
+                    />
+                    <p class="cursor-pointer">
+                      {categoryPrice.title}
+                    </p>
+                  </label>
+                </li>
+              {/each}
+            </ul>
+          </CollectionDropdown>
+        {/if}
 
-        <CollectionDropdown name="Color">
-          <ul class="py-2 space-y-2">
-            {#each categoryColors as categoryColor (`category-color-${categoryColor.value}`)}
-              <li>
-                <label class="text-sm flex items-center capitalize space-x-2">
-                  <input
-                    on:click={() => {
-                      if (selectedColors.includes(categoryColor.value)) {
-                        selectedColors = selectedColors.filter(
-                          (selectedColor) => {
-                            return selectedColor !== categoryColor.value;
-                          }
-                        );
-                      } else {
-                        selectedColors = [
-                          ...selectedColors,
-                          categoryColor.value,
-                        ];
-                      }
+        {#if categoryColors.length > 0}
+          <CollectionDropdown name="Color">
+            <ul class="py-2 space-y-2">
+              {#each categoryColors as categoryColor (`category-color-${categoryColor.value}`)}
+                <li>
+                  <label class="text-sm flex items-center capitalize space-x-2">
+                    <input
+                      on:click={() => {
+                        if (selectedColors.includes(categoryColor.value)) {
+                          selectedColors = selectedColors.filter(
+                            (selectedColor) => {
+                              return selectedColor !== categoryColor.value;
+                            }
+                          );
+                        } else {
+                          selectedColors = [
+                            ...selectedColors,
+                            categoryColor.value,
+                          ];
+                        }
 
-                      handleChange();
-                    }}
-                    type="checkbox"
-                    checked={selectedColors.includes(categoryColor.value)}
-                  />
-                  <p class="cursor-pointer">{categoryColor.title}</p>
-                </label>
-              </li>
-            {/each}
-          </ul>
-        </CollectionDropdown>
+                        handleChange();
+                      }}
+                      type="checkbox"
+                      checked={selectedColors.includes(categoryColor.value)}
+                    />
+                    <p class="cursor-pointer">{categoryColor.title}</p>
+                  </label>
+                </li>
+              {/each}
+            </ul>
+          </CollectionDropdown>
+        {/if}
       </div>
     </section>
 
